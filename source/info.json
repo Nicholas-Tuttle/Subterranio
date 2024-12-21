@@ -6,7 +6,7 @@
 	"factorio_version": "2.0",
 	"dependencies": [
 		"base",
-		"space-age <= 2.0.25"
+		"space-age <= 2.0.28"
 	],
-	"description": "Explore underground caverns, but beware what other creatures lurk in the dark"
+	"description": "Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns"
 }

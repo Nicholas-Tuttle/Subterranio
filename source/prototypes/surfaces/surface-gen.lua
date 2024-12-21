@@ -1,5 +1,27 @@
 local surface_gen = {}
 
+-- Things to use
+-- Decoratives:
+--      Black Sceptre (tube-like white stalagmites)
+--      Calcite Stain
+--      Rock Decal
+--      Pebbles (black)s
+--      Large/Huge Cold/Warm Cracks
+--      Large Volcanic Stone
+--      Cracked Mud Decal
+--      Dark Mud Decal
+--      Grey cracked mud decal
+--      Light Mud Decal
+--      Nuclear Ground patch
+--      Tiny/Small/Medium Sand/Sulfur/Volcanic Rock
+-- Tiles:
+--      (Hot) Lava
+--      Valcanic Cracks (Hot/Warm)
+--      Volcanic Folds (Warm)
+--      Volcanic Jagged Ground
+--      Volcanic Pumice Stones
+--      Volcanic Ash Cracks
+
 surface_gen["cave"] = function()
     return {
         terrain_segmentation = 1,
@@ -19,19 +41,38 @@ surface_gen["cave"] = function()
         autoplace_settings = {
             ["tile"] = {
                 settings = {
+                    --nauvis tiles
+                    ["volcanic-soil-dark"] = {},
+                    ["volcanic-soil-light"] = {},
+                    ["volcanic-ash-soil"] = {},
+                    --end of nauvis tiles
+                    ["volcanic-ash-flats"] = {},
+                    ["volcanic-ash-light"] = {},
+                    ["volcanic-ash-dark"] = {},
+                    ["volcanic-cracks"] = {},
+                    ["volcanic-cracks-warm"] = {},
+                    ["volcanic-folds"] = {},
+                    ["volcanic-folds-flat"] = {},
+                    --["lava"] = {},
+                    --["lava-hot"] = {},
+                    ["volcanic-folds-warm"] = {},
+                    ["volcanic-pumice-stones"] = {},
+                    ["volcanic-cracks-hot"] = {},
+                    ["volcanic-jagged-ground"] = {},
+                    ["volcanic-smooth-stone"] = {},
+                    ["volcanic-smooth-stone-warm"] = {},
+                    ["volcanic-ash-cracks"] = {},
                 }
             },
             ["decorative"] = {
                 settings = {
                     -- nauvis decoratives
-                    ["v-red-pita"] = {},
                     ["sand-dune-decal"] = {},
                     -- end of nauvis
                     ["vulcanus-dune-decal"] = {},
                     ["vulcanus-sand-decal"] = {},
                     ["crater-small"] = {},
                     ["crater-large"] = {},
-                    ["pumice-relief-decal"] = {},
                     ["small-volcanic-rock"] = {},
                     ["medium-volcanic-rock"] = {},
                     ["tiny-volcanic-rock"] = {},
@@ -41,51 +82,23 @@ surface_gen["cave"] = function()
                     ["sulfur-rock-cluster"] = {},
                     ["waves-decal"] = {},
 
-                    ["yellow-lettuce-lichen-1x1"] = {},
-                    ["yellow-lettuce-lichen-3x3"] = {},
-                    ["yellow-lettuce-lichen-6x6"] = {},
-                    ["yellow-lettuce-lichen-cups-1x1"] = {},
-                    ["yellow-lettuce-lichen-cups-3x3"] = {},
-                    ["yellow-lettuce-lichen-cups-6x6"] = {},
-                    ["honeycomb-fungus"] = {},
-                    ["honeycomb-fungus-1x1"] = {},
-                    ["honeycomb-fungus-decayed"] = {},
-                    ["split-gill-1x1"] = {},
-                    ["split-gill-2x2"] = {},
-                    ["split-gill-red-1x1"] = {},
-                    ["split-gill-red-2x2"] = {},
-                    ["veins"] = {},
-                    ["veins-small"] = {},
-                    ["mycelium"] = {},
-                    ["coral-water"] = {},
-                    ["coral-land"] = {},
                     ["black-sceptre"] = {},
-                    ["pink-phalanges"] = {},
-                    ["pink-lichen-decal"] = {},
-                    ["brown-cup"] = {},
-                    ["blood-grape"] = {},
-                    ["blood-grape-vibrant"] = {},
-                    ["brambles"] = {},
-                    ["polycephalum-slime"] = {},
-                    ["polycephalum-balloon"] = {},
-                    ["fuchsia-pita"] = {},
-                    ["wispy-lichen"] = {},
                     ["grey-cracked-mud-decal"] = {},
-                    ["barnacles-decal"] = {},
-                    ["nerve-roots-dense"] = {},
-                    ["nerve-roots-sparse"] = {},
                     --shared
                     ["light-mud-decal"] = {},
                     ["cracked-mud-decal"] = {},
-                    ["red-desert-bush"] = {},
-                    ["white-desert-bush"] = {},
-                    ["red-pita"] = {},
-                    ["green-bush-mini"] = {},
-                    ["green-croton"] = {},
-                    ["green-pita"] = {},
-                    ["green-pita-mini"] = {},
-                    ["lichen-decal"] = {},
-                    ["shroom-decal"] = {},
+                }
+            },
+            ["entity"] = {
+                settings = {
+                    ["huge-volcanic-rock"] = {},
+                    ["big-volcanic-rock"] = {},
+                    ["crater-cliff"] = {},
+                    ["vulcanus-chimney"] = {},
+                    ["vulcanus-chimney-faded"] = {},
+                    ["vulcanus-chimney-cold"] = {},
+                    ["vulcanus-chimney-short"] = {},
+                    ["vulcanus-chimney-truncated"] = {},
                 }
             }
         }

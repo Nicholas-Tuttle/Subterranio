@@ -1,8 +1,8 @@
-require("subterranian-noise-expressions")
+require("subterranean-noise-expressions")
 
 local surface_gen = require("surface-gen")
 
-data:extend {cave.merge(data.raw.planet.nauvis, {
+data:extend {cave.merge(data.raw.planet.vulcanus, {
     name = "cave",
     starting_area = 1,
     surface_properties = {

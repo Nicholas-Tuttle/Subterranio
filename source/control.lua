@@ -1,8 +1,8 @@
-_G.cave = require("scripts/constants")
+_G.subterrain = require("scripts.constants")
 
-require("lib/events.lua")
+require("lib.events")
 
-require("scripts/mineshaft.lua")
-require("scripts/map-gen/subterranean-surface")
+require("scripts.mineshaft")
+require("scripts.map-gen.subterranean-surface")
 
-cave.finalize_events()
+subterrain.finalize_events()

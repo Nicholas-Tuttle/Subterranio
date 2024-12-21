@@ -3,7 +3,7 @@ local function determine_mineshaft_direction(player)
     local surface = player.surface
     local surface_name = surface.name
 
-    local opposite_surface_name = (surface_name == "nauvis" and "cave" or "nauvis")
+    local opposite_surface_name = (surface_name == "nauvis" and "subterrain" or "nauvis")
     local target_surface = game.planets[opposite_surface_name].create_surface()
 
     local target_position = {x = position.x, y = position.y}
@@ -15,7 +15,7 @@ local function determine_mineshaft_direction(player)
     return target_surface, target_position
 end
 
-cave.on_event("subterranean-mineshaft-player-enter", function(event)
+subterrain.on_event("subterranean-mineshaft-player-enter", function(event)
     local player = game.get_player(event.player_index)
     if not player then return false end
 

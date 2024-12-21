@@ -22,7 +22,7 @@ local surface_gen = {}
 --      Volcanic Pumice Stones
 --      Volcanic Ash Cracks
 
-surface_gen["cave"] = function()
+surface_gen["subterrain"] = function()
     return {
         terrain_segmentation = 1,
         water = 0,
@@ -91,8 +91,8 @@ surface_gen["cave"] = function()
             },
             ["entity"] = {
                 settings = {
-                    ["huge-volcanic-rock"] = {},
-                    ["big-volcanic-rock"] = {},
+                    ["huge-subterranean-rock"] = {},
+                    ["big-subterranean-rock"] = {},
                     ["crater-cliff"] = {},
                     ["vulcanus-chimney"] = {},
                     ["vulcanus-chimney-faded"] = {},

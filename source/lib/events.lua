@@ -3,7 +3,7 @@ local events = {}
 ---Drop-in replacement for script.on_event however it supports multiple handlers per event. You can also use 'on_built' 'on_destroyed' and 'on_init' as shortcuts for multiple events.
 ---@param event defines.events|defines.events[]|string
 ---@param f function
-cave.on_event = function(event, f)
+subterrain.on_event = function(event, f)
 	for _, event in pairs(type(event) == "table" and event or {event}) do
 		event = tostring(event)
 		events[event] = events[event] or {}
@@ -23,14 +23,14 @@ local function one_function_from_many(functions)
 end
 
 local finalized = false
-cave.finalize_events = function()
+subterrain.finalize_events = function()
 	if finalized then error("Events already finalized") end
 	local i = 0
 	for event, functions in pairs(events) do
 		local f = one_function_from_many(functions)
 		if type(event) == "number" then
 			script.on_nth_tick(event, f)
-		elseif event == cave.events.on_init() then
+		elseif event == subterrain.events.on_init() then
 			script.on_init(f)
 			script.on_configuration_changed(f)
 		else
@@ -43,7 +43,7 @@ cave.finalize_events = function()
 end
 
 --- Sentinel values for defining groups of events
-cave.events = {
+subterrain.events = {
 	on_built = function()
 		return {
 			defines.events.on_built_entity,

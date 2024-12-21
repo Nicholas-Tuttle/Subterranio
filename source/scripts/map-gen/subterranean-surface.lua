@@ -1,7 +1,7 @@
-cave.on_event(defines.events.on_surface_created, function(event)
+subterrain.on_event(defines.events.on_surface_created, function(event)
     local surface = game.get_surface(event.surface_index)
 	if not surface or not surface.valid then return end
-	if surface.name ~= "cave" then return end
+	if surface.name ~= "subterrain" then return end
     local parent_surface = game.planets["nauvis"].create_surface()
 
 	surface.daytime = 0.5 -- dead of night

@@ -1,10 +1,10 @@
 -- Adds helper functions for data stage. Shared across all pymods and adapted for use in subterranean surfaces
 
-cave.on_event = function() end
+subterrain.on_event = function() end
 
 ---Returns a 1x1 empty image.
 ---@return table
-cave.empty_image = function()
+subterrain.empty_image = function()
     return {
         filename = "__core__/graphics/empty.png",
         size = 1,
@@ -19,9 +19,9 @@ end
 ---@param old data.AnyPrototype
 ---@param new table
 ---@return data.AnyPrototype
-cave.merge = function(old, new)
+subterrain.merge = function(old, new)
     if not old then
-        error("Failed to cave.merge: Old prototype is nil", 2)
+        error("Failed to subterrain.merge: Old prototype is nil", 2)
     end
 
     old = table.deepcopy(old)
@@ -35,7 +35,7 @@ cave.merge = function(old, new)
     return old
 end
 
-cave.surface_conditions = function()
+subterrain.surface_conditions = function()
     return {{
         property = "pressure",
         min = 200000,

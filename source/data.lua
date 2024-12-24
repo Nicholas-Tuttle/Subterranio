@@ -3,6 +3,7 @@ _G.subterrain = require("scripts.constants")
 require("lib.data-stage")
 require("lib.events")
 
-require("prototypes.mineshaft")
+require("prototypes.entity.mineshaft")
+require("prototypes.entity.impassable-cliff")
 require("prototypes.decoratives.decoratives-subterranian")
 require("prototypes.surfaces.subterranean-surface")

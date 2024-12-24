@@ -2,6 +2,7 @@ local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local decorative_trigger_effects = require("__base__.prototypes.decorative.decorative-trigger-effects")
 
 local subterranean_rock_tint = {.5,.5,.6}
+local subterranean_impassable_cliff_tint = {.2,.2,.3}
 
 data:extend{
 	--- TINTABLE ROCKS
@@ -382,4 +383,41 @@ data:extend{
 			}
 		}
 	},
+	{
+		name = "subterranean-cave-wall",
+		type = "simple-entity",
+		flags = {"placeable-neutral", "placeable-off-grid", "not-deconstructable", "not-flammable"},
+		icon = "__space-age__/graphics/icons/huge-volcanic-rock.png",
+		subgroup = "grass",
+		order = "b[decorative]-l[rock]-f[huge-volcanic-rock]",
+		collision_mask = {
+			layers = {
+				item = true, object = true, player = true, is_object = true, is_lower_object = true
+			},
+			not_colliding_with_itself = true
+		},
+		collision_box = {{-2, -2}, {2, 2}},
+		selection_box = {{-1, -1}, {1, 1}},
+		damaged_trigger_effect = hit_effects.rock(),
+		render_layer = "object",
+		autoplace = {
+			order = "a[landscape]-c[rock]-b[big]",
+			probability_expression = "vulcanus_rock_big"
+		},
+		dying_trigger_effect = decorative_trigger_effects.big_rock(),
+		map_color = {20, 20, 20},
+		count_as_rock_for_filtered_deconstruction = false,
+		impact_category = "stone",
+		pictures =
+		{
+			{
+				filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-16.png",
+				width =  212,
+				height =  150,
+				shift = {0.242188, -0.195312},
+				scale = 1.5,
+				tint = subterranean_impassable_cliff_tint
+			}
+		}
+	}
 }

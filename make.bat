@@ -12,6 +12,8 @@ mkdir build\%FULL_NAME%
 xcopy /E source build\%FULL_NAME%
 
 powershell Compress-Archive build\%FULL_NAME% build\%FULL_NAME%.zip
+:: wait a moment to make sure powershell is done
+TIMEOUT /T 1 /NOBREAK
 move /Y build\%FULL_NAME%.zip %APPDATA%\Factorio\mods
 rmdir /S /Q build
 

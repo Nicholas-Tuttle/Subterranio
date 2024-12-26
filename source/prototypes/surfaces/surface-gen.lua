@@ -99,6 +99,7 @@ surface_gen["subterrain"] = function()
                     ["vulcanus-chimney-cold"] = {},
                     ["vulcanus-chimney-short"] = {},
                     ["vulcanus-chimney-truncated"] = {},
+                    ["diamond-ore"] = {},
                 }
             }
         }

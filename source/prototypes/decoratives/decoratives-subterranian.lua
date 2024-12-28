@@ -2,7 +2,6 @@ local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local decorative_trigger_effects = require("__base__.prototypes.decorative.decorative-trigger-effects")
 
 local subterranean_rock_tint = {.5,.5,.6}
-local subterranean_impassable_cliff_tint = {.2,.2,.3}
 
 data:extend{
 	--- TINTABLE ROCKS
@@ -384,7 +383,7 @@ data:extend{
 		}
 	},
 	{
-		name = "subterranean-cave-wall",
+		name = "impassable-cave-wall",
 		type = "simple-entity",
 		flags = {"placeable-neutral", "placeable-off-grid", "not-deconstructable", "not-flammable"},
 		icon = "__space-age__/graphics/icons/huge-volcanic-rock.png",
@@ -402,7 +401,7 @@ data:extend{
 		render_layer = "object",
 		autoplace = {
 			order = "a[landscape]-c[rock]-b[big]",
-			probability_expression = "vulcanus_rock_big"
+			probability_expression = "subterranean_impassable_cliffs_ridge_noise_expression"
 		},
 		dying_trigger_effect = decorative_trigger_effects.big_rock(),
 		map_color = {20, 20, 20},
@@ -416,7 +415,7 @@ data:extend{
 				height =  150,
 				shift = {0.242188, -0.195312},
 				scale = 1.5,
-				tint = subterranean_impassable_cliff_tint
+				tint = {.2,.2,.3}
 			}
 		}
 	}

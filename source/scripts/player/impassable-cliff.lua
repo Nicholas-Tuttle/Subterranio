@@ -4,8 +4,8 @@ local function ground_player (event)
 
     local impassable_cliffs = player.surface.find_entities_filtered{
         postition = player.position,
-        radius = 2,
-        name = {"subterranean-cave-wall"},
+        radius = 1,
+        name = {"impassable-cave-wall"},
         limit = 1
     }
 

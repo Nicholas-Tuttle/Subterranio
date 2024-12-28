@@ -18,6 +18,20 @@ local item = {
     weight = 5*kg
 }
 
+local diamond_ore_noise_function = {
+    type = "noise-function",
+    name = "subterranean_diamond_ore_noise_expression",
+    expression = [[
+        subterranean_impassable_cliffs_caverns_spot_noise(x, y, min_patch_size, max_patch_size)
+        + subterranean_starting_area(x, y, 10)
+    ]],
+    local_expressions = {
+        min_patch_size = 0.05,
+        max_patch_size = 0.1
+    },
+    parameters = {"x", "y"}
+}
+
 local resource = {
     type = "resource",
     name = "diamond-ore",
@@ -44,16 +58,12 @@ local resource = {
     },
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    autoplace = resource_autoplace.resource_autoplace_settings
-    {
-        name = "diamond-ore",
-        order = "f",
-        base_density = 3.0,
-        base_spots_per_km2 = 1.25,
+    autoplace = {
+        probability_expression = "subterranean_diamond_ore_noise_expression(x, y)",
+        richness_expression = "20 * (sqrt(x * x + y * y) + 2)",
         has_starting_area_placement = true,
-        random_spot_size_minimum = 2,
-        random_spot_size_maximum = 4,
-        regular_rq_factor_multiplier = 1
+        control = "diamond-ore-autoplace-control",
+        order = "f"
     },
     stage_counts = {10000, 6330, 3670, 1930, 870, 270, 100, 50},
     stages =
@@ -96,9 +106,9 @@ local resource = {
     map_color = {0, 0.7, 0.7}
 }
 
-local autoplace = {
+local diamond_ore_autoplace_control = {
     type = "autoplace-control",
-    name = "diamond-ore",
+    name = "diamond-ore-autoplace-control",
     localised_name = {"", "[entity=diamond-ore] ", {"entity-name.diamond-ore"}},
     richness = true,
     order = "a-f",
@@ -128,6 +138,7 @@ local technology = {
 data:extend({
     item,
     resource,
-    autoplace,
+    diamond_ore_noise_function,
+    diamond_ore_autoplace_control,
     technology
 })

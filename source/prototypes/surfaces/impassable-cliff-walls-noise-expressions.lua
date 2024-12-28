@@ -7,22 +7,30 @@ local lerp = {
     parameters = {"percent", "min", "max"}
 }
 
+-- -0.5 - 0.5 noise
+local generic_noise = {
+    type = "noise-function",
+    name = "subterranean_generic_noise",
+    expression = [[
+        lerp(multioctave_noise{
+            x = x,
+            y = y,
+            persistence = persistence,
+            seed0 = map_seed,
+            seed1 = 1,
+            octaves = 2,
+            input_scale = input_scale,
+            output_scale = 1
+        }, -0.5, 0.5)
+    ]],
+    parameters = {"x", "y", "persistence", "input_scale"}
+}
+
 -- The big blob of open space at 0, 0
 local starting_area_generic_noise = {
     type = "noise-function",
     name = "subterranean_starting_area_generic_noise",
-    expression = [[
-        multioctave_noise{
-            x = x,
-            y = y,
-            persistence = 0.5,
-            seed0 = map_seed,
-            seed1 = 1,
-            octaves = 2,
-            input_scale = 1/20,
-            output_scale = 1
-        }
-    ]],
+    expression = "subterranean_generic_noise(x, y, 0.5, 1/20)",
     parameters = {"x", "y"}
 }
 
@@ -30,14 +38,14 @@ local starting_area = {
     type = "noise-function",
     name = "subterranean_starting_area",
     expression = [[
-        sqrt(x_perturbed * x_perturbed + y_perturbed * y_perturbed) <= 150
+        sqrt(x_perturbed * x_perturbed + y_perturbed * y_perturbed) <= size
     ]],
     local_expressions = {
         perturbation = 40,
         x_perturbed = "x + perturbation * subterranean_starting_area_generic_noise(x, y)",
         y_perturbed = "y + perturbation * subterranean_starting_area_generic_noise(x, y)"
     },
-    parameters = {"x", "y"}
+    parameters = {"x", "y", "size"}
 }
 
 -- the cavern passageways spanning the whole subteranean surface
@@ -63,18 +71,7 @@ local ridge_noise_function_base = {
 local caverns_generic_noise = {
     type = "noise-function",
     name = "subterranean_caverns_generic_noise",
-    expression = [[
-        multioctave_noise{
-            x = x,
-            y = y,
-            persistence = 0.25,
-            seed0 = map_seed,
-            seed1 = 1,
-            octaves = 2,
-            input_scale = 1/10,
-            output_scale = 1
-        }
-    ]],
+    expression = "subterranean_generic_noise(x, y, 0.25, 1/10)",
     parameters = {"x", "y"}
 }
 
@@ -84,7 +81,7 @@ local caverns_voronoi_settings = [[
     y = y_perturbed, 
     seed0 = map_seed,
     seed1 = 1,
-    grid_size = 400,
+    grid_size = 200,
     distance_type = "euclidean",
     jitter = 1
 ]]
@@ -122,8 +119,6 @@ local caverns_spot_noise = {
         ]],
         -- Use the id to only make some of the caverns appear
         cavern_chance = 0.5,
-        min_cavern_size = 0.15,
-        max_cavern_size = 0.5,
         cavern_size_relative_to_grid_size = [[
             (subterranean_impassable_cliffs_caverns_id(x, y) <= cavern_chance) *
             (
@@ -133,7 +128,7 @@ local caverns_spot_noise = {
             )
         ]]
     },
-    parameters = {"x", "y"}
+    parameters = {"x", "y", "min_cavern_size", "max_cavern_size"}
 }
 
 -- Spawn cliff walls everywhere except the starting area,
@@ -143,27 +138,23 @@ local ridge_noise_expression_base = {
     name = "subterranean_impassable_cliffs_ridge_noise_expression",
     expression = [[
         subterranean_impassable_cliffs_ridge_noise(x, y)
-        * (1 - subterranean_starting_area(x, y))
-        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y))
-    ]]
-}
-
-local ridge_noise_function_temp = {
-    type = "noise-expression",
-    name = "subterranean_impassable_cliffs_ridge_noise_expression_temp",
-    expression = [[
-        subterranean_impassable_cliffs_caverns_spot_noise(x, y)
-    ]]
+        * (1 - subterranean_starting_area(x, y, 150))
+        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, min_cavern_size, max_cavern_size))
+    ]],
+    local_expressions = {
+        min_cavern_size = 0.15,
+        max_cavern_size = 0.5
+    }
 }
 
 data:extend{
     lerp,
+    generic_noise,
     starting_area_generic_noise,
     starting_area, 
     ridge_noise_function_base, 
     caverns_generic_noise,
     caverns_id,
     caverns_spot_noise, 
-    ridge_noise_expression_base,
-    ridge_noise_function_temp
+    ridge_noise_expression_base
 }

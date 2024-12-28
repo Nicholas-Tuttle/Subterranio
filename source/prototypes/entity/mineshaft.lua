@@ -19,8 +19,7 @@ local mineshaft = {
     }
 }
 
-
-local mineshaft_item = {
+local item = {
     type = "item",
     name = "mineshaft",
     stack_size = 1,
@@ -32,17 +31,38 @@ local mineshaft_item = {
 local recipe = {
     type = "recipe",
     name = "mineshaft",
-    enabled = true,
+    enabled = false,
     energy_requirements = 1,
     ingredients = {
-        {type = "item", name = "iron-plate", amount = 1}
+        {type = "item", name = "low-density-structure", amount = 5},
+        {type = "item", name = "steel-plate", amount = 10},
+        {type = "item", name = "concrete", amount = 10}
     },
     results = {{type = "item", name = "mineshaft", amount = 1}}
 }
 
-data:extend{mineshaft, mineshaft_item, recipe}
+local technology = {
+    type = "technology",
+    name = "mineshaft",
+    icon = "__subterranio__/graphics/entity/mineshaft.png",
+    icon_size = 512,
+    effects =
+    {
+        {
+            type = "unlock-recipe",
+            recipe = "mineshaft"
+        }
+    },
+    prerequisites = {"low-density-structure"},
+    research_trigger =
+    {
+      type = "craft-item",
+      item = "low-density-structure",
+      count = 10
+    }
+}
 
-data:extend {{
+local custom_input = {
     type = "custom-input",
     key_sequence = "CONTROL + ENTER",
     name = "subterranean-mineshaft-player-enter",
@@ -51,4 +71,6 @@ data:extend {{
     controller_key_sequence = "controller-righttrigger + controller-lefttrigger + controller-y",
     controller_alternative_key_sequence = "",
     action = "lua",
-}}
+}
+
+data:extend{mineshaft, item, recipe, technology, custom_input}

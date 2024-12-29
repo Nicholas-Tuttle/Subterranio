@@ -10,6 +10,8 @@ mkdir build
 mkdir build\%FULL_NAME%
 
 xcopy /E source build\%FULL_NAME%
+:: wait a moment to let everything get copied
+TIMEOUT /T 1 /NOBREAK
 
 powershell Compress-Archive build\%FULL_NAME% build\%FULL_NAME%.zip
 :: wait a moment to make sure powershell is done

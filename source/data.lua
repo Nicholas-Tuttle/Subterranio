@@ -5,6 +5,7 @@ require("lib.events")
 
 require("prototypes.entity.diamond-ore")
 require("prototypes.entity.mineshaft")
+require("prototypes.entity.mineshaft-belt")
 require("prototypes.entity.impassable-cliff")
 require("prototypes.decoratives.decoratives-subterranian")
 require("prototypes.surfaces.subterranean-surface")

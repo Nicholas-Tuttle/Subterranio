@@ -2,19 +2,19 @@ local function ground_player (event)
     local player = game.get_player(event.player_index)
     if not player or not player.character then return end
 
-    local impassable_cliffs = player.surface.find_entities_filtered{
-        postition = player.position,
-        radius = 1,
+    local impassable_cliffs_count = player.surface.count_entities_filtered{
+        position = player.position,
+        radius = 4,
         name = {"impassable-cave-wall"},
         limit = 1
     }
 
-    if #impassable_cliffs == 0 then return end
+    if impassable_cliffs_count == 0 then return end
 
     player.surface.create_entity({
         name = "impassable-cliff-sticker", 
         position = player.position, 
-        force = "enemy", 
+        force = "neutral", 
         target = player.character
     })
 end

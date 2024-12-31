@@ -1,4 +1,4 @@
-local function built_mineshaft(event)
+function built_mineshaft(event)
     local mineshaft_belt_entrance = event.entity
     local position = mineshaft_belt_entrance.position
     local opposite_surface_name = (mineshaft_belt_entrance.surface.name == "nauvis" and "subterrain" or "nauvis")
@@ -18,7 +18,7 @@ local function built_mineshaft(event)
     mineshaft_belt_entrance.connect_linked_belts(mineshaft_belt_exit)
 end
 
-local function destroyed_mineshaft(event)
+function destroyed_mineshaft(event)
 
     local position = event.entity.position
     local opposite_surface_name = (event.entity.surface.name == "nauvis" and "subterrain" or "nauvis")
@@ -27,16 +27,3 @@ local function destroyed_mineshaft(event)
         mineshaft_to_destroy.destroy()
     end
 end
-
-local mineshaft_belt_filter = {
-    {filter = "name", name = "mineshaft-belt"},
-    {filter = "name", name = "fast-mineshaft-belt"},
-    {filter = "name", name = "express-mineshaft-belt"},
-    {filter = "name", name = "turbo-mineshaft-belt"}
-}
-
-script.on_event(defines.events.on_built_entity, built_mineshaft, mineshaft_belt_filter)
-script.on_event(defines.events.on_robot_built_entity, built_mineshaft, mineshaft_belt_filter)
-script.on_event(defines.events.on_pre_player_mined_item , destroyed_mineshaft, mineshaft_belt_filter)
-script.on_event(defines.events.on_entity_died , destroyed_mineshaft, mineshaft_belt_filter)
-script.on_event(defines.events.on_robot_pre_mined  , destroyed_mineshaft, mineshaft_belt_filter)

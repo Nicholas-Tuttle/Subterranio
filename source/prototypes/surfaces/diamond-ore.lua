@@ -1,3 +1,4 @@
+local constants = require("constants")
 local resource_autoplace = require("resource-autoplace")
 local item_sounds = require("__base__.prototypes.item_sounds")
 local sounds = require("__base__.prototypes.entity.sounds")
@@ -22,12 +23,13 @@ local diamond_ore_noise_function = {
     type = "noise-function",
     name = "subterranean_diamond_ore_noise_expression",
     expression = [[
-        subterranean_impassable_cliffs_caverns_spot_noise(x, y, min_patch_size, max_patch_size)
+        subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size, max_patch_size)
         + subterranean_starting_area(x, y, 10)
     ]],
     local_expressions = {
-        min_patch_size = 0.05,
-        max_patch_size = 0.1
+        min_patch_size = constants.diamond_ore_min_patch_size,
+        max_patch_size = constants.diamond_ore_max_patch_size,
+        seed = constants.diamond_ore_patch_seed
     },
     parameters = {"x", "y"}
 }
@@ -109,7 +111,7 @@ local resource = {
 local diamond_ore_autoplace_control = {
     type = "autoplace-control",
     name = "diamond-ore-autoplace-control",
-    localised_name = {"", "[entity=diamond-ore] ", {"entity-name.diamond-ore"}},
+    localised_name = {"", "[entity=diamond-ore]", {"entity-name.diamond-ore"}},
     richness = true,
     order = "a-f",
     category = "resource"

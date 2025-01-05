@@ -404,7 +404,7 @@ data:extend{
 			probability_expression = "subterranean_impassable_cliffs_ridge_noise_expression"
 		},
 		dying_trigger_effect = decorative_trigger_effects.big_rock(),
-		map_color = {20, 20, 20},
+		map_color = {25, 25, 25},
 		count_as_rock_for_filtered_deconstruction = false,
 		impact_category = "stone",
 		pictures =

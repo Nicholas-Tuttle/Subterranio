@@ -29,13 +29,12 @@ local item = {
 local recipe = {
     type = "recipe",
     name = "cliff-destroyer-port",
-    enabled = true,
+    enabled = false,
     energy_requirements = 5,
     ingredients = {
-        {type = "item", name = "flying-robot-frame", amount = 1},
-        {type = "item", name = "processing-unit", amount = 2},
         {type = "item", name = "roboport", amount = 1},
-        {type = "item", name = "diamond-ore", amount = 4} -- TODO: Make this diamonds, not the ore
+        {type = "item", name = "processing-unit", amount = 4},
+        {type = "item", name = "battery", amount = 4}
     },
     results = {{type = "item", name = "cliff-destroyer-port", amount = 1}}
 }

@@ -124,7 +124,7 @@ local technology = {
         {
         {
             type = "unlock-recipe",
-            recipe = "railgun"
+            recipe = "diamond-shard"
         }
     },
     prerequisites = {"mineshaft"},

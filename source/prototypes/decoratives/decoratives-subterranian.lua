@@ -417,6 +417,16 @@ data:extend{
 				scale = 1.5,
 				tint = {.2,.2,.3}
 			}
+		},
+		resistances = {
+			{ type = "physical", percent = 100 },
+			{ type = "explosion", percent = 100 },
+			{ type = "impact", percent = 100 },
+			{ type = "fire", percent = 100 },
+			{ type = "acid", percent = 100 },
+			{ type = "poison", percent = 100 },
+			{ type = "laser", percent = 100 },
+			{ type = "electric", percent = 100 },
 		}
 	}
 }

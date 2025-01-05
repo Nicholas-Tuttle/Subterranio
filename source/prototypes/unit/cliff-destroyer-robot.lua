@@ -63,12 +63,12 @@ local item = {
 local recipe = {
     type = "recipe",
     name = "cliff-destroyer-robot",
-    enabled = true,
+    enabled = false,
     energy_requirements = 1,
     ingredients = {
         {type = "item", name = "flying-robot-frame", amount = 1},
         {type = "item", name = "processing-unit", amount = 2},
-        {type = "item", name = "diamond-ore", amount = 4} -- TODO: Make this diamonds, not the ore
+        {type = "item", name = "diamond-shard", amount = 4}
     },
     results = {{type = "item", name = "cliff-destroyer-robot", amount = 1}}
 }

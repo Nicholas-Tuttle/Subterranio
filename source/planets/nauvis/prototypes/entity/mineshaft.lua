@@ -68,7 +68,6 @@ local custom_input = {
     name = "subterranean-mineshaft-player-enter",
     consuming = "game-only",
     alternative_key_sequence = "",
-    controller_key_sequence = "controller-righttrigger + controller-lefttrigger + controller-y",
     controller_alternative_key_sequence = "",
     action = "lua",
 }

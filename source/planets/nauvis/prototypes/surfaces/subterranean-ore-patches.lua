@@ -1,4 +1,4 @@
-local constants = require("constants")
+local constants = require("source.scripts.constants")
 require("prototypes.surfaces.impassable-cliff-walls-noise-expressions")
 
 local function create_subterranean_ore(name, autoplace_richness_multiplier, min_patch_size, max_patch_size, seed)

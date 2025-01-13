@@ -1,0 +1,6 @@
+require("nauvis.data")
+-- require("vulcanus.data")
+require("gleba.data")
+require("fulgora.data")
+-- require("aquilo.data")
+-- require("shattered.data")

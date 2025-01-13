@@ -31,6 +31,8 @@ local function create_mineshaft_belt_type(prefix, speed)
         results = {{type = "item", name = prefix .. "mineshaft-belt", amount = 1}}
     }
 
+    -- TODO: Make techs for all of these
+
     return {object, item, recipe}
 end
 

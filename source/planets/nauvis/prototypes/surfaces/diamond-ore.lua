@@ -1,4 +1,4 @@
-local constants = require("constants")
+local constants = require("source.scripts.constants")
 local resource_autoplace = require("resource-autoplace")
 local item_sounds = require("__base__.prototypes.item_sounds")
 local sounds = require("__base__.prototypes.entity.sounds")

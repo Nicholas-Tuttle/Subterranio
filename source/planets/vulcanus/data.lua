@@ -1,0 +1,1 @@
+require("prototypes.entity.thermodynamic-science-pack")

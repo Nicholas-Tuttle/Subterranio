@@ -1,5 +1,5 @@
 require("nauvis.data-updates")
--- require("vulcanus.data-updates")
+require("vulcanus.data-updates")
 require("gleba.data-updates")
 require("fulgora.data-updates")
 -- require("aquilo.data-updates")

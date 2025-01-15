@@ -24,7 +24,7 @@ local biological_science_recipe = {
     ingredients =
     {
       {type = "item", name = "bioflux", amount = 1},
-      {type = "item", name = "insulation", amount = 5},
+      {type = "item", name = "preservatives", amount = 5},
       {type = "item", name = "raw-fish", amount = 1}
     },
     results = {{type="item", name="biological-science-pack", amount=1}},
@@ -58,7 +58,7 @@ local biological_science_tech = {
     research_trigger =
     {
       type = "craft-item",
-      item = "insulation",
+      item = "preservatives",
       count = 5
     }
 }

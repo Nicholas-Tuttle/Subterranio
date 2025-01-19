@@ -23,9 +23,10 @@ local induction_science_recipe = {
     energy_required = 5,
     ingredients =
     {
-      {type = "item", name = "superconductor", amount = 2},
-      {type = "item", name = "supercapacitor", amount = 2},
-      {type = "item", name = "supermagnet", amount = 1}
+        {type = "item", name = "iron-plate", amount = 2},
+        -- {type = "item", name = "superconductor", amount = 2},
+        -- {type = "item", name = "supercapacitor", amount = 2},
+        -- {type = "item", name = "supermagnet", amount = 1}
     },
     results = {{type="item", name="induction-science-pack", amount=1}},
     crafting_machine_tint =
@@ -53,12 +54,12 @@ local induction_science_tech = {
             recipe = "induction-science-pack"
         }
     },
-    prerequisites = {"supermagnet"},
+    -- prerequisites = {"supermagnet"},
     essential = true,
     research_trigger =
     {
       type = "craft-item",
-      item = "supermagnet",
+      item = "iron-plate", -- supermagnet
       count = 1
     }
 }

@@ -22,8 +22,8 @@ local recipe = {
     ingredients =
     {
       {type = "item", name = "superconductor", amount = 2},
-      {type = "item", name = "copper-wire", amount = 10},
-      {type = "item", name = "magnet", amount = 8}
+      {type = "item", name = "copper-wire", amount = 4},
+      {type = "item", name = "magnet", amount = 4}
     },
     results = {{type="item", name="supermagnet", amount=1}}
 }

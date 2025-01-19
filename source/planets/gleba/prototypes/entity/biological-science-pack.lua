@@ -53,7 +53,7 @@ local biological_science_tech = {
             recipe = "biological-science-pack"
         }
     },
-    prerequisites = {"refrigerator"},
+    --prerequisites = {"preservatives"},
     essential = true,
     research_trigger =
     {

@@ -1,4 +1,4 @@
-local constants = require("source.scripts.constants")
+local constants = require("constants")
 
 local lerp = {
     type = "noise-function",

@@ -1,5 +1,5 @@
-require("scripts.unit.cliff-destroyer-robot")
-require("scripts.entity.mineshaft-belt")
+require("unit.cliff-destroyer-robot")
+require("entity.mineshaft-belt")
 
 local cliff_destroyer_filter = {
     "cliff-destroyer-robot"

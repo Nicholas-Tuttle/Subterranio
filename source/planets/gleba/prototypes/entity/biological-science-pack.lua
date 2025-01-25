@@ -4,8 +4,8 @@ local item_tints = require("__base__.prototypes.item-tints")
 local biological_science_item = {
     type = "item",
     name = "biological-science-pack",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     subgroup = "science-pack",
     order = "g[biological-science-pack]",
     default_import_location = "gleba",
@@ -44,8 +44,8 @@ local biological_science_recipe = {
 local biological_science_tech = {
     type = "technology",
     name = "biological-science-pack",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     effects =
     {
         {

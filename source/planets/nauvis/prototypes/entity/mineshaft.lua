@@ -51,6 +51,10 @@ local technology = {
         {
             type = "unlock-recipe",
             recipe = "mineshaft"
+        },
+        {
+            type = "unlock-recipe",
+            recipe = "geothermal-powerplant"
         }
     },
     prerequisites = {"low-density-structure"},

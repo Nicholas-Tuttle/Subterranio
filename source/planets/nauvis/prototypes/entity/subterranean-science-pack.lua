@@ -4,8 +4,8 @@ local item_tints = require("__base__.prototypes.item-tints")
 local subterranean_science_item = {
     type = "item",
     name = "subterranean-science-pack",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     subgroup = "science-pack",
     order = "g[subterranean-science-pack]",
     default_import_location = "nauvis",
@@ -45,8 +45,8 @@ local subterranean_science_recipe = {
 local subterranean_science_tech = {
     type = "technology",
     name = "subterranean-science-pack",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     effects =
     {
         {
@@ -67,8 +67,8 @@ local subterranean_science_tech = {
 local cliff_destroyer_tech = {
     type = "technology",
     name = "cliff-destroyer-robotics",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     effects =
     {
         {
@@ -80,7 +80,13 @@ local cliff_destroyer_tech = {
             recipe = "cliff-destroyer-robot"
         }
     },
-    prerequisites = {"subterranean-science-pack", "construction-robotics", "logistic-robotics", "processing-unit"},
+    prerequisites = {
+        "subterranean-science-pack", 
+        "construction-robotics", 
+        "logistic-robotics", 
+        "processing-unit",
+        "military-science-pack"
+    },
     unit =
     {
         count = 250,
@@ -99,8 +105,8 @@ local cliff_destroyer_tech = {
 local diamond_tipped_drill_tech = {
     type = "technology",
     name = "diamond-tipped-electric-mining-drill",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     effects = {
         {
             type = "unlock-recipe",
@@ -124,8 +130,8 @@ local diamond_tipped_drill_tech = {
 local diamond_tipped_big_drill_tech = {
     type = "technology",
     name = "big-diamond-tipped-mining-drill",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     effects = {
         {
             type = "unlock-recipe",
@@ -152,8 +158,8 @@ local diamond_tipped_big_drill_tech = {
 local diamond_core_uranium_bullets = {
     type = "technology",
     name = "diamond-core-uranium-rounds-magazine",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     effects = {
         {
             type = "unlock-recipe",
@@ -179,8 +185,8 @@ local diamond_core_uranium_bullets = {
 local diamond_core_shotgun_shells = {
     type = "technology",
     name = "diamond-core-piercing-shotgun-shell",
-    icon = "__subterranio__/graphics/entity/diamond.png",
-    icon_size = 512,
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
     effects = {
         {
             type = "unlock-recipe",

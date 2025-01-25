@@ -1,11 +1,11 @@
 -- name -> String
--- speed -> Float
+-- speed -> Float - speed in items per second
 -- underground_belt_ingredient -> String
 -- returns -> {object, item, recipe}
 local function create_mineshaft_belt_type(prefix, speed)
     local object = table.deepcopy(data.raw["linked-belt"]["linked-belt"])
     object.name = prefix .. "mineshaft-belt"
-    object.speed = speed
+    object.speed = speed / 480
     object.minable = {mining_time = 0.1, result = prefix .. "mineshaft-belt"}
 
     local item = {
@@ -36,7 +36,7 @@ local function create_mineshaft_belt_type(prefix, speed)
     return {object, item, recipe}
 end
 
-data:extend(create_mineshaft_belt_type("", 0.03125))
-data:extend(create_mineshaft_belt_type("fast-", 0.0625))
-data:extend(create_mineshaft_belt_type("express-", 0.09375))
-data:extend(create_mineshaft_belt_type("turbo-", 0.125))
+data:extend(create_mineshaft_belt_type("", 15))
+data:extend(create_mineshaft_belt_type("fast-", 30))
+data:extend(create_mineshaft_belt_type("express-", 45))
+data:extend(create_mineshaft_belt_type("turbo-", 60))

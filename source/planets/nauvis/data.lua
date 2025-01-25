@@ -6,10 +6,13 @@ require("prototypes.entity.diamond-core-piercing-shotgun-shell")
 require("prototypes.entity.diamond-core-uranium-rounds-magazine")
 require("prototypes.entity.diamond-shard")
 require("prototypes.entity.diamond-tipped-electric-mining-drill")
+require("prototypes.entity.geothermal-power-plant")
 require("prototypes.entity.impassable-cliff")
 require("prototypes.entity.mineshaft-belt")
 require("prototypes.entity.mineshaft")
 require("prototypes.entity.subterranean-science-pack")
+
+require("prototypes.gui.mineshaft-belt-preview")
 
 require("prototypes.surfaces.diamond-ore")
 require("prototypes.surfaces.impassable-cliff-walls-noise-expressions")

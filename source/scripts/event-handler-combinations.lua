@@ -1,5 +1,5 @@
-require("unit.cliff-destroyer-robot")
-require("entity.mineshaft-belt")
+require("planets.nauvis.scripts.unit.cliff-destroyer-robot")
+require("planets.nauvis.scripts.entity.mineshaft-belt")
 
 local cliff_destroyer_filter = {
     "cliff-destroyer-robot"

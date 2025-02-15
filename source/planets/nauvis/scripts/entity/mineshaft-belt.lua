@@ -1,6 +1,7 @@
 function built_mineshaft(event)
     local mineshaft_belt_entrance = event.entity
     local position = mineshaft_belt_entrance.position
+    local direction = mineshaft_belt_entrance.direction
     local opposite_surface_name = (mineshaft_belt_entrance.surface.name == "nauvis" and "subterrain" or "nauvis")
     
     -- TODO: Make sure the other surface has open area where trying to build
@@ -11,7 +12,7 @@ function built_mineshaft(event)
     target_surface.request_to_generate_chunks(target_position, 1)
     target_surface.force_generate_chunk_requests()
 
-    local mineshaft_belt_exit = target_surface.create_entity{name = event.entity.name, position = position, force = game.forces.player}
+    local mineshaft_belt_exit = target_surface.create_entity{name = event.entity.name, position = position, direction = direction, force = game.forces.player}
 
     mineshaft_belt_entrance.linked_belt_type = "input"
     mineshaft_belt_exit.linked_belt_type = "output"

@@ -12,8 +12,6 @@ require("prototypes.entity.mineshaft-belt")
 require("prototypes.entity.mineshaft")
 require("prototypes.entity.subterranean-science-pack")
 
-require("prototypes.gui.mineshaft-belt-preview")
-
 require("prototypes.surfaces.diamond-ore")
 require("prototypes.surfaces.impassable-cliff-walls-noise-expressions")
 require("prototypes.surfaces.subterranean-ore-patches")

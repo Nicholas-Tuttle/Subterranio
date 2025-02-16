@@ -65,16 +65,3 @@ local function on_spider_command_completed(event)
 end
 
 script.on_event(defines.events.on_spider_command_completed, on_spider_command_completed)
-
-local function on_player_cursor_stack_changed(event)
-    local player = game.players[event.player_index]
-    game.print(player.cursor_stack)
-    if player.cursor_ghost ~= nil then
-        game.print(tostring(player.cursor_ghost.name) .. " " .. tostring(player.cursor_ghost.quality))
-    end
-
-    -- If the player's cursor stack or ghost cursor contains a mineshaft belt, show the preview
-    -- Otherwise hide the preview
-end
-
-script.on_event(defines.events.on_player_cursor_stack_changed, on_player_cursor_stack_changed)

@@ -8,7 +8,6 @@
 1. Graphics for the geothermal power plant
 1. Graphics for diamond-tipped drills
 1. Graphics for diamond ore patches
-1. Add a preview camera for the mineshaft belts
 1. Make subterranean science packs only craftable underground'
 1. Graphics for cave walls
 1. Graphics for cave environment

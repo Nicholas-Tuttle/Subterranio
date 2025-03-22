@@ -16,7 +16,13 @@ local mineshaft = {
         width = 512,
         height = 512,
         scale = 0.25
-    }
+    },
+    surface_conditions = {
+        {
+          property = "pressure",
+          min = 1000
+        }
+      }
 }
 
 local item = {

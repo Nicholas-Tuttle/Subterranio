@@ -13,4 +13,4 @@
 1. Make diamond-tipped crushers for space platforms
 1. Fix solar system map icons/buttons
 1. ~~Fix underground belts facing the backwards direction~~
-1. Limit mineshafts to land surfaces (no space platforms)
+1. ~~Limit mineshafts to land surfaces (no space platforms)~~

@@ -1,0 +1,6 @@
+### TODO
+1. Figure out how to spawn Fractus when a space ship with a gravitational planet fixer arrives at Fractus for the first time
+    1. Might be able to use this [event](https://lua-api.factorio.com/latest/events.html#on_space_platform_changed_state) with this [state](https://lua-api.factorio.com/latest/defines.html#defines.space_platform_state) going from `on_the_path` to `waiting_for_departure` or `no_path` or `waiting_at_station` or `paused` when it gets to Fractus
+    1. Use the `destroy(ticks?)` function of [LuaSpacePlatform](https://lua-api.factorio.com/latest/classes/LuaSpacePlatform.html) to blow it up
+    1. Use the [LuaSpacePlatform](https://lua-api.factorio.com/latest/classes/LuaSpacePlatform.html)`.hub` accessor to get the hub and then [get_inventory()](https://lua-api.factorio.com/latest/classes/LuaControl.html#get_inventory) and then [get_item_count()](https://lua-api.factorio.com/latest/classes/LuaInventory.html#get_item_count) to see if the gravitatyional planet fixer item exists
+    1. Make sure that another ship arriving later doesn't screw things up

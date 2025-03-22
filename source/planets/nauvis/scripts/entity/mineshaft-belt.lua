@@ -1,4 +1,4 @@
-function built_mineshaft(event)
+function built_mineshaft_belt(event)
     local mineshaft_belt_entrance = event.entity
     local position = mineshaft_belt_entrance.position
     local direction = mineshaft_belt_entrance.direction
@@ -19,7 +19,7 @@ function built_mineshaft(event)
     mineshaft_belt_entrance.connect_linked_belts(mineshaft_belt_exit)
 end
 
-function destroyed_mineshaft(event)
+function destroyed_mineshaft_belt(event)
 
     local position = event.entity.position
     local opposite_surface_name = (event.entity.surface.name == "nauvis" and "subterrain" or "nauvis")

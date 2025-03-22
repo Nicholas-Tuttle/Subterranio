@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 :: Setup the name and version of the mod. Can this come from info.json?
 SET TITLE=subterranio
-SET VERSION=0.0.1
+SET VERSION=0.0.2
 SET FULL_NAME=%TITLE%_%VERSION%
 :: Make a temporary directory with the version and name, copy the relevant files to it
 :: Zip it and move to Factorio install, and then get rid of the temp directory

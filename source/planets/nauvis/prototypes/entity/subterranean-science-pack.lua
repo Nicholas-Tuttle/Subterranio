@@ -2,7 +2,7 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 local item_tints = require("__base__.prototypes.item-tints")
 
 local subterranean_science_item = {
-    type = "item",
+    type = "tool",
     name = "subterranean-science-pack",
     icon = subterrain.diamond_image_path,
     icon_size = subterrain.diamond_image_size,
@@ -13,7 +13,8 @@ local subterranean_science_item = {
     pick_sound = item_sounds.science_inventory_pickup,
     drop_sound = item_sounds.science_inventory_move,
     stack_size = 200,
-    weight = 1*kg
+    weight = 1*kg,
+    durability = 1
 }
 
 local subterranean_science_recipe = {

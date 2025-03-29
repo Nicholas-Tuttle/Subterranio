@@ -2,7 +2,7 @@
 -- speed -> Float - speed in items per second
 -- underground_belt_ingredient -> String
 -- returns -> {object, item, recipe}
-local function create_mineshaft_belt_type(prefix, speed)
+local function create_mineshaft_belt_type(prefix, speed, tech)
     local object = table.deepcopy(data.raw["linked-belt"]["linked-belt"])
     object.name = prefix .. "mineshaft-belt"
     object.speed = speed / 480
@@ -20,7 +20,7 @@ local function create_mineshaft_belt_type(prefix, speed)
     local recipe = {
         type = "recipe",
         name = prefix .. "mineshaft-belt",
-        enabled = true,
+        enabled = false,
         energy_requirements = 1,
         ingredients = {
             {type = "item", name = prefix .. "underground-belt", amount = 10},
@@ -33,10 +33,116 @@ local function create_mineshaft_belt_type(prefix, speed)
 
     -- TODO: Make techs for all of these
 
-    return {object, item, recipe}
+    return {object, item, recipe, tech}
 end
 
-data:extend(create_mineshaft_belt_type("", 15))
-data:extend(create_mineshaft_belt_type("fast-", 30))
-data:extend(create_mineshaft_belt_type("express-", 45))
-data:extend(create_mineshaft_belt_type("turbo-", 60))
+local base_tech = {
+    type = "technology",
+    name = "mineshaft-belt",
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "mineshaft-belt"
+        }
+    },
+    prerequisites = {"subterranean-science-pack", "logistics"},
+    unit =
+    {
+        count = 250,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+local fast_tech = {
+    type = "technology",
+    name = "fast-mineshaft-belt",
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "fast-mineshaft-belt"
+        }
+    },
+    prerequisites = {"subterranean-science-pack", "logistics-2"},
+    unit =
+    {
+        count = 1000,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+local express_tech = {
+    type = "technology",
+    name = "express-mineshaft-belt",
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "express-mineshaft-belt"
+        }
+    },
+    prerequisites = {"subterranean-science-pack", "logistics-3"},
+    unit =
+    {
+        count = 2000,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "production-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+local turbo_tech = {
+    type = "technology",
+    name = "turbo-mineshaft-belt",
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "turbo-mineshaft-belt"
+        }
+    },
+    prerequisites = {"subterranean-science-pack", "turbo-transport-belt"},
+    unit =
+    {
+        count = 5000,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "production-science-pack", 1 },
+            { "space-science-pack", 1 },
+            { "metallurgic-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+data:extend(create_mineshaft_belt_type("", 15, base_tech))
+data:extend(create_mineshaft_belt_type("fast-", 30, fast_tech))
+data:extend(create_mineshaft_belt_type("express-", 45, express_tech))
+data:extend(create_mineshaft_belt_type("turbo-", 60, turbo_tech))

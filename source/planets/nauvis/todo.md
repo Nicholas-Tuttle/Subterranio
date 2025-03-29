@@ -11,7 +11,7 @@
     1. Fix orderings on all new items
 1. Graphics
     1. Graphics for the cliff destroyer objects
-    1. Graphics for the geothermal power plant
+    1. ~~Graphics for the geothermal power plant~~
     1. Graphics for diamond-tipped drills
     1. Graphics for diamond ore patches
     1. Graphics for cave walls

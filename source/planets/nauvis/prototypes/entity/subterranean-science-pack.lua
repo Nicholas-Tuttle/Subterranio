@@ -1,5 +1,6 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
 local item_tints = require("__base__.prototypes.item-tints")
+local constants = require("planets/nauvis/prototypes/surfaces/constants")
 
 local subterranean_science_item = {
     type = "tool",
@@ -40,7 +41,14 @@ local subterranean_science_recipe = {
     durability_description_key = "description.science-pack-remaining-amount-key",
     factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value",
-    random_tint_color = item_tints.bluish_science
+    random_tint_color = item_tints.bluish_science,
+    surface_conditions = {
+        {
+            property = "pressure",
+            min = constants.subterrain_pressure,
+            max = constants.subterrain_pressure
+        }
+    }
 }
 
 local subterranean_science_tech = {

@@ -1,3 +1,5 @@
+local human_readable_id = "nauvis-subterrain"
+
 local diamond_ore_min_cavern_size = 0.15
 local diamond_ore_max_cavern_size = 0.5
 local diamond_ore_min_patch_size = diamond_ore_min_cavern_size / 3
@@ -34,7 +36,12 @@ local uranium_ore_min_patch_size = uranium_ore_min_cavern_size / 2
 local uranium_ore_max_patch_size = uranium_ore_max_cavern_size / 2
 local uranium_ore_patch_seed = 6789
 
+local subterrain_pressure = 5000
+local subterrain_gravity = 20
+
 return {
+    human_readable_id = human_readable_id,
+
     diamond_ore_min_cavern_size = diamond_ore_min_cavern_size,
     diamond_ore_max_cavern_size = diamond_ore_max_cavern_size,
     diamond_ore_min_patch_size = diamond_ore_min_patch_size,
@@ -69,5 +76,8 @@ return {
     uranium_ore_max_cavern_size = uranium_ore_max_cavern_size,
     uranium_ore_min_patch_size = uranium_ore_min_patch_size,
     uranium_ore_max_patch_size = uranium_ore_max_patch_size,
-    uranium_ore_patch_seed = uranium_ore_patch_seed
+    uranium_ore_patch_seed = uranium_ore_patch_seed,
+
+    subterrain_pressure = subterrain_pressure,
+    subterrain_gravity = subterrain_gravity,
 }

@@ -6,8 +6,7 @@ local mineshaft = {
     inventory_size = 1,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, results = {{type = "item", name = "mineshaft", amount = 1}}},
-    -- collision_box = {{-1.9, -1.9}, {1.9, 1.9}},
-    collision_box = nil,
+    collision_box = {{-1.9, -1.9}, {1.9, 1.9}},
     selection_box = {{-2, -2}, {2, 2}},
     scale_entity_info_icon = true,
     collision_mask = {layers = {["item"] = true, ["object"] = true, ["player"] = true}},
@@ -19,10 +18,10 @@ local mineshaft = {
     },
     surface_conditions = {
         {
-          property = "pressure",
-          min = 1000
+            property = "pressure",
+            min = 1 -- Anything other than space platforms
         }
-      }
+    }
 }
 
 local item = {
@@ -61,7 +60,12 @@ local technology = {
         {
             type = "unlock-recipe",
             recipe = "geothermal-powerplant"
-        }
+        },
+        {
+            type = "unlock-space-location",
+            space_location = "subterrain",
+            use_icon_overlay_constant = true
+        },
     },
     prerequisites = {"low-density-structure"},
     research_trigger =

@@ -6,12 +6,12 @@
     1. ~~Make subterranean science packs only craftable underground~~
     1. ~~Fix solar system map icons/buttons and remote view~~
     1. ~~Lock mineshaft belt types behind their base belt types~~
+    1. Fix orderings on all new items
     1. Make diamond-tipped crushers for space platforms
     1. Make cliff destroyers drop off some resources after they visit a port
-    1. Fix orderings on all new items
 1. Graphics
-    1. Graphics for the cliff destroyer objects
     1. ~~Graphics for the geothermal power plant~~
+    1. Graphics for the cliff destroyer objects
     1. Graphics for diamond-tipped drills
     1. Graphics for diamond ore patches
     1. Graphics for cave walls

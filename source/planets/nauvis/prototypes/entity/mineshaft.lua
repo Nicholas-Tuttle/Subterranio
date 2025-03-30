@@ -30,7 +30,9 @@ local item = {
     stack_size = 1,
     icon = "__subterranio__/graphics/entity/mineshaft.png",
     icon_size = 512,
-    place_result = "mineshaft"
+    place_result = "mineshaft",
+    subgroup = "subterranio",
+    order = "a"
 }
 
 local recipe = {
@@ -86,4 +88,11 @@ local custom_input = {
     action = "lua",
 }
 
-data:extend{mineshaft, item, recipe, technology, custom_input}
+local subgroup = {
+    type = "item-subgroup",
+    name = "subterranio",
+    group = "logistics",
+    order = "j"
+}
+
+data:extend{mineshaft, item, recipe, technology, custom_input, subgroup}

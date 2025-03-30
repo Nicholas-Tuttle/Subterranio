@@ -73,7 +73,9 @@ local item = {
     stack_size = 10,
     icon = "__subterranio__/graphics/entity/geothermal-powerplant/research-center-icon-big.png",
     icon_size = 640,
-    place_result = "geothermal-powerplant"
+    place_result = "geothermal-powerplant",
+    subgroup = "energy",
+    order = "h[geothermal]-a[powerplant]",
 }
 
 local recipe = {

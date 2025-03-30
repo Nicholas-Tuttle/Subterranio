@@ -5,6 +5,7 @@ projectile.action.action_delivery.target_effects.damage.amount = projectile.acti
 local item = table.deepcopy(data.raw["ammo"]["piercing-shotgun-shell"])
 item.name = "diamond-core-piercing-shotgun-shell"
 item.ammo_type.action[2].action_delivery.projectile = "diamond-core-piercing-shotgun-pellet"
+item.order = "b[shotgun]-ba[diamond-tipped-piercing]"
 
 local recipe = {
     type = "recipe",

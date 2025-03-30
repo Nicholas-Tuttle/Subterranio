@@ -23,7 +23,10 @@ local item = {
     stack_size = 20,
     hidden = false,
     icon = "__subterranio__/graphics/entity/cliff-destroyer-port.png",
-    place_result = "cliff-destroyer-port"
+    icon_size = 512,
+    place_result = "cliff-destroyer-port",
+    subgroup = "logistic-network",
+    order = "d[subterranio]-b[roboport]",
 }
 
 local recipe = {

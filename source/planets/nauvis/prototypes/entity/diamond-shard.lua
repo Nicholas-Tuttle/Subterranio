@@ -5,8 +5,8 @@ local item = {
     name = "diamond-shard",
     icon = subterrain.diamond_shard_image_path,
     icon_size = subterrain.diamond_shard_image_size,
-    subgroup = "raw-resource",
-    order = "h[diamond-shard]",
+    subgroup = "subterranio-intermediate",
+    order = "a",
     inventory_move_sound = item_sounds.resource_inventory_move,
     pick_sound = item_sounds.resource_inventory_pickup,
     drop_sound = item_sounds.resource_inventory_move,
@@ -50,4 +50,11 @@ local tech = {
     }
 }
 
-data:extend{item, recipe_category, recipe, tech}
+local subgroup = {
+  type = "item-subgroup",
+  name = "subterranio-intermediate",
+  group = "intermediate-products",
+  order = "ia"
+}
+
+data:extend{item, recipe_category, recipe, tech, subgroup}

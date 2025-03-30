@@ -1,6 +1,7 @@
 local item = table.deepcopy(data.raw["ammo"]["uranium-rounds-magazine"])
 item.name = "diamond-core-uranium-rounds-magazine"
 item.ammo_type.action.action_delivery.target_effects[2].damage.amount = item.ammo_type.action.action_delivery.target_effects[2].damage.amount * 2.5
+item.order = "a[basic-clips]-ca[diamond-tipped-uranium-rounds-magazine]"
 
 local recipe = {
     type = "recipe",

@@ -2,7 +2,7 @@
 -- speed -> Float - speed in items per second
 -- underground_belt_ingredient -> String
 -- returns -> {object, item, recipe}
-local function create_mineshaft_belt_type(prefix, speed, tech)
+local function create_mineshaft_belt_type(prefix, order_postfix, speed, tech)
     local object = table.deepcopy(data.raw["linked-belt"]["linked-belt"])
     object.name = prefix .. "mineshaft-belt"
     object.speed = speed / 480
@@ -14,7 +14,9 @@ local function create_mineshaft_belt_type(prefix, speed, tech)
         stack_size = 50,
         hidden = false,
         icon = "__base__/graphics/icons/linked-belt.png",
-        place_result = prefix .. "mineshaft-belt"
+        place_result = prefix .. "mineshaft-belt",
+        subgroup = "belt",
+        order = "d[subterranio]-" .. order_postfix,
     }
 
     local recipe = {
@@ -142,7 +144,7 @@ local turbo_tech = {
     }
 }
 
-data:extend(create_mineshaft_belt_type("", 15, base_tech))
-data:extend(create_mineshaft_belt_type("fast-", 30, fast_tech))
-data:extend(create_mineshaft_belt_type("express-", 45, express_tech))
-data:extend(create_mineshaft_belt_type("turbo-", 60, turbo_tech))
+data:extend(create_mineshaft_belt_type("", "a", 15, base_tech))
+data:extend(create_mineshaft_belt_type("fast-", "b", 30, fast_tech))
+data:extend(create_mineshaft_belt_type("express-", "c", 45, express_tech))
+data:extend(create_mineshaft_belt_type("turbo-", "d", 60, turbo_tech))

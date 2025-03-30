@@ -20,7 +20,9 @@ local item = {
     name = "diamond-tipped-electric-mining-drill",
     stack_size = 50,
     icon = "__base__/graphics/icons/electric-mining-drill.png",
-    place_result = "diamond-tipped-electric-mining-drill"
+    place_result = "diamond-tipped-electric-mining-drill",
+    subgroup = "extraction-machine",
+    order = "a[items]-ba[electric-mining-drill]",
 }
 
 data:extend{building, recipe, item}

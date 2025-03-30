@@ -57,7 +57,9 @@ local item = {
     icon = "__base__/graphics/icons/spidertron.png",
     icon_tintable = "__base__/graphics/icons/spidertron-tintable.png",
     icon_tintable_mask = "__base__/graphics/icons/spidertron-tintable-mask.png",
-    place_result = "cliff-destroyer-robot"
+    place_result = "cliff-destroyer-robot",
+    subgroup = "logistic-network",
+    order = "d[subterranio]-a[cliff-destroyer-robot]",
 }
 
 local recipe = {

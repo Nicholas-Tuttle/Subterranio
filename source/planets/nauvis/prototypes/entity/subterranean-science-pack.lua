@@ -164,6 +164,35 @@ local diamond_tipped_big_drill_tech = {
     }
 }
 
+local diamond_tipped_crusher_tech = {
+    type = "technology",
+    name = "diamond-tipped-crusher",
+    icon = subterrain.diamond_image_path,
+    icon_size = subterrain.diamond_image_size,
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "diamond-tipped-crusher"
+        }
+    },
+    prerequisites = { "space-platform", "subterranean-science-pack" },
+    unit =
+    {
+        count = 500,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "military-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "utility-science-pack", 1 },
+            { "space-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
 local diamond_core_uranium_bullets = {
     type = "technology",
     name = "diamond-core-uranium-rounds-magazine",
@@ -225,6 +254,7 @@ data:extend{
     cliff_destroyer_tech,
     diamond_tipped_drill_tech,
     diamond_tipped_big_drill_tech,
+    diamond_tipped_crusher_tech,
     diamond_core_uranium_bullets,
     diamond_core_shotgun_shells
 }

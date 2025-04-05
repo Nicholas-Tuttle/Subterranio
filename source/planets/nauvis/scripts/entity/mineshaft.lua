@@ -51,6 +51,8 @@ local function determine_mineshaft_direction(player)
     local surface = player.surface
     local surface_name = surface.name
 
+    if storage.UnlockedMineshaftTargetSurfaceMappings == nil then return nil, nil end
+
     local opposite_surface_name = storage.UnlockedMineshaftTargetSurfaceMappings[surface_name]
     if not opposite_surface_name then return nil end
     local target_surface = game.planets[opposite_surface_name].create_surface()

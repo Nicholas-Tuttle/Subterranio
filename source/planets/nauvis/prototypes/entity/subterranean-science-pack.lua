@@ -14,7 +14,11 @@ local subterranean_science_item = {
     pick_sound = item_sounds.science_inventory_pickup,
     drop_sound = item_sounds.science_inventory_move,
     stack_size = 200,
-    weight = 1*kg
+    weight = 1*kg,
+    durability = 1,
+    durability_description_key = "description.science-pack-remaining-amount-key",
+    factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
+    durability_description_value = "description.science-pack-remaining-amount-value",
 }
 
 local subterranean_science_recipe = {

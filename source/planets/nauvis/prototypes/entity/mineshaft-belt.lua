@@ -74,7 +74,7 @@ local fast_tech = {
             recipe = "fast-mineshaft-belt"
         }
     },
-    prerequisites = {"subterranean-science-pack", "logistics-2"},
+    prerequisites = {"subterranean-science-pack", "logistics-2", "mineshaft-belt" },
     unit =
     {
         count = 1000,
@@ -99,7 +99,7 @@ local express_tech = {
             recipe = "express-mineshaft-belt"
         }
     },
-    prerequisites = {"subterranean-science-pack", "logistics-3"},
+    prerequisites = {"subterranean-science-pack", "logistics-3", "fast-mineshaft-belt" },
     unit =
     {
         count = 2000,
@@ -126,7 +126,7 @@ local turbo_tech = {
             recipe = "turbo-mineshaft-belt"
         }
     },
-    prerequisites = {"subterranean-science-pack", "turbo-transport-belt"},
+    prerequisites = {"subterranean-science-pack", "turbo-transport-belt", "express-mineshaft-belt" },
     unit =
     {
         count = 5000,

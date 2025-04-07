@@ -92,17 +92,17 @@ script.on_event(defines.events.on_spider_command_completed, on_spider_command_co
 local MineshaftTargetSurfaceMappings = {
     nauvis="subterrain",
     subterrain="nauvis",
-    vulcanus="vulcanus_subterrain",
-    vulcanus_subterrain="vulcanus",
-    fulgora="fulgora_subterrain",
-    fulgora_subterrain="fulgora",
-    gleba="gleba_subterrain",
-    gleba_subterrain="gleba",
-    aquilo="aquilo_subterrain",
-    aquilo_subterrain="aquilo",
+    -- vulcanus="vulcanus_subterrain",
+    -- vulcanus_subterrain="vulcanus",
+    -- fulgora="fulgora_subterrain",
+    -- fulgora_subterrain="fulgora",
+    -- gleba="gleba_subterrain",
+    -- gleba_subterrain="gleba",
+    -- aquilo="aquilo_subterrain",
+    -- aquilo_subterrain="aquilo",
 }
 
 script.on_init(function()
-    MineshaftTargetSurfaceMappings = MineshaftTargetSurfaceMappings
-    UnlockedMineshaftTargetSurfaceMappings = {}
+    storage.MineshaftTargetSurfaceMappings = MineshaftTargetSurfaceMappings
+    storage.UnlockedMineshaftTargetSurfaceMappings = {}
 end)

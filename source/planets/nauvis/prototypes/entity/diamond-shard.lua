@@ -41,7 +41,7 @@ local tech = {
         modifier = 2
       }
     },
-    prerequisites = {"diamonds"},
+    prerequisites = { "diamonds", "steel-axe" },
     research_trigger =
     {
       type = "craft-item",

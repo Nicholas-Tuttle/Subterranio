@@ -58,7 +58,7 @@ local entity = {
     energy_source =
     {
       type = "electric",
-      buffer_capacity = "10MJ",
+      buffer_capacity = "1MJ",
       usage_priority = "primary-output",
       input_flow_limit = "0kW",
       output_flow_limit = "1MW"
@@ -82,7 +82,7 @@ local recipe = {
     type = "recipe",
     name = "geothermal-powerplant",
     enabled = false,
-    energy_requirements = 1,
+    energy_requirements = 20,
     ingredients = {
         {type = "item", name = "low-density-structure", amount = 5},
         {type = "item", name = "steel-plate", amount = 10},

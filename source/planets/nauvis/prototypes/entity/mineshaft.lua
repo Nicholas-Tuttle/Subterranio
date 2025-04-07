@@ -6,15 +6,15 @@ local mineshaft = {
     inventory_size = 1,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.5, results = {{type = "item", name = "mineshaft", amount = 1}}},
-    collision_box = {{-1.9, -1.9}, {1.9, 1.9}},
-    selection_box = {{-2, -2}, {2, 2}},
+    collision_box = {{-3.9, -3.9}, {3.9, 3.9}},
+    selection_box = {{-4, -4}, {4, 4}},
     scale_entity_info_icon = true,
     collision_mask = {layers = {["item"] = true, ["object"] = true, ["player"] = true}},
     picture = {
         filename = "__subterranio__/graphics/entity/mineshaft.png",
         width = 512,
         height = 512,
-        scale = 0.25
+        scale = 0.5
     },
     surface_conditions = {
         {
@@ -41,11 +41,11 @@ local recipe = {
     enabled = false,
     energy_requirements = 1,
     ingredients = {
-        {type = "item", name = "low-density-structure", amount = 5},
-        {type = "item", name = "steel-plate", amount = 10},
-        {type = "item", name = "concrete", amount = 10}
+        {type = "item", name = "low-density-structure", amount = 500},
+        {type = "item", name = "steel-plate", amount = 1000},
+        {type = "item", name = "concrete", amount = 1000}
     },
-    results = {{type = "item", name = "mineshaft", amount = 1}}
+    results = {{type = "item", name = "mineshaft", amount = 2}}
 }
 
 local technology = {
@@ -69,12 +69,17 @@ local technology = {
             use_icon_overlay_constant = true
         },
     },
-    prerequisites = {"low-density-structure"},
-    research_trigger =
+    prerequisites = { "low-density-structure", "concrete" },
+    unit =
     {
-      type = "craft-item",
-      item = "low-density-structure",
-      count = 10
+        count = 1000,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "chemical-science-pack", 1}
+        },
+        time = 60
     }
 }
 

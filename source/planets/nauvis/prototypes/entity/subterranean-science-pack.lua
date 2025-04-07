@@ -5,8 +5,8 @@ local constants = require("planets/nauvis/prototypes/surfaces/constants")
 local subterranean_science_item = {
     type = "tool",
     name = "subterranean-science-pack",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icon = subterrain.subterranean_science_pack_image_path,
+    icon_size = subterrain.subterranean_science_pack_image_size,
     subgroup = "science-pack",
     order = "g[subterranean-science-pack]",
     default_import_location = "nauvis",
@@ -214,6 +214,8 @@ local diamond_core_uranium_bullets = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
             { "military-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "utility-science-pack", 1 },
             { "subterranean-science-pack", 1 }
         },
         time = 60
@@ -241,6 +243,8 @@ local diamond_core_shotgun_shells = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
             { "military-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "utility-science-pack", 1 },
             { "subterranean-science-pack", 1 }
         },
         time = 60

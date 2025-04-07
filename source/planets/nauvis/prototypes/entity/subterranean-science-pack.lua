@@ -14,8 +14,7 @@ local subterranean_science_item = {
     pick_sound = item_sounds.science_inventory_pickup,
     drop_sound = item_sounds.science_inventory_move,
     stack_size = 200,
-    weight = 1*kg,
-    durability = 1
+    weight = 1*kg
 }
 
 local subterranean_science_recipe = {
@@ -54,8 +53,8 @@ local subterranean_science_recipe = {
 local subterranean_science_tech = {
     type = "technology",
     name = "subterranean-science-pack",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icon = subterrain.subterranean_science_pack_image_path,
+    icon_size = subterrain.subterranean_science_pack_image_size,
     effects =
     {
         {
@@ -76,8 +75,8 @@ local subterranean_science_tech = {
 local cliff_destroyer_tech = {
     type = "technology",
     name = "cliff-destroyer-robotics",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icon = subterrain.cliff_destroyer_port_image_path,
+    icon_size = subterrain.cliff_destroyer_port_image_size,
     effects =
     {
         {

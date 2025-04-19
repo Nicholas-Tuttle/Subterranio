@@ -10,6 +10,8 @@
     1. ~~Make diamond-tipped crushers for space platforms~~
     1. ~~Add subterranean pipes~~
     1. Make cliff destroyers drop off some resources after they visit a port
+    1. Add a pump to the mineshaft pipe recipe
+    1. Make the mineshaft belts a bit more expensive
 1. Graphics
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. Cliff destroyer objects

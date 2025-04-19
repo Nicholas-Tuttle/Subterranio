@@ -11,6 +11,7 @@ require("prototypes.entity.geothermal-power-plant")
 require("prototypes.entity.impassable-cliff")
 require("prototypes.entity.mineshaft-belt")
 require("prototypes.entity.mineshaft")
+require("prototypes.entity.mineshaft-pipe")
 require("prototypes.entity.subterranean-science-pack")
 
 require("prototypes.surfaces.diamond-ore")

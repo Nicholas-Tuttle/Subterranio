@@ -19,6 +19,7 @@ function built_mineshaft_belt(event)
     opposite_direction[defines.direction.east]=defines.direction.west
     opposite_direction[defines.direction.west]=defines.direction.east
 
+    -- TODO: If there is already a mineshaft_belt_exit on the other side, just link them
     local mineshaft_belt_exit = target_surface.create_entity{name = event.entity.name, position = position, direction = opposite_direction[direction], force = game.forces.player}
 
     mineshaft_belt_entrance.linked_belt_type = "input"
@@ -27,7 +28,6 @@ function built_mineshaft_belt(event)
 end
 
 function destroyed_mineshaft_belt(event)
-
     local position = event.entity.position
     local opposite_surface_name = storage.UnlockedMineshaftTargetSurfaceMappings[event.entity.surface.name]
     if not opposite_surface_name then

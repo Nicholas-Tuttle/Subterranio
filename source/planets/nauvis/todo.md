@@ -8,6 +8,7 @@
     1. ~~Lock mineshaft belt types behind their base belt types~~
     1. ~~Fix orderings on all new items~~
     1. ~~Make diamond-tipped crushers for space platforms~~
+    1. ~~Add subterranean pipes~~
     1. Make cliff destroyers drop off some resources after they visit a port
 1. Graphics
     1. ~~Geothermal power plant~~ huge TY to Hurricane

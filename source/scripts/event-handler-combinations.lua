@@ -17,6 +17,10 @@ local mineshaft_belt_filter = {
     "turbo-mineshaft-belt"
 }
 
+local mineshaft_pipe_filter = {
+    "mineshaft-pipe-to-ground"
+}
+
 local mineshaft_filter = {
     "mineshaft"
 }
@@ -29,6 +33,7 @@ local combined_filter = {
     {filter = "name", name = "express-mineshaft-belt"},
     {filter = "name", name = "turbo-mineshaft-belt"},
     {filter = "name", name = "mineshaft"},
+    {filter = "name", name = "mineshaft-pipe-to-ground"}
 }
 
 local function on_built(event)
@@ -47,6 +52,12 @@ local function on_built(event)
     for _, entity in pairs(mineshaft_belt_filter) do 
         if event.entity.name == entity then
             built_mineshaft_belt(event)
+        end
+    end
+
+    for _, entity in pairs(mineshaft_pipe_filter) do 
+        if event.entity.name == entity then
+            built_mineshaft_pipe(event)
         end
     end
 
@@ -76,6 +87,12 @@ local function on_destroyed(event)
     for _, entity in pairs(mineshaft_filter) do
         if event.entity.name == entity then
             destroyed_mineshaft(event)
+        end
+    end
+
+    for _, entity in pairs(mineshaft_pipe_filter) do
+        if event.entity.name == entity then
+            destroyed_mineshaft_pipe(event)
         end
     end
 end

@@ -87,10 +87,10 @@ local recipe = {
     enabled = false,
     energy_requirements = 1,
     ingredients = {
-        {type = "item", name = "pipe-to-ground", amount = 50},
+        {type = "item", name = "pipe-to-ground", amount = 10},
         {type = "item", name = "low-density-structure", amount = 20},
-        {type = "item", name = "steel-plate", amount = 10},
-        {type = "item", name = "concrete", amount = 10}
+        {type = "item", name = "steel-plate", amount = 50},
+        {type = "item", name = "pump", amount = 1}
     },
     results = {{type = "item", name = "mineshaft-pipe-to-ground", amount = 1}}
 }

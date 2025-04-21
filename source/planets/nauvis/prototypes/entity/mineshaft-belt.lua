@@ -25,10 +25,9 @@ local function create_mineshaft_belt_type(prefix, order_postfix, speed, tech)
         enabled = false,
         energy_requirements = 1,
         ingredients = {
-            {type = "item", name = prefix .. "underground-belt", amount = 10},
-            {type = "item", name = "low-density-structure", amount = 5},
-            {type = "item", name = "steel-plate", amount = 10},
-            {type = "item", name = "concrete", amount = 10}
+            {type = "item", name = prefix .. "underground-belt", amount = 20},
+            {type = "item", name = "low-density-structure", amount = 20},
+            {type = "item", name = "steel-plate", amount = 50}
         },
         results = {{type = "item", name = prefix .. "mineshaft-belt", amount = 1}}
     }

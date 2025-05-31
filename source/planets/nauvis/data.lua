@@ -2,6 +2,7 @@ require("prototypes.decoratives.decoratives-subterranian")
 
 require("prototypes.entity.big-diamond-tipped-mining-drill")
 require("prototypes.entity.cliff-destroyer-port")
+require("prototypes.entity.constants")
 require("prototypes.entity.diamond-core-piercing-shotgun-shell")
 require("prototypes.entity.diamond-core-uranium-rounds-magazine")
 require("prototypes.entity.diamond-shard")

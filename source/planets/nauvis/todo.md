@@ -16,9 +16,14 @@
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. Cliff destroyer objects
     1. Diamond-tipped drills
+        1. ~~Entity~~
+        1. Icon
     1. Diamond-tipped crushers
+        1. ~~Entity~~
+        1. Icon
     1. Diamond ore patches
     1. Diamond ammo types
+        1. Icon
     1. Cave walls
     1. Cave environment
     1. Make the mineshaft bigger and look more like a tunnel, similar to the rocket silo when empty

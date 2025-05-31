@@ -3,6 +3,17 @@ building.name = "diamond-tipped-crusher"
 building.crafting_speed = building.crafting_speed * 4
 building.minable.result = "diamond-tipped-crusher"
 
+local constants = require("constants")
+
+building.graphics_set.animation.north.layers[1].tint = constants.diamond_tint_color
+building.graphics_set.animation.north.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
+building.graphics_set.animation.east.layers[1].tint = constants.diamond_tint_color
+building.graphics_set.animation.east.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
+building.graphics_set.animation.south.layers[1].tint = constants.diamond_tint_color
+building.graphics_set.animation.south.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
+building.graphics_set.animation.west.layers[1].tint = constants.diamond_tint_color
+building.graphics_set.animation.west.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
+
 local recipe = {
     type = "recipe",
     name = "diamond-tipped-crusher",

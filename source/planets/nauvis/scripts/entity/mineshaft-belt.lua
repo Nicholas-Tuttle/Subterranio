@@ -2,7 +2,7 @@ function built_mineshaft_belt(event)
     local mineshaft_belt_entrance = event.entity
     local position = mineshaft_belt_entrance.position
     local direction = mineshaft_belt_entrance.direction
-    local opposite_surface_name = storage.UnlockedMineshaftTargetSurfaceMappings[mineshaft_belt_entrance.surface.name]
+    local opposite_surface_name = storage.MineshaftTargetSurfaceMappings[mineshaft_belt_entrance.surface.name]
 
     if not opposite_surface_name then
         return false
@@ -29,7 +29,7 @@ end
 
 function destroyed_mineshaft_belt(event)
     local position = event.entity.position
-    local opposite_surface_name = storage.UnlockedMineshaftTargetSurfaceMappings[event.entity.surface.name]
+    local opposite_surface_name = storage.MineshaftTargetSurfaceMappings[event.entity.surface.name]
     if not opposite_surface_name then
         return false
     end

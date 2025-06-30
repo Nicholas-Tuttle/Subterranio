@@ -129,7 +129,7 @@ local technology = {
             recipe = "diamond-shard"
         }
     },
-    prerequisites = {"mineshaft"},
+    prerequisites = {"tunnelling-drill-equipment"},
     research_trigger =
     {
       type = "mine-entity",

@@ -1,7 +1,7 @@
 function built_mineshaft_pipe(event)
     local mineshaft_pipe_entrance = event.entity
     local position = mineshaft_pipe_entrance.position
-    local opposite_surface_name = storage.UnlockedMineshaftTargetSurfaceMappings[mineshaft_pipe_entrance.surface.name]
+    local opposite_surface_name = storage.MineshaftTargetSurfaceMappings[mineshaft_pipe_entrance.surface.name]
 
     if not opposite_surface_name then
         return false
@@ -20,7 +20,7 @@ end
 
 function destroyed_mineshaft_pipe(event)
     local position = event.entity.position
-    local opposite_surface_name = storage.UnlockedMineshaftTargetSurfaceMappings[event.entity.surface.name]
+    local opposite_surface_name = storage.MineshaftTargetSurfaceMappings[event.entity.surface.name]
     if not opposite_surface_name then
         return false
     end

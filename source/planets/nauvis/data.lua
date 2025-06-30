@@ -11,9 +11,10 @@ require("prototypes.entity.diamond-tipped-electric-mining-drill")
 require("prototypes.entity.geothermal-power-plant")
 require("prototypes.entity.impassable-cliff")
 require("prototypes.entity.mineshaft-belt")
-require("prototypes.entity.mineshaft")
 require("prototypes.entity.mineshaft-pipe")
 require("prototypes.entity.subterranean-science-pack")
+
+require("prototypes.item.tunnelling-drill-equipment")
 
 require("prototypes.surfaces.diamond-ore")
 require("prototypes.surfaces.impassable-cliff-walls-noise-expressions")

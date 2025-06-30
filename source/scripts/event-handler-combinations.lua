@@ -1,6 +1,5 @@
 require("planets.nauvis.scripts.unit.cliff-destroyer-robot")
 require("planets.nauvis.scripts.entity.mineshaft-belt")
-require("planets.nauvis.scripts.entity.mineshaft")
 
 local cliff_destroyer_filter = {
     "cliff-destroyer-robot"
@@ -21,10 +20,6 @@ local mineshaft_pipe_filter = {
     "mineshaft-pipe-to-ground"
 }
 
-local mineshaft_filter = {
-    "mineshaft"
-}
-
 local combined_filter = {
     {filter = "name", name = "cliff-destroyer-robot"},
     {filter = "name", name = "cliff-destroyer-port"},
@@ -32,7 +27,6 @@ local combined_filter = {
     {filter = "name", name = "fast-mineshaft-belt"},
     {filter = "name", name = "express-mineshaft-belt"},
     {filter = "name", name = "turbo-mineshaft-belt"},
-    {filter = "name", name = "mineshaft"},
     {filter = "name", name = "mineshaft-pipe-to-ground"}
 }
 
@@ -60,12 +54,6 @@ local function on_built(event)
             built_mineshaft_pipe(event)
         end
     end
-
-    for _, entity in pairs(mineshaft_filter) do
-        if event.entity.name == entity then
-            built_mineshaft(event)
-        end
-    end
 end
 
 script.on_event(defines.events.on_built_entity, on_built, combined_filter)
@@ -84,12 +72,6 @@ script.on_event(defines.events.on_entity_died, on_pre_destroyed, combined_filter
 script.on_event(defines.events.on_robot_pre_mined, on_pre_destroyed, combined_filter)
 
 local function on_destroyed(event)
-    for _, entity in pairs(mineshaft_filter) do
-        if event.entity.name == entity then
-            destroyed_mineshaft(event)
-        end
-    end
-
     for _, entity in pairs(mineshaft_pipe_filter) do
         if event.entity.name == entity then
             destroyed_mineshaft_pipe(event)
@@ -109,17 +91,16 @@ script.on_event(defines.events.on_spider_command_completed, on_spider_command_co
 local MineshaftTargetSurfaceMappings = {
     nauvis="subterrain",
     subterrain="nauvis",
-    -- vulcanus="vulcanus_subterrain",
-    -- vulcanus_subterrain="vulcanus",
-    -- fulgora="fulgora_subterrain",
-    -- fulgora_subterrain="fulgora",
-    -- gleba="gleba_subterrain",
-    -- gleba_subterrain="gleba",
-    -- aquilo="aquilo_subterrain",
-    -- aquilo_subterrain="aquilo",
+    vulcanus="vulcanus_subterrain",
+    vulcanus_subterrain="vulcanus",
+    fulgora="fulgora_subterrain",
+    fulgora_subterrain="fulgora",
+    gleba="gleba_subterrain",
+    gleba_subterrain="gleba",
+    aquilo="aquilo_subterrain",
+    aquilo_subterrain="aquilo"
 }
 
 script.on_init(function()
     storage.MineshaftTargetSurfaceMappings = MineshaftTargetSurfaceMappings
-    storage.UnlockedMineshaftTargetSurfaceMappings = {}
 end)

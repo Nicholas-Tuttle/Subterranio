@@ -178,7 +178,7 @@ local diamond_tipped_crusher_tech = {
             recipe = "diamond-tipped-crusher"
         }
     },
-    prerequisites = { "space-platform", "subterranean-science-pack" },
+    prerequisites = { "space-platform", "subterranean-science-pack", "space-science-pack" },
     unit =
     {
         count = 500,

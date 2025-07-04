@@ -106,7 +106,7 @@ end
 
 subterrain.on_event("subterranean-mineshaft-player-enter", function(event)
     if storage.MineshaftTargetInfo == nil then
-        return false
+        storage.MineshaftTargetInfo = MineshaftTargetInfo
     end
 
     local player = game.get_player(event.player_index)

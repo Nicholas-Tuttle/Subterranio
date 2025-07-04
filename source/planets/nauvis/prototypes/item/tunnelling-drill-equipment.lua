@@ -50,6 +50,15 @@ local technology = {
         {
             type = "unlock-recipe",
             recipe = "tunnelling-drill-equipment"
+        },
+        {
+            type = "unlock-recipe",
+            recipe = "geothermal-powerplant"
+        },
+        {
+            type = "unlock-space-location",
+            space_location = "subterrain",
+            use_icon_overlay_constant = true
         }
     },
     prerequisites = {
@@ -61,14 +70,14 @@ local technology = {
     },
     unit =
     {
-        count = 1000,
+        count = 100,
         ingredients =
         {
             { "automation-science-pack", 1 },
             { "logistic-science-pack",   1 },
             { "chemical-science-pack",   1 }
         },
-        time = 60
+        time = 30
     }
 }
 
@@ -79,9 +88,9 @@ local recipe = {
     enabled = false,
     energy_requirements = 1,
     ingredients = {
-        { type = "item",  name = "low-density-structure", amount = 50 },
+        { type = "item",  name = "low-density-structure", amount = 20 },
         { type = "item",  name = "steel-plate",           amount = 10 },
-        { type = "item",  name = "processing-unit",       amount = 100 },
+        { type = "item",  name = "processing-unit",       amount = 20 },
         { type = "item",  name = "electric-engine-unit",  amount = 10 },
         { type = "fluid", name = "lubricant",             amount = 100 }
     },

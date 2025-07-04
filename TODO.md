@@ -12,3 +12,4 @@
 1. Make cave-wall graphics hitbox more obvious
 1. Lock Aquilo behind subterranian science
 1. Figure out quality upgrades for all new items
+1. Make dedicated controls for going up or down a level

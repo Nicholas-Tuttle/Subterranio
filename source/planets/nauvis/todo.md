@@ -16,6 +16,8 @@
         1. ~~This would make it so that each planet could have a specific tech for the first level of subterranian and each subsequent 2nd, 3rd, 4th, etc level~~
         1. ~~This would also get rid of the problem where a mineshaft can be destroyed and soft-lock a player out of moving between different subterranian layers. Assuming that if a player dies they respawn on the same surface, if not the player could die and respawn on a different surface where they maybe couldn't make a new set of armor~~
         1. ~~Should the generic drill be an item that goes in the player's armor? A downside would be limiting the drill tech behind modular armor. Each new planet-specific tech would also not want to be a new item, just a new effect on the drill item. Considering the [module armor tech](https://wiki.factorio.com/Modular_armor_(research)) is only behind 100 red and green science this seems totally fine~~
+    1. ~~Make the tunnelling drill equipment limit its available surfaces based on the techs that are unlocked~~
+    1. Split the mineshaft belt and pipe to have a specific upward/downward variant so that multi-level planets can operate. Or could this be done through a menu where the other surface is selected? It would be nice if there were only 2 surfaces if it could just assume it was going to the other one. Maybe this can be a generic "mineshaft belt" in a players inventory but once placed it replaces itself with an upward/downward variant that is not craftable? How would this work with blueprints? Maybe the upward/downward variant needs to be craftable and there would be 3 versions, the generic, the upward, and the downward
 1. Graphics
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. Cliff destroyer objects

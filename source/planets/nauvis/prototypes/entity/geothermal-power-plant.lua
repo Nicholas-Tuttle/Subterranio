@@ -58,13 +58,14 @@ local entity = {
     energy_source =
     {
       type = "electric",
-      buffer_capacity = "1MJ",
+      buffer_capacity = "100kJ",
       usage_priority = "primary-output",
       input_flow_limit = "0kW",
-      output_flow_limit = "1MW"
+      output_flow_limit = "100kW"
     },
-    energy_production = "1MW",
+    energy_production = "100kW",
     energy_usage = "0kW",
+    max_health = 400
 }
 
 local item = {

@@ -151,7 +151,7 @@ local diamond_tipped_big_drill_tech = {
         }
 
     },
-    prerequisites = {"subterranean-science-pack", "big-mining-drill"},
+    prerequisites = {"subterranean-science-pack", "big-mining-drill", "metallurgic-science-pack"},
     unit =
     {
         count = 1500,
@@ -186,9 +186,7 @@ local diamond_tipped_crusher_tech = {
         {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
-            { "military-science-pack", 1 },
             { "chemical-science-pack", 1 },
-            { "utility-science-pack", 1 },
             { "space-science-pack", 1 },
             { "subterranean-science-pack", 1 }
         },

@@ -2,7 +2,7 @@
 A Factorio mod for exploring subterranean lands
 
 ## Requirements
-* Powershell - used in build script to create a zip
+* Powershell - used in build script to extract json information and create a zip
 
 ## Credits
 Subterranio would not be possible without the help of these amazing, fantastic, incredible open source projects.

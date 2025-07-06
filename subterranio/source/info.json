@@ -1,0 +1,14 @@
+{
+	"name": "subterranio",
+	"version": "0.0.3",
+	"title": "Subterranio",
+	"author": "Nicholas Tuttle",
+	"factorio_version": "2.0",
+	"dependencies": [
+		"base",
+		"space-age >= 2.0.28",
+        "subterranio-base >= 0.0.3",
+        "subterranio-nauvis >= 0.0.3"
+	],
+	"description": "Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns"
+}

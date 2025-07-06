@@ -1,8 +1,12 @@
 @echo off
 setlocal enabledelayedexpansion
-:: Setup the name and version of the mod. Can this come from info.json?
-SET TITLE=subterranio
-SET VERSION=0.0.2
+:: Setup the name and version of the mod
+FOR /F "tokens=*" %%F IN ('powershell "select-string -Path .\source\info.json -Pattern name.* | %% { $_.Matches } | %% { $_.Value } | select-string -Pattern :.* | %% { $_.Matches } | %% { $_.Value } | select-string -Pattern [a-zA-z-_0-9]+ | %% { $_.Matches } | %% { $_.Value }"') DO (
+    SET "TITLE=%%F"
+)
+FOR /F "tokens=*" %%F IN ('powershell "select-string -Path .\source\info.json -Pattern version.*[0-9]+.[0-9]+.[0-9]+ | %% { $_.Matches } | %% { $_.Value } | select-string -Pattern '[0-9]+.[0-9]+.[0-9]+' | %% { $_.Matches } | %% { $_.Value }"') DO (
+    SET "VERSION=%%F"
+)
 SET FULL_NAME=%TITLE%_%VERSION%
 :: Make a temporary directory with the version and name, copy the relevant files to it
 :: Zip it and move to Factorio install, and then get rid of the temp directory

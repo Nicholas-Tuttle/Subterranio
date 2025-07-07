@@ -2,13 +2,14 @@ function built_mineshaft_belt(event)
     local mineshaft_belt_entrance = event.entity
     local position = mineshaft_belt_entrance.position
     local direction = mineshaft_belt_entrance.direction
-    local opposite_surface_name = storage.MineshaftTargetSurfaceMappings[mineshaft_belt_entrance.surface.name]
+    local opposite_surface_names = get_exit_surface_options(mineshaft_belt_entrance.surface.name)
 
-    if not opposite_surface_name then
+    if not opposite_surface_names or #opposite_surface_names > 1 then
+        game.print("There are 0 or >1 options for the mineshaft belt exit, bailing since handling this hasn't been implemented yet!")
         return false
     end
 
-    local target_surface = game.planets[opposite_surface_name].create_surface()
+    local target_surface = game.planets[opposite_surface_names[1]].create_surface()
     local target_position = {x = position.x, y = position.y}
     target_surface.request_to_generate_chunks(target_position, 1)
     target_surface.force_generate_chunk_requests()
@@ -19,7 +20,6 @@ function built_mineshaft_belt(event)
     opposite_direction[defines.direction.east]=defines.direction.west
     opposite_direction[defines.direction.west]=defines.direction.east
 
-    -- TODO: If there is already a mineshaft_belt_exit on the other side, just link them
     local mineshaft_belt_exit = target_surface.create_entity{name = event.entity.name, position = position, direction = opposite_direction[direction], force = game.forces.player}
 
     mineshaft_belt_entrance.linked_belt_type = "input"
@@ -28,13 +28,16 @@ function built_mineshaft_belt(event)
 end
 
 function destroyed_mineshaft_belt(event)
-    local position = event.entity.position
-    local opposite_surface_name = storage.MineshaftTargetSurfaceMappings[event.entity.surface.name]
-    if not opposite_surface_name then
+    local mineshaft_belt_entrance = event.entity
+    local position = mineshaft_belt_entrance.position
+    local opposite_surface_names = get_exit_surface_options(mineshaft_belt_entrance.surface.name)
+    
+    if not opposite_surface_names or #opposite_surface_names > 1 then
+        game.print("There are 0 or >1 options for the mineshaft belt exit, bailing since handling this hasn't been implemented yet!")
         return false
     end
 
-    local mineshaft_to_destroy = game.surfaces[opposite_surface_name].find_entity(event.entity.name, position)
+    local mineshaft_to_destroy = game.surfaces[opposite_surface_names[1]].find_entity(event.entity.name, position)
     if mineshaft_to_destroy ~= nil then
         mineshaft_to_destroy.destroy()
     end

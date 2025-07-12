@@ -381,52 +381,5 @@ data:extend{
 				tint = subterranean_rock_tint
 			}
 		}
-	},
-	{
-		name = "impassable-cave-wall",
-		type = "simple-entity",
-		flags = {"placeable-neutral", "placeable-off-grid", "not-deconstructable", "not-flammable"},
-		icon = "__space-age__/graphics/icons/huge-volcanic-rock.png",
-		subgroup = "grass",
-		order = "b[decorative]-l[rock]-f[huge-volcanic-rock]",
-		collision_mask = {
-			layers = {
-				item = true, object = true, player = true, is_object = true, is_lower_object = true
-			},
-			not_colliding_with_itself = true
-		},
-		collision_box = {{-2, -2}, {2, 2}},
-		selection_box = {{-1, -1}, {1, 1}},
-		damaged_trigger_effect = hit_effects.rock(),
-		render_layer = "object",
-		autoplace = {
-			order = "a[landscape]-c[rock]-b[big]",
-			probability_expression = "subterranean_impassable_cliffs_ridge_noise_expression"
-		},
-		dying_trigger_effect = decorative_trigger_effects.big_rock(),
-		map_color = {25, 25, 25},
-		count_as_rock_for_filtered_deconstruction = false,
-		impact_category = "stone",
-		pictures =
-		{
-			{
-				filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-16.png",
-				width =  212,
-				height =  150,
-				shift = {0.242188, -0.195312},
-				scale = 1.5,
-				tint = {.2,.2,.3}
-			}
-		},
-		resistances = {
-			{ type = "physical", percent = 100 },
-			{ type = "explosion", percent = 100 },
-			{ type = "impact", percent = 100 },
-			{ type = "fire", percent = 100 },
-			{ type = "acid", percent = 100 },
-			{ type = "poison", percent = 100 },
-			{ type = "laser", percent = 100 },
-			{ type = "electric", percent = 100 },
-		}
 	}
 }

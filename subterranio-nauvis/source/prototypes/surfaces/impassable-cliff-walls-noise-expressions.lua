@@ -55,7 +55,7 @@ local ridge_noise_function_base = {
     type = "noise-function",
     name = "subterranean_impassable_cliffs_ridge_noise",
     expression = [[
-        clamp(abs(multioctave_noise{
+        clamp(ceil(abs(multioctave_noise{
             x = x,
             y = y,
             persistence = 0.25,
@@ -64,7 +64,7 @@ local ridge_noise_function_base = {
             octaves = 2,
             input_scale = 1/30,
             output_scale = 1
-        }) - 0.2, 0.0, 1.0)
+        }) - 0.1), 0.0, 1.0)
     ]],
     parameters = {"x", "y"}
 }

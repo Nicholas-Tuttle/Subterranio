@@ -19,23 +19,25 @@ surface_gen["subterrain"] = function()
         autoplace_settings = {
             ["tile"] = {
                 settings = {
-                    ["volcanic-soil-dark"] = {},
-                    ["volcanic-soil-light"] = {},
-                    ["volcanic-ash-soil"] = {},
-                    ["volcanic-ash-flats"] = {},
-                    ["volcanic-ash-light"] = {},
-                    ["volcanic-ash-dark"] = {},
-                    ["volcanic-cracks"] = {},
-                    ["volcanic-cracks-warm"] = {},
-                    ["volcanic-folds"] = {},
-                    ["volcanic-folds-flat"] = {},
-                    ["volcanic-folds-warm"] = {},
-                    ["volcanic-pumice-stones"] = {},
-                    ["volcanic-cracks-hot"] = {},
-                    ["volcanic-jagged-ground"] = {},
-                    ["volcanic-smooth-stone"] = {},
-                    ["volcanic-smooth-stone-warm"] = {},
-                    ["volcanic-ash-cracks"] = {},
+                    -- ["volcanic-soil-dark"] = {},
+                    -- ["volcanic-soil-light"] = {},
+                    -- ["volcanic-ash-soil"] = {},
+                    -- ["volcanic-ash-flats"] = {},
+                    -- ["volcanic-ash-light"] = {},
+                    -- ["volcanic-ash-dark"] = {},
+                    -- ["volcanic-folds"] = {},
+                    -- ["volcanic-folds-flat"] = {},
+                    -- ["volcanic-folds-warm"] = {},
+                    -- ["volcanic-cracks"] = {},
+                    -- ["volcanic-cracks-warm"] = {},
+                    -- ["volcanic-cracks-hot"] = {},
+                    -- ["volcanic-pumice-stones"] = {},
+                    -- ["volcanic-jagged-ground"] = {},
+                    -- ["volcanic-smooth-stone"] = {},
+                    -- ["volcanic-smooth-stone-warm"] = {},
+                    -- ["volcanic-ash-cracks"] = {},
+                    ["cave-floor"] = {},
+                    ["cave-wall"] = {}
                 }
             },
             ["decorative"] = {
@@ -67,7 +69,6 @@ surface_gen["subterrain"] = function()
                     ["subterranean-iron-ore"] = {},
                     ["subterranean-copper-ore"] = {},
                     ["subterranean-uranium-ore"] = {},
-                    ["impassable-cave-wall"] = {},
                     ["huge-subterranean-rock"] = {},
                     ["big-subterranean-rock"] = {},
                 }
@@ -77,3 +78,12 @@ surface_gen["subterrain"] = function()
 end
 
 return surface_gen
+
+-- on_chunk_generated(event { 
+--     area :: BoundingBox
+--     position :: ChunkPosition
+--     surface :: LuaSurface
+--     name :: defines.events
+--     tick :: uint
+-- })
+-- set_tiles(tiles, correct_tiles?, remove_colliding_entities?, remove_colliding_decoratives?, raise_event?, player?, undo_index?) 

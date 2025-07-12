@@ -21,5 +21,3 @@ require("prototypes.surfaces.subterranean-surface")
 require("prototypes.tiles.cave-floor")
 require("prototypes.tiles.cave-scaffolding")
 require("prototypes.tiles.cave-wall")
-
-require("prototypes.unit.cliff-destroyer-robot")

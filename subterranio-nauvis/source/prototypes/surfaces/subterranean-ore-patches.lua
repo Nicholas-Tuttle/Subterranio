@@ -1,5 +1,5 @@
 local constants = require("constants")
-require("impassable-cliff-walls-noise-expressions")
+require("prototypes.surfaces.impassable-cliff-walls-noise-expressions")
 
 local function create_subterranean_ore(name, autoplace_richness_multiplier, min_patch_size, max_patch_size, seed)
     local resource = table.deepcopy(data.raw["resource"][name])

@@ -12,7 +12,6 @@ require("prototypes.entity.diamond-core-uranium-rounds-magazine")
 require("prototypes.entity.diamond-shard")
 require("prototypes.entity.diamond-tipped-crusher")
 require("prototypes.entity.diamond-tipped-electric-mining-drill")
-require("prototypes.entity.impassable-cliff")
 require("prototypes.entity.subterranean-science-pack")
 
 require("prototypes.surfaces.diamond-ore")

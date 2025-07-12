@@ -77,12 +77,3 @@ surface_gen["subterrain"] = function()
 end
 
 return surface_gen
-
--- on_chunk_generated(event { 
---     area :: BoundingBox
---     position :: ChunkPosition
---     surface :: LuaSurface
---     name :: defines.events
---     tick :: uint
--- })
--- set_tiles(tiles, correct_tiles?, remove_colliding_entities?, remove_colliding_decoratives?, raise_event?, player?, undo_index?) 

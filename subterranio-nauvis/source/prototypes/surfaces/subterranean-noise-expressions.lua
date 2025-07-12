@@ -1,7 +1,7 @@
 data:extend {{
     type = "noise-expression",
     name = "cave_starting_area",
-    expression = "1000"
+    expression = "300"
 }}
 
 data:extend {{

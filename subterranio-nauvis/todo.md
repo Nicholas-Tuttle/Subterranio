@@ -22,10 +22,12 @@
         1. Make it use explosives, LDS, steel, maybe some other structural item
     1. Update tips and tricks entries
     1. Update factoriopedia entries
+        1. All the subterranio basic ore entries should be removed
     1. Add homescreen simulations
     1. Add credits.txt
     1. Add user settings for resource patch size, density, etc
     1. Update release notes
+    1. Fix diamond shard recycling recipe
 1. Graphics    
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. ~~Cliff destroyer objects~~
@@ -44,3 +46,9 @@
     1. ~~Make cliff destroyers laser the walls for a moment before destroying it~~
     1. Cave scaffolding
         1. Add a little explosion sometimes when the tile is places to imitate blowing up the cave with dynamite
+    1. Mineshaft belt
+    1. Mineshaft pipe
+    1. Cave wall icon
+    1. Cave scaffolding
+        1. Entity
+        1. Icon

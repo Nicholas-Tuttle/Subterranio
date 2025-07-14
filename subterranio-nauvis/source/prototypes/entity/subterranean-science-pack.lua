@@ -76,44 +76,6 @@ local subterranean_science_tech = {
     }
 }
 
-local cliff_destroyer_tech = {
-    type = "technology",
-    name = "cliff-destroyer-robotics",
-    icon = subterrain.cliff_destroyer_port_image_path,
-    icon_size = subterrain.cliff_destroyer_port_image_size,
-    effects =
-    {
-        {
-            type = "unlock-recipe",
-            recipe = "cliff-destroyer-port"
-        },
-        {
-            type = "unlock-recipe",
-            recipe = "cliff-destroyer-robot"
-        }
-    },
-    prerequisites = {
-        "subterranean-science-pack", 
-        "construction-robotics", 
-        "logistic-robotics", 
-        "processing-unit",
-        "military-science-pack"
-    },
-    unit =
-    {
-        count = 250,
-        ingredients =
-        {
-            { "automation-science-pack", 1 },
-            { "logistic-science-pack", 1 },
-            { "military-science-pack", 1 },
-            { "chemical-science-pack", 1 },
-            { "subterranean-science-pack", 1 }
-        },
-        time = 60
-    }
-}
-
 local diamond_tipped_drill_tech = {
     type = "technology",
     name = "diamond-tipped-electric-mining-drill",

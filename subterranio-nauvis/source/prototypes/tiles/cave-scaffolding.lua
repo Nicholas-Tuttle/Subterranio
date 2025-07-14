@@ -7,7 +7,7 @@ tile.minable = {
   result = "cave-scaffolding"
 }
 tile.is_foundation = true
-tile.map_color = { 50, 50, 50 }
+tile.map_color = { 30, 30, 30 }
 
 local item = table.deepcopy(data.raw["item"]["landfill"])
 item.name = "cave-scaffolding"

@@ -18,6 +18,14 @@
         1. ~~Should the generic drill be an item that goes in the player's armor? A downside would be limiting the drill tech behind modular armor. Each new planet-specific tech would also not want to be a new item, just a new effect on the drill item. Considering the [module armor tech](https://wiki.factorio.com/Modular_armor_(research)) is only behind 100 red and green science this seems totally fine~~
     1. ~~Make the tunnelling drill equipment limit its available surfaces based on the techs that are unlocked~~
     1. ~~Delete the cliff destroyer robots, they're not great. Replace them with a new tile type similar to "out-of-map" or "empty-space" that doesn't allow anything built on it other than an "underground foundation" tile (that allows anything) to simulate replacing the walls of the cave with scaffolding that supports the ceiling. If possible, make the player not able to travel over these tiles (out-of-map does this)~~
+    1. Add cave scaffolding tech and recipe
+        1. Make it use explosives, LDS, steel, maybe some other structural item
+    1. Update tips and tricks entries
+    1. Update factoriopedia entries
+    1. Add homescreen simulations
+    1. Add credits.txt
+    1. Add user settings for resource patch size, density, etc
+    1. Update release notes
 1. Graphics    
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. ~~Cliff destroyer objects~~
@@ -34,3 +42,5 @@
     1. ~~Cave environment~~
     1. ~~Make the mineshaft bigger and look more like a tunnel, similar to the rocket silo when empty~~
     1. ~~Make cliff destroyers laser the walls for a moment before destroying it~~
+    1. Cave scaffolding
+        1. Add a little explosion sometimes when the tile is places to imitate blowing up the cave with dynamite

@@ -62,7 +62,7 @@ local recipe = {
   energy_requirements = 20,
   ingredients = {
     { type = "item", name = "landfill",           amount = 1 },
-    { type = "item", name = "steel",              amount = 2 },
+    { type = "item", name = "steel-plate",              amount = 2 },
     { type = "item", name = "low-density-structure", amount = 1 },
     { type = "item", name = "explosives",           amount = 1 },
     { type = "item", name = "heat-pipe",           amount = 1 }

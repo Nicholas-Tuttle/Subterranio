@@ -218,7 +218,6 @@ data:extend{
     subterranean_science_item, 
     subterranean_science_recipe, 
     subterranean_science_tech, 
-    cliff_destroyer_tech,
     diamond_tipped_drill_tech,
     diamond_tipped_big_drill_tech,
     diamond_tipped_crusher_tech,

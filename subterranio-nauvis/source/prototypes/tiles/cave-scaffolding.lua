@@ -20,12 +20,14 @@ item.place_as_tile =
   tile_condition = { "cave-wall" }
 }
 item.enabled = false
+item.icon = subterrain.cave_scaffolding_image_path
+item.icon_size = subterrain.cave_scaffolding_image_size
 
 local tech = {
   type = "technology",
   name = "cave-scaffolding",
-  icon = data.raw["technology"]["landfill"].icon,
-  icon_size = data.raw["technology"]["landfill"].icon_size,
+  icon = subterrain.cave_scaffolding_image_path,
+  icon_size = subterrain.cave_scaffolding_image_size,
   effects = {
     {
       type = "unlock-recipe",
@@ -58,6 +60,8 @@ local tech = {
 local recipe = {
   type = "recipe",
   name = "cave-scaffolding",
+  icon = subterrain.cave_scaffolding_image_path,
+  icon_size = subterrain.cave_scaffolding_image_size,
   enabled = false,
   energy_requirements = 20,
   ingredients = {

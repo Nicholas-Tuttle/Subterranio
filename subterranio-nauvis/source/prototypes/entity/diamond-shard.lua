@@ -26,7 +26,8 @@ local recipe = {
     energy_required = 5,
     ingredients = {{type = "item", name = "diamond-ore", amount = 1}},
     results = {{type="item", name="diamond-shard", amount=1}},
-    allow_productivity = true
+    allow_productivity = true,
+    enabled = false
 }
 
 local tech = {

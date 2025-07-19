@@ -12,13 +12,10 @@ end
 -- Don't forget that arrays are 1-indexed in Lua!
 function get_exit_surface_options(entrance_surface_name)
     local target_surface_info = storage.MineshaftTargetInfo[entrance_surface_name]
-    game.print("target_surface_info " .. #target_surface_info)
     if not target_surface_info then return nil end
     local target_surface_list = target_surface_info.target_surfaces
-    game.print("target_surface_list " .. #target_surface_list)
     if not target_surface_list then return false end
     local entrance_surface_index = get_entrance_surface_index(entrance_surface_name, target_surface_list)
-    game.print("entrance_surface_index " .. entrance_surface_index)
     if not entrance_surface_index then
         game.print("Count not find entrance_surface_index")
         return nil

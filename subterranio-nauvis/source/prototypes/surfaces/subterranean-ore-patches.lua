@@ -12,6 +12,7 @@ local function create_subterranean_ore(name, autoplace_richness_multiplier, min_
         control = "subterranean_" .. name .. "_autoplace_control",
         order = "c"
     }
+    resource.hidden_in_factoriopedia = true
 
     data:extend{
         resource,

@@ -22,7 +22,7 @@
         1. ~~Make it use explosives, LDS, steel, maybe some other structural item~~
     1. Update tips and tricks entries
     1. Update factoriopedia entries
-        1. All the subterranio basic ore entries should be removed
+        1. ~~All the subterranio basic ore entries should be removed~~
     1. Add homescreen simulations
     1. Add credits.txt
     1. Add user settings for resource patch size, density, etc

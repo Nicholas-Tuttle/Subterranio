@@ -67,44 +67,19 @@ local resource = {
         control = "diamond-ore-autoplace-control",
         order = "f"
     },
-    stage_counts = {10000, 6330, 3670, 1930, 870, 270, 100, 50},
+    stage_counts = {10000, 3000},
     stages =
     {
         sheet =
         {
-            filename = "__base__/graphics/entity/uranium-ore/uranium-ore.png",
-            tint = {0.153, 0.898, 0.9493, 1.0},
-            tint_as_overlay = true,
+            filename = subterrain.diamond_ore_resource_image_path,
             priority = "extra-high",
-            width = 128,
-            height = 128,
-            frame_count = 8,
-            variation_count = 8,
-            scale = 0.5
+            size = 64,
+            frame_count = 4,
+            variation_count = 2,
+            scale = 0.6
         }
     },
-    stages_effect =
-    {
-        sheet =
-        {
-            filename = "__base__/graphics/entity/uranium-ore/uranium-ore-glow.png",
-            tint = {0.153, 0.898, 0.9493, 1.0},
-            priority = "extra-high",
-            width = 128,
-            height = 128,
-            frame_count = 8,
-            variation_count = 8,
-            scale = 0.5,
-            blend_mode = "additive",
-            flags = {"light"}
-        }
-    },
-    effect_animation_period = 5,
-    effect_animation_period_deviation = 1,
-    effect_darkness_multiplier = 3.6,
-    min_effect_alpha = 0.2,
-    max_effect_alpha = 0.3,
-    mining_visualisation_tint = {r = 0.153, g = 0.898, b = 0.949, a = 1.000}, -- #27e5f2
     map_color = {0, 0.7, 0.7}
 }
 

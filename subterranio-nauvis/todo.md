@@ -50,4 +50,4 @@
         1. ~~Add a little explosion sometimes when the tile is places to imitate blowing up the cave with dynamite~~
     1. Mineshaft belt
     1. Mineshaft pipe
-    1. Cave wall icon
+    1. Cave wall tile icon

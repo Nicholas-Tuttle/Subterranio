@@ -1,9 +1,11 @@
+local constants = require("constants")
+
 local building = table.deepcopy(data.raw["mining-drill"]["big-mining-drill"])
 building.name = "big-diamond-tipped-mining-drill"
 building.mining_speed = building.mining_speed * 4
 building.minable.result = "big-diamond-tipped-mining-drill"
-
-local constants = require("constants")
+building.icon = nil
+building.icons = {{icon = "__space-age__/graphics/icons/big-mining-drill.png", tint = constants.diamond_tint_icon_color}}
 
 building.graphics_set.animation.north.layers[1].tint = constants.diamond_tint_color
 building.graphics_set.animation.north.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
@@ -59,7 +61,7 @@ local item = {
     subgroup = "extraction-machine",
     order = "a[items]-ca[big-mining-drill]",
     stack_size = 20,
-    icon = "__space-age__/graphics/icons/big-mining-drill.png",
+    icons = {{icon = "__space-age__/graphics/icons/big-mining-drill.png", tint = constants.diamond_tint_icon_color}},
     place_result = "big-diamond-tipped-mining-drill"
 }
 

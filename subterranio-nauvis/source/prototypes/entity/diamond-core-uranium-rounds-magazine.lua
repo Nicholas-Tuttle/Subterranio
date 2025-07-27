@@ -1,12 +1,13 @@
+local constants = require("constants")
+
 local item = table.deepcopy(data.raw["ammo"]["uranium-rounds-magazine"])
 item.name = "diamond-core-uranium-rounds-magazine"
 item.ammo_type.action.action_delivery.target_effects[2].damage.amount = item.ammo_type.action.action_delivery.target_effects[2].damage.amount * 2.5
 item.order = "a[basic-clips]-ca[diamond-tipped-uranium-rounds-magazine]"
 
-local constants = require("constants")
-
-item.pictures.layers[1].tint = constants.diamond_tint_color
-item.pictures.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
+item.pictures = nil
+item.icon = nil
+item.icons = {{icon = "__base__/graphics/icons/firearm-magazine.png", tint = constants.diamond_tint_icon_color}}
 
 local recipe = {
     type = "recipe",

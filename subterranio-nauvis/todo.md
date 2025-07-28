@@ -20,13 +20,13 @@
     1. ~~Delete the cliff destroyer robots, they're not great. Replace them with a new tile type similar to "out-of-map" or "empty-space" that doesn't allow anything built on it other than an "underground foundation" tile (that allows anything) to simulate replacing the walls of the cave with scaffolding that supports the ceiling. If possible, make the player not able to travel over these tiles (out-of-map does this)~~
     1. ~~Add cave scaffolding tech and recipe~~
         1. ~~Make it use explosives, LDS, steel, maybe some other structural item~~
+    1. ~~Add credits.txt~~
+    1. ~~Remove the subterranio basic ore entries from factoriopedia~~
     1. Update tips and tricks entries
     1. Update factoriopedia entries
-        1. ~~All the subterranio basic ore entries should be removed~~
     1. Add homescreen simulations
-    1. ~~Add credits.txt~~
     1. Add user settings for resource patch size, density, etc
-        1. Get rid of the subterranian-specific resource patch sizes, use the default ones
+    1. Remove the subterranian-specific resource patch size settings, use the default ones instead
     1. Update release notes
     1. Fix diamond shard recycling recipe
 1. Graphics    
@@ -49,6 +49,6 @@
         1. ~~Entity~~
         1. ~~Icon~~
         1. ~~Add a little explosion sometimes when the tile is places to imitate blowing up the cave with dynamite~~
-    1. Mineshaft belt
+    1. ~~Mineshaft belt~~
     1. Mineshaft pipe
     1. Cave wall tile icon

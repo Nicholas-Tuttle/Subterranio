@@ -2,18 +2,27 @@
 -- speed -> Float - speed in items per second
 -- underground_belt_ingredient -> String
 -- returns -> {object, item, recipe}
-local function create_mineshaft_belt_type(prefix, order_postfix, speed, tech)
+local function create_mineshaft_belt_type(prefix, order_postfix, speed, tech, tint)
     local object = table.deepcopy(data.raw["linked-belt"]["linked-belt"])
     object.name = prefix .. "mineshaft-belt"
     object.speed = speed / 480
     object.minable = {mining_time = 0.1, result = prefix .. "mineshaft-belt"}
+    object.allow_side_loading = true
+    object.belt_animation_set = data.raw["transport-belt"][prefix .. "transport-belt"].belt_animation_set
+    
+    object.structure.direction_in.sheet.tint = tint
+    object.structure.direction_out.sheet.tint = tint
+    object.structure.direction_in_side_loading.sheet.tint = tint
+    object.structure.direction_out_side_loading.sheet.tint = tint
+    object.structure.back_patch.sheet.tint = tint
+    object.structure.front_patch.sheet.tint = tint
 
     local item = {
         type = "item",
         name = prefix .. "mineshaft-belt",
         stack_size = 50,
         hidden = false,
-        icon = "__base__/graphics/icons/linked-belt.png",
+        icons = {{icon = "__base__/graphics/icons/linked-belt.png", tint = tint}},
         place_result = prefix .. "mineshaft-belt",
         subgroup = "belt",
         order = "d[subterranio]-" .. order_postfix,
@@ -143,7 +152,7 @@ local turbo_tech = {
     }
 }
 
-data:extend(create_mineshaft_belt_type("", "a", 15, base_tech))
-data:extend(create_mineshaft_belt_type("fast-", "b", 30, fast_tech))
-data:extend(create_mineshaft_belt_type("express-", "c", 45, express_tech))
-data:extend(create_mineshaft_belt_type("turbo-", "d", 60, turbo_tech))
+data:extend(create_mineshaft_belt_type("", "a", 15, base_tech, {0.75, 0.65, 0.15, 1}))
+data:extend(create_mineshaft_belt_type("fast-", "b", 30, fast_tech, {0.76, 0.38, 0.30, 1}))
+data:extend(create_mineshaft_belt_type("express-", "c", 45, express_tech, {0.30, 0.30, 0.68, 1}))
+data:extend(create_mineshaft_belt_type("turbo-", "d", 60, turbo_tech, {0.18, 0.65, 0.16, 1}))

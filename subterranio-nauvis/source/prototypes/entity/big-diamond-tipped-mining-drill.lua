@@ -65,4 +65,34 @@ local item = {
     place_result = "big-diamond-tipped-mining-drill"
 }
 
-data:extend{building, recipe, item}
+local tech = {
+    type = "technology",
+    name = "big-diamond-tipped-mining-drill",
+    icons = {
+        {icon = "__space-age__/graphics/technology/big-mining-drill.png", icon_size = 256, tint = constants.diamond_tint_icon_color},
+        constants.diamond_tech_overlay_icon
+    },
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "big-diamond-tipped-mining-drill"
+        }
+
+    },
+    prerequisites = {"subterranean-science-pack", "big-mining-drill", "metallurgic-science-pack"},
+    unit =
+    {
+        count = 1500,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "space-science-pack", 1},
+            { "metallurgic-science-pack", 1},
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+data:extend{building, recipe, item, tech}

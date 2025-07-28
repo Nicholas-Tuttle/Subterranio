@@ -38,4 +38,33 @@ local item = {
     order = "ea[crusher]",
 }
 
-data:extend{building, recipe, item}
+local tech = {
+    type = "technology",
+    name = "diamond-tipped-crusher",
+    icons = {
+        {icon = "__space-age__/graphics/icons/crusher.png", tint = constants.diamond_tint_icon_color},
+        constants.diamond_tech_overlay_icon
+    },
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "diamond-tipped-crusher"
+        }
+    },
+    prerequisites = { "space-platform", "subterranean-science-pack", "space-science-pack" },
+    unit =
+    {
+        count = 500,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "space-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+data:extend{building, recipe, item, tech}

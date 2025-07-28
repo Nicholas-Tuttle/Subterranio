@@ -46,11 +46,11 @@ local function create_mineshaft_belt_type(prefix, order_postfix, speed, tech, ti
     return {object, item, recipe, tech}
 end
 
+local base_tint = {0.75, 0.65, 0.15, 1}
 local base_tech = {
     type = "technology",
     name = "mineshaft-belt",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icons = {{icon = "__base__/graphics/icons/linked-belt.png", tint = base_tint}},
     effects = {
         {
             type = "unlock-recipe",
@@ -71,11 +71,11 @@ local base_tech = {
     }
 }
 
+local fast_tint = {0.76, 0.38, 0.30, 1}
 local fast_tech = {
     type = "technology",
     name = "fast-mineshaft-belt",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icons = {{icon = "__base__/graphics/icons/linked-belt.png", tint = fast_tint}},
     effects = {
         {
             type = "unlock-recipe",
@@ -96,11 +96,11 @@ local fast_tech = {
     }
 }
 
+local express_tint = {0.30, 0.30, 0.68, 1}
 local express_tech = {
     type = "technology",
     name = "express-mineshaft-belt",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icons = {{icon = "__base__/graphics/icons/linked-belt.png", tint = express_tint}},
     effects = {
         {
             type = "unlock-recipe",
@@ -123,11 +123,11 @@ local express_tech = {
     }
 }
 
+local turbo_tint = {0.18, 0.65, 0.16, 1}
 local turbo_tech = {
     type = "technology",
     name = "turbo-mineshaft-belt",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icons = {{icon = "__base__/graphics/icons/linked-belt.png", tint = turbo_tint}},
     effects = {
         {
             type = "unlock-recipe",
@@ -152,7 +152,7 @@ local turbo_tech = {
     }
 }
 
-data:extend(create_mineshaft_belt_type("", "a", 15, base_tech, {0.75, 0.65, 0.15, 1}))
-data:extend(create_mineshaft_belt_type("fast-", "b", 30, fast_tech, {0.76, 0.38, 0.30, 1}))
-data:extend(create_mineshaft_belt_type("express-", "c", 45, express_tech, {0.30, 0.30, 0.68, 1}))
-data:extend(create_mineshaft_belt_type("turbo-", "d", 60, turbo_tech, {0.18, 0.65, 0.16, 1}))
+data:extend(create_mineshaft_belt_type("", "a", 15, base_tech, base_tint))
+data:extend(create_mineshaft_belt_type("fast-", "b", 30, fast_tech, fast_tint))
+data:extend(create_mineshaft_belt_type("express-", "c", 45, express_tech, express_tint))
+data:extend(create_mineshaft_belt_type("turbo-", "d", 60, turbo_tech, turbo_tint))

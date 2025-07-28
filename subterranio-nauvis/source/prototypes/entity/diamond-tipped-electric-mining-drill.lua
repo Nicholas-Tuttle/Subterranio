@@ -65,4 +65,31 @@ local item = {
     order = "a[items]-ba[electric-mining-drill]",
 }
 
-data:extend{building, recipe, item}
+local tech = {
+    type = "technology",
+    name = "diamond-tipped-electric-mining-drill",
+    icons = {
+        {icon = "__base__/graphics/technology/electric-mining-drill.png", icon_size = 256, tint = constants.diamond_tint_icon_color},
+        constants.diamond_tech_overlay_icon
+    },
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "diamond-tipped-electric-mining-drill"
+        }
+    },
+    prerequisites = {"subterranean-science-pack", "electric-mining-drill"},
+    unit =
+    {
+        count = 250,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+data:extend{building, recipe, item, tech}

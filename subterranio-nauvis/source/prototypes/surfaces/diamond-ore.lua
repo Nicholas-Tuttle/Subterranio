@@ -16,7 +16,7 @@ local item = {
     pick_sound = item_sounds.resource_inventory_pickup,
     drop_sound = item_sounds.resource_inventory_move,
     stack_size = 50,
-    weight = 5*kg
+    weight = 5 * kg
 }
 
 local diamond_ore_noise_function = {
@@ -31,26 +31,28 @@ local diamond_ore_noise_function = {
         max_patch_size = constants.diamond_ore_max_patch_size,
         seed = constants.diamond_ore_patch_seed
     },
-    parameters = {"x", "y"}
+    parameters = { "x", "y" }
 }
 
 local resource = {
     type = "resource",
     name = "diamond-ore",
     icon = subterrain.diamond_ore_image_path,
-    flags = {"placeable-neutral"},
+    icon_size = subterrain.diamond_image_size,
+    flags = { "placeable-neutral" },
     order = "a-b-f",
     tree_removal_probability = 1.0,
     tree_removal_max_distance = 32 * 32,
     walking_sound = sounds.ore,
-    driving_sound = 
+    driving_sound =
     {
-      sound =
-      {
-        filename = "__base__/sound/driving/vehicle-surface-stone.ogg", volume = 0.8,
-        advanced_volume_control = {fades = {fade_in = {curve_type = "cosine", from = {control = 0.5, volume_percentage = 0.0}, to = {1.5, 100.0 }}}}
-      },
-      fade_ticks = 6
+        sound =
+        {
+            filename = "__base__/sound/driving/vehicle-surface-stone.ogg",
+            volume = 0.8,
+            advanced_volume_control = { fades = { fade_in = { curve_type = "cosine", from = { control = 0.5, volume_percentage = 0.0 }, to = { 1.5, 100.0 } } } }
+        },
+        fade_ticks = 6
     },
     minable =
     {
@@ -58,8 +60,8 @@ local resource = {
         mining_time = 5,
         result = "diamond-ore"
     },
-    collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
-    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    collision_box = { { -0.1, -0.1 }, { 0.1, 0.1 } },
+    selection_box = { { -0.5, -0.5 }, { 0.5, 0.5 } },
     autoplace = {
         probability_expression = "subterranean_diamond_ore_noise_expression(x, y)",
         richness_expression = "20 * (sqrt(x * x + y * y) + 2)",
@@ -67,7 +69,7 @@ local resource = {
         control = "diamond-ore-autoplace-control",
         order = "f"
     },
-    stage_counts = {10000, 3000},
+    stage_counts = { 10000, 3000 },
     stages =
     {
         sheet =
@@ -80,13 +82,13 @@ local resource = {
             scale = 0.6
         }
     },
-    map_color = {0, 0.7, 0.7}
+    map_color = { 0, 0.7, 0.7 }
 }
 
 local diamond_ore_autoplace_control = {
     type = "autoplace-control",
     name = "diamond-ore-autoplace-control",
-    localised_name = {"", "[entity=diamond-ore]", {"entity-name.diamond-ore"}},
+    localised_name = { "", "[entity=diamond-ore]", { "entity-name.diamond-ore" } },
     richness = true,
     order = "a-f",
     category = "resource"
@@ -98,17 +100,17 @@ local technology = {
     icon = subterrain.diamond_image_path,
     icon_size = subterrain.diamond_image_size,
     effects =
-        {
+    {
         {
             type = "unlock-recipe",
             recipe = "diamond-shard"
         }
     },
-    prerequisites = {"tunnelling-drill-equipment"},
+    prerequisites = { "tunnelling-drill-equipment" },
     research_trigger =
     {
-      type = "mine-entity",
-      entity = "diamond-ore"
+        type = "mine-entity",
+        entity = "diamond-ore"
     }
 }
 

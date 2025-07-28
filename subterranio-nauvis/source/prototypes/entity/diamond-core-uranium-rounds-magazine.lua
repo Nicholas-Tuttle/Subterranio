@@ -21,4 +21,35 @@ local recipe = {
     results = {{type = "item", name = "diamond-core-uranium-rounds-magazine", amount = 1}}
 }
 
-data:extend{item, recipe}
+local tech = {
+    type = "technology",
+    name = "diamond-core-uranium-rounds-magazine",
+    icons = {
+        {icon = "__base__/graphics/icons/firearm-magazine.png", tint = constants.diamond_tint_icon_color},
+        constants.diamond_tech_overlay_icon
+    },
+    effects = {
+        {
+            type = "unlock-recipe",
+            recipe = "diamond-core-uranium-rounds-magazine"
+        }
+
+    },
+    prerequisites = {"subterranean-science-pack", "uranium-ammo"},
+    unit =
+    {
+        count = 1000,
+        ingredients =
+        {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "military-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "utility-science-pack", 1 },
+            { "subterranean-science-pack", 1 }
+        },
+        time = 60
+    }
+}
+
+data:extend{item, recipe, tech}

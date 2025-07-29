@@ -22,13 +22,14 @@
         1. ~~Make it use explosives, LDS, steel, maybe some other structural item~~
     1. ~~Add credits.txt~~
     1. ~~Remove the subterranio basic ore entries from factoriopedia~~
+    1. ~~Update the subterranian-specific resource patch size settings~~
     1. Update tips and tricks entries
     1. Update factoriopedia entries
     1. Add homescreen simulations
     1. Add user settings for resource patch size, density, etc
-    1. Remove the subterranian-specific resource patch size settings, use the default ones instead
     1. Update release notes
     1. Fix diamond shard recycling recipe
+    1. Move turbo mineshaft belts and diamond tipped big mining drills to subterranio-vulcanus
 1. Graphics    
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. ~~Cliff destroyer objects~~

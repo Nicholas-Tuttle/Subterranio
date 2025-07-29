@@ -15,6 +15,12 @@ surface_gen["subterrain"] = function()
         cliff_settings = {
         },
         autoplace_controls = {
+            ["subterranean-coal-autoplace-control"] = {},
+            ["subterranean-stone-autoplace-control"] = {},
+            ["subterranean-iron-ore-autoplace-control"] = {},
+            ["subterranean-copper-ore-autoplace-control"] = {},
+            ["subterranean-uranium-ore-autoplace-control"] = {},
+            ["diamond-ore-autoplace-control"] = {}
         },
         autoplace_settings = {
             ["tile"] = {

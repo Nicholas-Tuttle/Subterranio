@@ -40,7 +40,7 @@ local resource = {
     icon = subterrain.diamond_ore_image_path,
     icon_size = subterrain.diamond_image_size,
     flags = { "placeable-neutral" },
-    order = "a-b-f",
+    order = "a-g-a",
     tree_removal_probability = 1.0,
     tree_removal_max_distance = 32 * 32,
     walking_sound = sounds.ore,
@@ -90,7 +90,7 @@ local diamond_ore_autoplace_control = {
     name = "diamond-ore-autoplace-control",
     localised_name = { "", "[entity=diamond-ore]", { "entity-name.diamond-ore" } },
     richness = true,
-    order = "a-f",
+    order = "a-g-z",
     category = "resource"
 }
 

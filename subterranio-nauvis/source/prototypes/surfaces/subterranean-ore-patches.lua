@@ -9,19 +9,22 @@ local function create_subterranean_ore(name, autoplace_richness_multiplier, min_
         probability_expression = "subterranean_" .. string.gsub(name, "-", "_") .. "_noise_expression(x, y)",
         richness_expression = autoplace_richness_multiplier .. " * (sqrt(x * x + y * y) + 2)",
         has_starting_area_placement = false,
-        control = "subterranean_" .. name .. "_autoplace_control",
-        order = "c"
+        control = "subterranean-" .. name .. "-autoplace-control",
+        order = "a-g-" .. resource.order
     }
     resource.hidden_in_factoriopedia = true
+    resource.order = "a-g-" .. resource.order
+
+    local autoplace_control = data.raw["autoplace-control"][name]
 
     data:extend{
         resource,
         {
             type = "autoplace-control",
-            name = "subterranean_" .. name .. "_autoplace_control",
+            name = "subterranean-" .. name .. "-autoplace-control",
             localised_name = {"", "[entity=" .. name .. "]", {"entity-name." .. name}},
             richness = true,
-            order = "a-f",
+            order = "a-g-" .. autoplace_control.order,
             category = "resource"
         },
         {

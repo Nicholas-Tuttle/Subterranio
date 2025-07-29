@@ -27,6 +27,9 @@
     1. Update factoriopedia entries
     1. Add homescreen simulations
     1. Add user settings for resource patch size, density, etc
+        1. Diamonds need all 3
+        1. Basic ores need frequency
+        1. Terrain generation breaks down when size is at 600%, look to re-work this
     1. Update release notes
     1. Fix diamond shard recycling recipe
     1. Move turbo mineshaft belts and diamond tipped big mining drills to subterranio-vulcanus

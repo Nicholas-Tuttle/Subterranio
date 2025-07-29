@@ -2,62 +2,44 @@ local constants = require("constants")
 require("prototypes.surfaces.impassable-cliff-walls-noise-expressions")
 
 local function create_subterranean_ore(name, autoplace_richness_multiplier, min_patch_size, max_patch_size, seed)
+    local autoplace_control_name = "subterranean-" .. name .. "-autoplace-control"
+    local surface_material_autoplace_control = data.raw["autoplace-control"][name]
+
+    -- local autoplace_frequency_setting_name = "var(control:" .. autoplace_control_name .. ":frequency)"
+    local autoplace_size_setting_name = "var(\"control:" .. autoplace_control_name .. ":size\")"
+    local autoplace_richness_setting_name = "var(\"control:" .. autoplace_control_name .. ":richness\")"
+
     local resource = table.deepcopy(data.raw["resource"][name])
     resource.name = "subterranean-" .. resource.name
     resource.localised_name = {"", "[entity=" .. name .. "]", {"entity-name." .. name}}
     resource.autoplace = {
         probability_expression = "subterranean_" .. string.gsub(name, "-", "_") .. "_noise_expression(x, y)",
-        richness_expression = autoplace_richness_multiplier .. " * (sqrt(x * x + y * y) + 2)",
+        richness_expression = autoplace_richness_multiplier .. " * (sqrt(x * x + y * y) + 2) * " .. autoplace_richness_setting_name,
         has_starting_area_placement = false,
-        control = "subterranean-" .. name .. "-autoplace-control",
+        control = autoplace_control_name,
         order = "a-g-" .. resource.order
     }
     resource.hidden_in_factoriopedia = true
     resource.order = "a-g-" .. resource.order
 
-    local autoplace_control = data.raw["autoplace-control"][name]
-
     data:extend{
         resource,
         {
             type = "autoplace-control",
-            name = "subterranean-" .. name .. "-autoplace-control",
+            name = autoplace_control_name,
             localised_name = {"", "[entity=" .. name .. "]", {"entity-name." .. name}},
             richness = true,
-            order = "a-g-" .. autoplace_control.order,
+            order = "a-g-" .. surface_material_autoplace_control.order,
             category = "resource"
-        },
-        {
-            type = "noise-function",
-            name = "subterranean_" .. string.gsub(name, "-", "_") .. "_caverns_spot_noise_expression",
-            expression = [[
-                subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size, max_patch_size)
-            ]],
-            local_expressions = {
-                min_patch_size = min_patch_size,
-                max_patch_size = max_patch_size,
-                seed = seed
-            },
-            parameters = {"x", "y"}
-        },
-        {
-            type = "noise-function",
-            name = "subterranean_" .. string.gsub(name, "-", "_") .. "_caverns_id_noise_expression",
-            expression = [[
-                subterranean_impassable_cliffs_caverns_id(x, y, seed)
-            ]],
-            local_expressions = {
-                seed = seed
-            },
-            parameters = {"x", "y"}
         },
         {
             type = "noise-function",
             name = "subterranean_" .. string.gsub(name, "-", "_") .. "_noise_expression",
             expression = [[
-                subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size, max_patch_size)
+                subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size * autoplace_size_setting, max_patch_size * autoplace_size_setting)
             ]],
             local_expressions = {
+                autoplace_size_setting = autoplace_size_setting_name,
                 min_patch_size = min_patch_size,
                 max_patch_size = max_patch_size,
                 seed = seed

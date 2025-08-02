@@ -22,6 +22,10 @@ remote.add_interface("subterranio_base", {
     --- Args:
     --- 
     --- requirements -> {
+    ---     string target_surface,
+    ---         The name of the surface that the requirements are being registered for.
+    ---         There must be a surface created with an internal id matching this.
+    ---         For example, "fulgora".
     ---     string[] target_surfaces, 
     ---         The full list of surfaces associated with this new surface.
     ---         All names must match internal ids for the surfaces. 
@@ -54,7 +58,7 @@ remote.add_interface("subterranio_base", {
             tech_requirements = requirements.tech_requirements,
             equipment_requirements = requirements.equipment_requirements
         }
-        
+
         return true
     end,
 
@@ -69,6 +73,8 @@ remote.add_interface("subterranio_base", {
     --- nil when not found, otherwise:
     --- 
     --- TargetSurfaceVisitationRequirements {
+    ---     string surface_name,
+    ---         The name of the surface retrieved
     ---     string[] target_surfaces,
     ---         The surfaces associated with this surface.
     ---         For example, ["fulgora", "fulgoran_subway"]

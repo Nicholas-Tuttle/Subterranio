@@ -3,7 +3,8 @@ script.on_init(function ()
 end)
 
 remote.add_interface("subterranio_base", {
-    --- @alias TargetSurfaceVisitationRequirements { 
+    --- @alias TargetSurfaceVisitationRequirements {
+    ---     surface_name: string,
     ---     target_surfaces: string[], 
     ---     tech_requirements: string[], 
     ---     equipment_requirements: string[] 
@@ -41,19 +42,19 @@ remote.add_interface("subterranio_base", {
     --- @param requirements TargetSurfaceVisitationRequirements
     --- @return boolean
     register_target_surface_visitation_requirements_v1 = function (requirements)
-        if requirements.target_surfaces == nil
+        if requirements.surface_name == nil
+            or requirements.target_surfaces == nil
             or requirements.tech_requirements == nil
             or requirements.equipment_requirements == nil then
                 return false
             end
 
-        for _, value in pairs(requirements.target_surfaces) do
-            storage.MineshaftTargetInfo[value] = {
-                target_surfaces = requirements.target_surfaces,
-                tech_requirements = requirements.tech_requirements,
-                equipment_requirements = requirements.equipment_requirements
-            }
-        end
+        storage.MineshaftTargetInfo[requirements.surface_name] = {
+            target_surfaces = requirements.target_surfaces,
+            tech_requirements = requirements.tech_requirements,
+            equipment_requirements = requirements.equipment_requirements
+        }
+        
         return true
     end,
 

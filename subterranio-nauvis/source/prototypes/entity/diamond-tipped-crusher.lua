@@ -8,13 +8,9 @@ building.icon = nil
 building.icons = {{icon = "__space-age__/graphics/icons/crusher.png", tint = constants.diamond_tint_icon_color}}
 
 building.graphics_set.animation.north.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.north.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
 building.graphics_set.animation.east.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.east.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
 building.graphics_set.animation.south.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.south.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
 building.graphics_set.animation.west.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.west.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
 
 local recipe = {
     type = "recipe",

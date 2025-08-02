@@ -7,41 +7,19 @@ building.minable.result = "big-diamond-tipped-mining-drill"
 building.icon = nil
 building.icons = {{icon = "__space-age__/graphics/icons/big-mining-drill.png", tint = constants.diamond_tint_icon_color}}
 
-building.graphics_set.animation.north.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.north.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
-building.graphics_set.animation.east.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.east.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
-building.graphics_set.animation.south.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.south.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
-building.graphics_set.animation.west.layers[1].tint = constants.diamond_tint_color
-building.graphics_set.animation.west.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
+building.graphics_set.working_visualisations[2].animation.layers[1].tint = constants.diamond_tint_color
 
-building.graphics_set.animation.north.layers[2].tint = constants.diamond_tint_color
-building.graphics_set.animation.north.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
-building.graphics_set.animation.east.layers[2].tint = constants.diamond_tint_color
-building.graphics_set.animation.east.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
-building.graphics_set.animation.south.layers[2].tint = constants.diamond_tint_color
-building.graphics_set.animation.south.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
-building.graphics_set.animation.west.layers[2].tint = constants.diamond_tint_color
-building.graphics_set.animation.west.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
+building.graphics_set.working_visualisations[10].north_animation.tint = constants.diamond_tint_color
+building.graphics_set.working_visualisations[10].east_animation.tint = constants.diamond_tint_color
+building.graphics_set.working_visualisations[10].south_animation.tint = constants.diamond_tint_color
+building.graphics_set.working_visualisations[10].west_animation.tint = constants.diamond_tint_color
 
-building.wet_mining_graphics_set.animation.north.layers[1].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.north.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
-building.wet_mining_graphics_set.animation.east.layers[1].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.east.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
-building.wet_mining_graphics_set.animation.south.layers[1].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.south.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
-building.wet_mining_graphics_set.animation.west.layers[1].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.west.layers[1].tint_as_overlay = constants.diamond_tint_as_overlay
+building.wet_mining_graphics_set.working_visualisations[2].animation.layers[1].tint = constants.diamond_tint_color
 
-building.wet_mining_graphics_set.animation.north.layers[2].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.north.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
-building.wet_mining_graphics_set.animation.east.layers[2].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.east.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
-building.wet_mining_graphics_set.animation.south.layers[2].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.south.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
-building.wet_mining_graphics_set.animation.west.layers[2].tint = constants.diamond_tint_color
-building.wet_mining_graphics_set.animation.west.layers[2].tint_as_overlay = constants.diamond_tint_as_overlay
+building.graphics_set.working_visualisations[11].north_animation.tint = constants.diamond_tint_color
+building.graphics_set.working_visualisations[11].east_animation.tint = constants.diamond_tint_color
+building.graphics_set.working_visualisations[11].south_animation.tint = constants.diamond_tint_color
+building.graphics_set.working_visualisations[11].west_animation.tint = constants.diamond_tint_color
 
 local recipe = {
     type = "recipe",

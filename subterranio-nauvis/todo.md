@@ -23,16 +23,11 @@
     1. ~~Add credits.txt~~
     1. ~~Remove the subterranio basic ore entries from factoriopedia~~
     1. ~~Update the subterranian-specific resource patch size settings~~
-    1. Update tips and tricks entries
-    1. Update factoriopedia entries
-    1. Add homescreen simulations
-    1. Add user settings for resource patch size, density, etc
-        1. Diamonds need all 3
-        1. Basic ores need frequency
-        1. Terrain generation breaks down when size is at 600%, look to re-work this
+    1. ~~Add user settings for resource patch size, density, etc~~
+        1. ~~Diamonds need all 3~~
+        1. ~~Basic ores need frequency~~
+        1. ~~Terrain generation breaks down when size is at 600%, look to re-work this~~
     1. Update release notes
-    1. Fix diamond shard recycling recipe
-    1. Move turbo mineshaft belts and diamond tipped big mining drills to subterranio-vulcanus
 1. Graphics    
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. ~~Cliff destroyer objects~~
@@ -55,4 +50,12 @@
         1. ~~Add a little explosion sometimes when the tile is places to imitate blowing up the cave with dynamite~~
     1. ~~Mineshaft belt~~
     1. Mineshaft pipe
+1. Long-term
+    1. Re-do a lot of the graphics to fit better with the game and the mod in general
+    1. Re-work the subterranean resource patch generation to handle huge patches better and remove the weird straight-line edges that show up
+    1. Update tips and tricks entries
+    1. Update factoriopedia entries
+    1. Add homescreen simulations
+    1. Fix diamond shard recycling recipe
+    1. Move turbo mineshaft belts and diamond tipped big mining drills to subterranio-vulcanus
     1. Cave wall tile icon

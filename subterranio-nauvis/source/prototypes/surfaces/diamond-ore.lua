@@ -19,14 +19,21 @@ local item = {
     weight = 5 * kg
 }
 
+local autoplace_control_name = "diamond-ore-autoplace-control"
+local autoplace_frequency_setting_name = "var(\"control:" .. autoplace_control_name .. ":frequency\")"
+local autoplace_size_setting_name = "var(\"control:" .. autoplace_control_name .. ":size\")"
+local autoplace_richness_setting_name = "var(\"control:" .. autoplace_control_name .. ":richness\")"
+
 local diamond_ore_noise_function = {
     type = "noise-function",
     name = "subterranean_diamond_ore_noise_expression",
     expression = [[
-        subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size, max_patch_size)
-        + subterranean_starting_area(x, y, 10)
+        subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size, max_patch_size, autoplace_size_setting, autoplace_frequency_setting)
+        + subterranean_starting_area(x, y, 10 * autoplace_size_setting)
     ]],
     local_expressions = {
+        autoplace_size_setting = autoplace_size_setting_name,
+        autoplace_frequency_setting = autoplace_frequency_setting_name,
         min_patch_size = constants.diamond_ore_min_patch_size,
         max_patch_size = constants.diamond_ore_max_patch_size,
         seed = constants.diamond_ore_patch_seed
@@ -64,7 +71,7 @@ local resource = {
     selection_box = { { -0.5, -0.5 }, { 0.5, 0.5 } },
     autoplace = {
         probability_expression = "subterranean_diamond_ore_noise_expression(x, y)",
-        richness_expression = "20 * (sqrt(x * x + y * y) + 2)",
+        richness_expression = "20 * (sqrt(x * x + y * y) + 2) * " .. autoplace_richness_setting_name,
         has_starting_area_placement = true,
         control = "diamond-ore-autoplace-control",
         order = "f"
@@ -87,7 +94,7 @@ local resource = {
 
 local diamond_ore_autoplace_control = {
     type = "autoplace-control",
-    name = "diamond-ore-autoplace-control",
+    name = autoplace_control_name,
     localised_name = { "", "[entity=diamond-ore]", { "entity-name.diamond-ore" } },
     richness = true,
     order = "a-g-z",

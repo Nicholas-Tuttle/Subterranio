@@ -118,23 +118,26 @@ local caverns_spot_noise = {
                 y = y_perturbed, 
                 seed0 = map_seed,
                 seed1 = user_seed,
-                grid_size = 200,
+                grid_size = 400,
                 distance_type = "euclidean",
                 jitter = 1
             })
         ]],
         -- Use the id to only make some of the caverns appear
-        cavern_chance = 0.2,
+        -- 0.2 at normal frequency (1.0), 0.7 at highest (6.0)
+        cavern_chance = [[
+            0.2 + 0.5 * ((autoplace_frequency_setting - 1) / (6 - 1))
+        ]],
         cavern_size_relative_to_grid_size = [[
             (subterranean_impassable_cliffs_caverns_id(x, y, user_seed) <= cavern_chance) *
             (
-                min_cavern_size + 
+                min_cavern_size * autoplace_size_setting + 
                 lerp(subterranean_impassable_cliffs_caverns_id(x, y, user_seed), 0, cavern_chance) * 
-                (max_cavern_size - min_cavern_size)
+                ((max_cavern_size - min_cavern_size) * autoplace_size_setting)
             )
         ]]
     },
-    parameters = {"x", "y", "user_seed", "min_cavern_size", "max_cavern_size"}
+    parameters = {"x", "y", "user_seed", "min_cavern_size", "max_cavern_size", "autoplace_size_setting", "autoplace_frequency_setting"}
 }
 
 -- Spawn cliff walls everywhere except the starting area,
@@ -146,38 +149,44 @@ local ridge_noise_expression_base = {
     expression = [[
         subterranean_impassable_cliffs_ridge_noise(x, y)
         * (1 - subterranean_starting_area(x, y, 150))
-        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, diamond_seed, min_diamond_cavern_size * diamond_autoplace_size_setting, max_diamond_cavern_size * diamond_autoplace_size_setting))
-        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, coal_seed, min_coal_cavern_size * coal_autoplace_size_setting, max_coal_cavern_size * coal_autoplace_size_setting))
-        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, stone_seed, min_stone_cavern_size * stone_autoplace_size_setting, max_stone_cavern_size * stone_autoplace_size_setting))
-        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, iron_seed, min_iron_cavern_size * iron_autoplace_size_setting, max_iron_cavern_size * iron_autoplace_size_setting))
-        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, copper_seed, min_copper_cavern_size * copper_autoplace_size_setting, max_copper_cavern_size * copper_autoplace_size_setting))
-        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, uranium_seed, min_uranium_cavern_size * uranium_autoplace_size_setting, max_uranium_cavern_size * uranium_autoplace_size_setting))
+        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, diamond_seed, min_diamond_cavern_size, max_diamond_cavern_size, diamond_autoplace_size_setting, diamond_autoplace_frequency_setting))
+        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, coal_seed, min_coal_cavern_size, max_coal_cavern_size, coal_autoplace_size_setting, coal_autoplace_frequency_setting))
+        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, stone_seed, min_stone_cavern_size, max_stone_cavern_size, stone_autoplace_size_setting, stone_autoplace_frequency_setting))
+        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, iron_seed, min_iron_cavern_size, max_iron_cavern_size, iron_autoplace_size_setting, iron_autoplace_frequency_setting))
+        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, copper_seed, min_copper_cavern_size, max_copper_cavern_size, copper_autoplace_size_setting, copper_autoplace_frequency_setting))
+        * (1 - subterranean_impassable_cliffs_caverns_spot_noise(x, y, uranium_seed, min_uranium_cavern_size, max_uranium_cavern_size, uranium_autoplace_size_setting, uranium_autoplace_frequency_setting))
     ]],
     local_expressions = {
         diamond_seed = constants.diamond_ore_patch_seed,
         min_diamond_cavern_size = constants.diamond_ore_min_cavern_size,
         max_diamond_cavern_size = constants.diamond_ore_max_cavern_size,
         diamond_autoplace_size_setting = "var(\"control:diamond-ore-autoplace-control:size\")",
+        diamond_autoplace_frequency_setting = "var(\"control:diamond-ore-autoplace-control:frequency\")",
         coal_seed = constants.coal_ore_patch_seed,
         min_coal_cavern_size = constants.coal_ore_min_cavern_size,
         max_coal_cavern_size = constants.coal_ore_max_cavern_size,
         coal_autoplace_size_setting = "var(\"control:subterranean-coal-autoplace-control:size\")",
+        coal_autoplace_frequency_setting = "var(\"control:subterranean-coal-autoplace-control:frequency\")",
         stone_seed = constants.stone_ore_patch_seed,
         min_stone_cavern_size = constants.stone_ore_min_cavern_size,
         max_stone_cavern_size = constants.stone_ore_max_cavern_size,
         stone_autoplace_size_setting = "var(\"control:subterranean-stone-autoplace-control:size\")",
+        stone_autoplace_frequency_setting = "var(\"control:subterranean-stone-autoplace-control:frequency\")",
         iron_seed = constants.iron_ore_patch_seed,
         min_iron_cavern_size = constants.iron_ore_min_cavern_size,
         max_iron_cavern_size = constants.iron_ore_max_cavern_size,
         iron_autoplace_size_setting = "var(\"control:subterranean-iron-ore-autoplace-control:size\")",
+        iron_autoplace_frequency_setting = "var(\"control:subterranean-iron-ore-autoplace-control:frequency\")",
         copper_seed = constants.copper_ore_patch_seed,
         min_copper_cavern_size = constants.copper_ore_min_cavern_size,
         max_copper_cavern_size = constants.copper_ore_max_cavern_size,
         copper_autoplace_size_setting = "var(\"control:subterranean-copper-ore-autoplace-control:size\")",
+        copper_autoplace_frequency_setting = "var(\"control:subterranean-copper-ore-autoplace-control:frequency\")",
         uranium_seed = constants.uranium_ore_patch_seed,
         min_uranium_cavern_size = constants.uranium_ore_min_cavern_size,
         max_uranium_cavern_size = constants.uranium_ore_max_cavern_size,
         uranium_autoplace_size_setting = "var(\"control:subterranean-uranium-ore-autoplace-control:size\")",
+        uranium_autoplace_frequency_setting = "var(\"control:subterranean-uranium-ore-autoplace-control:frequency\")",
     }
 }
 

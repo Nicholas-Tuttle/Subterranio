@@ -5,7 +5,7 @@ local function create_subterranean_ore(name, autoplace_richness_multiplier, min_
     local autoplace_control_name = "subterranean-" .. name .. "-autoplace-control"
     local surface_material_autoplace_control = data.raw["autoplace-control"][name]
 
-    -- local autoplace_frequency_setting_name = "var(control:" .. autoplace_control_name .. ":frequency)"
+    local autoplace_frequency_setting_name = "var(\"control:" .. autoplace_control_name .. ":frequency\")"
     local autoplace_size_setting_name = "var(\"control:" .. autoplace_control_name .. ":size\")"
     local autoplace_richness_setting_name = "var(\"control:" .. autoplace_control_name .. ":richness\")"
 
@@ -36,10 +36,11 @@ local function create_subterranean_ore(name, autoplace_richness_multiplier, min_
             type = "noise-function",
             name = "subterranean_" .. string.gsub(name, "-", "_") .. "_noise_expression",
             expression = [[
-                subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size * autoplace_size_setting, max_patch_size * autoplace_size_setting)
+                subterranean_impassable_cliffs_caverns_spot_noise(x, y, seed, min_patch_size, max_patch_size, autoplace_size_setting, autoplace_frequency_setting)
             ]],
             local_expressions = {
                 autoplace_size_setting = autoplace_size_setting_name,
+                autoplace_frequency_setting = autoplace_frequency_setting_name,
                 min_patch_size = min_patch_size,
                 max_patch_size = max_patch_size,
                 seed = seed

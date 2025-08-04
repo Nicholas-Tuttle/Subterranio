@@ -105,10 +105,6 @@ local function determine_mineshaft_target(player)
 end
 
 script.on_event("subterranean-mineshaft-player-enter", function(event)
-    if storage.MineshaftTargetInfo == nil then
-        storage.MineshaftTargetInfo = MineshaftTargetInfo
-    end
-
     local player = game.get_player(event.player_index)
     if not player then return false end
 

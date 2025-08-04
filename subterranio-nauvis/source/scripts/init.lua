@@ -17,6 +17,14 @@ script.on_init(function ()
     }
 
     subterrain_base_register_target_surface_visitation_requirements_v1({
+        surface_name = "nauvis",
+        target_surfaces = nauvis_surface_family,
+        tech_requirements = nauvis_tech_requirements,
+        equipment_requirements = basic_equipment_requirements
+    })
+
+    subterrain_base_register_target_surface_visitation_requirements_v1({
+        surface_name = "subterrain",
         target_surfaces = nauvis_surface_family,
         tech_requirements = nauvis_tech_requirements,
         equipment_requirements = basic_equipment_requirements

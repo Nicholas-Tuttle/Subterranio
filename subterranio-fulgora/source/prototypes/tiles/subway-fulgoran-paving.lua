@@ -1,4 +1,4 @@
-local tile = table.deepcopy(data.raw["tile"]["dirt-1"])
+local tile = table.deepcopy(data.raw["tile"]["fulgoran-paving"])
 tile.name = "subway-fulgoran-paving"
 tile.order = "z[fulgoran_subway]-a[subway-floor][subway-fulgoran-paving]"
 tile.autoplace.probability_expression = "subway_floor_noise_expression"

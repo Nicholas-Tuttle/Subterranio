@@ -10,7 +10,7 @@ script.on_init(function ()
 
     local fulgora_tech_requirements = {
         "tunnelling-drill-equipment",
-        "electrostatic-drill-equipment"
+        -- "electrostatic-drill-equipment"
     }
 
     local basic_equipment_requirements = {

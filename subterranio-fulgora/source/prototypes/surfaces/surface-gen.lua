@@ -19,33 +19,15 @@ surface_gen["fulgoran_subway"] = function()
         autoplace_settings = {
             ["tile"] = {
                 settings = {
-                    ["subway-out-of-map"] = {},
-                    ["subway-fulgoran-paving"] = {}
+                    ["subway-out-of-map"] = {}
                 }
             },
             ["decorative"] = {
                 settings = {
-                    ["fulgoran-ruin-tiny"] = {},
-                    ["fulgoran-gravewort"] = {},
-                    ["urchin-cactus"] = {},
-                    ["medium-fulgora-rock"] = {},
-                    ["small-fulgora-rock"] = {},
-                    ["tiny-fulgora-rock"] = {}
                 }
             },
             ["entity"] = {
                 settings = {
-                    ["scrap"] = {},
-                    ["fulgoran-ruin-vault"] = {},
-                    ["fulgoran-ruin-attractor"] = {},
-                    ["fulgoran-ruin-colossal"] = {},
-                    ["fulgoran-ruin-huge"] = {},
-                    ["fulgoran-ruin-big"] = {},
-                    ["fulgoran-ruin-stonehenge"] = {},
-                    ["fulgoran-ruin-medium"] = {},
-                    ["fulgoran-ruin-small"] = {},
-                    ["fulgurite"] = {},
-                    ["big-fulgora-rock"] = {}
                 }
             }
         }

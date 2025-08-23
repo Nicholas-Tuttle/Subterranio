@@ -30,11 +30,11 @@ local function can_tunnel_to_surface(player, target_surface_name)
         end
     end
 
-    if target_surface_info.required_techs_to_arrive ~= nil then
-        for i = 1, #target_surface_info.required_techs_to_arrive do
-            local tech = game.player.force.technologies[target_surface_info.required_techs_to_arrive[i]]
+    if target_surface_info.tech_requirements ~= nil then
+        for i = 1, #target_surface_info.tech_requirements do
+            local tech = player.force.technologies[target_surface_info.tech_requirements[i]]
             if tech ~= nil and not tech.researched then
-                -- game.print("required_techs_to_arrive not met")
+                -- game.print("tech_requirements not met")
                 return false
             end
         end

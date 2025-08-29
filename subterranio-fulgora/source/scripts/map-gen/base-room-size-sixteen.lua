@@ -1,4 +1,5 @@
 local food_farm = require("size-sixteen-rooms.food-farm")
+local chunk_information = require("chunk-information")
 
 local function create_tiles(bounding_box, surface, tile_name)
     local left_x = bounding_box.left_top.x
@@ -34,15 +35,15 @@ local function create_entities(bounding_box, surface)
         for j = top_y, bottom_y, 1 do
             -- Only make walls on the perimeters
             if i == left_x or i == right_x or j == top_y or j == bottom_y then
-                local entity_name = "stone-wall"
+                local entity_name = "fulgoran-wall"
                 local direction = defines.direction.east
 
                 if i % 32 == 3 or i % 32 == 4 or i % 32 == 27 or i % 32 == 28 then
-                    entity_name = "gate"
+                    entity_name = "fulgoran-gate"
                 end
 
                 if j % 32 == 3 or j % 32 == 4 or j % 32 == 27 or j % 32 == 28 then
-                    entity_name = "gate"
+                    entity_name = "fulgoran-gate"
                     direction = defines.direction.north
                 end
 
@@ -52,7 +53,8 @@ local function create_entities(bounding_box, surface)
                     position = { i, j },
                     force = "neutral",
                     create_build_effect_smoke = false,
-                    move_stuck_players = true
+                    move_stuck_players = true,
+                    raise_built = true
                 }
             end
         end
@@ -60,6 +62,22 @@ local function create_entities(bounding_box, surface)
 end
 
 local function generate_room(bounding_box, surface)
+    local chunk_data = {
+        type = "ROOM_SIZE_SIXTEEN",
+        subrooms = {}
+    }
+
+    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
+
+    -- top-left, top-right, bottom-left, bottom-right order
+
+    local empty_tiles = {}
+    math.randomseed(chunk_indices.x, chunk_indices.y)
+    for i = 1, 4, 1 do
+        local empty_tile = math.random() > 0.7
+        empty_tiles[i] = empty_tile
+    end
+
     for i = 1, 4, 1 do
         local left_x_offset = math.floor(((i - 1) % 2)) * 16
         local top_y_offset = math.floor(((i - 1) / 2)) * 16
@@ -73,18 +91,19 @@ local function generate_room(bounding_box, surface)
                 y = bounding_box.left_top.y + top_y_offset + 16
             }
         }
-        
-        if (math.random() <= 0.7) then
+
+        if (empty_tiles[i]) then
+            create_tiles(bounding_box, surface, "out-of-map")
+        else
             create_tiles(bounding_box, surface, "tutorial-grid")
             create_entities(bounding_box, surface)
             if math.random() <= 1.0 then
                 food_farm.generate(bounding_box, surface)
             end
-        else
-            create_tiles(bounding_box, surface, "out-of-map")
         end
     end
-    
+
+    chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, chunk_data)
 end
 
 return {

@@ -33,7 +33,10 @@ local function create_entities(bounding_box, surface)
     for i = left_x, right_x, 1 do
         for j = top_y, bottom_y, 1 do
             -- Only make walls on the perimeters
-            if i == left_x or i == right_x or j == top_y or j == bottom_y then
+            if (left_x == -32 and i == left_x) or
+                (right_x == 31 and i == right_x) or
+                (top_y == -32 and j == top_y) or
+                (bottom_y == 31 and j == bottom_y) then
                 local entity_name = consts.wall_entity_name
                 local direction = defines.direction.east
 
@@ -66,7 +69,7 @@ local function generate_room(bounding_box, surface)
 
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, {
-        type = consts.room_types.SIZE_32
+        type = consts.room_types.STARTING_AREA
     })
 end
 

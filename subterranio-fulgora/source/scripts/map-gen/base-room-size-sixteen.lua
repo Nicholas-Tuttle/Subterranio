@@ -32,6 +32,7 @@ local function create_entities(bounding_box, surface, entrance_position)
     local bottom_y = bounding_box.right_bottom.y - 1
     local top_y = bounding_box.left_top.y
 
+    -- TODO: Determine which gates have to be present based on current rooms and randomly roll the rest
     local gate_creation_chance = 0.65
     local create_gate_1 = math.random() <= gate_creation_chance or true
     local create_gate_2 = math.random() <= gate_creation_chance or true

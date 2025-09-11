@@ -1,11 +1,10 @@
 # SUBTERRANIO
-
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UsAw48hP)
 ### Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns
 
 ![Gameplay Video](gameplay_gif.gif)
 
 ![Gameplay](gameplay.png)
-
 ---
 
 ## New Resources! 💎
@@ -43,3 +42,6 @@ Utilize subterranean science packs to unlock new diamond-based technology!
 ### API Docs
 
 API Docs can be found in the `subterranio-base/source/scripts/init.lua` file
+
+## Credits & License 💎
+* The geothermal power plant uses graphics from Hurricane046's buildings (CC BY license)

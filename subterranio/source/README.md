@@ -2,8 +2,6 @@
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UsAw48hP)
 ### Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns
 
-![Gameplay Video](https://nicholas-tuttle.github.io/Subterranio/subterranio/source/gameplay_clip.mp4)
-
 ![Gameplay](https://nicholas-tuttle.github.io/Subterranio/subterranio/source/gameplay.png)
 ---
 

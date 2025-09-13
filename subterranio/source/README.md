@@ -3,6 +3,9 @@
 ### Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns
 
 ![Gameplay](https://nicholas-tuttle.github.io/Subterranio/subterranio/source/gameplay.png)
+
+![Gameplay Video](https://nicholas-tuttle.github.io/Subterranio/subterranio/source/subterranio_intro.mp4)
+
 ---
 
 ## New Resources! 💎

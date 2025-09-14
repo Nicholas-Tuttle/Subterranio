@@ -1,0 +1,1 @@
+require("prototypes.entity.planetary-repair-device")

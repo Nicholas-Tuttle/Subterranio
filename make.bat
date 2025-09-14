@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 echo ----- Building all mods at once
 
-SET SUB_MODS=subterranio subterranio-base subterranio-nauvis
+SET SUB_MODS=subterranio subterranio-base subterranio-nauvis subterranio-fractus
 
 FOR %%X IN (%SUB_MODS%) DO (
     echo --- Building %%X

@@ -17,7 +17,9 @@ xcopy /E source build\%FULL_NAME%
 :: wait a moment to let everything get copied
 TIMEOUT /T 1 /NOBREAK
 
-powershell Compress-Archive build\%FULL_NAME% build\%FULL_NAME%.zip
+cd build
+"%ProgramFiles%\7-Zip\7z.exe" a -tzip %FULL_NAME%.zip %FULL_NAME%
+cd ..
 :: wait a moment to make sure powershell is done
 TIMEOUT /T 1 /NOBREAK
 move /Y build\%FULL_NAME%.zip %APPDATA%\Factorio\mods

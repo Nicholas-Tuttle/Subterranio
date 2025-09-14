@@ -2,9 +2,9 @@
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UsAw48hP)
 ### Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns
 
-![Gameplay](https://nicholas-tuttle.github.io/Subterranio/subterranio/source/gameplay.png)
+![Gameplay](https://imgur.com/I3fCXLe)
 
-![Gameplay Video](https://nicholas-tuttle.github.io/Subterranio/subterranio/source/subterranio_intro.mp4)
+![Gameplay Video](https://imgur.com/e9jScOL)
 
 ---
 
@@ -13,15 +13,15 @@
 
 Mine for diamonds, crush them into shards, and grow your factory!
 
-![Diamond Image](https://nicholas-tuttle.github.io/Subterranio/subterranio-base/source/graphics/entity/diamond.png) ![Diamond Ore](https://nicholas-tuttle.github.io/Subterranio/subterranio-nauvis/source/graphics/entity/diamond-ore.png) ![Diamond Shards](https://nicholas-tuttle.github.io/Subterranio/subterranio-nauvis/source/graphics/entity/diamond-shard.png)
+![Diamond Image](https://imgur.com/HgEuHZo) ![Diamond Ore](https://imgur.com/GTs7aGQ) ![Diamond Shards](https://imgur.com/9XPleWZ)
 
 ## New Technology! 💎
 
 Utilize subterranean science packs to unlock new diamond-based technology!
 
-![Subterranean Science Packs](https://nicholas-tuttle.github.io/Subterranio/subterranio-nauvis/source/graphics/entity/subterranean-science-pack.png)
+![Subterranean Science Packs](https://imgur.com/2aep3kY)
 
-![Subterranio Tech Tree](https://nicholas-tuttle.github.io/Subterranio/subterranio/source/tech_tree.png)
+![Subterranio Tech Tree](https://imgur.com/837cjDY)
 
 * #### Tunnelling drill equipment to go between surfaces
 * #### Mineshaft belts to connect the surface and underground

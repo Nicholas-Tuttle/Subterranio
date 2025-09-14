@@ -2,9 +2,9 @@
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UsAw48hP)
 ### Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns
 
-![Gameplay](https://imgur.com/I3fCXLe)
+![Gameplay](https://imgur.com/I3fCXLe.png)
 
-![Gameplay Video](https://imgur.com/e9jScOL)
+![Gameplay Video](https://imgur.com/e9jScOL.gif)
 
 ---
 
@@ -13,15 +13,15 @@
 
 Mine for diamonds, crush them into shards, and grow your factory!
 
-![Diamond Image](https://imgur.com/HgEuHZo) ![Diamond Ore](https://imgur.com/GTs7aGQ) ![Diamond Shards](https://imgur.com/9XPleWZ)
+![Diamond Image](https://imgur.com/HgEuHZo.png) ![Diamond Ore](https://imgur.com/GTs7aGQ.png) ![Diamond Shards](https://imgur.com/9XPleWZ.png)
 
 ## New Technology! 💎
 
 Utilize subterranean science packs to unlock new diamond-based technology!
 
-![Subterranean Science Packs](https://imgur.com/2aep3kY)
+![Subterranean Science Packs](https://imgur.com/2aep3kY.png)
 
-![Subterranio Tech Tree](https://imgur.com/837cjDY)
+![Subterranio Tech Tree](https://imgur.com/837cjDY.png)
 
 * #### Tunnelling drill equipment to go between surfaces
 * #### Mineshaft belts to connect the surface and underground

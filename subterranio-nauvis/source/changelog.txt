@@ -5,6 +5,11 @@ Date: 2025-09-10
     - Initial public beta release
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
-Date: 2025-09-10
+Date: 2025-09-14
   Changes:
     - Fixed potential crash with diamond-core ammo types when loading mod
+---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Date: 2025-09-14
+  Changes:
+    - Fixed incompatibility with Factorio+ mod

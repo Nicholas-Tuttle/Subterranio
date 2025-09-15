@@ -1,2 +1,0 @@
-excludedFiles.txt
-subterranio_intro.mp4

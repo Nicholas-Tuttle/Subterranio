@@ -2,7 +2,14 @@ local constants = require("constants")
 
 local item = table.deepcopy(data.raw["ammo"]["uranium-rounds-magazine"])
 item.name = "diamond-core-uranium-rounds-magazine"
-item.ammo_type.action.action_delivery.target_effects[2].damage.amount = item.ammo_type.action.action_delivery.target_effects[2].damage.amount * 2.5
+
+if mods["factorioplus"] then
+    item.ammo_type.action.action_delivery[2].target_effects[2].damage.amount = item.ammo_type.action.action_delivery[2].target_effects[2].damage.amount * 2.5
+    item.ammo_type.action.action_delivery[2].target_effects[3].damage.amount = item.ammo_type.action.action_delivery[2].target_effects[3].damage.amount * 2.5
+else
+    item.ammo_type.action.action_delivery.target_effects[2].damage.amount = item.ammo_type.action.action_delivery.target_effects[2].damage.amount * 2.5
+end
+
 item.order = "a[basic-clips]-ca[diamond-tipped-uranium-rounds-magazine]"
 
 item.pictures = nil

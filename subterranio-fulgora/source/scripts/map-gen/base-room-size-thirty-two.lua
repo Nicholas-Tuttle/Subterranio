@@ -1,5 +1,6 @@
 local chunk_information = require("chunk-information")
 local consts = require("map-gen-constants")
+local blueprints = require("blueprints")
 
 local function create_tiles(bounding_box, surface)
     local left_x = bounding_box.left_top.x
@@ -61,8 +62,32 @@ local function create_entities(bounding_box, surface)
 end
 
 local function generate_room(bounding_box, surface)
-    create_tiles(bounding_box, surface)
-    create_entities(bounding_box, surface)
+    local keys = {
+        "rails_four_way_junction",
+        "rails_straight_up_down",
+        "rails_straight_left_right",
+        "rails_curve_bottom_right",
+        "rails_curve_bottom_left",
+        "rails_curve_top_right",
+        "rails_curve_top_left",
+        "rails_three_way_junction_sides_bottom",
+        "rails_three_way_junction_sides_top",
+        "rails_three_way_junction_ends_right",
+        "rails_three_way_junction_ends_left",
+        "rails_dead_end_top",
+        "rails_dead_end_right",
+        "rails_dead_end_bottom",
+        "rails_dead_end_left",
+        "rails_station_top",
+        "rails_station_right",
+        "rails_station_bottom",
+        "rails_station_left"
+    }
+
+    blueprints.generate(bounding_box, nil, surface, keys[math.random(#keys)])
+
+    -- create_tiles(bounding_box, surface)
+    -- create_entities(bounding_box, surface)
 
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, {

@@ -25,7 +25,8 @@ local function generate_base_rooms(next_chunk_indices, surface, entrance_positio
         math.randomseed(next_chunk_indices.x, next_chunk_indices.y)
         local grid_size_random = math.random()
         grid_size = 16
-        if grid_size_random >= 0.9 then
+        -- if grid_size_random >= 0.9 then
+        if grid_size_random >= 0 then
             grid_size = 32
         end
     else

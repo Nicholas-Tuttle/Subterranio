@@ -3,3 +3,8 @@ Version: 0.1.0
 Date: 2025-09-10
   Changes:
     - Initial public beta release
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 2025-09-14
+  Changes:
+    - Adding initial basic tips and tricks

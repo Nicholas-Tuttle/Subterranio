@@ -2,7 +2,13 @@ local constants = require("constants")
 
 local projectile = table.deepcopy(data.raw["projectile"]["piercing-shotgun-pellet"])
 projectile.name = "diamond-core-piercing-shotgun-pellet"
-projectile.action.action_delivery.target_effects.damage.amount = projectile.action.action_delivery.target_effects.damage.amount * 5
+
+if mods["factorioplus"] then
+    projectile.action.action_delivery.target_effects[1].damage.amount = projectile.action.action_delivery.target_effects[1].damage.amount * 5
+    projectile.action.action_delivery.target_effects[2].damage.amount = projectile.action.action_delivery.target_effects[2].damage.amount * 5
+else
+    projectile.action.action_delivery.target_effects.damage.amount = projectile.action.action_delivery.target_effects.damage.amount * 5
+end
 
 local item = table.deepcopy(data.raw["ammo"]["piercing-shotgun-shell"])
 item.name = "diamond-core-piercing-shotgun-shell"

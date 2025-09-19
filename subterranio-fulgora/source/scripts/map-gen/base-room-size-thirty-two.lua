@@ -84,7 +84,17 @@ local function generate_room(bounding_box, surface)
         "rails_station_left"
     }
 
-    blueprints.generate(bounding_box, nil, surface, keys[math.random(#keys)])
+    blueprints.generate(bounding_box, nil, surface, keys[math.random(#keys)], {
+        ["concrete"] = "fulgoran-rock",
+        ["refined-concrete"] = "fulgoran-sand",
+        ["refined-hazard-concrete-right"] = "fulgoran-paving",
+        ["refined-hazard-concrete-left"] = "fulgoran-paving"
+    }, {
+        ["stone-wall"] = "fulgoran-wall",
+        ["gate"] = "fulgoran-gate",
+        ["small-lamp"] = "fulgoran-lamp"
+    })
+    -- blueprints.generate(bounding_box, nil, surface, "rails_station_right")
 
     -- create_tiles(bounding_box, surface)
     -- create_entities(bounding_box, surface)

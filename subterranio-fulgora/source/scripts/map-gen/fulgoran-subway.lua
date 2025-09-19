@@ -1,20 +1,16 @@
 local base_grid = require("base-grid-filler")
 local chunk_information = require("chunk-information")
 local starting_area = require("starting-area")
-local consts = require("map-gen-constants")
+local underground_vault = require("underground-vault")
+local map_gen_constants = require("map-gen-constants")
 
 local function clear_tiles(bounding_box, surface)
-    local left_x = bounding_box.left_top.x
-    local right_x = bounding_box.right_bottom.x
-    local bottom_y = bounding_box.right_bottom.y
-    local top_y = bounding_box.left_top.y
-
     local tiles = {}
     local index = 0
-    for i = left_x, right_x - 1, 1 do
-        for j = top_y, bottom_y - 1, 1 do
+    for i = bounding_box.left_top.x, bounding_box.right_bottom.x - 1, 1 do
+        for j = bounding_box.left_top.y, bounding_box.right_bottom.y - 1, 1 do
             tiles[index] = {
-                position = {x = i, y = j},
+                position = { x = i, y = j },
                 name = "out-of-map"
             }
             index = index + 1
@@ -22,16 +18,72 @@ local function clear_tiles(bounding_box, surface)
     end
     local correct_tiles = true
     local remove_colliding_entities = true
-    local remove_colliding_decoratives = true 
+    local remove_colliding_decoratives = true
     surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
 end
 
-script.on_event(defines.events.on_chunk_generated, function (event)
-    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(event.area.left_top.x, event.area.left_top.y)
+local function generate_room(chunk_indices, surface)
+    -- Starting area gets top priority
     if ((chunk_indices.x == -1 or chunk_indices.x == 0) and (chunk_indices.y == -1 or chunk_indices.y == 0)) then
-        starting_area.generate_room(event.area, event.surface)
-    else
-        clear_tiles(event.area, event.surface)
+        return {
+            type = map_gen_constants.room_types.STARTING_AREA,
+            spawn_immediately = true,
+            spawn_room = function (spawn_bounding_box, spawn_surface)
+                starting_area.spawn_room(spawn_bounding_box, spawn_surface)
+            end
+        }
+    end
+
+    -- Fulgoran vault ruins get next priority (this might be filled in already)
+    local chunk_info = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y)
+    if chunk_info and chunk_info.type == map_gen_constants.room_types.VAULT then
+        return {
+            type = map_gen_constants.room_types.VAULT,
+            spawn_immediately = true,
+            spawn_room = function (spawn_bounding_box, spawn_surface)
+                underground_vault.spawn_room(spawn_bounding_box, spawn_surface)
+            end
+        }
+    end
+
+    -- Then check if rails must/can be made
+
+    -- Otherwise randomize between a size 32/16 room
+    return {
+        type = map_gen_constants.room_types.SIZE_32,
+        spawn_immediately = false
+    }
+end
+
+local function generate_fulgoran_underground(bounding_box, surface)
+    clear_tiles(bounding_box, surface)
+    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
+    local room = generate_room(chunk_indices, surface)
+
+    chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, room)
+
+    if (room.spawn_immediately) then
+        room.spawn_room(bounding_box, surface)
+    end
+end
+
+local function mark_fulgoran_vault_locations(bounding_box, surface)
+    if (surface.count_entities_filtered{
+        area = {{ bounding_box.left_top.x, bounding_box.left_top.y }, { bounding_box.right_bottom.x, bounding_box.right_bottom.y }},
+        name = "fulgoran-ruin-vault"
+    } >= 1) then
+        local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
+        chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, {
+            type = map_gen_constants.room_types.VAULT
+        })
+    end
+end
+
+script.on_event(defines.events.on_chunk_generated, function(event)
+    if event.surface.name == "fulgoran_subway" then
+        generate_fulgoran_underground(event.area, event.surface)
+    elseif event.surface.name == "fulgora" then
+        mark_fulgoran_vault_locations(event.area, event.surface)
     end
 end)
 

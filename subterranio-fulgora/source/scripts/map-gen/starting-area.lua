@@ -64,15 +64,18 @@ local function create_entities(bounding_box, surface)
 end
 
 local function generate_room(bounding_box, surface)
-    create_tiles(bounding_box, surface)
-    create_entities(bounding_box, surface)
-
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, {
         type = consts.room_types.STARTING_AREA
     })
 end
 
+local function spawn_room(bounding_box, surface)
+    create_tiles(bounding_box, surface)
+    create_entities(bounding_box, surface)
+end
+
 return {
-    generate_room = generate_room
+    generate_room = generate_room,
+    spawn_room = spawn_room
 }

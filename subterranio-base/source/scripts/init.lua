@@ -1,5 +1,6 @@
 script.on_init(function ()
     storage.MineshaftTargetInfo = {}
+    storage.PreTunnellingDrillUsageFunction = {}
 end)
 
 remote.add_interface("subterranio_base", {
@@ -100,6 +101,31 @@ remote.add_interface("subterranio_base", {
             target_surfaces = requirements.target_surfaces,
             tech_requirements = requirements.tech_requirements,
             equipment_requirements = requirements.equipment_requirements
+        }
+    end,
+
+    --- Registers a callback to invoke before the player begins tunnelling to a target surface. This will
+    --- be called before determining the final position that the player lands after tunnelling. This can
+    --- be used to modify the terrain or perform other operations on the target surface. 
+    --- 
+    --- ```
+    --- Args:
+    --- mod_name -> string
+    ---     The name of the mod that needs its callback invoked
+    --- callback_name -> PreTunnellingDrillUsageFunction
+    ---     The name of the callback to invoke
+    ---     The callback itself must be a function(target_surface_name: string, target_position: { x: number, y: number })
+    --- 
+    --- @param mod_name string
+    --- @param callback_name string
+    register_pre_tunnelling_drill_usage_function_v1 = function (mod_name, callback_name)
+        if mod_name == nil or callback_name == nil then
+            return
+        end
+
+        storage.PreTunnellingDrillUsageFunction[ #storage.PreTunnellingDrillUsageFunction + 1 ] = {
+            mod_name = mod_name,
+            callback_name = callback_name
         }
     end
 })

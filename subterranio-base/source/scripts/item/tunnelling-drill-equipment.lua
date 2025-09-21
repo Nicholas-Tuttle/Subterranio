@@ -99,6 +99,10 @@ local function determine_mineshaft_target(player)
     target_surface.request_to_generate_chunks(target_position, 1)
     target_surface.force_generate_chunk_requests()
 
+    for _, value in pairs(storage.PreTunnellingDrillUsageFunction) do
+        remote.call(value.mod_name, value.callback_name, target_surface.name, target_position)
+    end
+
     target_position = target_surface.find_non_colliding_position(player.character.name, target_position, 100, 0.5, false)
     if not target_position then return nil end
     return target_surface, target_position

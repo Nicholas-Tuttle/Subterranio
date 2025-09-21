@@ -47,6 +47,13 @@ local function bounding_box_from_chunk_indices(chunk_indices)
     }
 end
 
+script.on_event(defines.events.on_pre_surface_deleted, function (event)
+    if storage.subterranio_fulgora and storage.subterranio_fulgora.surface_info then
+        local surface_name = game.surfaces[event.surface_index].name
+        storage.subterranio_fulgora.surface_info[surface_name] = nil
+    end
+end)
+
 return {
     get_chunk_data = get_chunk_data,
     set_chunk_data = set_chunk_data,

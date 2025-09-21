@@ -24,6 +24,7 @@ local planet = subterrain.merge(data.raw.planet.fulgora, {
     orientation = 0.295, -- Nauvis is 0.275
     auto_save_on_first_trip = false,
     asteroid_spawn_definitions = "nil",
+    lightning_properties = "nil"
 })
 
 data:extend{planet}

@@ -1,5 +1,4 @@
-local chunk_information = require("chunk-information")
-local consts = require("map-gen-constants")
+local consts = require("scripts.map-gen.map-gen-constants")
 
 local function create_tiles(bounding_box, surface)
     local left_x = bounding_box.left_top.x
@@ -13,7 +12,7 @@ local function create_tiles(bounding_box, surface)
         for j = top_y, bottom_y - 1, 1 do
             tiles[index] = {
                 position = {x = i, y = j},
-                name = "tutorial-grid"
+                name = "fulgoran-paving"
             }
             index = index + 1
         end
@@ -33,10 +32,7 @@ local function create_entities(bounding_box, surface)
     for i = left_x, right_x, 1 do
         for j = top_y, bottom_y, 1 do
             -- Only make walls on the perimeters
-            if (left_x == -32 and i == left_x) or
-                (right_x == 31 and i == right_x) or
-                (top_y == -32 and j == top_y) or
-                (bottom_y == 31 and j == bottom_y) then
+            if i == left_x or i == right_x or j == top_y or j == bottom_y then
                 local entity_name = consts.wall_entity_name
                 local direction = defines.direction.east
 
@@ -63,16 +59,16 @@ local function create_entities(bounding_box, surface)
     end
 end
 
-local function generate_room(bounding_box, surface)
-    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
-    chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, {
-        type = consts.room_types.STARTING_AREA
-    })
-end
-
 local function spawn_room(bounding_box, surface)
     create_tiles(bounding_box, surface)
     create_entities(bounding_box, surface)
+end
+
+local function generate_room()
+    return {
+        type = consts.room_types.VAULT,
+        spawn_on_connection = true
+    }
 end
 
 return {

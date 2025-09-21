@@ -1,52 +1,63 @@
-local base_room_16 = require("base-room-size-sixteen")
+local starting_area = require("rooms.starting-area")
+local underground_vault = require("rooms.underground-vault")
 local base_room_32 = require("base-room-size-thirty-two")
 local chunk_information = require("chunk-information")
-local consts = require("map-gen-constants")
+local consts = require("scripts.map-gen.map-gen-constants")
 
-local function generate_base_rooms(next_chunk_indices, surface, entrance_position)
-    -- game.print("Generating base room at chunk indices: " .. serpent.line(next_chunk_indices))
-
-    local chunk_info = chunk_information.get_chunk_data(surface.name, next_chunk_indices.x, next_chunk_indices.y)
-
-    -- game.print("Chunk info: " .. serpent.line(chunk_info))
-
-    if chunk_info ~= nil then
-        if chunk_info.type == consts.room_types.STARTING_AREA or chunk_info.type == consts.room_types.SIZE_32 then
-            return
-        elseif not base_room_16.new_room_needed(surface, next_chunk_indices, entrance_position) then
-            return
-        end
-    end
-
-    -- game.print("Chunk info is nil, creating a new chunk")
-
-    local grid_size = 0
-    if (chunk_info == nil) then
-        math.randomseed(next_chunk_indices.x, next_chunk_indices.y)
-        local grid_size_random = math.random()
-        grid_size = 16
-        -- if grid_size_random >= 0.9 then
-        if grid_size_random >= 0 then
-            grid_size = 32
-        end
-    else
-        if (chunk_info.type == consts.room_types.SIZE_16) then
-            grid_size = 16
-        elseif (chunk_info.type == consts.room_types.SIZE_32 or chunk_info.type == consts.room_types.STARTING_AREA) then
-            grid_size = 32
+local function spawn_room(surface, chunk_indices)
+    local chunks_to_spawn = {chunk_indices}
+    local index = 1
+    local max_index = index + 1
+    while index < max_index do
+        local indices = chunks_to_spawn[index]
+        if indices ~= nil then
+            local room = chunk_information.get_chunk_data(surface.name, indices.x, indices.y)
+            if room ~= nil and room.type ~= nil and not room.spawned then
+                local bounding_box = chunk_information.bounding_box_from_chunk_indices(indices)
+                if room.type == consts.room_types.STARTING_AREA then
+                    starting_area.spawn_room(bounding_box, surface)
+                elseif room.type == consts.room_types.VAULT then
+                    -- game.print("Spawning underground vault at " .. serpent.line(bounding_box))
+                    underground_vault.spawn_room(bounding_box, surface)
+                elseif room.type == consts.room_types.SIZE_32 then
+                    base_room_32.spawn_room(bounding_box, surface)
+                else
+                    game.print("Would have spawned a rail or some other room")
+                end
+    
+                room.spawned = true
+    
+                chunk_information.set_chunk_data(surface.name, indices.x, indices.y, room)
+    
+                if (room.right_side_open) then
+                    game.print("Spawning right side chunk for origin " .. serpent.line(indices))
+                    chunks_to_spawn[max_index] = { x = indices.x + 1, y = indices.y }
+                    max_index = max_index + 1
+                end
+                if (room.left_side_open) then
+                    game.print("Spawning left side chunk for origin " .. serpent.line(indices))
+                    chunks_to_spawn[max_index] = { x = indices.x - 1, y = indices.y }
+                    max_index = max_index + 1
+                end
+                if (room.top_side_open) then
+                    game.print("Spawning top side chunk for origin " .. serpent.line(indices))
+                    chunks_to_spawn[max_index] = { x = indices.x, y = indices.y - 1 }
+                    max_index = max_index + 1
+                end
+                if (room.bottom_side_open) then
+                    game.print("Spawning bottom side chunk for origin " .. serpent.line(indices))
+                    chunks_to_spawn[max_index] = { x = indices.x, y = indices.y + 1 }
+                    max_index = max_index + 1
+                end
+            end
         else
-            game.print("ERROR - trying to generate a room in a pre-existing chunk for an unknown size")
+            game.print("Chunk indices at index " .. index .. " was nil")
         end
-    end
 
-    if grid_size == 32 then
-        local chunk_bounding_box = chunk_information.bounding_box_from_chunk_indices(next_chunk_indices)
-        base_room_32.generate_room(chunk_bounding_box, surface)
-    elseif grid_size == 16 then
-        base_room_16.generate_room(next_chunk_indices, surface, entrance_position)
+        index = index + 1
     end
 end
 
 return {
-    generate_base_rooms = generate_base_rooms
+    spawn_room = spawn_room
 }

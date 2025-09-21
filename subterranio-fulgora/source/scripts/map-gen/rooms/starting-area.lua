@@ -32,7 +32,10 @@ local function create_entities(bounding_box, surface)
     for i = left_x, right_x, 1 do
         for j = top_y, bottom_y, 1 do
             -- Only make walls on the perimeters
-            if i == left_x or i == right_x or j == top_y or j == bottom_y then
+            if (left_x == -32 and i == left_x) or
+                (right_x == 31 and i == right_x) or
+                (top_y == -32 and j == top_y) or
+                (bottom_y == 31 and j == bottom_y) then
                 local entity_name = consts.wall_entity_name
                 local direction = defines.direction.east
 
@@ -64,10 +67,31 @@ local function spawn_room(bounding_box, surface)
     create_entities(bounding_box, surface)
 end
 
-local function generate_room()
+local function generate_room(chunk_indices)
+    local right_side_open = false
+    local left_side_open = false
+    local bottom_side_open = false
+    local top_side_open = false
+
+    if chunk_indices.x < 0 then
+        right_side_open = true
+    else
+        left_side_open = true
+    end
+
+    if chunk_indices.y < 0 then
+        bottom_side_open = true
+    else
+        top_side_open = true
+    end
+
     return {
-        type = consts.room_types.SIZE_32,
-        spawn_on_connection = true
+        type = consts.room_types.STARTING_AREA,
+        spawn_on_connection = true,
+        right_side_open = right_side_open,
+        left_side_open = left_side_open,
+        bottom_side_open = bottom_side_open,
+        top_side_open = top_side_open
     }
 end
 

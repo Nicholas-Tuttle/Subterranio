@@ -64,7 +64,7 @@ local rail_subtypes = {
 
 local function spawn_room(bounding_box, surface)
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
-    local room = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y)
+    local room = chunk_information.get_chunk_data(chunk_indices)
     if room == nil or room.subtype == nil then
         game.print("Could not retrieve underground rail information to spawn room")
         return
@@ -387,10 +387,10 @@ local function generate_room(chunk_indices, surface)
     -- If possible, have at least 1 exit
     -- At most, have 3 exits unless there are 4 incoming rails, then 4
 
-    local left_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x - 1, chunk_indices.y)
-    local right_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x + 1, chunk_indices.y)
-    local top_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y - 1)
-    local bottom_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y + 1)
+    local left_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y})
+    local right_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y})
+    local top_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
+    local bottom_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1})
 
     local left_chunk_subtype = left_chunk and left_chunk.type and left_chunk.type == consts.room_types.RAILWAY and left_chunk.subtype or nil
     local right_chunk_subtype = right_chunk and right_chunk.type and right_chunk.type == consts.room_types.RAILWAY and right_chunk.subtype or nil
@@ -450,7 +450,7 @@ local function generate_room(chunk_indices, surface)
                 bottom_chunk_is_connected_non_rail))
         end
 
-        chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, rails)
+        chunk_information.set_chunk_data(chunk_indices, rails)
         return rails
     end
 
@@ -473,7 +473,7 @@ local function generate_room(chunk_indices, surface)
         right_chunk_is_connected_non_rail,
         top_chunk_is_connected_non_rail,
         bottom_chunk_is_connected_non_rail))
-    chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, rails)
+    chunk_information.set_chunk_data(chunk_indices, rails)
     return rails
 end
 

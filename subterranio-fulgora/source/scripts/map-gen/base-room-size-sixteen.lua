@@ -115,7 +115,7 @@ end
 
 local function generate_room(chunk_indices, surface, entrance_position)
     local chunk_bounding_box = chunk_information.bounding_box_from_chunk_indices(chunk_indices)
-    local chunk_data = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y)
+    local chunk_data = chunk_information.get_chunk_data(chunk_indices)
     if (chunk_data == nil) then
         chunk_data = {
             type = consts.room_types.SIZE_16,
@@ -157,11 +157,11 @@ local function generate_room(chunk_indices, surface, entrance_position)
     end
 
     chunk_data.subrooms[destination_room_name] = {}
-    chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, chunk_data)
+    chunk_information.set_chunk_data(chunk_indices, chunk_data)
 end
 
 local function new_room_needed(surface, next_chunk_indices, entrance_position)
-    local chunk_data = chunk_information.get_chunk_data(surface.name, next_chunk_indices.x, next_chunk_indices.y)
+    local chunk_data = chunk_information.get_chunk_data(next_chunk_indices)
     if (chunk_data == nil) then
         return true
     end

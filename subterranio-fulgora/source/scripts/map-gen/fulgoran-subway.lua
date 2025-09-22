@@ -31,7 +31,7 @@ local function generate_room(chunk_indices, surface)
     end
 
     -- Fulgoran vault ruins get next priority (this might be filled in already)
-    local chunk_info = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y)
+    local chunk_info = chunk_information.get_chunk_data(chunk_indices)
     if chunk_info and chunk_info.type == map_gen_constants.room_types.VAULT then
         return underground_vault.generate_room()
     end
@@ -47,12 +47,13 @@ local function generate_room(chunk_indices, surface)
 end
 
 local function spawn_room_if_needed(chunk_indices, surface)
-    local left_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x - 1, chunk_indices.y)
-    local right_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x + 1, chunk_indices.y)
-    local top_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y - 1)
-    local bottom_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y + 1)
+    local left_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y})
+    local right_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y})
+    local top_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
+    local bottom_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1})
 
-    if (left_chunk and left_chunk.right_side_open) or (right_chunk and right_chunk.left_side_open) or (top_chunk and top_chunk.bottom_side_open) or (bottom_chunk and bottom_chunk.top_side_open) then
+    if (left_chunk and left_chunk.right_side_open and left_chunk.spawned) or (right_chunk and right_chunk.left_side_open and right_chunk.spawned) or
+    (top_chunk and top_chunk.bottom_side_open and top_chunk.spawned) or (bottom_chunk and bottom_chunk.top_side_open and bottom_chunk.spawned) then
         base_grid_filler.spawn_room(surface, chunk_indices)
     end
 end
@@ -62,7 +63,7 @@ local function generate_fulgoran_underground(bounding_box, surface)
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     local room = generate_room(chunk_indices, surface)
     spawn_room_if_needed(chunk_indices, surface)
-    chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, room)
+    chunk_information.set_chunk_data(chunk_indices, room)
 end
 
 local function mark_fulgoran_vault_locations(bounding_box, surface)
@@ -72,7 +73,7 @@ local function mark_fulgoran_vault_locations(bounding_box, surface)
         name = "fulgoran-ruin-vault"
     } >= 1) then
         local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
-        chunk_information.set_chunk_data("fulgoran_subway", chunk_indices.x, chunk_indices.y, {
+        chunk_information.set_chunk_data(chunk_indices, {
             type = map_gen_constants.room_types.VAULT
         })
     end
@@ -135,7 +136,7 @@ script.on_event(defines.events.on_entity_died, function (event)
         return
     end
 
-    local room = chunk_information.get_chunk_data(event.entity.surface.name, chunk_indices.x, chunk_indices.y)
+    local room = chunk_information.get_chunk_data(chunk_indices)
     if (room ~= nil) then
         if (next_chunk_indices.x > chunk_indices.x) then
             room.right_side_open = true

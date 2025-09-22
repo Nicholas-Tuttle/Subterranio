@@ -12,7 +12,7 @@ local function spawn_room(surface, chunk_indices)
     while index < max_index do
         local indices = chunks_to_spawn[index]
         if indices ~= nil then
-            local room = chunk_information.get_chunk_data(surface.name, indices.x, indices.y)
+            local room = chunk_information.get_chunk_data(indices)
             -- game.print(serpent.block(room))
             if room ~= nil and room.type ~= nil and (room.spawned == nil or not room.spawned) then
                 local bounding_box = chunk_information.bounding_box_from_chunk_indices(indices)
@@ -53,7 +53,7 @@ local function spawn_room(surface, chunk_indices)
                 end
 
                 room.spawned = true
-                chunk_information.set_chunk_data(surface.name, indices.x, indices.y, room)
+                chunk_information.set_chunk_data(indices, room)
             else
                 -- game.print("Skipping room at indices ".. serpent.line(indices) .." spawn: " .. (room and serpent.line(room) or "nil"))
             end

@@ -1,30 +1,30 @@
-local function set_chunk_data(surface_name, x, y, data)
-    if (storage.subterranio_fulgora == nil) then
-        storage.subterranio_fulgora = {}
+local function set_chunk_data(chunk_indices, data)
+    if (storage == nil) then
+        storage = {}
     end
 
-    if (storage.subterranio_fulgora.surface_info == nil) then
-        storage.subterranio_fulgora.surface_info = {}
+    if (storage.surface_info == nil) then
+        storage.surface_info = {}
     end
 
-    if (storage.subterranio_fulgora.surface_info[surface_name] == nil) then
-        storage.subterranio_fulgora.surface_info[surface_name] = {}
+    if (storage.surface_info == nil) then
+        storage.surface_info = {}
     end
 
-    if (storage.subterranio_fulgora.surface_info[surface_name][x] == nil) then
-        storage.subterranio_fulgora.surface_info[surface_name][x] = {}
+    if (storage.surface_info[chunk_indices.x] == nil) then
+        storage.surface_info[chunk_indices.x] = {}
     end
 
-    storage.subterranio_fulgora.surface_info[surface_name][x][y] = data
+    storage.surface_info[chunk_indices.x][chunk_indices.y] = data
 end
 
-local function get_chunk_data(surface_name, x, y)
-    if storage == nil or storage.subterranio_fulgora == nil or storage.subterranio_fulgora.surface_info == nil or 
-    storage.subterranio_fulgora.surface_info[surface_name] == nil or storage.subterranio_fulgora.surface_info[surface_name][x] == nil then
+local function get_chunk_data(chunk_indices)
+    if storage == nil or storage == nil or storage.surface_info == nil or
+    storage.surface_info == nil or storage.surface_info[chunk_indices.x] == nil then
         return nil
     end
 
-    return storage.subterranio_fulgora.surface_info[surface_name][x][y]
+    return storage.surface_info[chunk_indices.x][chunk_indices.y]
 end
 
 local function chunk_indices_from_raw_coordinates(raw_x, raw_y)
@@ -48,9 +48,11 @@ local function bounding_box_from_chunk_indices(chunk_indices)
 end
 
 script.on_event(defines.events.on_pre_surface_deleted, function (event)
-    if storage.subterranio_fulgora and storage.subterranio_fulgora.surface_info then
+    if storage and storage.surface_info then
         local surface_name = game.surfaces[event.surface_index].name
-        storage.subterranio_fulgora.surface_info[surface_name] = nil
+        if surface_name == "fulgoran_subway" then
+            storage.surface_info = nil
+        end
     end
 end)
 

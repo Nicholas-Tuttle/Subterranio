@@ -66,8 +66,7 @@ end
 
 local function generate_room()
     return {
-        type = consts.room_types.VAULT,
-        spawn_on_connection = true
+        type = consts.room_types.VAULT
     }
 end
 

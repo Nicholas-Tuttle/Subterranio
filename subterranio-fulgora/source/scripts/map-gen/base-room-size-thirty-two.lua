@@ -66,8 +66,7 @@ end
 
 local function generate_room()
     return {
-        type = consts.room_types.SIZE_32,
-        spawn_on_connection = true
+        type = consts.room_types.SIZE_32
     }
 end
 

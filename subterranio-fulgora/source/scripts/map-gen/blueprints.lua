@@ -131,7 +131,8 @@ for _, value in pairs(blueprints) do
     end
 end
 
-local function generate(bounding_box, offset, surface, blueprint_name, tile_replacements, entity_replacements)
+-- local function generate(bounding_box, offset, surface, blueprint_name, tile_replacements, entity_replacements)
+local function generate(bounding_box, surface, blueprint_name, tile_replacements, entity_replacements)
     local left_x = bounding_box.left_top.x
     local top_y = bounding_box.left_top.y
 
@@ -144,6 +145,7 @@ local function generate(bounding_box, offset, surface, blueprint_name, tile_repl
     -- log(serpent.line(blueprint))
 
     if blueprint == nil then
+        game.print("Cannot generate blueprint with name " .. blueprint_name)
         return
     end
 
@@ -152,7 +154,10 @@ local function generate(bounding_box, offset, surface, blueprint_name, tile_repl
 
     for index, tile in ipairs(blueprint.blueprint.tiles) do
         tiles[index] = {
-            position = { x = tile.position.x + left_x + (offset and offset.x or 0), y = tile.position.y + top_y + (offset and offset.y or 0) },
+            position = { 
+                x = tile.position.x + left_x, -- + (offset and offset.x or 0),
+                y = tile.position.y + top_y, -- + (offset and offset.y or 0)
+            },
             name = tile_replacements and tile_replacements[tile.name] or tile.name
         }
     end
@@ -163,7 +168,10 @@ local function generate(bounding_box, offset, surface, blueprint_name, tile_repl
         surface.create_entity{
             name = entity_replacements and entity_replacements[entity.name] or entity.name,
             direction = entity.direction,
-            position = { entity.position.x + left_x + (offset and offset.x or 0), entity.position.y + top_y + (offset and offset.y or 0) },
+            position = { 
+                entity.position.x + left_x, -- + (offset and offset.x or 0),
+                entity.position.y + top_y, -- + (offset and offset.y or 0)
+            },
             force = "neutral",
             create_build_effect_smoke = false,
             move_stuck_players = true,

@@ -1,9 +1,9 @@
 local base_grid_filler = require("base-grid-filler")
-local chunk_information = require("chunk-information")
+local chunk_information = require("scripts.map-gen.chunk-information")
 local map_gen_constants = require("scripts.map-gen.map-gen-constants")
 local starting_area = require("rooms.starting-area")
 local underground_vault = require("rooms.underground-vault")
-local base_room_16 = require("base-room-size-sixteen")
+local underground_rails = require("rooms.underground-rails")
 local base_room_32 = require("base-room-size-thirty-two")
 
 local function clear_tiles(bounding_box, surface)
@@ -37,15 +37,31 @@ local function generate_room(chunk_indices, surface)
     end
 
     -- Then check if rails must/can be made
+    local rails = underground_rails.generate_room(chunk_indices, surface)
+    if rails ~= nil then
+        return rails
+    end
 
     -- Otherwise randomize between a size 32/16 room
     return base_room_32.generate_room()
+end
+
+local function spawn_room_if_needed(chunk_indices, surface)
+    local left_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x - 1, chunk_indices.y)
+    local right_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x + 1, chunk_indices.y)
+    local top_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y - 1)
+    local bottom_chunk = chunk_information.get_chunk_data(surface.name, chunk_indices.x, chunk_indices.y + 1)
+
+    if (left_chunk and left_chunk.right_side_open) or (right_chunk and right_chunk.left_side_open) or (top_chunk and top_chunk.bottom_side_open) or (bottom_chunk and bottom_chunk.top_side_open) then
+        base_grid_filler.spawn_room(surface, chunk_indices)
+    end
 end
 
 local function generate_fulgoran_underground(bounding_box, surface)
     clear_tiles(bounding_box, surface)
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     local room = generate_room(chunk_indices, surface)
+    spawn_room_if_needed(chunk_indices, surface)
     chunk_information.set_chunk_data(surface.name, chunk_indices.x, chunk_indices.y, room)
 end
 
@@ -164,7 +180,7 @@ local function pre_tunnelling_callback(surface_name, target_position)
     end
 
     -- game.print("Fulgora pre tunnelling function:" .. surface_name .. " " .. serpent.line(target_position))
-    
+
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(target_position.x, target_position.y)
     local surface = game.surfaces[surface_name]
     base_grid_filler.spawn_room(surface, chunk_indices)

@@ -87,7 +87,6 @@ local function generate_room(chunk_indices)
 
     return {
         type = consts.room_types.STARTING_AREA,
-        spawn_on_connection = true,
         right_side_open = right_side_open,
         left_side_open = left_side_open,
         bottom_side_open = bottom_side_open,

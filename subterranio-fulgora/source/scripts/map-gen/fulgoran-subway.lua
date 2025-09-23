@@ -6,24 +6,6 @@ local underground_vault = require("rooms.underground-vault")
 local underground_rails = require("rooms.underground-rails")
 local base_room_32 = require("base-room-size-thirty-two")
 
-local function clear_tiles(bounding_box, surface)
-    local tiles = {}
-    local index = 0
-    for i = bounding_box.left_top.x, bounding_box.right_bottom.x - 1, 1 do
-        for j = bounding_box.left_top.y, bounding_box.right_bottom.y - 1, 1 do
-            tiles[index] = {
-                position = { x = i, y = j },
-                name = "out-of-map"
-            }
-            index = index + 1
-        end
-    end
-    local correct_tiles = true
-    local remove_colliding_entities = true
-    local remove_colliding_decoratives = true
-    surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
-end
-
 local function generate_room(chunk_indices, surface)
     -- Starting area gets top priority
     if ((chunk_indices.x == -1 or chunk_indices.x == 0) and (chunk_indices.y == -1 or chunk_indices.y == 0)) then
@@ -37,7 +19,7 @@ local function generate_room(chunk_indices, surface)
     end
 
     -- Then check if rails must/can be made
-    local rails = underground_rails.generate_room(chunk_indices, surface)
+    local rails = underground_rails.generate_room(chunk_indices)
     if rails ~= nil then
         return rails
     end
@@ -59,7 +41,6 @@ local function spawn_room_if_needed(chunk_indices, surface)
 end
 
 local function generate_fulgoran_underground(bounding_box, surface)
-    clear_tiles(bounding_box, surface)
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     local room = generate_room(chunk_indices, surface)
     spawn_room_if_needed(chunk_indices, surface)

@@ -36,17 +36,17 @@ local rail_subtypes = {
     three_way_junction_ends_left = {
         type = consts.room_types.RAILWAY, subtype = "three_way_junction_ends_left", right_side_open = false, left_side_open = true, top_side_open = true, bottom_side_open = true
     },
-    dead_end_top = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_top", right_side_open = false, left_side_open = false, top_side_open = true, bottom_side_open = false
+    dead_end_top_entrance = {
+        type = consts.room_types.RAILWAY, subtype = "dead_end_top_entrance", right_side_open = false, left_side_open = false, top_side_open = true, bottom_side_open = false
     },
-    dead_end_right = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_right", right_side_open = true, left_side_open = false, top_side_open = false, bottom_side_open = false
+    dead_end_right_entrance = {
+        type = consts.room_types.RAILWAY, subtype = "dead_end_right_entrance", right_side_open = true, left_side_open = false, top_side_open = false, bottom_side_open = false
     },
-    dead_end_bottom = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_bottom", right_side_open = false, left_side_open = false, top_side_open = false, bottom_side_open = true
+    dead_end_bottom_entrance = {
+        type = consts.room_types.RAILWAY, subtype = "dead_end_bottom_entrance", right_side_open = false, left_side_open = false, top_side_open = false, bottom_side_open = true
     },
-    dead_end_left = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_left", right_side_open = false, left_side_open = true, top_side_open = false, bottom_side_open = false
+    dead_end_left_entrance = {
+        type = consts.room_types.RAILWAY, subtype = "dead_end_left_entrance", right_side_open = false, left_side_open = true, top_side_open = false, bottom_side_open = false
     },
     station_top = {
         type = consts.room_types.RAILWAY, subtype = "station_top", right_side_open = true, left_side_open = true, top_side_open = false, bottom_side_open = false
@@ -71,7 +71,7 @@ local function spawn_room(bounding_box, surface)
     end
 
     local room_type = room.subtype
-    -- game.print("Spawning rails of type " .. room_type .. " at bounding box " .. serpent.line(chunk_indices))
+    -- log("Spawning rails of type " .. room_type .. " at bounding box " .. serpent.line(chunk_indices))
 
     blueprints.generate(bounding_box, surface, "rails_" .. room_type, {
         ["concrete"] = "fulgoran-rock",
@@ -98,7 +98,7 @@ local function is_left_chunk_connected_rail(chunk_subtype)
         [rail_subtypes.three_way_junction_sides_bottom.subtype] = true,
         [rail_subtypes.three_way_junction_sides_top.subtype] = true,
         [rail_subtypes.three_way_junction_ends_right.subtype] = true,
-        [rail_subtypes.dead_end_right.subtype] = true,
+        [rail_subtypes.dead_end_right_entrance.subtype] = true,
         [rail_subtypes.station_top.subtype] = true,
         [rail_subtypes.station_bottom.subtype] = true,
     }
@@ -119,7 +119,7 @@ local function is_right_chunk_connected_rail(chunk_subtype)
         [rail_subtypes.three_way_junction_sides_bottom.subtype] = true,
         [rail_subtypes.three_way_junction_sides_top.subtype] = true,
         [rail_subtypes.three_way_junction_ends_left.subtype] = true,
-        [rail_subtypes.dead_end_left.subtype] = true,
+        [rail_subtypes.dead_end_left_entrance.subtype] = true,
         [rail_subtypes.station_top.subtype] = true,
         [rail_subtypes.station_bottom.subtype] = true,
     }
@@ -140,7 +140,7 @@ local function is_top_chunk_connected_rail(chunk_subtype)
         [rail_subtypes.three_way_junction_sides_bottom.subtype] = true,
         [rail_subtypes.three_way_junction_ends_right.subtype] = true,
         [rail_subtypes.three_way_junction_ends_left.subtype] = true,
-        [rail_subtypes.dead_end_bottom.subtype] = true,
+        [rail_subtypes.dead_end_bottom_entrance.subtype] = true,
         [rail_subtypes.station_left.subtype] = true,
         [rail_subtypes.station_right.subtype] = true,
     }
@@ -161,12 +161,92 @@ local function is_bottom_chunk_connected_rail(chunk_subtype)
         [rail_subtypes.three_way_junction_sides_top.subtype] = true,
         [rail_subtypes.three_way_junction_ends_right.subtype] = true,
         [rail_subtypes.three_way_junction_ends_left.subtype] = true,
-        [rail_subtypes.dead_end_top.subtype] = true,
+        [rail_subtypes.dead_end_top_entrance.subtype] = true,
         [rail_subtypes.station_left.subtype] = true,
         [rail_subtypes.station_right.subtype] = true,
     }
 
     return connected_subtypes[chunk_subtype] ~= nil
+end
+
+local function is_left_chunk_non_connected_rail(chunk_subtype)
+    if chunk_subtype == nil then
+        return false
+    end
+
+    local non_connected_subtypes = {
+        [rail_subtypes.straight_up_down.subtype] = true,
+        [rail_subtypes.curve_bottom_left.subtype] = true,
+        [rail_subtypes.curve_top_left.subtype] = true,
+        [rail_subtypes.three_way_junction_ends_left.subtype] = true,
+        [rail_subtypes.dead_end_top_entrance.subtype] = true,
+        [rail_subtypes.dead_end_bottom_entrance.subtype] = true,
+        [rail_subtypes.dead_end_left_entrance.subtype] = true,
+        [rail_subtypes.station_right.subtype] = true,
+        [rail_subtypes.station_left.subtype] = true,
+    }
+
+    return non_connected_subtypes[chunk_subtype] ~= nil
+end
+
+local function is_right_chunk_non_connected_rail(chunk_subtype)
+    if chunk_subtype == nil then
+        return false
+    end
+
+    local non_connected_subtypes = {
+        [rail_subtypes.straight_up_down.subtype] = true,
+        [rail_subtypes.curve_bottom_right.subtype] = true,
+        [rail_subtypes.curve_top_right.subtype] = true,
+        [rail_subtypes.three_way_junction_ends_right.subtype] = true,
+        [rail_subtypes.dead_end_top_entrance.subtype] = true,
+        [rail_subtypes.dead_end_bottom_entrance.subtype] = true,
+        [rail_subtypes.dead_end_right_entrance.subtype] = true,
+        [rail_subtypes.station_right.subtype] = true,
+        [rail_subtypes.station_left.subtype] = true,
+    }
+
+    return non_connected_subtypes[chunk_subtype] ~= nil
+end
+
+local function is_top_chunk_non_connected_rail(chunk_subtype)
+    if chunk_subtype == nil then
+        return false
+    end
+
+    local non_connected_subtypes = {
+        [rail_subtypes.straight_left_right.subtype] = true,
+        [rail_subtypes.curve_top_right.subtype] = true,
+        [rail_subtypes.curve_top_left.subtype] = true,
+        [rail_subtypes.three_way_junction_sides_top.subtype] = true,
+        [rail_subtypes.dead_end_top_entrance.subtype] = true,
+        [rail_subtypes.dead_end_right_entrance.subtype] = true,
+        [rail_subtypes.dead_end_left_entrance.subtype] = true,
+        [rail_subtypes.station_top.subtype] = true,
+        [rail_subtypes.station_bottom.subtype] = true,
+    }
+
+    return non_connected_subtypes[chunk_subtype] ~= nil
+end
+
+local function is_bottom_chunk_non_connected_rail(chunk_subtype)
+    if chunk_subtype == nil then
+        return false
+    end
+
+    local non_connected_subtypes = {
+        [rail_subtypes.straight_left_right.subtype] = true,
+        [rail_subtypes.curve_bottom_right.subtype] = true,
+        [rail_subtypes.curve_bottom_left.subtype] = true,
+        [rail_subtypes.three_way_junction_sides_bottom.subtype] = true,
+        [rail_subtypes.dead_end_bottom_entrance.subtype] = true,
+        [rail_subtypes.dead_end_right_entrance.subtype] = true,
+        [rail_subtypes.dead_end_left_entrance.subtype] = true,
+        [rail_subtypes.station_top.subtype] = true,
+        [rail_subtypes.station_bottom.subtype] = true,
+    }
+
+    return non_connected_subtypes[chunk_subtype] ~= nil
 end
 
 local function get_four_way_connection()
@@ -226,20 +306,24 @@ local function get_three_way_connection(
     return nil
 end
 
--- TODO: this needs to check if there are non-connected adjacent rails and adjust spawns to not put an entrance pointing that way 
 local function get_two_or_three_way_connection(
                 left_chunk,
                 right_chunk,
                 top_chunk,
                 bottom_chunk,
+                left_chunk_is_non_connected_rail,
+                right_chunk_is_non_connected_rail,
+                top_chunk_is_non_connected_rail,
+                bottom_chunk_is_non_connected_rail,
                 left_chunk_is_connected_non_rail,
                 right_chunk_is_connected_non_rail,
                 top_chunk_is_connected_non_rail,
                 bottom_chunk_is_connected_non_rail)
-    local station_threshold = 0.2
-    local straight_threshold = 0.6
+    -- game.print("Getting 2 or 3 way connection: " .. serpent.line(left_chunk) .. " " .. serpent.line(right_chunk) .. " " .. serpent.line(top_chunk) .. " " .. serpent.line(bottom_chunk))
+    local station_threshold = 0.15
+    local straight_threshold = 0.9
     local rand = math.random()
-    if left_chunk ~= nil and left_chunk_is_connected_non_rail then
+    if left_chunk ~= nil and (left_chunk_is_connected_non_rail or left_chunk_is_non_connected_rail) then
         if right_chunk_is_connected_non_rail then
             if rand < station_threshold then
                 return rail_subtypes.station_right
@@ -256,7 +340,7 @@ local function get_two_or_three_way_connection(
             return rail_subtypes.curve_top_right
         end
 
-        if rand < station_threshold then
+        if rand < station_threshold and left_chunk_is_connected_non_rail then
             return rail_subtypes.station_left
         elseif rand < straight_threshold then
             return rail_subtypes.straight_up_down
@@ -265,7 +349,7 @@ local function get_two_or_three_way_connection(
         end
     end
 
-    if right_chunk ~= nil and right_chunk_is_connected_non_rail then
+    if right_chunk ~= nil and (right_chunk_is_connected_non_rail or right_chunk_is_non_connected_rail) then
         if left_chunk_is_connected_non_rail then
             if rand < station_threshold then
                 return rail_subtypes.straight_up_down
@@ -282,7 +366,7 @@ local function get_two_or_three_way_connection(
             return rail_subtypes.curve_top_left
         end
 
-        if rand < station_threshold then
+        if rand < station_threshold and right_chunk_is_connected_non_rail then
             return rail_subtypes.station_right
         elseif rand < straight_threshold then
             return rail_subtypes.straight_up_down
@@ -291,7 +375,7 @@ local function get_two_or_three_way_connection(
         end
     end
 
-    if top_chunk ~= nil and top_chunk_is_connected_non_rail then
+    if top_chunk ~= nil and (top_chunk_is_connected_non_rail or top_chunk_is_non_connected_rail) then
         if left_chunk_is_connected_non_rail then
             return rail_subtypes.curve_bottom_right
         end
@@ -308,7 +392,7 @@ local function get_two_or_three_way_connection(
             end
         end
 
-        if rand < station_threshold then
+        if rand < station_threshold and top_chunk_is_connected_non_rail then
             return rail_subtypes.station_top
         elseif rand < straight_threshold then
             return rail_subtypes.straight_left_right
@@ -317,7 +401,7 @@ local function get_two_or_three_way_connection(
         end
     end
 
-    if bottom_chunk ~= nil and bottom_chunk_is_connected_non_rail then
+    if bottom_chunk ~= nil and (bottom_chunk_is_connected_non_rail or bottom_chunk_is_non_connected_rail) then
         if left_chunk_is_connected_non_rail then
             return rail_subtypes.curve_top_right
         end
@@ -334,7 +418,7 @@ local function get_two_or_three_way_connection(
             end
         end
 
-        if rand < station_threshold then
+        if rand < station_threshold and bottom_chunk_is_connected_non_rail then
             return rail_subtypes.station_bottom
         elseif rand < straight_threshold then
             return rail_subtypes.straight_left_right
@@ -343,43 +427,65 @@ local function get_two_or_three_way_connection(
         end
     end
 
-    local options = {
-        rail_subtypes.straight_up_down,
-        rail_subtypes.straight_left_right,
-        rail_subtypes.curve_bottom_right,
-        rail_subtypes.curve_bottom_left,
-        rail_subtypes.curve_top_right,
-        rail_subtypes.curve_top_left,
-        rail_subtypes.three_way_junction_sides_bottom,
-        rail_subtypes.three_way_junction_sides_top,
-        rail_subtypes.three_way_junction_ends_right,
-        rail_subtypes.three_way_junction_ends_left,
-        rail_subtypes.station_top,
-        rail_subtypes.station_right,
-        rail_subtypes.station_bottom,
-        rail_subtypes.station_left,
-    }
+    return nil
+    -- local options = {
+    --     rail_subtypes.straight_up_down,
+    --     rail_subtypes.straight_left_right,
+    --     rail_subtypes.curve_bottom_right,
+    --     rail_subtypes.curve_bottom_left,
+    --     rail_subtypes.curve_top_right,
+    --     rail_subtypes.curve_top_left,
+    --     rail_subtypes.three_way_junction_sides_bottom,
+    --     rail_subtypes.three_way_junction_sides_top,
+    --     rail_subtypes.three_way_junction_ends_right,
+    --     rail_subtypes.three_way_junction_ends_left,
+    --     rail_subtypes.station_top,
+    --     rail_subtypes.station_right,
+    --     rail_subtypes.station_bottom,
+    --     rail_subtypes.station_left,
+    -- }
 
-    local index = math.random(1, #options)
-    -- game.print("Returning new rail origin node with type " .. serpent.line(options[index]))
-    return options[index]
+    -- local index = math.random(1, #options)
+    -- -- game.print("Returning new rail origin node with type " .. serpent.line(options[index]))
+    -- return options[index]
 end
 
-local function deepcopy(orig)
-    local orig_type = type(orig)
+local function get_dead_end(
+    left_chunk_is_connected_rail,
+    right_chunk_is_connected_rail,
+    top_chunk_is_connected_rail,
+    bottom_chunk_is_connected_rail)
+    if left_chunk_is_connected_rail then
+        return rail_subtypes.dead_end_left_entrance
+    end
+    if right_chunk_is_connected_rail then
+        return rail_subtypes.dead_end_right_entrance
+    end
+    if top_chunk_is_connected_rail then
+        return rail_subtypes.dead_end_top_entrance
+    end
+    if bottom_chunk_is_connected_rail then
+        return rail_subtypes.dead_end_bottom_entrance
+    end
+
+    return nil
+end
+
+local function deepcopy(value)
+    local orig_type = type(value)
     local copy
     if orig_type == 'table' then
         copy = {}
-        for k, v in pairs(orig) do
+        for k, v in pairs(value) do
             copy[deepcopy(k)] = deepcopy(v)
         end
     else
-        copy = orig
+        copy = value
     end
     return copy
 end
 
-local function generate_room(chunk_indices, surface)
+local function generate_room(chunk_indices)
     -- Check the non-diagonal adjacent cells for rails
     -- If there are any incoming, this has to be a rail
     -- If there are only non-rails this can't be a rail
@@ -402,16 +508,21 @@ local function generate_room(chunk_indices, surface)
     local top_chunk_is_connected_rail = is_top_chunk_connected_rail(top_chunk_subtype)
     local bottom_chunk_is_connected_rail = is_bottom_chunk_connected_rail(bottom_chunk_subtype)
 
-    local left_chunk_is_connected_non_rail = (left_chunk and not left_chunk_is_connected_rail) or false
-    local right_chunk_is_connected_non_rail = right_chunk and not right_chunk_is_connected_rail or false
-    local top_chunk_is_connected_non_rail = top_chunk and not top_chunk_is_connected_rail or false
-    local bottom_chunk_is_connected_non_rail = bottom_chunk and not bottom_chunk_is_connected_rail or false
+    local left_chunk_is_non_connected_rail = is_left_chunk_non_connected_rail(left_chunk_subtype)
+    local right_chunk_is_non_connected_rail = is_right_chunk_non_connected_rail(right_chunk_subtype)
+    local top_chunk_is_non_connected_rail = is_top_chunk_non_connected_rail(top_chunk_subtype)
+    local bottom_chunk_is_non_connected_rail = is_bottom_chunk_non_connected_rail(bottom_chunk_subtype)
+
+    local left_chunk_is_connected_non_rail = (left_chunk and not left_chunk_is_connected_rail and left_chunk.type ~= consts.room_types.RAILWAY) or false
+    local right_chunk_is_connected_non_rail = (right_chunk and not right_chunk_is_connected_rail and right_chunk.type ~= consts.room_types.RAILWAY) or false
+    local top_chunk_is_connected_non_rail = (top_chunk and not top_chunk_is_connected_rail and top_chunk.type ~= consts.room_types.RAILWAY) or false
+    local bottom_chunk_is_connected_non_rail = (bottom_chunk and not bottom_chunk_is_connected_rail and bottom_chunk.type ~= consts.room_types.RAILWAY) or false
 
     local must_be_rail = left_chunk_is_connected_rail or right_chunk_is_connected_rail or top_chunk_is_connected_rail or bottom_chunk_is_connected_rail
     if must_be_rail then
         local incoming_rail_count = (left_chunk_is_connected_rail and 1 or 0) +
             (right_chunk_is_connected_rail and 1 or 0) +
-            (right_chunk_is_connected_rail and 1 or 0) +
+            (top_chunk_is_connected_rail and 1 or 0) +
             (bottom_chunk_is_connected_rail and 1 or 0)
 
         local rails
@@ -439,24 +550,40 @@ local function generate_room(chunk_indices, surface)
                 bottom_chunk_is_connected_non_rail))
         else
             -- game.print("Returning 2 or 3 way rail connection")
-            rails = deepcopy(get_two_or_three_way_connection(
-                left_chunk,
-                right_chunk,
-                top_chunk,
-                bottom_chunk,
-                left_chunk_is_connected_non_rail,
-                right_chunk_is_connected_non_rail,
-                top_chunk_is_connected_non_rail,
-                bottom_chunk_is_connected_non_rail))
+            rails = deepcopy(
+                get_two_or_three_way_connection(
+                    left_chunk,
+                    right_chunk,
+                    top_chunk,
+                    bottom_chunk,
+                    left_chunk_is_non_connected_rail,
+                    right_chunk_is_non_connected_rail,
+                    top_chunk_is_non_connected_rail,
+                    bottom_chunk_is_non_connected_rail,
+                    left_chunk_is_connected_non_rail,
+                    right_chunk_is_connected_non_rail,
+                    top_chunk_is_connected_non_rail,
+                    bottom_chunk_is_connected_non_rail) or
+                get_dead_end(
+                    left_chunk_is_connected_rail,
+                    right_chunk_is_connected_rail,
+                    top_chunk_is_connected_rail,
+                    bottom_chunk_is_connected_rail
+                ))
         end
 
         chunk_information.set_chunk_data(chunk_indices, rails)
+        -- log("Generated rails at position: " ..serpent.line(chunk_indices) .. ", " .. serpent.line(rails))
         return rails
     end
 
-    local cannot_be_rail = left_chunk_is_connected_non_rail and right_chunk_is_connected_non_rail and top_chunk_is_connected_non_rail and bottom_chunk_is_connected_non_rail
+    local cannot_be_rail = left_chunk_is_connected_non_rail and right_chunk_is_connected_non_rail and top_chunk_is_connected_non_rail and bottom_chunk_is_connected_non_rail or
+        (left_chunk_subtype ~= nil and left_chunk_subtype == rail_subtypes.station_right) or
+        (right_chunk_subtype ~= nil and right_chunk_subtype == rail_subtypes.station_left) or
+        (top_chunk_subtype ~= nil and top_chunk_subtype == rail_subtypes.station_bottom) or
+        (bottom_chunk_subtype ~= nil and bottom_chunk_subtype == rail_subtypes.station_top)
     if cannot_be_rail then
-        game.print("Rail segment at position " .. serpent.line(chunk_indices) .. " cannot be generated, returning nil")
+        -- game.print("Rail segment at position " .. serpent.line(chunk_indices) .. " cannot be generated, returning nil")
         return nil
     end
 
@@ -469,11 +596,20 @@ local function generate_room(chunk_indices, surface)
     end
 
     local rails = deepcopy(get_two_or_three_way_connection(
+        left_chunk,
+        right_chunk,
+        top_chunk,
+        bottom_chunk,
+        left_chunk_is_non_connected_rail,
+        right_chunk_is_non_connected_rail,
+        top_chunk_is_non_connected_rail,
+        bottom_chunk_is_non_connected_rail,
         left_chunk_is_connected_non_rail,
         right_chunk_is_connected_non_rail,
         top_chunk_is_connected_non_rail,
         bottom_chunk_is_connected_non_rail))
     chunk_information.set_chunk_data(chunk_indices, rails)
+    -- log("Generated rails at position: " ..serpent.line(chunk_indices) .. ", " .. serpent.line(rails))
     return rails
 end
 

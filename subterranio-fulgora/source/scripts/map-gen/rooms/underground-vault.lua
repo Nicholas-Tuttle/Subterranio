@@ -1,5 +1,7 @@
 local consts = require("scripts.map-gen.map-gen-constants")
 
+-- A seed that has 2-part and 4-part vaults is 3692670796
+
 local function create_tiles(bounding_box, surface)
     local left_x = bounding_box.left_top.x
     local right_x = bounding_box.right_bottom.x

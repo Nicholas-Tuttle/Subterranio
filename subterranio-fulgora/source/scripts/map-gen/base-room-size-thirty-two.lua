@@ -1,4 +1,5 @@
 local consts = require("scripts.map-gen.map-gen-constants")
+local chunk_information = require("scripts.map-gen.chunk-information")
 
 local function create_tiles(bounding_box, surface)
     local left_x = bounding_box.left_top.x
@@ -70,7 +71,38 @@ local function generate_room()
     }
 end
 
+local function fulgoran_gate_destroyed(destroyed_entity_position)
+    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(destroyed_entity_position.x, destroyed_entity_position.y)
+    local x_offset = math.floor(destroyed_entity_position.x - chunk_indices.x * 32)
+    local y_offset = math.floor(destroyed_entity_position.y - chunk_indices.y * 32)
+
+    if (x_offset == 0) then
+        return {
+            x = chunk_indices.x - 1,
+            y = chunk_indices.y
+        }
+    elseif (x_offset == 31) then
+        return {
+            x = chunk_indices.x + 1,
+            y = chunk_indices.y
+        }
+    elseif (y_offset == 0) then
+        return {
+            x = chunk_indices.x,
+            y = chunk_indices.y - 1
+        }
+    elseif (y_offset == 31) then
+        return {
+            x = chunk_indices.x,
+            y = chunk_indices.y + 1
+        }
+    else
+        return chunk_indices
+    end
+end
+
 return {
     generate_room = generate_room,
-    spawn_room = spawn_room
+    spawn_room = spawn_room,
+    fulgoran_gate_destroyed = fulgoran_gate_destroyed
 }

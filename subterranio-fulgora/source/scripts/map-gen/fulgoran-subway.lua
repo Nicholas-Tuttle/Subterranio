@@ -34,8 +34,8 @@ local function spawn_room_if_needed(chunk_indices, surface)
     local top_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
     local bottom_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1})
 
-    if (left_chunk and left_chunk.right_side_open and left_chunk.spawned) or (right_chunk and right_chunk.left_side_open and right_chunk.spawned) or
-    (top_chunk and top_chunk.bottom_side_open and top_chunk.spawned) or (bottom_chunk and bottom_chunk.top_side_open and bottom_chunk.spawned) then
+    if (left_chunk and left_chunk.right_side_connected and left_chunk.spawned) or (right_chunk and right_chunk.left_side_connected and right_chunk.spawned) or
+    (top_chunk and top_chunk.bottom_side_connected and top_chunk.spawned) or (bottom_chunk and bottom_chunk.top_side_connected and bottom_chunk.spawned) then
         base_grid_filler.spawn_room(surface, chunk_indices)
     end
 end
@@ -76,60 +76,31 @@ script.on_event(defines.events.on_chunk_generated, function(event)
     end
 end)
 
-local function get_destination_chunk_indicies(chunk_indices, position)
-    local x_offset = math.floor(position.x - chunk_indices.x * 32)
-    local y_offset = math.floor(position.y - chunk_indices.y * 32)
-
-    if (x_offset == 0) then
-        return {
-            x = chunk_indices.x - 1,
-            y = chunk_indices.y
-        }
-    elseif (x_offset == 31) then
-        return {
-            x = chunk_indices.x + 1,
-            y = chunk_indices.y
-        }
-    elseif (y_offset == 0) then
-        return {
-            x = chunk_indices.x,
-            y = chunk_indices.y - 1
-        }
-    elseif (y_offset == 31) then
-        return {
-            x = chunk_indices.x,
-            y = chunk_indices.y + 1
-        }
-    else
-        return chunk_indices
-    end
-end
-
 script.on_event(defines.events.on_entity_died, function (event)
-    local entrance_position = {
+    local destroyed_entity_position = {
         x = math.floor(event.entity.position.x),
         y = math.floor(event.entity.position.y)
     }
-    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(entrance_position.x, entrance_position.y)
-    local next_chunk_indices = get_destination_chunk_indicies(chunk_indices, entrance_position)
+    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(destroyed_entity_position.x, destroyed_entity_position.y)
+    local chunk = chunk_information.get_chunk_data(chunk_indices)
 
-    if (chunk_indices.x == next_chunk_indices.x and chunk_indices.y == next_chunk_indices.y) then
+    if chunk == nil then
         return
     end
 
-    local room = chunk_information.get_chunk_data(chunk_indices)
-    if (room ~= nil) then
-        if (next_chunk_indices.x > chunk_indices.x) then
-            room.right_side_open = true
-        elseif (next_chunk_indices.x < chunk_indices.x) then
-            room.left_side_open = true
-        elseif (next_chunk_indices.y < chunk_indices.y) then
-            room.top_side_open = true
-        else
-            room.bottom_side_open = true
-        end
-    else
-        game.print("Chunk data at indices " .. serpent.line(chunk_indices) .. " is nil")
+    local next_chunk_indices = nil
+    if chunk.type == map_gen_constants.room_types.STARTING_AREA then
+        next_chunk_indices = starting_area.fulgoran_gate_destroyed(destroyed_entity_position)
+    elseif chunk.type == map_gen_constants.room_types.VAULT then
+        next_chunk_indices = underground_vault.fulgoran_gate_destroyed(destroyed_entity_position)
+    elseif chunk.type == map_gen_constants.room_types.SIZE_32 then
+        next_chunk_indices = base_room_32.fulgoran_gate_destroyed(destroyed_entity_position)
+    elseif chunk.type == map_gen_constants.room_types.RAILWAY then
+        next_chunk_indices = underground_rails.fulgoran_gate_destroyed(destroyed_entity_position)
+    end
+
+    if next_chunk_indices == nil then
+        return
     end
 
     base_grid_filler.spawn_room(event.entity.surface, next_chunk_indices)
@@ -160,8 +131,6 @@ local function pre_tunnelling_callback(surface_name, target_position)
     if (surface_name ~= "fulgoran_subway") then
         return
     end
-
-    -- game.print("Fulgora pre tunnelling function:" .. surface_name .. " " .. serpent.line(target_position))
 
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(target_position.x, target_position.y)
     local surface = game.surfaces[surface_name]

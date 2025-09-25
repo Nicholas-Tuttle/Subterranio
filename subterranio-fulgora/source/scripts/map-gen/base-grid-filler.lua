@@ -28,25 +28,25 @@ local function spawn_room(surface, chunk_indices)
                     game.print("Would have spawned some other room")
                 end
 
-                if (room.right_side_open) then
+                if (room.right_side_connected) then
                     -- game.print("Spawning right side chunk for origin " .. serpent.line(indices))
                     chunks_to_spawn[max_index] = { x = indices.x + 1, y = indices.y }
                     max_index = max_index + 1
                 end
 
-                if (room.left_side_open) then
+                if (room.left_side_connected) then
                     -- game.print("Spawning left side chunk for origin " .. serpent.line(indices))
                     chunks_to_spawn[max_index] = { x = indices.x - 1, y = indices.y }
                     max_index = max_index + 1
                 end
 
-                if (room.top_side_open) then
+                if (room.top_side_connected) then
                     -- game.print("Spawning top side chunk for origin " .. serpent.line(indices))
                     chunks_to_spawn[max_index] = { x = indices.x, y = indices.y - 1 }
                     max_index = max_index + 1
                 end
 
-                if (room.bottom_side_open) then
+                if (room.bottom_side_connected) then
                     -- game.print("Spawning bottom side chunk for origin " .. serpent.line(indices))
                     chunks_to_spawn[max_index] = { x = indices.x, y = indices.y + 1 }
                     max_index = max_index + 1

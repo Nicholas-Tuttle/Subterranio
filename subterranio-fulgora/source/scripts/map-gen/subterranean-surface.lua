@@ -4,8 +4,8 @@ script.on_event(defines.events.on_surface_created, function(event)
 	if surface.name ~= "fulgoran_subway" then return end
     local parent_surface = game.planets["fulgora"].create_surface()
 
-	-- surface.daytime = 0.5 -- dead of night
-	surface.daytime = 1.0 -- mid day
+	surface.daytime = 0.5 -- dead of night
+	-- surface.daytime = 1.0 -- mid day
 	surface.freeze_daytime = true
 	surface.show_clouds = false
 	surface.brightness_visual_weights = {r = 1, g = 1, b = 1}

@@ -4,61 +4,61 @@ local chunk_information = require("scripts.map-gen.chunk-information")
 
 local rail_subtypes = {
     four_way_junction = {
-        type = consts.room_types.RAILWAY, subtype = "four_way_junction", right_side_open = true, left_side_open = true, top_side_open = true, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "four_way_junction", right_side_connected = true, left_side_connected = true, top_side_connected = true, bottom_side_connected = true
     },
     straight_up_down = {
-        type = consts.room_types.RAILWAY, subtype = "straight_up_down", right_side_open = false, left_side_open = false, top_side_open = true, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "straight_up_down", right_side_connected = false, left_side_connected = false, top_side_connected = true, bottom_side_connected = true
     },
     straight_left_right = {
-        type = consts.room_types.RAILWAY, subtype = "straight_left_right", right_side_open = true, left_side_open = true, top_side_open = false, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "straight_left_right", right_side_connected = true, left_side_connected = true, top_side_connected = false, bottom_side_connected = false
     },
     curve_bottom_right = {
-        type = consts.room_types.RAILWAY, subtype = "curve_bottom_right", right_side_open = true, left_side_open = false, top_side_open = false, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "curve_bottom_right", right_side_connected = true, left_side_connected = false, top_side_connected = false, bottom_side_connected = true
     },
     curve_bottom_left = {
-        type = consts.room_types.RAILWAY, subtype = "curve_bottom_left", right_side_open = false, left_side_open = true, top_side_open = false, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "curve_bottom_left", right_side_connected = false, left_side_connected = true, top_side_connected = false, bottom_side_connected = true
     },
     curve_top_right = {
-        type = consts.room_types.RAILWAY, subtype = "curve_top_right", right_side_open = true, left_side_open = false, top_side_open = true, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "curve_top_right", right_side_connected = true, left_side_connected = false, top_side_connected = true, bottom_side_connected = false
     },
     curve_top_left = {
-        type = consts.room_types.RAILWAY, subtype = "curve_top_left", right_side_open = false, left_side_open = true, top_side_open = true, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "curve_top_left", right_side_connected = false, left_side_connected = true, top_side_connected = true, bottom_side_connected = false
     },
     three_way_junction_sides_bottom = {
-        type = consts.room_types.RAILWAY, subtype = "three_way_junction_sides_bottom", right_side_open = true, left_side_open = true, top_side_open = false, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "three_way_junction_sides_bottom", right_side_connected = true, left_side_connected = true, top_side_connected = false, bottom_side_connected = true
     },
     three_way_junction_sides_top = {
-        type = consts.room_types.RAILWAY, subtype = "three_way_junction_sides_top", right_side_open = true, left_side_open = true, top_side_open = true, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "three_way_junction_sides_top", right_side_connected = true, left_side_connected = true, top_side_connected = true, bottom_side_connected = false
     },
     three_way_junction_ends_right = {
-        type = consts.room_types.RAILWAY, subtype = "three_way_junction_ends_right", right_side_open = true, left_side_open = false, top_side_open = true, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "three_way_junction_ends_right", right_side_connected = true, left_side_connected = false, top_side_connected = true, bottom_side_connected = true
     },
     three_way_junction_ends_left = {
-        type = consts.room_types.RAILWAY, subtype = "three_way_junction_ends_left", right_side_open = false, left_side_open = true, top_side_open = true, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "three_way_junction_ends_left", right_side_connected = false, left_side_connected = true, top_side_connected = true, bottom_side_connected = true
     },
     dead_end_top_entrance = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_top_entrance", right_side_open = false, left_side_open = false, top_side_open = true, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "dead_end_top_entrance", right_side_connected = false, left_side_connected = false, top_side_connected = true, bottom_side_connected = false
     },
     dead_end_right_entrance = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_right_entrance", right_side_open = true, left_side_open = false, top_side_open = false, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "dead_end_right_entrance", right_side_connected = true, left_side_connected = false, top_side_connected = false, bottom_side_connected = false
     },
     dead_end_bottom_entrance = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_bottom_entrance", right_side_open = false, left_side_open = false, top_side_open = false, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "dead_end_bottom_entrance", right_side_connected = false, left_side_connected = false, top_side_connected = false, bottom_side_connected = true
     },
     dead_end_left_entrance = {
-        type = consts.room_types.RAILWAY, subtype = "dead_end_left_entrance", right_side_open = false, left_side_open = true, top_side_open = false, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "dead_end_left_entrance", right_side_connected = false, left_side_connected = true, top_side_connected = false, bottom_side_connected = false
     },
     station_top = {
-        type = consts.room_types.RAILWAY, subtype = "station_top", right_side_open = true, left_side_open = true, top_side_open = false, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "station_top", right_side_connected = true, left_side_connected = true, top_side_connected = false, bottom_side_connected = false
     },
     station_right = {
-        type = consts.room_types.RAILWAY, subtype = "station_right", right_side_open = false, left_side_open = false, top_side_open = true, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "station_right", right_side_connected = false, left_side_connected = false, top_side_connected = true, bottom_side_connected = true
     },
     station_bottom = {
-        type = consts.room_types.RAILWAY, subtype = "station_bottom", right_side_open = true, left_side_open = true, top_side_open = false, bottom_side_open = false
+        type = consts.room_types.RAILWAY, subtype = "station_bottom", right_side_connected = true, left_side_connected = true, top_side_connected = false, bottom_side_connected = false
     },
     station_left = {
-        type = consts.room_types.RAILWAY, subtype = "station_left", right_side_open = false, left_side_open = false, top_side_open = true, bottom_side_open = true
+        type = consts.room_types.RAILWAY, subtype = "station_left", right_side_connected = false, left_side_connected = false, top_side_connected = true, bottom_side_connected = true
     }
 }
 
@@ -87,7 +87,7 @@ end
 
 local left_connected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if value.right_side_open then
+    if value.right_side_connected then
         left_connected_subtypes[value.subtype] = true
     end
 end
@@ -97,7 +97,7 @@ end
 
 local right_connected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if value.left_side_open then
+    if value.left_side_connected then
         right_connected_subtypes[value.subtype] = true
     end
 end
@@ -107,7 +107,7 @@ end
 
 local top_connected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if value.bottom_side_open then
+    if value.bottom_side_connected then
         top_connected_subtypes[value.subtype] = true
     end
 end
@@ -117,7 +117,7 @@ end
 
 local bottom_connected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if value.top_side_open then
+    if value.top_side_connected then
         bottom_connected_subtypes[value.subtype] = true
     end
 end
@@ -127,7 +127,7 @@ end
 
 local left_disconnected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if not value.right_side_open then
+    if not value.right_side_connected then
         left_disconnected_subtypes[value.subtype] = true
     end
 end
@@ -137,7 +137,7 @@ end
 
 local right_disconnected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if not value.left_side_open then
+    if not value.left_side_connected then
         right_disconnected_subtypes[value.subtype] = true
     end
 end
@@ -147,7 +147,7 @@ end
 
 local top_disconnected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if not value.bottom_side_open then
+    if not value.bottom_side_connected then
         top_disconnected_subtypes[value.subtype] = true
     end
 end
@@ -157,7 +157,7 @@ end
 
 local bottom_disconnected_subtypes = {}
 for _, value in pairs(rail_subtypes) do
-    if not value.top_side_open then
+    if not value.top_side_connected then
         bottom_disconnected_subtypes[value.subtype] = true
     end
 end
@@ -203,14 +203,14 @@ local function get_connection(chunk_indices)
     end
 
     for _, value in pairs(rail_subtypes) do
-        if (left_chunk_must_be_connected and not value.left_side_open) or
-            (left_chunk_cannot_be_connected and value.left_side_open) or
-            (right_chunk_must_be_connected and not value.right_side_open) or
-            (right_chunk_cannot_be_connected and value.right_side_open) or
-            (top_chunk_must_be_connected and not value.top_side_open) or
-            (top_chunk_cannot_be_connected and value.top_side_open) or
-            (bottom_chunk_must_be_connected and not value.bottom_side_open) or
-            (bottom_chunk_cannot_be_connected and value.bottom_side_open) then
+        if (left_chunk_must_be_connected and not value.left_side_connected) or
+            (left_chunk_cannot_be_connected and value.left_side_connected) or
+            (right_chunk_must_be_connected and not value.right_side_connected) or
+            (right_chunk_cannot_be_connected and value.right_side_connected) or
+            (top_chunk_must_be_connected and not value.top_side_connected) or
+            (top_chunk_cannot_be_connected and value.top_side_connected) or
+            (bottom_chunk_must_be_connected and not value.bottom_side_connected) or
+            (bottom_chunk_cannot_be_connected and value.bottom_side_connected) then
             possible_subtypes[value.subtype] = nil
         end
     end
@@ -263,11 +263,51 @@ end
 local function generate_room(chunk_indices)
     local rails = deepcopy(get_connection(chunk_indices))
     chunk_information.set_chunk_data(chunk_indices, rails)
-    log("Generated rails at position: " ..serpent.line(chunk_indices) .. ", " .. serpent.line(rails))
+    -- log("Generated rails at position: " ..serpent.line(chunk_indices) .. ", " .. serpent.line(rails))
     return rails
+end
+
+local function fulgoran_gate_destroyed(destroyed_entity_position)
+    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(destroyed_entity_position.x, destroyed_entity_position.y)
+
+    local room = chunk_information.get_chunk_data(chunk_indices)
+    if room == nil or (room.subtype ~= rail_subtypes.station_bottom.subtype and
+        room.subtype ~= rail_subtypes.station_left.subtype and
+        room.subtype ~= rail_subtypes.station_right.subtype and
+        room.subtype ~= rail_subtypes.station_top.subtype) then
+        return chunk_indices
+    end
+
+    local x_offset = math.floor(destroyed_entity_position.x - chunk_indices.x * 32)
+    local y_offset = math.floor(destroyed_entity_position.y - chunk_indices.y * 32)
+
+    if (x_offset <= 2) then
+        return {
+            x = chunk_indices.x - 1,
+            y = chunk_indices.y
+        }
+    elseif (x_offset >= 29) then
+        return {
+            x = chunk_indices.x + 1,
+            y = chunk_indices.y
+        }
+    elseif (y_offset <= 2) then
+        return {
+            x = chunk_indices.x,
+            y = chunk_indices.y - 1
+        }
+    elseif (y_offset >= 29) then
+        return {
+            x = chunk_indices.x,
+            y = chunk_indices.y + 1
+        }
+    else
+        return chunk_indices
+    end
 end
 
 return {
     generate_room = generate_room,
-    spawn_room = spawn_room
+    spawn_room = spawn_room,
+    fulgoran_gate_destroyed = fulgoran_gate_destroyed
 }

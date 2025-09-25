@@ -6,7 +6,7 @@ local underground_vault = require("rooms.underground-vault")
 local underground_rails = require("rooms.underground-rails")
 local base_room_32 = require("base-room-size-thirty-two")
 
-local function generate_room(chunk_indices, surface)
+local function generate_room(chunk_indices)
     -- Starting area gets top priority
     if ((chunk_indices.x == -1 or chunk_indices.x == 0) and (chunk_indices.y == -1 or chunk_indices.y == 0)) then
         return starting_area.generate_room(chunk_indices)
@@ -42,7 +42,7 @@ end
 
 local function generate_fulgoran_underground(bounding_box, surface)
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
-    local room = generate_room(chunk_indices, surface)
+    local room = generate_room(chunk_indices)
     spawn_room_if_needed(chunk_indices, surface)
     chunk_information.set_chunk_data(chunk_indices, room)
 end

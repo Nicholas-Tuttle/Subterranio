@@ -1,5 +1,7 @@
 local consts = require("scripts.map-gen.map-gen-constants")
 local chunk_information = require("scripts.map-gen.chunk-information")
+local rails = require("scripts.map-gen.rooms.underground-rails")
+local blueprints = require("scripts.map-gen.blueprints")
 
 local function create_tiles(bounding_box, surface)
     local left_x = bounding_box.left_top.x
@@ -45,7 +47,7 @@ end
 
 local function make_left_doors(surface, chunk_indices, left_x, bottom_y, top_y)
     local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y})
-    if chunk and chunk.type == consts.room_types.RAILWAY then
+    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_right.subtype then
         return
     end
 
@@ -71,7 +73,7 @@ end
 
 local function make_right_doors(surface, chunk_indices, right_x, bottom_y, top_y)
     local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y})
-    if chunk and chunk.type == consts.room_types.RAILWAY then
+    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_left.subtype then
         return
     end
 
@@ -97,7 +99,7 @@ end
 
 local function make_bottom_doors(surface, chunk_indices, left_x, right_x, bottom_y)
     local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1})
-    if chunk and chunk.type == consts.room_types.RAILWAY then
+    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_top.subtype then
         return
     end
 
@@ -123,7 +125,7 @@ end
 
 local function make_top_doors(surface, chunk_indices, left_x, right_x, top_y)
     local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
-    if chunk and chunk.type == consts.room_types.RAILWAY then
+    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_bottom.subtype then
         return
     end
 
@@ -180,6 +182,24 @@ local function create_entities(bounding_box, surface)
     make_top_doors(surface, chunk_indices, left_x, right_x, top_y)
     make_walls(surface, left_x, right_x, bottom_y, top_y)
     make_lamps(surface, left_x, right_x, bottom_y, top_y)
+
+    local subtype_keys = {
+        "fusion_power_plant_32",
+        "nuclear_power_plant_32"
+    }
+
+    blueprints.generate(bounding_box, surface, subtype_keys[math.random(1, #subtype_keys)], nil, {
+        ["substation"] = "substation-remnants",
+        ["fusion-reactor"] = "fusion-reactor-remnants",
+        ["fusion-generator"] = "fusion-generator-remnants",
+        ["heat-pipe"] = "heat-pipe-remnants",
+        ["heat-exchanger"] = "heat-exchanger-remnants",
+        ["nuclear-reactor"] = "nuclear-reactor-remnants",
+        ["steam-turbine"] = "steam-turbine-remnants",
+        ["pipe"] = "pipe-remnants",
+        ["display-panel"] = "display-panel-remnants",
+        ["programmable-speaker"] = "programmable-speaker-remnants"
+    })
 end
 
 local function spawn_room(bounding_box, surface)

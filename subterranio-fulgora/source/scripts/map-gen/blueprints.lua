@@ -1,5 +1,6 @@
 -- TODO: Add an offset here? Or in code? A lot of these are not aligned with their top-left corner at 0,0
 local blueprint_strings = {
+    -- RAILS
     ["rails_four_way_junction"] = {
         ["blueprint"] = "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"
     },
@@ -69,6 +70,16 @@ local blueprint_strings = {
     },
     ["rails_station_left"] = {
         ["blueprint"] = "0eNqt3eFu28YWBOB30W+7IPfM4ZJ5lSIoFEdNBciyIctJcwO/+5Xd2HFRrsUZz8+62TElHo3WIj/ox+rT7n5ze9juj6sPP1bbq5v93erD7z9Wd9sv+/Xu8Wf79fVm9WF1WG93q4eL1Xb/efP36kP/8PFitdkft8ft5p8VT//x/Y/9/fWnzeH0Dy6eV94db/aby2/r3W51sbq9uTstudk/Jp9iSsnf8mL1ffXhcii/5cPDxX+CysKgei4oFgYN54KwMGg6F5QLg8ZzQcOyoOjPBdWFQd25oHFhUDkXNL0KOs3gl7+Ol0+jOJNVfybFXE7fLQ5CvBnET3Y//9D6X6P9ZX3cvJ3RNTKWTjXOHs2rsb4+hVzu1te3b78+HpMuVuvdt/X3uz8e/8XxcL+Zi85l0a/mc3H0QA9a6/FXOql1TkZ+ZvvZoImf2dmg0rEzm2OjjfvlM5tTI6OwM9s8mmDPWfOYQCe1junXsF/dH75uPj+dssv1W2e/O8365+1hc/XP/+27udyBnqqcZg+w0lPVCBrpqaqN52yik4bGm3xHn8fGMUVPJ7WOqfBnrs4GBX/m5oNAP9/ZeGxJJ6GR9Gq+7z/dHddPy+c2es/P9mwK3eLNR7Z0CxNnkyY6qfEcoeMnaT6o5ydpPqjQ5z8ajy3opNb+HPTz3UpKOqn16Ibl7wovQ/Dvd4UyF1v5gZjd1WLkB2I+iK/yxjYq+U1LY2uXPX0aW0mFTmo9ul/j/nl7d7tbf7+8Xe83Z7qqe9oWv94qnA7o8a/2V3+p726ubq5vjtuvm9XsL8bykXl5NmaDkp+9+aCBn735oMpODBqbuKS3NmhsLPPX62F9dXV/fb9bH28Ob72vdbN/4Xfs4LUOaDi7g3+V0Xh6hkLPEGa3kEPQM9QIAj1DjSB6Q4PGtm8Y6KTGVnSo9MlvHdNInPzW0Uz8yZ/dhVZ+N9MI4nczjSB6N4PGnq/Suxk09nwVZIFgdmNc6a1M84AGOqn1JFXhPfAp7J3vgXXkR3j+EfAfT84HjfzHk40g+uNJtD7C5V8Mjc3vGPTEtJLorX3z0fG7F8xueEd+99II4ncvjb3lyO9eGvvdcWL/nG4d08RvYFpJ9G6+9eimQv9RhvLv7hnnYoVNzex+dhI2NfNB9KYmGju/id7URGMfOlXu8x7M7osn+kJT85HRo956ZH3Hb2ximk/idzatJLrNo7YeXiy/BhBDKwTsRYD28SR95ppHRV9Oah8V/9FM1Pkk/rOZVhL94Uw0NoH9q+up54cgWyE9PQTN4yns5cunqEXXGF9fZF12/ZLIpi88tZ8C/nXQPDEDfRErhvkk4WXQOCbhZdBI4l8G0bqE37G3p7SjevYGlXZUYW9RaUcFe5NKOwrsbSrtqGRvVGlH8ZXfjBJmff4ekyLM+inp48Xq22lv+nhD1u8xXOTFaZOVH08/PW53P2/T+m+1/rwG/Xi14fklf7O/OmxOpf54aP99UbALBnZBZReM7IKJXPB4WZlb0LMLCrsg2AXsmY6ZM33Y/Lndn94O/lr/b334fPm8/vLwOKLzKYMlpS5P2W3+bISMjpCpHfLm04lOXdgbDhvFERKOcwlYUugewsttfWTTBXnCXhqPXljVhaO6cBIXvjQivbBXFxZ1YZAnPthJiTcmRWjKsDRlOJoyHE0ZalOG2pThaMpwNGVYmjIsTRlsUxa2KYvalEVtyqI2ZVGbsqhNWdSmLGpTFrUpC9uUhW3KYmnKYmnK4mjK4mjKojZlUZuyOJqyOJqyWJqyWJqysE3Zs22S6sJBXVjVhaO6cBIXvjRmrzZmrzZmrzZmzzZmzzZmb2nM3tKYvaMxe0dj9mpj9mpj9o7G7B2N2Vsas7c0Zs82Zqc2Zqc2Zqc2Zqc2Zqc2Zqc2Zqc2Zqc2Zqc2Zsc2Zsc2ZmdpzM7SmJ2jMTtHY3ZqY3ZqY3aOxuwcjdlZGrOzNGZHNmZO5F/jrxdQTckvrOrCUV04iQufm5Jf2KsLi7owyBMf7KTEG5PCN+U7U+rylLNN+b4QdbagzhZ6w2GjOELCcS4BS0qqxTeqxTeqxTeqxTeqxTeqxTeqxTeqxTeqxTeyxTeyxTdaim+0FN/oKL7RUXyjWnyjWnyjo/hGR/GNluIbLcU3ssVX1eKravFVtfiqWnxVLb6qFl9Vi6+qxVfZ4qts8VVL8VVL8VVH8VVH8VW1+KpafNVRfNVRfNVSfNVSfJUtvkEtvkEtvkEtvkEtvkEtvkEtvkEtvkEtvuFdhQJLSlpSBktKXZ5yviIHR0UOakUOakUOjoocHBU5WCpysFTkwFZkqhWZakWmWpGpVmSqFZlqRaZakalWZFoqMi0VmZaKTEtFpqMi01GRqVZkqhWZjopMR0WmpSLTUpHJViTUioRakVArEmpFQq1IqBUJtSKhViQsFQlLRVrwTFrwTDrwTDrwTKp4JlU8kw48kw48kxY8kxY8k6z6S9XCpGphUrUwqVqYVC1MqhYmVQuTqoXJsFRkWCrSombSombSoWbSoWZSVTOpqpl0qJl0qJm0qJm0qJlkuWCqCCZVBJMqgkkVwaSKYFJFMKkimFQRTBZLRRZLRVq4TFq4TDq4TDq4TKpcJlUukw4ukw4ukxYukxYuk6wTTFW9pKpeUlUvqaqXVNVLquolVfWSqnrJ3lKRvaUiLT4mLT4mHT4mHT4mVR+Tqo9Jh49Jh49Ji49Ji4/Jnq1IlbmkylxSZS6pMpdUmUuqzCVV5pIqc8nOUpGdpSItICYtICYdICYdICZVEJMqiEkHiEkHiEkLiEkLiMmOrEiovgWqb4HqW6D6Fqi+BapvgepboPoWTI6KfGdKWlIGS0pdnnK2IuGQMFAlDFQJA4eEgUPCwCJhYJEwYCUMVAkDVcJAlTBQJQxUCQNVwkCVMFAlDEZLRY6WirSYGVjMDBxmBg4zA9XMQDUzcJgZOMwMLGYGFjMD1sxANTNQzQxUMwPVzEA1M1DNDFQzA9XMoFoqsloq0qJrYNE1cOgaOHQNVF0DVdfAoWvg0DWw6BpYdA1YXQNV10DVNVB1DVRdA1XXQNU1UHUNVF0Di66BRdfAomtg0TVw6Bo4dA1UXQNV18Cha+DQNbDoGlh0DVhdA1XXQNU1UHUNVF0DVddA1TVQdQ1UXQOLroFF18Cia2DRNXDoGjh0DVRdA1XXwKFr4NA1sOgaWHQNWF0DVddA1TVQdQ1UXQNV10DVNVB1DVRdA4uugUXXwKJrYNE1cOgaOHQNVF0DVdfAoWvg0DWw6BpYdA1YXQNV10DVNVB1DVRdA1XXQNU1UHUNVF0Di66BRdfAomtg0TVw6Bo4dA1UXQNV18Cha+DQNbDoGlh0DVhdA1XXQNU1UHUNVF0DVddA1TVQdQ1UXQOLroFF18Cia2DRNXDoGjh0DVRdA1XXwKFr4NA1sOgaWHQNWF0DVddA1TVQdQ1UXQNV10DVNVB1DVRdA4uugUXXwKJrYNE1cOgaOHQNVF0DVdfAoWvg0DWw6BpYdA1YXQNV10DVNVB1DVRdA1XXQNU1UHUNVF0D9ktkwH6JDCxmBhYzA4eZgcPMQDUzUM0MHGYGDjMDi5mBxcyANTOhmplQzUyoZiZUMxOqmQnVzIRqZkI1M8F+J0yw3wkTFgkTFgkTDgkTDgkTqoQJVcKEQ8KEQ8KERcKERcIsHufnb88K9r7wUOlMqHQmVDoTKp0Jlc6ESmdCpTOh0plgv0Qm2C+RCQuICQuICQeICQeICRXEhApiwgFiwgFiwgJiwgJilhff86+t4jezhippQpU0oUqaUCVNqJImVEkTqqQJVdIE++0zwX77TFh8TFh8TDh8TDh8TKg+JlQfEw4fEw4fExYfExYfs3icXxpzUBtThTWhwppQYU2osCZUWBMqrAkV1oQKa2JgG3NgG9PCZcLCZcLBZcLBZULlMqFymXBwmXBwmbBwmbBwmcXj/NKY7M3jofqaUH1NqL4mVF8Tqq8J1deE6mtC9TWLT3ywkxJvTIrQlBY1Ew41Ew41E6qaCVXNhEPNhEPNhEXNhEXNLC++51/L3kMeKrMJldmEymxCZTahMptQmU2ozCZUZrP4xAc7KfHGpAhNacEz4cAz4cAzoeKZUPFMOPBMOPBMWPBMWPDM8uJ7/rXsreTLFwzsgsouGNkFE7ngpQEXL+jZBYVdEOwC9kzHzJl+R9NZDEw4DEw4DEyoBiZUAxMOAxMOAxMWAxMWAzM/zh8vVtvj5vr0s0+7+83tYbs/ri5WXzeHu6eIHMqEacpaMQzj9PDwf+poOxc="
+    },
+
+    -- POWER PLANTS
+    ["fusion_power_plant_32"] = {
+        ["blueprint"] = "0eNqdlttugzAMht8l11mFc4CEV5mmibbZFGkNE4dtVcW7L4DabiOwOFcY5HyY3/iXL2T/1pv3xrqOlBdiD7VrSfl4Ia19ddXb+MxVJ0NK8tK3tnYPr8aZpurqhgyUWHc0X6SEga4faEx1+J3OhidKjOtsZ838sunm/Oz60940nkdXGJS8160/VrvxPR6Va0rOpHwAKYexiD8gdgO1/b7tqunkAlLwTQiPgqhiEyKiP0nDJkjS1YYsP0zu5BXGdtJ34Ggbc5gzRACeI+BKbMCBBegFgp6rG13ov3QVgCuMLoCE6zTRl/CQ6JClqb6kB1UHwOCxsgND0DVWd4icvexKVaGRAYFp3w+BZZzAmJFUcgMf/DtyvBkKEZShSJQhbrpBRRd671e4UJ0oaJTHsQxvxeE6GaQZGvdhkMfSPGyVx9Nsa+L9r6NAzmYWrFGmmd+yxuBPyfI081uVtEizu1WeSmxRlHcwnShunPHxDG9NnAdXLMAtaisUhtvUVigc7w8jye+0n16wcaF9ZFRSTuUTnSKYQ34Pxwv1AzRliDEZfsRsTodr7Mm2Mydf0H1Xp+TDNO1UisyZFlrLohB5rvQwfANZ4NDn",
+        ["offset"] = { x = 4, y = 5 }
+    },
+    ["nuclear_power_plant_32"] = {
+        ["blueprint"] = "0eNrlmttu2zAMht9F105hWScrr1IUgZJorTGfYDtbgyLvPjtBG68zQ9K3u/NB+sSIv0KL1IfYl6fYdkU9iO2HKA5N3Yvt84foi9c6lNOzOlRRbEV9OpQxdJsuhsPQdOKSiKI+xnexlZdkoX0/xFBthlO3L+o4a51dXhIR66EYingb6npz3tWnah+7EZcsIxLRNv3Yq6mnUUaSyp9MIs5iu5FGP5nLZMY3VkZlaYmyFJmlUZamsgxulyGzcLssmeVQlruzTvt+CNfe/zrRfmKyJUj+BXmLYdjE98NbqF/HNw/VIJdQnoyai2ERJVM6S2Osu97bol2S02yq0+WplhnGsDhDkfyl84f+khqzxOOWGIyR4wxL9pBBve3oLNTbdEHPl9gyy5M8ZtOHHsu+aXl5ytXdmGn2F0GSC/IAKCOBPA5SJFCOgzQFNPvbAEGGBEpxkCWBFA5yJFCGg3ISyOAgTwJpFKRIyta4IBVJ2bP/WBBEUrbGla1Iyta4shVJ2QZXtiIp2+DKViRlG1zZiqRsgytbkZRtcGUrkrINrmxNUrbBla1Jyja4sjVJ2SZHo4hWXBBkkeaGIweADBdkAdBd2d83Uw9DAIRzDJzBcTkdZwjWeQYOt86kXFlAIMkFAbIws2/urnntQlWFfRk3fRvDz8UNymwVTVumsUEYe8Uhdv3UpC3DeR8OP3e/mvI0cUdLv55VzXEaqWwO4yY7EaEsm9+7tinP7VtTj8wfoexjIm5dd+MufuiasozH3f68+9yaX9tcps6xG3Z/D96/jbzriy/W9VFT76rQiu3QneJnzyr2fXidzBGLE6O468UAM8xewdAO2TBdZfx/4irLXQzQDDsuCPL5/V/oWPTTnG7aUMfy8XJSAMxzBQSALHuPlAEgSf15cwlCVrFjLmQVO+ZCFrFXrARA7JgL5AHsypgL2bUy5kK4lTEXwq2MuQDOsWMu4ATHjrmQRRlTFgr4OHTcGKWAz1WnmSkGEGSYSQ8QZJkpBhDkmEkPEJQzUwwgyDOTHhAoT5kpBhAkmUkPEJQxUwwgSDGTHiBIM1MMIMgwkx4gyDJTDCDIMZMeIChnphhAkGcmPSCQT5kpBhAkmUkPEJQxUwwgSDGTHiBIM8MRCDJcEBCOvF1T5lJu3CEciy4ebu/zJbJbU/UikfM1NTAS2dMrYgrYncs0pZfEYIikV7NgSEYvZ8EQtaaeRZltmeo15S0a2qypdtHQlldeVnZ5Xh2v6glhcl4pDsL4FWcfFLAZk7MqNf30A0yTK84/wLRsxQkImKZWnIGAaXrFKYgb7SURv0fhTudanl1iktEw85LcLkfFTtfTo2TS3f3G36799UV+u5la35ul7uvdOEQxxGo07n5yJxG/Ytdf7TI289p745y2NveXyx9PK17b",
+        ["offset"] = { x = 4, y = 5 }
     }
 }
 
@@ -104,34 +115,43 @@ for _, value in pairs(blueprints) do
     local tiles = value.blueprint.tiles
     local entities = value.blueprint.entities
 
-    for _, tile in pairs(tiles) do
-        if blueprint_x_offset == nil or tile.position.x < blueprint_x_offset then
-            blueprint_x_offset = tile.position.x
-        end
-        if blueprint_y_offset == nil or tile.position.y < blueprint_y_offset then
-            blueprint_y_offset = tile.position.y
-        end
-    end
-    for _, entity in pairs(entities) do
-        if blueprint_x_offset == nil or entity.position.x < blueprint_x_offset then
-            blueprint_x_offset = entity.position.x
-        end
-        if blueprint_y_offset == nil or entity.position.y < blueprint_y_offset then
-            blueprint_y_offset = entity.position.y
+    if tiles then
+        for _, tile in pairs(tiles) do
+            if blueprint_x_offset == nil or tile.position.x < blueprint_x_offset then
+                blueprint_x_offset = tile.position.x
+            end
+            if blueprint_y_offset == nil or tile.position.y < blueprint_y_offset then
+                blueprint_y_offset = tile.position.y
+            end
         end
     end
 
-    for _, tile in pairs(tiles) do
-        tile.position.x = tile.position.x - blueprint_x_offset + (value.offset and value.offset.x or 0)
-        tile.position.y = tile.position.y - blueprint_y_offset + (value.offset and value.offset.y or 0)
+    if entities then
+        for _, entity in pairs(entities) do
+            if blueprint_x_offset == nil or entity.position.x < blueprint_x_offset then
+                blueprint_x_offset = entity.position.x
+            end
+            if blueprint_y_offset == nil or entity.position.y < blueprint_y_offset then
+                blueprint_y_offset = entity.position.y
+            end
+        end
     end
-    for _, entity in pairs(entities) do
-        entity.position.x = entity.position.x - blueprint_x_offset + (value.offset and value.offset.x or 0)
-        entity.position.y = entity.position.y - blueprint_y_offset + (value.offset and value.offset.y or 0)
+
+    if tiles then
+        for _, tile in pairs(tiles) do
+            tile.position.x = tile.position.x - blueprint_x_offset + (value.offset and value.offset.x or 0)
+            tile.position.y = tile.position.y - blueprint_y_offset + (value.offset and value.offset.y or 0)
+        end
+    end
+
+    if entities then
+        for _, entity in pairs(entities) do
+            entity.position.x = entity.position.x - blueprint_x_offset + (value.offset and value.offset.x or 0)
+            entity.position.y = entity.position.y - blueprint_y_offset + (value.offset and value.offset.y or 0)
+        end
     end
 end
 
--- local function generate(bounding_box, offset, surface, blueprint_name, tile_replacements, entity_replacements)
 local function generate(bounding_box, surface, blueprint_name, tile_replacements, entity_replacements)
     local left_x = bounding_box.left_top.x
     local top_y = bounding_box.left_top.y
@@ -149,34 +169,44 @@ local function generate(bounding_box, surface, blueprint_name, tile_replacements
         return
     end
 
-    local tiles = {}
-    local entities = blueprint.blueprint.entities
-
-    for index, tile in ipairs(blueprint.blueprint.tiles) do
-        tiles[index] = {
-            position = { 
-                x = tile.position.x + left_x, -- + (offset and offset.x or 0),
-                y = tile.position.y + top_y, -- + (offset and offset.y or 0)
-            },
-            name = tile_replacements and tile_replacements[tile.name] or tile.name
-        }
+    if blueprint.blueprint.tiles then
+        local tiles = {}
+        for index, tile in ipairs(blueprint.blueprint.tiles) do
+            tiles[index] = {
+                position = { 
+                    x = tile.position.x + left_x,
+                    y = tile.position.y + top_y,
+                },
+                name = tile_replacements and tile_replacements[tile.name] or tile.name
+            }
+        end
+        surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
     end
 
-    surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
+    local entities = blueprint.blueprint.entities
+    if entities then
+        local decoratives = {}
+        for _, entity in pairs(entities) do
+            surface.create_entity{
+                name = entity_replacements and entity_replacements[entity.name] or entity.name,
+                direction = entity.direction,
+                position = { 
+                    entity.position.x + left_x,
+                    entity.position.y + top_y,
+                },
+                force = "neutral",
+                create_build_effect_smoke = false,
+                move_stuck_players = true,
+                raise_built = true
+            }
+        end
 
-    for _, entity in pairs(entities) do
-        surface.create_entity{
-            name = entity_replacements and entity_replacements[entity.name] or entity.name,
-            direction = entity.direction,
-            position = { 
-                entity.position.x + left_x, -- + (offset and offset.x or 0),
-                entity.position.y + top_y, -- + (offset and offset.y or 0)
-            },
-            force = "neutral",
-            create_build_effect_smoke = false,
-            move_stuck_players = true,
-            raise_built = true
-        }
+        if #decoratives > 0 then
+            surface.create_decoratives{
+                check_collision = false,
+                decoratives = decoratives
+            }
+        end
     end
 end
 

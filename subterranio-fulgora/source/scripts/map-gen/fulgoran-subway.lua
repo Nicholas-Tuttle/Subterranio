@@ -45,6 +45,7 @@ local function generate_fulgoran_underground(bounding_box, surface)
     local room = generate_room(chunk_indices)
     spawn_room_if_needed(chunk_indices, surface)
     chunk_information.set_chunk_data(chunk_indices, room)
+    log("Generated room at chunk indices: " .. serpent.line(chunk_indices) .. " with data: " .. serpent.line(room))
 end
 
 local function mark_fulgoran_vault_locations(bounding_box, surface)
@@ -70,6 +71,7 @@ end
 script.on_event(defines.events.on_chunk_generated, function(event)
     if event.surface.name == "fulgoran_subway" then
         force_generate_fulgoran_surface(event.area.left_top)
+        mark_fulgoran_vault_locations(event.area, event.surface)
         generate_fulgoran_underground(event.area, event.surface)
     elseif event.surface.name == "fulgora" then
         mark_fulgoran_vault_locations(event.area, event.surface)

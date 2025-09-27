@@ -62,6 +62,22 @@ local rail_subtypes = {
     }
 }
 
+local rail_weights = {}
+for _, value in pairs(rail_subtypes) do
+    rail_weights[value.subtype] = 10
+end
+rail_weights[rail_subtypes.dead_end_bottom_entrance.subtype] = 1
+rail_weights[rail_subtypes.dead_end_left_entrance.subtype] = 1
+rail_weights[rail_subtypes.dead_end_right_entrance.subtype] = 1
+rail_weights[rail_subtypes.dead_end_top_entrance.subtype] = 1
+rail_weights[rail_subtypes.curve_bottom_right.subtype] = 1
+rail_weights[rail_subtypes.curve_bottom_left.subtype] = 1
+rail_weights[rail_subtypes.curve_top_right.subtype] = 1
+rail_weights[rail_subtypes.curve_top_left.subtype] = 1
+rail_weights[rail_subtypes.four_way_junction.subtype] = 5
+rail_weights[rail_subtypes.straight_up_down.subtype] = 50
+rail_weights[rail_subtypes.straight_left_right.subtype] = 50
+
 local function spawn_room(bounding_box, surface)
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     local room = chunk_information.get_chunk_data(chunk_indices)
@@ -71,7 +87,7 @@ local function spawn_room(bounding_box, surface)
     end
 
     local room_type = room.subtype
-    log("Spawning rails of type " .. room_type .. " at bounding box " .. serpent.line(chunk_indices))
+    -- log("Spawning rails of type " .. room_type .. " at bounding box " .. serpent.line(chunk_indices))
 
     blueprints.generate(bounding_box, surface, "rails_" .. room_type, {
         ["concrete"] = "fulgoran-rock",
@@ -173,6 +189,16 @@ local function get_connection(chunk_indices)
     local top_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
     local bottom_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1})
 
+    local left_chunk_type = left_chunk and left_chunk.type
+    local right_chunk_type = right_chunk and right_chunk.type
+    local top_chunk_type = top_chunk and top_chunk.type
+    local bottom_chunk_type = bottom_chunk and bottom_chunk.type
+
+    if left_chunk_type == consts.room_types.STARTING_AREA or right_chunk_type == consts.room_types.STARTING_AREA or
+        top_chunk_type == consts.room_types.STARTING_AREA or bottom_chunk_type == consts.room_types.STARTING_AREA then
+        return nil
+    end
+
     local left_chunk_subtype = left_chunk and left_chunk.type and left_chunk.type == consts.room_types.RAILWAY and left_chunk.subtype or nil
     local right_chunk_subtype = right_chunk and right_chunk.type and right_chunk.type == consts.room_types.RAILWAY and right_chunk.subtype or nil
     local top_chunk_subtype = top_chunk and top_chunk.type and top_chunk.type == consts.room_types.RAILWAY and top_chunk.subtype or nil
@@ -197,6 +223,10 @@ local function get_connection(chunk_indices)
     local bottom_chunk_must_be_connected = is_bottom_chunk_connected_rail(bottom_chunk_subtype)
     local bottom_chunk_cannot_be_connected = is_bottom_chunk_non_connected_rail(bottom_chunk_subtype) or (bottom_chunk and not bottom_chunk_must_be_connected and bottom_chunk.type ~= consts.room_types.RAILWAY) or false
 
+    if left_chunk_cannot_be_connected and right_chunk_cannot_be_connected and top_chunk_cannot_be_connected and bottom_chunk_cannot_be_connected then
+        return nil
+    end
+
     local possible_subtypes = {}
     for _, value in pairs(rail_subtypes) do
         possible_subtypes[value.subtype] = true
@@ -215,19 +245,29 @@ local function get_connection(chunk_indices)
         end
     end
 
-    if (left_chunk_subtype ~= nil) then
+    local bottom_left_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y + 1})
+    local bottom_right_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y + 1})
+    local top_left_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y - 1})
+    local top_right_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y - 1})
+
+    local bottom_left_chunk_subtype = bottom_left_chunk and bottom_left_chunk.type and bottom_left_chunk.type == consts.room_types.RAILWAY and bottom_left_chunk.subtype or nil
+    local bottom_right_chunk_subtype = bottom_right_chunk and bottom_right_chunk.type and bottom_right_chunk.type == consts.room_types.RAILWAY and bottom_right_chunk.subtype or nil
+    local top_left_chunk_subtype = top_left_chunk and top_left_chunk.type and top_left_chunk.type == consts.room_types.RAILWAY and top_left_chunk.subtype or nil
+    local top_right_chunk_subtype = top_right_chunk and top_right_chunk.type and top_right_chunk.type == consts.room_types.RAILWAY and top_right_chunk.subtype or nil
+
+    if (left_chunk_subtype ~= nil or is_bottom_chunk_connected_rail(bottom_left_chunk_subtype) or is_top_chunk_connected_rail(top_left_chunk_subtype)) then
         possible_subtypes[rail_subtypes.station_left.subtype] = nil
     end
 
-    if (right_chunk_subtype ~= nil) then
+    if (right_chunk_subtype ~= nil or is_bottom_chunk_connected_rail(bottom_right_chunk_subtype) or is_top_chunk_connected_rail(top_right_chunk_subtype)) then
         possible_subtypes[rail_subtypes.station_right.subtype] = nil
     end
 
-    if (top_chunk_subtype ~= nil) then
+    if (top_chunk_subtype ~= nil or is_left_chunk_connected_rail(top_left_chunk_subtype) or is_right_chunk_connected_rail(top_right_chunk_subtype)) then
         possible_subtypes[rail_subtypes.station_top.subtype] = nil
     end
 
-    if (bottom_chunk_subtype ~= nil) then
+    if (bottom_chunk_subtype ~= nil or is_left_chunk_connected_rail(bottom_left_chunk_subtype) or is_right_chunk_connected_rail(bottom_right_chunk_subtype)) then
         possible_subtypes[rail_subtypes.station_bottom.subtype] = nil
     end
 
@@ -238,11 +278,52 @@ local function get_connection(chunk_indices)
 
     local rail_creation_chance = 0.125
     local create_rail = math.random() < rail_creation_chance or left_chunk_must_be_connected or right_chunk_must_be_connected or top_chunk_must_be_connected or bottom_chunk_must_be_connected
-
-    if (#possible_keys > 0 and create_rail) then
-        return rail_subtypes[possible_keys[math.random(1, #possible_keys)]]
-    else
+    if not create_rail then
         return nil
+    end
+
+    local total_weight_remaining = 0
+    for _, value in pairs(possible_keys) do
+        total_weight_remaining = total_weight_remaining + rail_weights[value]
+    end
+
+    local random_weight = math.random(0, total_weight_remaining)
+    local current_total = 0
+    for _, value in pairs(possible_keys) do
+        current_total = current_total + rail_weights[value]
+        if (current_total >= random_weight) then
+            return rail_subtypes[value]
+        end
+    end
+end
+
+local function mark_station_room_connection(chunk_indices, station)
+    if station.subtype == rail_subtypes.station_bottom.subtype then
+        local connection = chunk_information.get_chunk_data({ chunk_indices.x, chunk_indices.y + 1 })
+        if connection == nil or connection.type == nil then
+            chunk_information.set_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1 }, { type = consts.room_types.SIZE_32 })
+        end
+    end
+
+    if station.subtype == rail_subtypes.station_top.subtype then
+        local connection = chunk_information.get_chunk_data({ chunk_indices.x, chunk_indices.y - 1 })
+        if connection == nil or connection.type == nil then
+            chunk_information.set_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1 }, { type = consts.room_types.SIZE_32 })
+        end
+    end
+
+    if station.subtype == rail_subtypes.station_left.subtype then
+        local connection = chunk_information.get_chunk_data({ chunk_indices.x - 1, chunk_indices.y })
+        if connection == nil or connection.type == nil then
+            chunk_information.set_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y }, { type = consts.room_types.SIZE_32 })
+        end
+    end
+
+    if station.subtype == rail_subtypes.station_right.subtype then
+        local connection = chunk_information.get_chunk_data({ chunk_indices.x + 1, chunk_indices.y })
+        if connection == nil or connection.type == nil then
+            chunk_information.set_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y }, { type = consts.room_types.SIZE_32 })
+        end
     end
 end
 
@@ -264,6 +345,11 @@ local function generate_room(chunk_indices)
     local rails = deepcopy(get_connection(chunk_indices))
     chunk_information.set_chunk_data(chunk_indices, rails)
     -- log("Generated rails at position: " ..serpent.line(chunk_indices) .. ", " .. serpent.line(rails))
+
+    if rails ~= nil then
+        mark_station_room_connection(chunk_indices, rails)
+    end
+
     return rails
 end
 

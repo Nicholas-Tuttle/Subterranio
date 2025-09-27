@@ -24,31 +24,14 @@ local function create_tiles(bounding_box, surface)
     surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
 end
 
-local function create_entities(bounding_box, surface)
-    local left_x = bounding_box.left_top.x
-    local right_x = bounding_box.right_bottom.x - 1
-    local bottom_y = bounding_box.right_bottom.y - 1
-    local top_y = bounding_box.left_top.y
-
+local function make_walls(surface, left_x, right_x, bottom_y, top_y)
     for i = left_x, right_x, 1 do
         for j = top_y, bottom_y, 1 do
             -- Only make walls on the perimeters
             if i == left_x or i == right_x or j == top_y or j == bottom_y then
-                local entity_name = consts.wall_entity_name
-                local direction = defines.direction.east
-
-                if (i - left_x == 3) or (i - left_x == 4) or (i - left_x == 27) or (i - left_x == 28) then
-                    entity_name = consts.gate_entity_name
-                end
-
-                if (j - top_y == 3) or (j - top_y == 4) or (j - top_y == 27) or (j - top_y == 28) then
-                    entity_name = consts.gate_entity_name
-                    direction = defines.direction.north
-                end
-
                 surface.create_entity{
-                    name = entity_name,
-                    direction = direction,
+                    name = consts.wall_entity_name,
+                    direction = defines.direction.east,
                     position = { i, j },
                     force = "neutral",
                     create_build_effect_smoke = false,
@@ -58,6 +41,145 @@ local function create_entities(bounding_box, surface)
             end
         end
     end
+end
+
+local function make_left_doors(surface, chunk_indices, left_x, bottom_y, top_y)
+    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y})
+    if chunk and chunk.type == consts.room_types.RAILWAY then
+        return
+    end
+
+    local positions = {
+        { left_x, top_y + 3 },
+        { left_x, top_y + 4 },
+        { left_x, bottom_y - 3 },
+        { left_x, bottom_y - 4 }
+    }
+
+    for _, position in pairs(positions) do
+        surface.create_entity{
+            name = "fulgoran-gate",
+            position = position,
+            direction = defines.direction.north,
+            force = "neutral",
+            create_build_effect_smoke = false,
+            move_stuck_players = true,
+            raise_built = true
+        }
+    end
+end
+
+local function make_right_doors(surface, chunk_indices, right_x, bottom_y, top_y)
+    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y})
+    if chunk and chunk.type == consts.room_types.RAILWAY then
+        return
+    end
+
+    local positions = {
+        { right_x, top_y + 3 },
+        { right_x, top_y + 4 },
+        { right_x, bottom_y - 3 },
+        { right_x, bottom_y - 4 }
+    }
+
+    for _, position in pairs(positions) do
+        surface.create_entity{
+            name = "fulgoran-gate",
+            position = position,
+            direction = defines.direction.north,
+            force = "neutral",
+            create_build_effect_smoke = false,
+            move_stuck_players = true,
+            raise_built = true
+        }
+    end
+end
+
+local function make_bottom_doors(surface, chunk_indices, left_x, right_x, bottom_y)
+    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1})
+    if chunk and chunk.type == consts.room_types.RAILWAY then
+        return
+    end
+
+    local positions = {
+        { left_x + 3, bottom_y },
+        { left_x + 4, bottom_y },
+        { right_x - 3, bottom_y },
+        { right_x - 4, bottom_y }
+    }
+
+    for _, position in pairs(positions) do
+        surface.create_entity{
+            name = "fulgoran-gate",
+            position = position,
+            direction = defines.direction.east,
+            force = "neutral",
+            create_build_effect_smoke = false,
+            move_stuck_players = true,
+            raise_built = true
+        }
+    end
+end
+
+local function make_top_doors(surface, chunk_indices, left_x, right_x, top_y)
+    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
+    if chunk and chunk.type == consts.room_types.RAILWAY then
+        return
+    end
+
+    local positions = {
+        { left_x + 3, top_y },
+        { left_x + 4, top_y },
+        { right_x - 3, top_y },
+        { right_x - 4, top_y }
+    }
+
+    for _, position in pairs(positions) do
+        surface.create_entity{
+            name = "fulgoran-gate",
+            position = position,
+            direction = defines.direction.east,
+            force = "neutral",
+            create_build_effect_smoke = false,
+            move_stuck_players = true,
+            raise_built = true
+        }
+    end
+end
+
+local function make_lamps(surface, left_x, right_x, bottom_y, top_y)
+    local lamp_positions = {
+        { left_x + 1, top_y + 1 },
+        { left_x + 1, bottom_y - 1 },
+        { right_x - 1, top_y + 1 },
+        { right_x - 1, bottom_y - 1 }
+    }
+
+    for _, position in pairs(lamp_positions) do
+        surface.create_entity{
+            name = "fulgoran-lamp",
+            position = position,
+            force = "neutral",
+            create_build_effect_smoke = false,
+            move_stuck_players = true,
+            raise_built = true
+        }
+    end
+end
+
+local function create_entities(bounding_box, surface)
+    local left_x = bounding_box.left_top.x
+    local right_x = bounding_box.right_bottom.x - 1
+    local bottom_y = bounding_box.right_bottom.y - 1
+    local top_y = bounding_box.left_top.y
+
+    local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
+    make_left_doors(surface, chunk_indices, left_x, bottom_y, top_y)
+    make_right_doors(surface, chunk_indices, right_x, bottom_y, top_y)
+    make_bottom_doors(surface, chunk_indices, left_x, right_x, bottom_y)
+    make_top_doors(surface, chunk_indices, left_x, right_x, top_y)
+    make_walls(surface, left_x, right_x, bottom_y, top_y)
+    make_lamps(surface, left_x, right_x, bottom_y, top_y)
 end
 
 local function spawn_room(bounding_box, surface)

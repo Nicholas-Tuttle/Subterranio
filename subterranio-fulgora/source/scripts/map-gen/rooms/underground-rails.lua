@@ -189,16 +189,6 @@ local function get_connection(chunk_indices)
     local top_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
     local bottom_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1})
 
-    -- local left_chunk_type = left_chunk and left_chunk.type
-    -- local right_chunk_type = right_chunk and right_chunk.type
-    -- local top_chunk_type = top_chunk and top_chunk.type
-    -- local bottom_chunk_type = bottom_chunk and bottom_chunk.type
-
-    -- if left_chunk_type == consts.room_types.STARTING_AREA or right_chunk_type == consts.room_types.STARTING_AREA or
-    --     top_chunk_type == consts.room_types.STARTING_AREA or bottom_chunk_type == consts.room_types.STARTING_AREA then
-    --     return nil
-    -- end
-
     local left_chunk_subtype = left_chunk and left_chunk.type and left_chunk.type == consts.room_types.RAILWAY and left_chunk.subtype or nil
     local right_chunk_subtype = right_chunk and right_chunk.type and right_chunk.type == consts.room_types.RAILWAY and right_chunk.subtype or nil
     local top_chunk_subtype = top_chunk and top_chunk.type and top_chunk.type == consts.room_types.RAILWAY and top_chunk.subtype or nil

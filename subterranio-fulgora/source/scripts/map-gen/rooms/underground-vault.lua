@@ -60,6 +60,25 @@ local function create_entities(bounding_box, surface)
             end
         end
     end
+
+    local scrap_name = "mixed-science-scrap"
+    if math.random() < 0.5 then
+        scrap_name = "mixed-military-scrap"
+    end
+
+    for i = left_x + 5, right_x - 5, 1 do
+        for j = top_y + 5, bottom_y - 5, 1 do
+            surface.create_entity{
+                name = scrap_name,
+                position = { i, j },
+                force = "neutral",
+                create_build_effect_smoke = false,
+                move_stuck_players = false,
+                raise_built = false,
+                amount = 100 * math.sqrt(i*i + j*j)
+            }
+        end
+    end
 end
 
 local function spawn_room(bounding_box, surface)

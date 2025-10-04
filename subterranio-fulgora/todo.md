@@ -30,3 +30,91 @@
     1. Design the flooring of the fulgoran subway
     1. Design the underground fulgoran lab buildings
     1. Re-visit the underground lighting in all rooms
+
+## Tech Tree
+```mermaid
+    graph TD;
+        EMS[Electromagnetic Science pack]
+        RG[Railguns]
+        AQ[Aquilo Discovery]
+
+        ESS[<img src='source/graphics/entity/electrostatic-shielding.png'/> Electrostatic Shielding]
+        ETDE[Electrostatic Tunnelling Drill Equipment]
+        MS[<img src='source/graphics/entity/magnetic-shielding.png'/> Magnetic Shielding]
+        ISP[<img src='source/graphics/entity/induction-science-pack.png'/> Induction Science Pack]
+
+        MMSR[Mixed Military Scrap Recycling]
+        MSSR[Mixed Science Scrap Recycling]
+        MSR[Military Scrap Recycling]
+        SSR[Science Scrap Recycling]
+        ASR[Advanced Scrap Recycling]
+
+        MCP[<img src='source/graphics/entity/magnetic-packaging.png'/> Magnetic Component Processing]
+        NM[<img src='source/graphics/entity/neodymium-magnet.png'/> Neodymium Magnets]
+        MAC[Magnetic Asteroid Collector]
+        
+        HC[<img src='source/graphics/entity/holmium-cabling.png'/> Holmium Cabling]
+        EM[<img src='source/graphics/entity/electromagnet.png'/> Electromagnets]
+        TFS[Transformer Stations]
+        
+        IRC[Industrial Recycler]
+        ACP[Advanced Chemical Plant]
+        IF[Induction Furnace]
+
+        MBear[<img src='source/graphics/entity/magnetic-bearings.png'/> Magnetic Bearings]
+        MLog[Magnetic Logistics]
+
+        MGLV[Maglev Rails]
+        MGLVL[Maglev Locomotives]
+        LCW[Large Cargo Wagons]
+        LFW[Large Fluid Wagons]
+
+        RSM[Refined Speed Module]
+        IT[Ion Thrusters]
+
+        EMS-->ESS
+        ESS-->ETDE
+
+        ETDE-->MMSR
+        ETDE-->MSSR
+        
+        MMSR-->MSR
+        MSSR-->SSR
+
+        MMSR-->ASR
+        MSSR-->ASR
+
+        ASR-->ISP
+        SSR-->ISP
+        MSR-->ISP
+
+        ISP-->MS
+        ISP-->HC
+
+        MS-->MCP
+        MCP-->NM
+        NM-->MAC
+        MBear-->IRC
+        NM-->IRC
+        NM-->ACP
+        EM-->IF
+        MS-->IF
+        HC-->EM
+        EM-->TFS
+        NM-->TFS
+        EM-->MBear
+        NM-->MBear
+        MBear-->MLog
+        MLog-->MGLV
+        MGLV-->MGLVL
+        MGLV-->LCW
+        MGLV-->LFW
+        ACP-->RSM
+        HC-->MAC
+        MAC-->IT
+        NM-->IT
+        EM-->IT
+
+        EM-->RG
+        ISP-->AQ
+```

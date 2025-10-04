@@ -2,7 +2,7 @@ local base_tile_sounds = require("__base__.prototypes.tile.tile-sounds")
 local item_sounds = require("__base__.prototypes.item_sounds")
 local simulations = require("__space-age__.prototypes.factoriopedia-simulations")
 
-function make_scrap(name, tint, recipe_results, research_trigger)
+function make_scrap(name, tint, recipe_results, prerequisites, research_trigger)
   local resource = {
     name = name .. "-scrap",
     icons = { { icon = "__space-age__/graphics/icons/scrap.png", tint = tint } },
@@ -88,7 +88,7 @@ function make_scrap(name, tint, recipe_results, research_trigger)
 
   local tech = {
     type = "technology",
-    name = name .. "-scrap",
+    name = name .. "-scrap-recycling",
     icons = { { icon = "__space-age__/graphics/icons/scrap.png", tint = tint } },
     icon_size = 256,
     effects =
@@ -98,7 +98,7 @@ function make_scrap(name, tint, recipe_results, research_trigger)
         recipe = name .. "-scrap-recycling"
       }
     },
-    prerequisites = { },
+    prerequisites = prerequisites,
     research_trigger = research_trigger
   }
 
@@ -109,7 +109,12 @@ make_scrap("advanced", {0.5, 1.0, 0.5}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.1, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
-}, {
+},
+{
+  "mixed-science-scrap-recycling",
+  "mixed-military-scrap-recycling"
+},
+{
   type = "craft-item",
   item = "advanced-scrap",
   count = 1
@@ -119,7 +124,11 @@ make_scrap("science", { 0.25, 0.25, 1.0}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.3, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
-}, {
+},
+{
+  "mixed-science-scrap-recycling"
+},
+{
   type = "craft-item",
   item = "science-scrap",
   count = 1
@@ -129,7 +138,11 @@ make_scrap("military", {1.0, 0.25, 0.25}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.3, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
-}, {
+},
+{
+  "mixed-military-scrap-recycling"
+},
+{
   type = "craft-item",
   item = "military-scrap",
   count = 1
@@ -139,7 +152,11 @@ make_scrap("mixed-science", { 0.5, 0.5, 1.0 }, {
   { type = "item", name = "advanced-scrap", amount = 1, probability = 0.95, show_details_in_recipe_tooltip = false },
   { type = "item", name = "science-scrap",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
-}, {
+}, 
+{
+  "electrostatic-tunnelling-drill-equipment"
+},
+{
   type = "mine-entity",
   entity = "mixed-science-scrap"
 })
@@ -148,7 +165,11 @@ make_scrap("mixed-military", {1.0, 0.5, 0.5}, {
   { type = "item", name = "advanced-scrap", amount = 1, probability = 0.95, show_details_in_recipe_tooltip = false },
   { type = "item", name = "military-scrap",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
-}, {
+},
+{
+  "electrostatic-tunnelling-drill-equipment"
+},
+{
   type = "mine-entity",
   entity = "mixed-military-scrap"
 })

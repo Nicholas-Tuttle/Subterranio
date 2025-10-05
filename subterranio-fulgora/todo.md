@@ -15,7 +15,7 @@
     1. ~~Figure out how to replace entities with their destroyed versions for the environment decoratives~~
     1. ~~Fix the bug where rails think they can connect to a chunk with an adjacent pre-set station even though the station requires a room to be there~~
         1. ~~A potential fix is to fill in some room type in the `chunk_information` when a station is created~~
-    1. Design Fulgoran Subway tech tree
+    1. ~~Design Fulgoran Subway tech tree~~
     1. Make the mixed scrap spawns in the rooms more circular and varied
     1. Design Fulgoran Subway enemy spawns
         1. Cyber-biters that were expirimented on and escaped, killing all the Fulgorans but were driven back underground by the lightning storms. Could these escape to the surface?

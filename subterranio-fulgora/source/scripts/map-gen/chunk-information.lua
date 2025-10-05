@@ -7,10 +7,6 @@ local function set_chunk_data(chunk_indices, data)
         storage.surface_info = {}
     end
 
-    if (storage.surface_info == nil) then
-        storage.surface_info = {}
-    end
-
     if (storage.surface_info[chunk_indices.x] == nil) then
         storage.surface_info[chunk_indices.x] = {}
     end

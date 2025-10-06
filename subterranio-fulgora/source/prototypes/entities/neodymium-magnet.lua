@@ -28,7 +28,7 @@ local recipe = {
 
 local tech = {
   type = "technology",
-  name = "neodymium-magnet",
+  name = "neodymium-magnets",
   icons = {
     {
         icon = constants.neodymium_magnet_path,

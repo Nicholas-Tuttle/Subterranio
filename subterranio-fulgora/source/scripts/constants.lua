@@ -17,4 +17,6 @@ return {
     magnetic_shielding_size = 256,
     neodymium_magnet_path = "__subterranio-fulgora__/graphics/entity/neodymium-magnet.png",
     neodymium_magnet_size = 256,
+
+    fulgoran_subway_tint = { r= 1.0, g = 0.3, b = 0.75, a = 1.0 },
 }

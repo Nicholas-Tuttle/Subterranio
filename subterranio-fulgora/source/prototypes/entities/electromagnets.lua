@@ -28,7 +28,7 @@ local recipe = {
 
 local tech = {
   type = "technology",
-  name = "electromagnet",
+  name = "electromagnets",
   icons = {
     {
         icon = constants.electromagnet_path,

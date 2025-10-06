@@ -49,7 +49,7 @@ local tech = {
             recipe = "induction-furnace"
         }
     },
-    prerequisites = {"electromagnet", "magnetic-shielding"},
+    prerequisites = {"electromagnets", "magnetic-shielding"},
     unit =
     {
         count = 1,

@@ -18,8 +18,7 @@ local item1 = {
 local item2 = {
   type = "item",
   name = "damaged-magnetic-packaging",
-  icon = constants.diamond_image_path,
-  icon_size = constants.diamond_image_size,
+  icons = {{icon = constants.magnetic_packaging_path, icon_size = constants.magnetic_packaging_size, tint = { 0.5, 0.5, 0.5, 1.0 }}},
   subgroup = "subterranio-intermediate",
   order = "a-[damaged-magnetic-packaging]",
   inventory_move_sound = item_sounds.resource_inventory_move,

@@ -28,7 +28,7 @@
     1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary
     1. Create transformer stations
     1. Create industrial recyclers
-    1. Create refined speed modules
+    1. ~~Create refined speed modules~~
     1. Create magnetic asteroid grabbers
     1. Create ion thrusters
     1. Create magnetic rails and trains

@@ -202,9 +202,45 @@ local function create_entities(bounding_box, surface)
     })
 end
 
+local function create_enemies(bounding_box, surface)
+    local enemy_count = math.random(1, 50)
+    local nauvis_enemy_types = {
+        "small-biter",
+        "medium-biter",
+        "big-biter",
+        "behemoth-biter",
+        "small-spitter",
+        "medium-spitter",
+        "big-spitter",
+        "behemoth-spitter",
+    }
+
+    local gleba_enemy_types = {
+        "small-wriggler-pentapod",
+        "medium-wriggler-pentapod",
+        "big-wriggler-pentapod"
+    }
+
+    local enemy_types = nauvis_enemy_types
+    if math.random() <= 0.5 then
+        enemy_types = gleba_enemy_types
+    end
+
+    for _ = 1, enemy_count, 1 do
+        surface.create_entity{
+            name = enemy_types[math.random(1, #enemy_types)],
+            position = {
+                x = math.random(bounding_box.left_top.x + 2, bounding_box.right_bottom.x - 2),
+                y = math.random(bounding_box.left_top.y + 2, bounding_box.right_bottom.y - 2)
+            }
+        }
+    end
+end
+
 local function spawn_room(bounding_box, surface)
     create_tiles(bounding_box, surface)
     create_entities(bounding_box, surface)
+    create_enemies(bounding_box, surface)
 end
 
 local function generate_room()

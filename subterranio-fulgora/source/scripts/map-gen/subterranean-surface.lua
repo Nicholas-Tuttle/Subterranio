@@ -1,6 +1,6 @@
 local chunk_information = require("scripts.map-gen.chunk-information")
 local starting_area = require("rooms.starting-area")
-local base_room_32 = require("base-room-size-thirty-two")
+local base_room_32 = require("rooms.base-room-size-thirty-two")
 
 script.on_event(defines.events.on_surface_created, function(event)
     local surface = game.get_surface(event.surface_index)

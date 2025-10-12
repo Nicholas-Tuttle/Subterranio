@@ -1,7 +1,7 @@
 local starting_area = require("rooms.starting-area")
 local underground_vault = require("rooms.underground-vault")
 local underground_rails = require("rooms.underground-rails")
-local base_room_32 = require("base-room-size-thirty-two")
+local base_room_32 = require("rooms.base-room-size-thirty-two")
 local chunk_information = require("scripts.map-gen.chunk-information")
 local consts = require("scripts.map-gen.map-gen-constants")
 

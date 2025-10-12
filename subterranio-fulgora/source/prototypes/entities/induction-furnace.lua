@@ -21,7 +21,9 @@ local recipe = {
     energy_requirements = 1,
     ingredients = {
         {type = "item", name = "electric-furnace", amount = 2},
-        {type = "item", name = "iron-plate", amount = 10}
+        {type = "item", name = "electrostatic-shielding", amount = 50},
+        {type = "item", name = "magnetic-shielding", amount = 50},
+        {type = "item", name = "holmium-cabling", amount = 100}
     },
     results = {{type = "item", name = "induction-furnace", amount = 1}}
 }
@@ -49,13 +51,18 @@ local tech = {
             recipe = "induction-furnace"
         }
     },
-    prerequisites = {"electromagnets", "magnetic-shielding"},
+    prerequisites = {"electromagnets", "magnetic-shielding", "advanced-material-processing-2"},
     unit =
     {
-        count = 1,
+        count = 5000,
         ingredients =
         {
             { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "space-science-pack", 1 },
+            { "subterranean-science-pack", 1 }, -- TODO: Only if ST Nauvis is present
+            { "electromagnetic-science-pack", 1 },
         },
         time = 60
     }

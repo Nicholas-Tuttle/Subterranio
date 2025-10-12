@@ -20,7 +20,10 @@ local recipe = {
   icon = constants.electrostatic_shielding_path,
   icon_size = constants.electrostatic_shielding_size,
   energy_required = 5,
-  ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
+  ingredients = { 
+    { type = "item", name = "copper-plate", amount = 1 },
+    { type = "item", name = "holmium-plate", amount = 1 },
+  },
   results = { { type = "item", name = "electrostatic-shielding", amount = 1 } },
   allow_productivity = true,
   enabled = false
@@ -51,9 +54,8 @@ local tech = {
       {
           { "automation-science-pack", 1 },
           { "logistic-science-pack", 1 },
-          { "military-science-pack", 1 },
           { "chemical-science-pack", 1 },
-          { "utility-science-pack", 1 },
+          { "space-science-pack", 1 },
           { "subterranean-science-pack", 1 }, -- TODO: Only if ST Nauvis is present
           { "electromagnetic-science-pack", 1 },
       },

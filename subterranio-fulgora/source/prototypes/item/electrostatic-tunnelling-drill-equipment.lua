@@ -16,17 +16,11 @@ local technology = {
     prerequisites = {
         "electrostatic-shielding"
     },
-    unit =
+    research_trigger =
     {
-        count = 100,
-        ingredients =
-        {
-            { "automation-science-pack",        1 },
-            { "logistic-science-pack",          1 },
-            { "chemical-science-pack",          1 },
-            { "electromagnetic-science-pack",   1 }
-        },
-        time = 30
+        type = "craft-item",
+        item = "electrostatic-shielding",
+        count = 50
     }
 }
 

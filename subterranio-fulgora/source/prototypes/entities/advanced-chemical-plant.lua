@@ -44,7 +44,10 @@ local recipe = {
     energy_requirements = 1,
     ingredients = {
         {type = "item", name = "chemical-plant", amount = 2},
-        {type = "item", name = "iron-plate", amount = 10}
+        {type = "item", name = "processing-unit", amount = 30},
+        {type = "item", name = "holmium-plate", amount = 50},
+        {type = "item", name = "electrostatic-shielding", amount = 50},
+        {type = "item", name = "neodymium-magnet", amount = 10},
     },
     results = {{type = "item", name = "advanced-chemical-plant", amount = 1}}
 }
@@ -72,13 +75,18 @@ local tech = {
             recipe = "advanced-chemical-plant"
         }
     },
-    prerequisites = {"neodymium-magnets"},
+    prerequisites = {"neodymium-magnets", "oil-processing"},
     unit =
     {
-        count = 1,
+        count = 5000,
         ingredients =
         {
             { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+            { "chemical-science-pack", 1 },
+            { "space-science-pack", 1 },
+            { "subterranean-science-pack", 1 }, -- TODO: Only if ST Nauvis is present
+            { "electromagnetic-science-pack", 1 },
         },
         time = 60
     }

@@ -25,14 +25,15 @@
         1. ~~Having different types and recyclers could make it so that there is a multiplicative number of outputs, which could be good or bad (might be too complex)~~
     1. ~~Make a straight-in station along with all the pass-by ones~~
     1. ~~Create refined speed modules~~
-    1. Make the mixed scrap spawns in the rooms more circular and varied
-    1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary
+    1. Make the recipes have actual ingredients
     1. Create transformer stations
     1. Create industrial recyclers
     1. Create magnetic asteroid grabbers
     1. Create ion thrusters
     1. Create magnetic rails and trains
     1. Ordering on all items and entities
+    1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary
+    1. Make the mixed scrap spawns in the rooms more circular and varied
 1. ~~Graphics~~
     1. ~~Design the flooring of the fulgoran subway~~
     1. ~~Design the underground fulgoran lab buildings~~

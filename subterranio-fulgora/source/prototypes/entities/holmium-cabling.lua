@@ -19,9 +19,9 @@ local recipe = {
   name = "holmium-cabling",
   icon = constants.holmium_cabling_path,
   icon_size = constants.holmium_cabling_size,
-  energy_required = 5,
-  ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
-  results = { { type = "item", name = "holmium-cabling", amount = 1 } },
+  energy_required = 0.5,
+  ingredients = { { type = "item", name = "holmium-plate", amount = 1 } },
+  results = { { type = "item", name = "holmium-cabling", amount = 2 } },
   allow_productivity = true,
   enabled = false
 }
@@ -44,11 +44,19 @@ local tech = {
     }
   },
   prerequisites = { "induction-science-pack" },
-  research_trigger =
+  unit =
   {
-    type = "craft-item",
-    item = "military-scrap",
-    count = 50
+      count = 1000,
+      ingredients =
+      {
+          { "automation-science-pack", 1 },
+          { "logistic-science-pack", 1 },
+          { "chemical-science-pack", 1 },
+          { "space-science-pack", 1 },
+          { "subterranean-science-pack", 1 }, -- TODO: Only if ST Nauvis is present
+          { "electromagnetic-science-pack", 1 },
+      },
+      time = 60
   }
 }
 

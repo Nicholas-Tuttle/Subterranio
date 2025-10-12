@@ -10,7 +10,7 @@
     1. Update rooms to not have doors that lead to the unconnected rails
         1. Update other room doors than size-32 for this
     1. ~~Fix the issue where doors are not spawning next to rail stations since they are considered rails~~
-    1. Fix the issue where rails are spawning in a way trying to connect to the rooms that are adjacent to the starting area
+    1. ~~Fix the issue where rails are spawning in a way trying to connect to the rooms that are adjacent to the starting area~~
     1. Make a straight-in station along with all the pass-by ones
     1. ~~Figure out how to replace entities with their destroyed versions for the environment decoratives~~
     1. ~~Fix the bug where rails think they can connect to a chunk with an adjacent pre-set station even though the station requires a room to be there~~
@@ -21,11 +21,18 @@
         1. Cyber-biters that were expirimented on and escaped, killing all the Fulgorans but were driven back underground by the lightning storms. Could these escape to the surface?
         1. Cyber-pentapods that are similar to the cyber biters
         1. Cyber-demolishers?
-    1. Design advanced-scrap recycling loop similar to the fulgoran surface but with different recyclers to get different materials
-        1. Should there be different scrap types?
-        1. Should there be different scrapping buildings?
-        1. Having different types and recyclers could make it so that there is a multiplicative number of outputs, which could be good or bad (might be too complex)
+    1. ~~Design advanced-scrap recycling loop similar to the fulgoran surface but with different recyclers to get different materials~~
+        1. ~~Should there be different scrap types?~~
+        1. ~~Should there be different scrapping buildings?~~
+        1. ~~Having different types and recyclers could make it so that there is a multiplicative number of outputs, which could be good or bad (might be too complex)~~
     1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary
+    1. Create transformer stations
+    1. Create industrial recyclers
+    1. Create refined speed modules
+    1. Create magnetic asteroid grabbers
+    1. Create ion thrusters
+    1. Create magnetic rails and trains
+    1. Ordering on all items and entities
 1. Graphics
     1. Design the flooring of the fulgoran subway
     1. Design the underground fulgoran lab buildings
@@ -62,7 +69,6 @@
         IF[Induction Furnace]
 
         MBear[<img src='source/graphics/entity/magnetic-bearings.png'/> Magnetic Bearings]
-        MLog[Magnetic Logistics]
 
         MGLV[Maglev Rails]
         MGLVL[Maglev Locomotives]
@@ -104,8 +110,7 @@
         NM-->TFS
         EM-->MBear
         NM-->MBear
-        MBear-->MLog
-        MLog-->MGLV
+        MBear-->MGLV
         MGLV-->MGLVL
         MGLV-->LCW
         MGLV-->LFW

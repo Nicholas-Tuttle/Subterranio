@@ -28,9 +28,16 @@ local recipe = {
     energy_required = 5,
     ingredients =
     {
-        { type = "item", name = "iron-plate",    amount = 1 },
+        { type = "item", name = "neodymium-powder",        amount = 10 },
+        { type = "item", name = "boron-powder",            amount = 10 },
+        { type = "item", name = "neodymium",               amount = 1 },
+        { type = "item", name = "cobalt-plate",            amount = 1 },
+        { type = "item", name = "electrostatic-shielding", amount = 1 },
+        { type = "item", name = "steel-plate",             amount = 10 },
+        { type = "item", name = "iron-plate",              amount = 10 },
+        { type = "item", name = "copper-plate",            amount = 10 },
     },
-    results = { { type = "item", name = "induction-science-pack", amount = 1 } },
+    results = { { type = "item", name = "induction-science-pack", amount = 6 } },
     crafting_machine_tint =
     {
         primary = { r = 1.0, g = 1.0, b = 1.0, a = 1.0 },
@@ -63,18 +70,18 @@ local tech = {
             recipe = "induction-science-pack"
         }
     },
-    prerequisites = { "type-2-scrap-recycling", "type-1-scrap-recycling", "advanced-scrap-recycling" },
+    prerequisites = { "boron-powder", "cobalt-plate", "neodymium" },
     essential = true,
     unit =
     {
         count = 1000,
         ingredients =
         {
-            { "automation-science-pack", 1 },
-            { "logistic-science-pack", 1 },
-            { "chemical-science-pack", 1 },
-            { "space-science-pack", 1 },
-            { "subterranean-science-pack", 1 }, -- TODO: Only if ST Nauvis is present
+            { "automation-science-pack",      1 },
+            { "logistic-science-pack",        1 },
+            { "chemical-science-pack",        1 },
+            { "space-science-pack",           1 },
+            { "subterranean-science-pack",    1 }, -- TODO: Only if ST Nauvis is present
             { "electromagnetic-science-pack", 1 },
         },
         time = 60

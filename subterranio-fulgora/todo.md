@@ -53,9 +53,12 @@
 
         MT1SR[Mixed Type-1 Scrap Recycling]
         MT2SR[Mixed Type-2 Scrap Recycling]
-        MSR[Type-2 Scrap Recycling]
-        SSR[Type-1 Scrap Recycling]
+        T1SR[Type-1 Scrap Recycling]
+        Cobalt[Colbalt]
+        T2SR[Type-2 Scrap Recycling]
+        Boron[Boron]
         ASR[Advanced Scrap Recycling]
+        Neodymium[Neodymium]
 
         MCP[<img src='source/graphics/entity/magnetic-packaging.png'/> Magnetic Component Processing]
         NM[<img src='source/graphics/entity/neodymium-magnet.png'/> Neodymium Magnets]
@@ -85,20 +88,21 @@
         ETDE-->MT1SR
         ETDE-->MT2SR
         
-        MT2SR-->MSR
-        MT1SR-->SSR
+        MT2SR-->T2SR
+        MT1SR-->T1SR
 
         MT2SR-->ASR
         MT1SR-->ASR
 
-        ASR-->ISP
-        SSR-->ISP
-        MSR-->ISP
+        ASR-->Neodymium-->ISP
+        T1SR-->Cobalt-->ISP
+        T2SR-->Boron-->ISP
 
         ISP-->MS
         ISP-->HC
 
         MS-->MCP
+        MCP-->EM
         MCP-->NM
         NM-->MAC
         MBear-->IRC

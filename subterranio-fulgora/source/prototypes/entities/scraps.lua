@@ -107,7 +107,8 @@ end
 
 make_scrap("advanced", {0.5, 1.0, 0.5}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.1, show_details_in_recipe_tooltip = false },
-  { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "iron-plate",  amount = 1, probability = 0.1, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "neodymium-powder",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
 },
 {
@@ -122,7 +123,8 @@ make_scrap("advanced", {0.5, 1.0, 0.5}, {
 
 make_scrap("type-1", { 0.25, 0.25, 1.0}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.3, show_details_in_recipe_tooltip = false },
-  { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "iron-plate",  amount = 1, probability = 0.1, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "cobalt-ore",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
 },
 {
@@ -136,7 +138,8 @@ make_scrap("type-1", { 0.25, 0.25, 1.0}, {
 
 make_scrap("type-2", {1.0, 0.25, 0.25}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.3, show_details_in_recipe_tooltip = false },
-  { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "iron-plate",  amount = 1, probability = 0.1, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "boron-chunk",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
 },
 {

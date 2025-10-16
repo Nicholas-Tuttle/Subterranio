@@ -183,9 +183,9 @@ local function create_entities(bounding_box, surface)
     make_walls(surface, left_x, right_x, bottom_y, top_y)
     make_lamps(surface, left_x, right_x, bottom_y, top_y)
 
-    local scrap_name = "mixed-science-scrap"
+    local scrap_name = "mixed-type-1-scrap"
     if math.random() < 0.5 then
-        scrap_name = "mixed-military-scrap"
+        scrap_name = "mixed-type-2-scrap"
     end
 
     for i = left_x + 5, right_x - 5, 1 do

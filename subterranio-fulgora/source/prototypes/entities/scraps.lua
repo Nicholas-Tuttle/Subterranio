@@ -111,8 +111,8 @@ make_scrap("advanced", {0.5, 1.0, 0.5}, {
   -- TODO: more
 },
 {
-  "mixed-science-scrap-recycling",
-  "mixed-military-scrap-recycling"
+  "mixed-type-1-scrap-recycling",
+  "mixed-type-2-scrap-recycling"
 },
 {
   type = "craft-item",
@@ -120,50 +120,37 @@ make_scrap("advanced", {0.5, 1.0, 0.5}, {
   count = 1
 })
 
-make_scrap("science", { 0.25, 0.25, 1.0}, {
+make_scrap("type-1", { 0.25, 0.25, 1.0}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.3, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
 },
 {
-  "mixed-science-scrap-recycling"
+  "mixed-type-1-scrap-recycling"
 },
 {
   type = "craft-item",
-  item = "science-scrap",
+  item = "type-1-scrap",
   count = 1
 })
 
-make_scrap("military", {1.0, 0.25, 0.25}, {
+make_scrap("type-2", {1.0, 0.25, 0.25}, {
   { type = "item", name = "scrap", amount = 1, probability = 0.3, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   -- TODO: more
 },
 {
-  "mixed-military-scrap-recycling"
+  "mixed-type-2-scrap-recycling"
 },
 {
   type = "craft-item",
-  item = "military-scrap",
+  item = "type-2-scrap",
   count = 1
 })
 
-make_scrap("mixed-science", { 0.5, 0.5, 1.0 }, {
+make_scrap("mixed-type-1", { 0.5, 0.5, 1.0 }, {
   { type = "item", name = "advanced-scrap", amount = 1, probability = 0.95, show_details_in_recipe_tooltip = false },
-  { type = "item", name = "science-scrap",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
-  { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
-}, 
-{
-  "electrostatic-tunnelling-drill-equipment"
-},
-{
-  type = "mine-entity",
-  entity = "mixed-science-scrap"
-})
-
-make_scrap("mixed-military", {1.0, 0.5, 0.5}, {
-  { type = "item", name = "advanced-scrap", amount = 1, probability = 0.95, show_details_in_recipe_tooltip = false },
-  { type = "item", name = "military-scrap",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "type-1-scrap",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
   { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
 },
 {
@@ -171,5 +158,18 @@ make_scrap("mixed-military", {1.0, 0.5, 0.5}, {
 },
 {
   type = "mine-entity",
-  entity = "mixed-military-scrap"
+  entity = "mixed-type-1-scrap"
+})
+
+make_scrap("mixed-type-2", {1.0, 0.5, 0.5}, {
+  { type = "item", name = "advanced-scrap", amount = 1, probability = 0.95, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "type-2-scrap",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
+  { type = "item", name = "iron-plate",  amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false },
+},
+{
+  "electrostatic-tunnelling-drill-equipment"
+},
+{
+  type = "mine-entity",
+  entity = "mixed-type-2-scrap"
 })

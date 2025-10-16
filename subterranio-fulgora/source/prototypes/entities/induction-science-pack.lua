@@ -63,7 +63,7 @@ local tech = {
             recipe = "induction-science-pack"
         }
     },
-    prerequisites = { "military-scrap-recycling", "science-scrap-recycling", "advanced-scrap-recycling" },
+    prerequisites = { "type-2-scrap-recycling", "type-1-scrap-recycling", "advanced-scrap-recycling" },
     essential = true,
     unit =
     {

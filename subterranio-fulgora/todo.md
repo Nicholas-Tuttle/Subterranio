@@ -51,10 +51,10 @@
         MS[<img src='source/graphics/entity/magnetic-shielding.png'/> Magnetic Shielding]
         ISP[<img src='source/graphics/entity/induction-science-pack.png'/> Induction Science Pack]
 
-        MMSR[Mixed Military Scrap Recycling]
-        MSSR[Mixed Science Scrap Recycling]
-        MSR[Military Scrap Recycling]
-        SSR[Science Scrap Recycling]
+        MT1SR[Mixed Type-1 Scrap Recycling]
+        MT2SR[Mixed Type-2 Scrap Recycling]
+        MSR[Type-2 Scrap Recycling]
+        SSR[Type-1 Scrap Recycling]
         ASR[Advanced Scrap Recycling]
 
         MCP[<img src='source/graphics/entity/magnetic-packaging.png'/> Magnetic Component Processing]
@@ -82,14 +82,14 @@
         EMS-->ESS
         ESS-->ETDE
 
-        ETDE-->MMSR
-        ETDE-->MSSR
+        ETDE-->MT1SR
+        ETDE-->MT2SR
         
-        MMSR-->MSR
-        MSSR-->SSR
+        MT2SR-->MSR
+        MT1SR-->SSR
 
-        MMSR-->ASR
-        MSSR-->ASR
+        MT2SR-->ASR
+        MT1SR-->ASR
 
         ASR-->ISP
         SSR-->ISP

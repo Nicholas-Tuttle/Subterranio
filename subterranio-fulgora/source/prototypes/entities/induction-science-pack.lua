@@ -28,7 +28,6 @@ local recipe = {
     energy_required = 5,
     ingredients =
     {
-        { type = "item", name = "neodymium-powder",        amount = 10 },
         { type = "item", name = "boron-powder",            amount = 10 },
         { type = "item", name = "neodymium",               amount = 1 },
         { type = "item", name = "cobalt-plate",            amount = 1 },

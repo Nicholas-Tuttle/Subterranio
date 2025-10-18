@@ -4,8 +4,8 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 local ore_item = {
     type = "item",
     name = "cobalt-ore",
-    icon = constants.diamond_image_path,
-    icon_size = constants.diamond_image_size,
+    icon = constants.cobalt_ore_path,
+    icon_size = constants.cobalt_ore_size,
     subgroup = "subterranio-intermediate",
     order = "a-[cobalt-ore]",
     inventory_move_sound = item_sounds.resource_inventory_move,
@@ -18,8 +18,8 @@ local ore_item = {
 local plate_item = {
     type = "item",
     name = "cobalt-plate",
-    icon = constants.diamond_image_path,
-    icon_size = constants.diamond_image_size,
+    icon = constants.cobalt_plate_path,
+    icon_size = constants.cobalt_plate_size,
     subgroup = "subterranio-intermediate",
     order = "a-[cobalt-plate]",
     inventory_move_sound = item_sounds.resource_inventory_move,
@@ -54,8 +54,8 @@ local plate_tech = {
     name = "cobalt-plate",
     icons = {
         {
-            icon = constants.diamond_image_path,
-            icon_size = constants.diamond_image_size
+            icon = constants.cobalt_plate_path,
+            icon_size = constants.cobalt_plate_size
         }
     },
     icon_size = 256,

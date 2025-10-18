@@ -4,8 +4,8 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 local chunk_item = {
     type = "item",
     name = "boron-chunk",
-    icon = constants.diamond_image_path,
-    icon_size = constants.diamond_image_size,
+    icon = constants.boron_chunk_path,
+    icon_size = constants.boron_chunk_size,
     subgroup = "subterranio-intermediate",
     order = "a-[boron-chunk]",
     inventory_move_sound = item_sounds.resource_inventory_move,
@@ -18,8 +18,8 @@ local chunk_item = {
 local powder_item = {
     type = "item",
     name = "boron-powder",
-    icon = constants.diamond_image_path,
-    icon_size = constants.diamond_image_size,
+    icon = constants.boron_powder_path,
+    icon_size = constants.boron_powder_size,
     subgroup = "subterranio-intermediate",
     order = "a-[boron-powder]",
     inventory_move_sound = item_sounds.resource_inventory_move,
@@ -56,8 +56,8 @@ local powder_tech = {
     name = "boron-powder",
     icons = {
         {
-            icon = constants.diamond_image_path,
-            icon_size = constants.diamond_image_size
+            icon = constants.boron_powder_path,
+            icon_size = constants.boron_powder_size
         }
     },
     icon_size = 256,

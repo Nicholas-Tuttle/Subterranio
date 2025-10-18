@@ -47,18 +47,18 @@
         AQ[Aquilo Discovery]
 
         ESS[<img src='source/graphics/entity/electrostatic-shielding.png'/> Electrostatic Shielding]
-        ETDE[Electrostatic Tunnelling Drill Equipment]
+        ETDE[<img src='../subterranio-base/source/graphics/item/tunnelling-drill-equipment.png'/> Electrostatic Tunnelling Drill Equipment]
         MS[<img src='source/graphics/entity/magnetic-shielding.png'/> Magnetic Shielding]
         ISP[<img src='source/graphics/entity/induction-science-pack.png'/> Induction Science Pack]
 
         MT1SR[Mixed Type-1 Scrap Recycling]
         MT2SR[Mixed Type-2 Scrap Recycling]
         T1SR[Type-1 Scrap Recycling]
-        Cobalt[Colbalt]
+        Cobalt[<img src='source/graphics/entity/cobalt-ore.png'/> <img src='source/graphics/entity/cobalt-plate.png'/>  Colbalt]
         T2SR[Type-2 Scrap Recycling]
-        Boron[Boron]
+        Boron[<img src='source/graphics/entity/boron_chunk.png'/> <img src='source/graphics/entity/boron_powder.png'/> Boron]
         ASR[Advanced Scrap Recycling]
-        Neodymium[Neodymium]
+        Neodymium[<img src='source/graphics/entity/neodymium-powder.png'/> <img src='source/graphics/entity/neodymium.png'/> Neodymium]
 
         MCP[<img src='source/graphics/entity/magnetic-packaging.png'/> Magnetic Component Processing]
         NM[<img src='source/graphics/entity/neodymium-magnet.png'/> Neodymium Magnets]

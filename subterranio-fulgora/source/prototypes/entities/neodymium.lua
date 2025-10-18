@@ -4,8 +4,8 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 local powder_item = {
     type = "item",
     name = "neodymium-powder",
-    icon = constants.diamond_image_path,
-    icon_size = constants.diamond_image_size,
+    icon = constants.neodymium_powder_path,
+    icon_size = constants.neodymium_powder_size,
     subgroup = "subterranio-intermediate",
     order = "a-[neodymium-powder]",
     inventory_move_sound = item_sounds.resource_inventory_move,
@@ -18,8 +18,8 @@ local powder_item = {
 local intermediate_item = {
     type = "item",
     name = "neodymium",
-    icon = constants.diamond_image_path,
-    icon_size = constants.diamond_image_size,
+    icon = constants.neodymium_path,
+    icon_size = constants.neodymium_size,
     subgroup = "subterranio-intermediate",
     order = "a-[neodymium]",
     inventory_move_sound = item_sounds.resource_inventory_move,
@@ -56,8 +56,8 @@ local intermediate_tech = {
     name = "neodymium",
     icons = {
         {
-            icon = constants.diamond_image_path,
-            icon_size = constants.diamond_image_size
+            icon = constants.neodymium_path,
+            icon_size = constants.neodymium_size
         }
     },
     icon_size = 256,

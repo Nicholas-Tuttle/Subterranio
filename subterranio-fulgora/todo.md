@@ -26,6 +26,10 @@
     1. ~~Make a straight-in station along with all the pass-by ones~~
     1. ~~Create refined speed modules~~
     1. Make the recipes have actual ingredients
+    1. Update recipes that use neodymium magnets to output a magnetic package result
+    1. Update recipes that use neodymium magnets to only work in a magnetic component assembler
+    1. Add the new scraps to scrap recycling infinite researches
+    1. Make infinite researches for boron, cobalt, and neodymium
     1. Create transformer stations
     1. Create industrial recyclers
     1. Create magnetic asteroid grabbers
@@ -56,7 +60,7 @@
         T1SR[Type-1 Scrap Recycling]
         Cobalt[<img src='source/graphics/entity/cobalt-ore.png'/> <img src='source/graphics/entity/cobalt-plate.png'/>  Colbalt]
         T2SR[Type-2 Scrap Recycling]
-        Boron[<img src='source/graphics/entity/boron_chunk.png'/> <img src='source/graphics/entity/boron_powder.png'/> Boron]
+        Boron[<img src='source/graphics/entity/boron-chunk.png'/> <img src='source/graphics/entity/boron-powder.png'/> Boron]
         ASR[Advanced Scrap Recycling]
         Neodymium[<img src='source/graphics/entity/neodymium-powder.png'/> <img src='source/graphics/entity/neodymium.png'/> Neodymium]
 

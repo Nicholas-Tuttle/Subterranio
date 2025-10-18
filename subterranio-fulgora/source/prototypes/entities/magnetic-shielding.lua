@@ -17,10 +17,14 @@ local item = {
 local recipe = {
   type = "recipe",
   name = "magnetic-shielding",
+  category = "advanced-crafting",
   icon = constants.magnetic_shielding_path,
   icon_size = constants.magnetic_shielding_size,
   energy_required = 5,
-  ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
+  ingredients = { 
+    { type = "item", name = "iron-plate", amount = 1 },
+    { type = "fluid", name = "electrolyte", amount = 100 }
+  },
   results = { { type = "item", name = "magnetic-shielding", amount = 1 } },
   allow_productivity = true,
   enabled = false
@@ -31,8 +35,8 @@ local tech = {
   name = "magnetic-shielding",
   icons = {
     {
-        icon = constants.magnetic_shielding_path,
-        icon_size = constants.magnetic_shielding_size
+      icon = constants.magnetic_shielding_path,
+      icon_size = constants.magnetic_shielding_size
     }
   },
   icon_size = 256,
@@ -46,17 +50,17 @@ local tech = {
   prerequisites = { "induction-science-pack" },
   unit =
   {
-      count = 1000,
-      ingredients =
-      {
-          { "automation-science-pack", 1 },
-          { "logistic-science-pack", 1 },
-          { "chemical-science-pack", 1 },
-          { "space-science-pack", 1 },
-          { "subterranean-science-pack", 1 }, -- TODO: Only if ST Nauvis is present
-          { "electromagnetic-science-pack", 1 },
-      },
-      time = 60
+    count = 1000,
+    ingredients =
+    {
+      { "automation-science-pack",      1 },
+      { "logistic-science-pack",        1 },
+      { "chemical-science-pack",        1 },
+      { "space-science-pack",           1 },
+      { "subterranean-science-pack",    1 },  -- TODO: Only if ST Nauvis is present
+      { "electromagnetic-science-pack", 1 },
+    },
+    time = 60
   }
 }
 

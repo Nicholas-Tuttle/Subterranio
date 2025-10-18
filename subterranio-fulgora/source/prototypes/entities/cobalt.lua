@@ -36,7 +36,8 @@ local plate_recipe = {
     energy_required = 10,
     ingredients =
     {
-        { type = "item",  name = "cobalt-ore",    amount = 2 }
+        { type = "item", name = "cobalt-ore", amount = 2 },
+        { type = "item", name = "calcite",    amount = 2 },
     },
     results = { { type = "item", name = "cobalt-plate", amount = 1 } },
     allow_productivity = true,
@@ -74,4 +75,4 @@ local plate_tech = {
     }
 }
 
-data:extend{ore_item, plate_item, plate_recipe, plate_tech}
+data:extend { ore_item, plate_item, plate_recipe, plate_tech }

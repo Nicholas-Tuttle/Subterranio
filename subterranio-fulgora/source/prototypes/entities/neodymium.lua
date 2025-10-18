@@ -36,9 +36,9 @@ local intermediate_recipe = {
     energy_required = 60,
     ingredients =
     {
-        { type = "item", name = "neodymium-powder", amount = 1 },
-        { type = "item", name = "boron-powder",     amount = 1 },
-        { type = "item", name = "iron-plate",       amount = 1 }
+        { type = "item", name = "neodymium-powder", amount = 10 },
+        { type = "item", name = "boron-powder",     amount = 20 },
+        { type = "item", name = "iron-plate",       amount = 2 }
     },
     results = { { type = "item", name = "neodymium", amount = 1 } },
     allow_productivity = true,
@@ -73,7 +73,7 @@ local intermediate_tech = {
     {
         type = "craft-item",
         item = "neodymium-powder",
-        count = 100
+        count = 10
     }
 }
 
@@ -98,8 +98,9 @@ local magnet_recipe = {
     energy_required = 1,
     ingredients =
     {
-        { type = "item", name = "neodymium",    amount = 1 },
-        { type = "item", name = "magnetic-casing", amount = 1 }
+        { type = "item", name = "neodymium",    amount = 2 },
+        { type = "item", name = "magnetic-casing", amount = 1 },
+        { type = "item", name = "magnetic-packaging", amount = 1 },
     },
     results = { { type = "item", name = "neodymium-magnet", amount = 1 } },
     allow_productivity = true,

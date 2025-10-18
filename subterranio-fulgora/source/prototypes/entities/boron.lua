@@ -68,7 +68,7 @@ local powder_tech = {
             recipe = "boron-powder"
         }
     },
-    prerequisites = { "type-1-scrap-recycling" },
+    prerequisites = { "type-2-scrap-recycling" },
     research_trigger = {
         type = "craft-item",
         item = "boron-chunk",

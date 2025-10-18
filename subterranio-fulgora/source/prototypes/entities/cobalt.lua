@@ -66,7 +66,7 @@ local plate_tech = {
             recipe = "cobalt-plate"
         }
     },
-    prerequisites = { "type-2-scrap-recycling" },
+    prerequisites = { "type-1-scrap-recycling" },
     research_trigger = {
         type = "craft-item",
         item = "cobalt-ore",

@@ -96,6 +96,7 @@ local magnet_recipe = {
     name = "neodymium-magnet",
     enabled = false,
     energy_required = 1,
+    category = "magnetic-components",
     ingredients =
     {
         { type = "item", name = "neodymium",    amount = 2 },

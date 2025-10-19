@@ -14,12 +14,14 @@ local item = {
   stack_size = 100,
   weight = 5 * kg
 }
+
 local recipe = {
   type = "recipe",
   name = "electromagnet",
   icon = constants.electromagnet_path,
   icon_size = constants.electromagnet_size,
   energy_required = 5,
+  category = "magnetic-components",
   ingredients = {
     { type = "item", name = "iron-plate",       amount = 2 },
     { type = "item", name = "copper-cable",     amount = 2 },

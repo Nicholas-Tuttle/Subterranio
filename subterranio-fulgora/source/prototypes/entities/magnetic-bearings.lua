@@ -20,6 +20,7 @@ local recipe = {
   icon = constants.magnetic_bearings_path,
   icon_size = constants.magnetic_bearings_size,
   energy_required = 5,
+  category = "magnetic-components",
   ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
   results = { { type = "item", name = "magnetic-bearings", amount = 1 } },
   allow_productivity = true,

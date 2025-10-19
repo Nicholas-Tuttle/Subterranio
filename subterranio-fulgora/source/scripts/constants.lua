@@ -32,5 +32,5 @@ return {
     neodymium_powder_path = "__subterranio-fulgora__/graphics/entity/neodymium-powder.png",
     neodymium_powder_size = 256,
 
-    fulgoran_subway_tint = { r= 1.0, g = 0.3, b = 0.75, a = 1.0 },
+    fulgoran_subway_tint = { r= 0.8, g = 0.2, b = 0.6, a = 1.0 },
 }

@@ -31,9 +31,9 @@ local item2 = {
 local item3 = {
   type = "item",
   name = "magnetic-component-assembler",
-  icon = constants.diamond_image_path,
-  icon_size = constants.diamond_image_size,
-  subgroup = "subterranio-intermediate",
+  icon = nil,
+  icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.fulgoran_subway_tint } },
+  subgroup = "production-machine",
   order = "a-[magnetic-component-assembler]",
   place_result = "magnetic-component-assembler",
   inventory_move_sound = item_sounds.resource_inventory_move,
@@ -46,6 +46,10 @@ local item3 = {
 local entity = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
 entity.name = "magnetic-component-assembler"
 entity.minable.result = "magnetic-component-assembler"
+entity.crafting_speed = 1.0
+entity.graphics_set.animation.layers[1].tint = constants.fulgoran_subway_tint
+entity.graphics_set.animation.layers[2].tint = constants.fulgoran_subway_tint
+entity.crafting_categories = { "magnetic-components" }
 
 local recipe1 = {
   type = "recipe",
@@ -77,7 +81,14 @@ local recipe3 = {
   icon = constants.diamond_image_path,
   icon_size = constants.diamond_image_size,
   energy_required = 5,
-  ingredients = { { type = "item", name = "iron-plate", amount = 1 } },
+  category = "electromagnetics",
+  ingredients = {
+    { type = "item", name = "assembling-machine-3", amount = 1 },
+    { type = "item", name = "magnetic-shielding",   amount = 5 },
+    { type = "item", name = "superconductor",       amount = 5 },
+    { type = "item", name = "supercapacitor",       amount = 5 },
+    { type = "item", name = "plastic-bar",          amount = 20 },
+  },
   results = { { type = "item", name = "magnetic-component-assembler", amount = 1 } },
   allow_productivity = true,
   enabled = false
@@ -148,7 +159,7 @@ local tech = {
       recipe = "magnetic-casing"
     }
   },
-  prerequisites = { "magnetic-shielding" },
+  prerequisites = { "magnetic-shielding", "automation-3" },
   unit =
   {
     count = 1000,
@@ -165,4 +176,21 @@ local tech = {
   }
 }
 
-data:extend { item1, item2, item3, entity, recipe1, recipe2, recipe3, magnetic_casing_item, magnetic_casing_recipe, tech }
+local recipe_category = {
+  type = "recipe-category",
+  name = "magnetic-components"
+}
+
+data:extend {
+  item1,
+  item2,
+  item3,
+  entity,
+  recipe1,
+  recipe2,
+  recipe3,
+  magnetic_casing_item,
+  magnetic_casing_recipe,
+  tech,
+  recipe_category
+}

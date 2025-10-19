@@ -25,16 +25,17 @@
         1. ~~Having different types and recyclers could make it so that there is a multiplicative number of outputs, which could be good or bad (might be too complex)~~
     1. ~~Make a straight-in station along with all the pass-by ones~~
     1. ~~Create refined speed modules~~
-    1. Make the recipes have actual ingredients
+    1. ~~Make the recipes have actual ingredients~~
     1. Update recipes that use neodymium magnets to output a magnetic package result
     1. Update recipes that use neodymium magnets to only work in a magnetic component assembler
     1. Add the new scraps to scrap recycling infinite researches
     1. Make infinite researches for boron, cobalt, and neodymium
-    1. Create transformer stations
-    1. Create industrial recyclers
-    1. Create magnetic asteroid grabbers
-    1. Create ion thrusters
-    1. Create magnetic rails and trains
+    1. Create entities:
+        1. Industrial recyclers
+        1. Ion thrusters
+        1. Maglev rails and trains
+        1. Magnetic asteroid grabbers
+        1. Transformer stations
     1. Ordering on all items and entities
     1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary
     1. Make the mixed scrap spawns in the rooms more circular and varied
@@ -66,25 +67,25 @@
 
         MCP[<img src='source/graphics/entity/magnetic-packaging.png'/> Magnetic Component Processing]
         NM[<img src='source/graphics/entity/neodymium-magnet.png'/> Neodymium Magnets]
-        MAC[Magnetic Asteroid Collector]
+        MAC[<img src='source/graphics/entity/diamond.png'/> Magnetic Asteroid Collector]
         
         HC[<img src='source/graphics/entity/holmium-cabling.png'/> Holmium Cabling]
         EM[<img src='source/graphics/entity/electromagnet.png'/> Electromagnets]
-        TFS[Transformer Stations]
+        TFS[<img src='source/graphics/entity/diamond.png'/> Transformer Stations]
         
-        IRC[Industrial Recycler]
-        ACP[Advanced Chemical Plant]
-        IF[Induction Furnace]
+        IRC[<img src='source/graphics/entity/diamond.png'/> Industrial Recycler]
+        ACP[<img src='source/graphics/entity/diamond.png'/> Advanced Chemical Plant]
+        IF[<img src='source/graphics/entity/diamond.png'/> Induction Furnace]
 
         MBear[<img src='source/graphics/entity/magnetic-bearings.png'/> Magnetic Bearings]
 
-        MGLV[Maglev Rails]
-        MGLVL[Maglev Locomotives]
-        LCW[Large Cargo Wagons]
-        LFW[Large Fluid Wagons]
+        MGLV[<img src='source/graphics/entity/diamond.png'/> Maglev Rails]
+        MGLVL[<img src='source/graphics/entity/diamond.png'/> Maglev Locomotives]
+        LCW[<img src='source/graphics/entity/diamond.png'/> Large Cargo Wagons]
+        LFW[<img src='source/graphics/entity/diamond.png'/> Large Fluid Wagons]
 
-        RSM[Refined Speed Module]
-        IT[Ion Thrusters]
+        RSM[<img src='source/graphics/entity/diamond.png'/> Refined Speed Module]
+        IT[<img src='source/graphics/entity/diamond.png'/> Ion Thrusters]
 
         EMS-->ESS
         ESS-->ETDE

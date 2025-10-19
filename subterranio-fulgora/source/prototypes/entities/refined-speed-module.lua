@@ -104,6 +104,7 @@ local recipe2 = {
         {type = "item", name = "refined-speed-module", amount = 2},
         {type = "item", name = "quality-module-2", amount = 2},
         {type = "item", name = "holmium-plate", amount = 10},
+        {type = "item", name = "cobalt-plate", amount = 10},
     },
     energy_required = 15,
     results = {{type="item", name="refined-speed-module-2", amount=1}}
@@ -116,9 +117,10 @@ local recipe3 = {
     enabled = false,
     ingredients =
     {
-        {type = "item", name = "refined-speed-module-2", amount = 2},
-        {type = "item", name = "quality-module-3", amount = 2},
-        {type = "item", name = "neodymium-magnet", amount = 5},
+        {type = "item", name = "refined-speed-module-2", amount = 4},
+        {type = "item", name = "quality-module-3", amount = 4},
+        {type = "item", name = "magnetic-shielding", amount = 25},
+        {type = "item", name = "neodymium-magnet", amount = 25},
     },
     energy_required = 15,
     results = {{type="item", name="refined-speed-module-3", amount=1}}

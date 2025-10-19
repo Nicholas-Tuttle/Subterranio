@@ -2,7 +2,7 @@ local constants = require("scripts.constants")
 
 local entity = table.deepcopy(data.raw["assembling-machine"]["chemical-plant"])
 entity.name = "advanced-chemical-plant"
-entity.icons = {{icon = entity.icon, tint = constants.fulgoran_subway_tint}}
+entity.icons = { { icon = entity.icon, tint = constants.fulgoran_subway_tint } }
 entity.icon = nil
 entity.minable.result = "advanced-chemical-plant"
 entity.module_slots = 6
@@ -23,8 +23,8 @@ local west_layer = entity.graphics_set.animation.west.layers[1]
 west_layer.tint = constants.fulgoran_subway_tint
 west_layer.scale = west_layer.scale * 4 / 3
 
-entity.collision_box = {{-1.7, -1.7}, {1.7, 1.7}}
-entity.selection_box = {{-2.0, -2.0}, {2.0, 2.0}}
+entity.collision_box = { { -1.7, -1.7 }, { 1.7, 1.7 } }
+entity.selection_box = { { -2.0, -2.0 }, { 2.0, 2.0 } }
 
 for i = 1, 4, 1 do
     local x = entity.fluid_boxes[i].pipe_connections[1].position[1]
@@ -35,7 +35,7 @@ end
 
 entity.energy_usage = "500kW"
 entity.crafting_speed = entity.crafting_speed * 5
-entity.effect_receiver = { base_effect = { productivity = 0.5 }}
+entity.effect_receiver = { base_effect = { productivity = 0.5 } }
 
 local recipe = {
     type = "recipe",
@@ -43,20 +43,20 @@ local recipe = {
     enabled = false,
     energy_requirements = 1,
     ingredients = {
-        {type = "item", name = "chemical-plant", amount = 2},
-        {type = "item", name = "processing-unit", amount = 30},
-        {type = "item", name = "holmium-plate", amount = 50},
-        {type = "item", name = "electrostatic-shielding", amount = 50},
-        {type = "item", name = "neodymium-magnet", amount = 10},
+        { type = "item", name = "chemical-plant",          amount = 2 },
+        { type = "item", name = "processing-unit",         amount = 30 },
+        { type = "item", name = "holmium-plate",           amount = 50 },
+        { type = "item", name = "electrostatic-shielding", amount = 50 },
+        { type = "item", name = "neodymium-magnet",        amount = 10 },
     },
-    results = {{type = "item", name = "advanced-chemical-plant", amount = 1}}
+    results = { { type = "item", name = "advanced-chemical-plant", amount = 1 } }
 }
 
 local item = {
     type = "item",
     name = "advanced-chemical-plant",
     stack_size = 50,
-    icons = {{icon = "__base__/graphics/icons/chemical-plant.png", tint = constants.fulgoran_subway_tint}},
+    icons = { { icon = "__base__/graphics/icons/chemical-plant.png", tint = constants.fulgoran_subway_tint } },
     place_result = "advanced-chemical-plant",
     subgroup = "production-machine",
     order = "a[items]-ba[chemical-plant]",
@@ -66,7 +66,7 @@ local tech = {
     type = "technology",
     name = "advanced-chemical-plant",
     icons = {
-        {icon = "__base__/graphics/icons/chemical-plant.png", icon_size = 64, tint = constants.fulgoran_subway_tint},
+        { icon = "__base__/graphics/icons/chemical-plant.png", icon_size = 64, tint = constants.fulgoran_subway_tint },
         constants.diamond_tech_overlay_icon
     },
     effects = {
@@ -75,21 +75,21 @@ local tech = {
             recipe = "advanced-chemical-plant"
         }
     },
-    prerequisites = {"neodymium-magnets", "oil-processing"},
+    prerequisites = { "neodymium-magnets", "oil-processing" },
     unit =
     {
         count = 5000,
         ingredients =
         {
-            { "automation-science-pack", 1 },
-            { "logistic-science-pack", 1 },
-            { "chemical-science-pack", 1 },
-            { "space-science-pack", 1 },
-            { "subterranean-science-pack", 1 }, -- TODO: Only if ST Nauvis is present
+            { "automation-science-pack",      1 },
+            { "logistic-science-pack",        1 },
+            { "chemical-science-pack",        1 },
+            { "space-science-pack",           1 },
+            { "subterranean-science-pack",    1 }, -- TODO: Only if ST Nauvis is present
             { "electromagnetic-science-pack", 1 },
         },
         time = 60
     }
 }
 
-data:extend{entity, recipe, item, tech}
+data:extend { entity, recipe, item, tech }

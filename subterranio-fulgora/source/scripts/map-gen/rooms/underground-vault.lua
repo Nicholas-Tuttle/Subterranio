@@ -1,5 +1,6 @@
 local consts = require("scripts.map-gen.map-gen-constants")
 local chunk_information = require("scripts.map-gen.chunk-information")
+local rails = require("scripts.map-gen.rooms.underground-rails")
 
 -- A seed that has 2-part and 4-part vaults is 3692670796
 

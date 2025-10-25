@@ -32,10 +32,10 @@
     1. Make infinite researches for boron, cobalt, and neodymium
     1. Create entities:
         1. Industrial recyclers
-        1. Ion thrusters
+        1. Ion thrusters, include a postive and negatively charged fluid that powers the thruster and can only be made in the advanced chem plant
         1. Maglev rails and trains
         1. Magnetic asteroid grabbers
-        1. Transformer stations
+        1. ~~Transformer stations~~
     1. Ordering on all items and entities
     1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary
     1. Make the mixed scrap spawns in the rooms more circular and varied
@@ -126,6 +126,7 @@
         MGLV-->LFW
         ACP-->RSM
         HC-->MAC
+        ACP-->IT
         MAC-->IT
         NM-->IT
         EM-->IT

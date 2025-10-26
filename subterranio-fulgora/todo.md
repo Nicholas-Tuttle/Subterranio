@@ -31,7 +31,6 @@
     1. Add the new scraps to scrap recycling infinite researches
     1. Make infinite researches for boron, cobalt, and neodymium
     1. Create entities:
-        1. Industrial recyclers
         1. Ion thrusters, include a postive and negatively charged fluid that powers the thruster and can only be made in the advanced chem plant
         1. Maglev rails and trains
         1. Magnetic asteroid grabbers
@@ -73,7 +72,6 @@
         EM[<img src='source/graphics/entity/electromagnet.png'/> Electromagnets]
         TFS[<img src='source/graphics/entity/diamond.png'/> Transformer Stations]
         
-        IRC[<img src='source/graphics/entity/diamond.png'/> Industrial Recycler]
         ACP[<img src='source/graphics/entity/diamond.png'/> Advanced Chemical Plant]
         IF[<img src='source/graphics/entity/diamond.png'/> Induction Furnace]
 
@@ -110,8 +108,6 @@
         MCP-->EM
         MCP-->NM
         NM-->MAC
-        MBear-->IRC
-        NM-->IRC
         NM-->ACP
         EM-->IF
         MS-->IF

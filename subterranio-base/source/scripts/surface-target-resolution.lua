@@ -10,27 +10,39 @@ local function get_entrance_surface_index(entrance_surface_name, target_surface_
 end
 
 -- Don't forget that arrays are 1-indexed in Lua!
-function get_exit_surface_options(entrance_surface_name)
+
+function get_next_lower_surface(entrance_surface_name)
     local target_surface_info = storage.MineshaftTargetInfo[entrance_surface_name]
     if not target_surface_info then return nil end
     local target_surface_list = target_surface_info.target_surfaces
     if not target_surface_list then return false end
     local entrance_surface_index = get_entrance_surface_index(entrance_surface_name, target_surface_list)
     if not entrance_surface_index then
-        game.print("Count not find entrance_surface_index")
+        game.print("get_next_lower_surface - could not find entrance_surface_index")
         return nil
     end
 
-    -- Handle just the common cases for now
-    -- TODO: Make this loop around and go up-down for multi-surface planets
-    if entrance_surface_index == 1 and #target_surface_list >= 2 then
-        return {target_surface_list[2]}
+    if entrance_surface_index < #target_surface_list then
+        return target_surface_list[entrance_surface_index + 1]
+    else
+        return nil
     end
-    
-    if entrance_surface_index == 2 and #target_surface_list == 2 then
-        return {target_surface_list[1]}
+end
+
+function get_next_higher_surface(entrance_surface_name)
+    local target_surface_info = storage.MineshaftTargetInfo[entrance_surface_name]
+    if not target_surface_info then return nil end
+    local target_surface_list = target_surface_info.target_surfaces
+    if not target_surface_list then return false end
+    local entrance_surface_index = get_entrance_surface_index(entrance_surface_name, target_surface_list)
+    if not entrance_surface_index then
+        game.print("get_next_higher_surface - could not find entrance_surface_index")
+        return nil
     end
 
-    game.print("Could not find exit surface options, returning nil")
-    return nil
+    if entrance_surface_index > 1 then
+        return target_surface_list[entrance_surface_index - 1]
+    else
+        return nil
+    end
 end

@@ -1,10 +1,17 @@
 require("entity/mineshaft-belt")
 
-local mineshaft_belt_filter = {
-    "mineshaft-belt",
-    "fast-mineshaft-belt",
-    "express-mineshaft-belt",
-    "turbo-mineshaft-belt"
+local mineshaft_upward_belt_filter = {
+    "mineshaft-belt-up",
+    "fast-mineshaft-belt-up",
+    "express-mineshaft-belt-up",
+    "turbo-mineshaft-belt-up"
+}
+
+local mineshaft_downward_belt_filter = {
+    "mineshaft-belt-down",
+    "fast-mineshaft-belt-down",
+    "express-mineshaft-belt-down",
+    "turbo-mineshaft-belt-down",
 }
 
 local mineshaft_pipe_filter = {
@@ -12,17 +19,27 @@ local mineshaft_pipe_filter = {
 }
 
 local combined_filter = {
-    { filter = "name", name = "mineshaft-belt" },
-    { filter = "name", name = "fast-mineshaft-belt" },
-    { filter = "name", name = "express-mineshaft-belt" },
-    { filter = "name", name = "turbo-mineshaft-belt" },
+    { filter = "name", name = "mineshaft-belt-up" },
+    { filter = "name", name = "mineshaft-belt-down" },
+    { filter = "name", name = "fast-mineshaft-belt-up" },
+    { filter = "name", name = "fast-mineshaft-belt-down" },
+    { filter = "name", name = "express-mineshaft-belt-up" },
+    { filter = "name", name = "express-mineshaft-belt-down" },
+    { filter = "name", name = "turbo-mineshaft-belt-up" },
+    { filter = "name", name = "turbo-mineshaft-belt-down" },
     { filter = "name", name = "mineshaft-pipe-to-ground" }
 }
 
 local function on_built(event)
-    for _, entity in pairs(mineshaft_belt_filter) do
+    for _, entity in pairs(mineshaft_upward_belt_filter) do
         if event.entity.name == entity then
-            built_mineshaft_belt(event)
+            built_upward_mineshaft_belt(event)
+        end
+    end
+
+    for _, entity in pairs(mineshaft_downward_belt_filter) do
+        if event.entity.name == entity then
+            built_downward_mineshaft_belt(event)
         end
     end
 
@@ -37,9 +54,15 @@ script.on_event(defines.events.on_built_entity, on_built, combined_filter)
 script.on_event(defines.events.on_robot_built_entity, on_built, combined_filter)
 
 local function on_pre_destroyed(event)
-    for _, entity in pairs(mineshaft_belt_filter) do
+    for _, entity in pairs(mineshaft_upward_belt_filter) do
         if event.entity.name == entity then
-            destroyed_mineshaft_belt(event)
+            destroyed_upward_mineshaft_belt(event)
+        end
+    end
+
+    for _, entity in pairs(mineshaft_downward_belt_filter) do
+        if event.entity.name == entity then
+            destroyed_downward_mineshaft_belt(event)
         end
     end
 

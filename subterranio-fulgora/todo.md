@@ -33,7 +33,7 @@
     1. Create entities:
         1. Ion thrusters, include a postive and negatively charged fluid that powers the thruster and can only be made in the advanced chem plant
         1. Maglev rails and trains
-        1. Magnetic asteroid grabbers
+        1. ~~Magnetic asteroid grabbers~~
         1. ~~Transformer stations~~
     1. Ordering on all items and entities
     1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary

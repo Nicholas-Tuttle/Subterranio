@@ -66,7 +66,7 @@ local function create_mineshaft_belt_type(prefix, order_postfix, speed, tech, ti
         name = prefix .. "mineshaft-belt",
         order = "d[subterranio]-" .. order_postfix .. "-[a]",
         enabled = false,
-        energy_requirements = 1,
+        energy_required = 1,
         ingredients = {
             {type = "item", name = prefix .. "underground-belt", amount = 20},
             {type = "item", name = "low-density-structure", amount = 20},

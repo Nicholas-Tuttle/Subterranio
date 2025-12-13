@@ -9,9 +9,7 @@ local function get_entrance_surface_index(entrance_surface_name, target_surface_
     return 0
 end
 
--- Don't forget that arrays are 1-indexed in Lua!
-
-function get_next_lower_surface(entrance_surface_name)
+local function get_next_lower_surface(entrance_surface_name)
     local target_surface_info = storage.MineshaftTargetInfo[entrance_surface_name]
     if not target_surface_info then return nil end
     local target_surface_list = target_surface_info.target_surfaces
@@ -29,7 +27,7 @@ function get_next_lower_surface(entrance_surface_name)
     end
 end
 
-function get_next_higher_surface(entrance_surface_name)
+local function get_next_higher_surface(entrance_surface_name)
     local target_surface_info = storage.MineshaftTargetInfo[entrance_surface_name]
     if not target_surface_info then return nil end
     local target_surface_list = target_surface_info.target_surfaces
@@ -46,3 +44,8 @@ function get_next_higher_surface(entrance_surface_name)
         return nil
     end
 end
+
+return {
+    get_next_lower_surface = get_next_lower_surface,
+    get_next_higher_surface = get_next_higher_surface
+}

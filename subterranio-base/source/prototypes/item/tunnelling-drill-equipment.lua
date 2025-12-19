@@ -54,11 +54,6 @@ local technology = {
         {
             type = "unlock-recipe",
             recipe = "geothermal-powerplant"
-        },
-        {
-            type = "unlock-space-location",
-            space_location = "subterrain",
-            use_icon_overlay_constant = true
         }
     },
     prerequisites = {

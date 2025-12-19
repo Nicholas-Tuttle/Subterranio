@@ -27,3 +27,29 @@ data:extend {subterrain.merge(data.raw.planet.nauvis, {
     auto_save_on_first_trip = false,
     asteroid_spawn_definitions = "nil",
 })}
+
+data:extend {subterrain.merge(data.raw.planet.nauvis, {
+    name = "subterrain_level_2",
+    starting_area = 1,
+    surface_properties = {
+        ["day-night-cycle"] = 5 * minute,
+        ["magnetic-field"] = 0,
+        ["solar-power"] = 0,
+        pressure = constants.subterrain_pressure,
+        gravity = constants.subterrain_gravity,
+    },
+    starmap_icon = "__subterranio-nauvis__/graphics/entity/mineshaft.png",
+    starmap_icon_size = 512,
+    icon = "__subterranio-nauvis__/graphics/entity/mineshaft.png",
+    icon_size = 512,
+    magnitude = 0.75,
+    order = "a[nauvis]-[subterrain_level_2]",
+    pollutant_type = "nil",
+    player_effects = "nil",
+    map_gen_settings = surface_gen["subterrain_level_2"](),
+    distance = 14.0,
+    draw_orbit = false,
+    orientation = 0.315, -- Nauvis is 0.275
+    auto_save_on_first_trip = false,
+    asteroid_spawn_definitions = "nil",
+})}

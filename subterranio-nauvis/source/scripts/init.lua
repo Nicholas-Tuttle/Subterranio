@@ -5,7 +5,8 @@ end
 script.on_init(function ()
     local nauvis_surface_family = {
         "nauvis",
-        "subterrain"
+        "subterrain",
+        "subterrain_level_2"
     }
 
     local nauvis_tech_requirements = {
@@ -25,6 +26,13 @@ script.on_init(function ()
 
     subterrain_base_register_target_surface_visitation_requirements_v1({
         surface_name = "subterrain",
+        target_surfaces = nauvis_surface_family,
+        tech_requirements = nauvis_tech_requirements,
+        equipment_requirements = basic_equipment_requirements
+    })
+
+    subterrain_base_register_target_surface_visitation_requirements_v1({
+        surface_name = "subterrain_level_2",
         target_surfaces = nauvis_surface_family,
         tech_requirements = nauvis_tech_requirements,
         equipment_requirements = basic_equipment_requirements

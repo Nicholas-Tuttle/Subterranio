@@ -1,4 +1,4 @@
-local surface_target_resolution = require("surface-target-resolution")
+local surface_target_resolution = require("scripts.surface-target-resolution")
 
 local destination_belt_names = {
     ["mineshaft-belt-up"] = "mineshaft-belt-down",

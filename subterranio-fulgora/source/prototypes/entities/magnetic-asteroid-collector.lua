@@ -4,17 +4,15 @@ local entity = table.deepcopy(data.raw["asteroid-collector"]["asteroid-collector
 entity.name = "magnetic-asteroid-collector"
 entity.icons = { { icon = entity.icon, tint = constants.fulgoran_subway_tint } }
 entity.icon = nil
-entity.arm_count_base = 5
-entity.arm_count_quality_scaling = 5
-entity.arm_speed_base = 1.0
-entity.arm_speed_quality_scaling = 0.25
+entity.arm_speed_base = 0.5
+entity.arm_speed_quality_scaling = 0.1
 entity.arm_angular_speed_cap_base = 0.25
 entity.arm_angular_speed_cap_quality_scaling = 0.25
 
-entity.graphics_set.below_arm_pictures = nil
-entity.graphics_set.arm_head_animation = nil
-entity.graphics_set.arm_head_top_animation = nil
-entity.graphics_set.arm_link = nil
+-- entity.graphics_set.below_arm_pictures = nil
+-- entity.graphics_set.arm_head_animation = nil
+-- entity.graphics_set.arm_head_top_animation = nil
+-- entity.graphics_set.arm_link = nil
 
 entity.graphics_set.animation.north.layers[1].tint = constants.fulgoran_subway_tint
 entity.graphics_set.animation.east.layers[1].tint = constants.fulgoran_subway_tint

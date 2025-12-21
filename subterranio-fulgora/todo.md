@@ -2,8 +2,8 @@
 1. Before Release
     1. ~~Fix the fulgoran subway space map icon location~~
     1. ~~Double-check all locale strings are done~~
+    1. ~~Update new scrap types to have more output volume~~
     1. Make magnetic components only in mag component assembler
-    1. Update new scrap types to have more output volume
     1. Finish replacing all entities with broken ones
     1. Make a few more room blueprints
     1. Comment-out magnetic bearings

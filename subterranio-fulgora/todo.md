@@ -2,6 +2,11 @@
 1. Before Release
     1. Fix the fulgoran subway space map icon location
     1. Double-check all locale strings are done
+    1. Finish replacing all entities with broken ones
+    1. Make a few more room blueprints
+    1. Update version numbers
+    1. Update release notes
+    1. Credits updates?
 1. Behavioral
     1. ~~Figure out how to make straight-line terrain up-down and left-right for the subway tunnels~~
         1. ~~Could rails (or high-tech rails?) but added?~~

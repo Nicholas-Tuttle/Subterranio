@@ -185,21 +185,18 @@ local function create_entities(bounding_box, surface)
 
     local subtype_keys = {
         "fusion_power_plant_32",
-        "nuclear_power_plant_32"
+        "nuclear_power_plant_32",
+        "biolab_32",
+        "steam_room_32",
+        "server_room_32",
+        "kitchen_32",
+        "industry_room_32"
     }
 
     blueprints.generate(bounding_box, surface, subtype_keys[math.random(1, #subtype_keys)], nil, {
-        ["substation"] = "substation-remnants",
-        ["fusion-reactor"] = "fusion-reactor-remnants",
-        ["fusion-generator"] = "fusion-generator-remnants",
-        ["heat-pipe"] = "heat-pipe-remnants",
-        ["heat-exchanger"] = "heat-exchanger-remnants",
-        ["nuclear-reactor"] = "nuclear-reactor-remnants",
-        ["steam-turbine"] = "steam-turbine-remnants",
-        ["pipe"] = "pipe-remnants",
-        ["display-panel"] = "display-panel-remnants",
-        ["programmable-speaker"] = "programmable-speaker-remnants"
-    })
+        ["stone-wall"] = "wall-remnants",
+        ["small-lamp"] = "lamp-remnants"
+    }, true)
 end
 
 local function create_enemies(bounding_box, surface)

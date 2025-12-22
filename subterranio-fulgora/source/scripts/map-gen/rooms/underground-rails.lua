@@ -97,8 +97,15 @@ local function spawn_room(bounding_box, surface)
     }, {
         ["stone-wall"] = "fulgoran-wall",
         ["gate"] = "fulgoran-gate",
-        ["small-lamp"] = "fulgoran-lamp"
-    })
+        ["small-lamp"] = "fulgoran-lamp",
+        ["substation"] = "substation-remnants",
+        ["accumulator"] = "accumulator-remnants",
+        ["display-panel"] = "display-panel-remnants",
+        ["straight-rail"] = "straight-rail-remnants",
+        ["curved-rail-a"] = "curved-rail-a-remnants",
+        ["curved-rail-b"] = "curved-rail-b-remnants",
+        ["half-diagonal-rail"] = "half-diagonal-rail-remnants"
+    }, nil)
 end
 
 local left_connected_subtypes = {}
@@ -266,7 +273,7 @@ local function get_connection(chunk_indices)
         possible_keys[#possible_keys + 1] = key
     end
 
-    local rail_creation_chance = 0.125
+    local rail_creation_chance = 0.05
     local create_rail = math.random() < rail_creation_chance or left_chunk_must_be_connected or right_chunk_must_be_connected or top_chunk_must_be_connected or bottom_chunk_must_be_connected
     if not create_rail then
         return nil

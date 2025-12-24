@@ -155,37 +155,35 @@ end
 
 local base_tint = {0.75, 0.65, 0.15, 1}
 local base_tech_params = {
-    prerequisites = {"subterranean-science-pack", "logistics"},
+    prerequisites = {"logistics"},
     unit =
     {
         count = 250,
         ingredients =
         {
             { "automation-science-pack", 1 },
-            { "logistic-science-pack", 1 },
-            { "subterranean-science-pack", 1 }
+            { "logistic-science-pack", 1 }
         }
     }
 }
 
 local fast_tint = {0.76, 0.38, 0.30, 1}
 local fast_tech_params = {
-    prerequisites = {"subterranean-science-pack", "logistics-2", "mineshaft-belt" },
+    prerequisites = {"logistics-2", "mineshaft-belt" },
     unit =
     {
         count = 1000,
         ingredients =
         {
             { "automation-science-pack", 1 },
-            { "logistic-science-pack", 1 },
-            { "subterranean-science-pack", 1 }
+            { "logistic-science-pack", 1 }
         }
     }
 }
 
 local express_tint = {0.30, 0.30, 0.68, 1}
 local express_tech_params = {
-    prerequisites = {"subterranean-science-pack", "logistics-3", "fast-mineshaft-belt" },
+    prerequisites = {"logistics-3", "fast-mineshaft-belt" },
     unit =
     {
         count = 2000,
@@ -194,15 +192,14 @@ local express_tech_params = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
             { "chemical-science-pack", 1 },
-            { "production-science-pack", 1 },
-            { "subterranean-science-pack", 1 }
+            { "production-science-pack", 1 }
         }
     }
 }
 
 local turbo_tint = {0.18, 0.65, 0.16, 1}
 local turbo_tech_params = {
-    prerequisites = {"subterranean-science-pack", "turbo-transport-belt", "express-mineshaft-belt" },
+    prerequisites = {"turbo-transport-belt", "express-mineshaft-belt" },
     unit =
     {
         count = 5000,
@@ -213,8 +210,7 @@ local turbo_tech_params = {
             { "chemical-science-pack", 1 },
             { "production-science-pack", 1 },
             { "space-science-pack", 1 },
-            { "metallurgic-science-pack", 1 },
-            { "subterranean-science-pack", 1 }
+            { "metallurgic-science-pack", 1 }
         }
     }
 }

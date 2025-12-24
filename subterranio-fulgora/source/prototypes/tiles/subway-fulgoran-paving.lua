@@ -35,6 +35,4 @@ local out_of_map = {
     }
 }
 
-table.insert(out_of_map_tile_type_names, "cave-wall")
-
 data:extend{out_of_map}

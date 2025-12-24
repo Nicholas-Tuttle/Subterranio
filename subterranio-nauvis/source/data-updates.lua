@@ -19,3 +19,16 @@ table.insert(data.raw["technology"]["railgun"].unit.ingredients, {"subterranean-
 table.insert(data.raw["technology"]["railgun-damage-1"].unit.ingredients, {"subterranean-science-pack", 1})
 table.insert(data.raw["technology"]["promethium-science-pack"].unit.ingredients, {"subterranean-science-pack", 1})
 table.insert(data.raw["technology"]["research-productivity"].unit.ingredients, {"subterranean-science-pack", 1})
+
+table.insert(data.raw["technology"]["tunnelling-drill-equipment"].effects, {type = "unlock-space-location", space_location = "subterrain", use_icon_overlay_constant = true})
+
+table.insert(data.raw["technology"]["mineshaft-belt"].prerequisites, "subterranean-science-pack")
+table.insert(data.raw["technology"]["mineshaft-belt"].unit.ingredients, {"subterranean-science-pack", 1})
+table.insert(data.raw["technology"]["fast-mineshaft-belt"].prerequisites, "subterranean-science-pack")
+table.insert(data.raw["technology"]["fast-mineshaft-belt"].unit.ingredients, {"subterranean-science-pack", 1})
+table.insert(data.raw["technology"]["express-mineshaft-belt"].prerequisites, "subterranean-science-pack")
+table.insert(data.raw["technology"]["express-mineshaft-belt"].unit.ingredients, {"subterranean-science-pack", 1})
+table.insert(data.raw["technology"]["turbo-mineshaft-belt"].prerequisites, "subterranean-science-pack")
+table.insert(data.raw["technology"]["turbo-mineshaft-belt"].unit.ingredients, {"subterranean-science-pack", 1})
+table.insert(data.raw["technology"]["mineshaft-pipe"].prerequisites, "subterranean-science-pack")
+table.insert(data.raw["technology"]["mineshaft-pipe"].unit.ingredients, {"subterranean-science-pack", 1})

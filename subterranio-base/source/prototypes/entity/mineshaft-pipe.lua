@@ -193,15 +193,14 @@ local tech = {
             recipe = "mineshaft-pipe-down-from-up"
         }
     },
-    prerequisites = {"subterranean-science-pack", "steam-power"},
+    prerequisites = {"steam-power"},
     unit =
     {
         count = 250,
         ingredients =
         {
             { "automation-science-pack", 1 },
-            { "logistic-science-pack", 1 },
-            { "subterranean-science-pack", 1 }
+            { "logistic-science-pack", 1 }
         },
         time = 60
     }

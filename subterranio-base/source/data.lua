@@ -4,6 +4,7 @@ require("prototypes.entity.geothermal-power-plant")
 require("prototypes.entity.mineshaft-belt")
 require("prototypes.entity.mineshaft-pipe")
 
+require("prototypes.item.subgroups")
 require("prototypes.item.tunnelling-drill-equipment")
 
 require("prototypes.tipsandtricks.subterranean-caves")

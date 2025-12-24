@@ -85,7 +85,7 @@ local tech = {
             { "logistic-science-pack",        1 },
             { "chemical-science-pack",        1 },
             { "space-science-pack",           1 },
-            { "subterranean-science-pack",    1 }, -- TODO: Only if ST Nauvis is present
+            -- { "subterranean-science-pack",    1 }, This is in data-updates, only if ST Nauvis is present
             { "electromagnetic-science-pack", 1 },
         },
         time = 60

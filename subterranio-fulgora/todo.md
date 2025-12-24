@@ -5,6 +5,7 @@
     1. ~~Update new scrap types to have more output volume~~
     1. ~~Make a few more room blueprints~~
     1. ~~Finish replacing all entities with broken ones~~
+    1. ~~Isolate ST-nauvis dependencies~~
     1. Make magnetic components only in mag component assembler
     1. Comment-out magnetic bearings
     1. Update version numbers
@@ -49,7 +50,10 @@
     1. Ordering on all items and entities
     1. Update the underground vaults to not have walls if the above-ground vault crosses a chunk boundary
     1. Make the mixed scrap spawns in the rooms more circular and varied
-1. ~~Graphics~~
+    1. Add user settings for resource patch size, density, etc
+    1. Add some starting-area loot and other loot boxes in the generated rooms
+        1. Link these loot items to future techs
+1. Graphics
     1. ~~Design the flooring of the fulgoran subway~~
     1. ~~Design the underground fulgoran lab buildings~~
     1. ~~Re-visit the underground lighting in all rooms~~

@@ -6,8 +6,11 @@
     1. ~~Make a few more room blueprints~~
     1. ~~Finish replacing all entities with broken ones~~
     1. ~~Isolate ST-nauvis dependencies~~
-    1. Make magnetic components only in mag component assembler
-    1. Comment-out magnetic bearings
+    1. ~~Make magnetic components only in mag component assembler~~
+    1. ~~Make the magnetic component assembler icon~~
+    1. ~~Comment-out magnetic bearings~~
+    1. Finish the migration of mineshaft belts so that they get auto-replaced on nauvis
+    1. Ordering on all items and entities
     1. Update version numbers
     1. Update release notes
     1. Credits updates?
@@ -38,8 +41,8 @@
     1. ~~Make a straight-in station along with all the pass-by ones~~
     1. ~~Create refined speed modules~~
     1. ~~Make the recipes have actual ingredients~~
-    1. Update recipes that use neodymium magnets to output a magnetic package result
-    1. Update recipes that use neodymium magnets to only work in a magnetic component assembler
+    1. ~~Update recipes that use neodymium magnets to output a magnetic package result~~
+    1. ~~Update recipes that use neodymium magnets to only work in a magnetic component assembler~~
     1. Add the new scraps to scrap recycling infinite researches
     1. Make infinite researches for boron, cobalt, and neodymium
     1. Create entities:

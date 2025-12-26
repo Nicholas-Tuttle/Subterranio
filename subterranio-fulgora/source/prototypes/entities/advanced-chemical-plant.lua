@@ -40,6 +40,7 @@ entity.effect_receiver = { base_effect = { productivity = 0.5 } }
 local recipe = {
     type = "recipe",
     name = "advanced-chemical-plant",
+    icons = { { icon = "__base__/graphics/icons/chemical-plant.png", tint = constants.fulgoran_subway_tint } },
     enabled = false,
     energy_requirements = 1,
     ingredients = {
@@ -49,7 +50,11 @@ local recipe = {
         { type = "item", name = "electrostatic-shielding", amount = 50 },
         { type = "item", name = "neodymium-magnet",        amount = 10 },
     },
-    results = { { type = "item", name = "advanced-chemical-plant", amount = 1 } }
+    results = {
+        { type = "item", name = "advanced-chemical-plant",    amount = 1 },
+        { type = "item", name = "damaged-magnetic-packaging", amount = 10, probability = constants.damaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+        { type = "item", name = "magnetic-packaging",         amount = 10, probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+    }
 }
 
 local item = {
@@ -85,7 +90,6 @@ local tech = {
             { "logistic-science-pack",        1 },
             { "chemical-science-pack",        1 },
             { "space-science-pack",           1 },
-            -- { "subterranean-science-pack",    1 }, This is in data-updates, only if ST Nauvis is present
             { "electromagnetic-science-pack", 1 },
         },
         time = 60

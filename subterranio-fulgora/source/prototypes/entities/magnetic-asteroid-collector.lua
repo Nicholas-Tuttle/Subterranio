@@ -32,6 +32,7 @@ local item = {
 local recipe = {
     type = "recipe",
     name = "magnetic-asteroid-collector",
+    icons = { { icon = "__space-age__/graphics/icons/asteroid-collector.png", icon_size = 64, tint = constants.fulgoran_subway_tint } },
     enabled = false,
     energy_requirements = 10,
     ingredients = {
@@ -40,7 +41,11 @@ local recipe = {
         { type = "item", name = "neodymium-magnet",   amount = 10 },
         { type = "item", name = "holmium-cabling",    amount = 50 },
     },
-    results = { { type = "item", name = "magnetic-asteroid-collector", amount = 1 } }
+    results = { 
+        { type = "item", name = "magnetic-asteroid-collector", amount = 1 },
+        { type = "item", name = "damaged-magnetic-packaging", amount = 10, probability = constants.damaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+        { type = "item", name = "magnetic-packaging",         amount = 10, probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+    }
 }
 
 local tech = {
@@ -66,7 +71,6 @@ local tech = {
             { "logistic-science-pack",        1 },
             { "chemical-science-pack",        1 },
             { "space-science-pack",           1 },
-            -- { "subterranean-science-pack",    1 }, This is in data-updates, only if ST Nauvis is present
             { "electromagnetic-science-pack", 1 },
             { "induction-science-pack",       1 },
         },

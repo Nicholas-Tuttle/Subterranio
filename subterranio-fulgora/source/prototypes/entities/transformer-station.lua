@@ -16,6 +16,7 @@ entity.radius_visualisation_picture.height = 12
 local recipe = {
     type = "recipe",
     name = "transformer-station",
+    icons = { { icon = "__base__/graphics/icons/substation.png", icon_size = 64, tint = constants.fulgoran_subway_tint } },
     enabled = false,
     energy_requirements = 1,
     ingredients = {
@@ -25,7 +26,11 @@ local recipe = {
         { type = "item", name = "neodymium-magnet", amount = 10 },
         { type = "item", name = "holmium-cabling",  amount = 50 },
     },
-    results = { { type = "item", name = "transformer-station", amount = 1 } }
+    results = {
+        { type = "item", name = "transformer-station",        amount = 1 },
+        { type = "item", name = "damaged-magnetic-packaging", amount = 20, probability = constants.damaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+        { type = "item", name = "magnetic-packaging",         amount = 20, probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+    }
 }
 
 local item = {
@@ -61,7 +66,6 @@ local tech = {
             { "logistic-science-pack",        1 },
             { "chemical-science-pack",        1 },
             { "space-science-pack",           1 },
-            -- { "subterranean-science-pack",    1 }, This is in data-updates, only if ST Nauvis is present
             { "electromagnetic-science-pack", 1 },
         },
         time = 60

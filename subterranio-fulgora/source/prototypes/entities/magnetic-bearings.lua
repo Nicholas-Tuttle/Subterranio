@@ -27,7 +27,11 @@ local recipe = {
     { type = "item", name = "electromagnet",    amount = 1 },
     { type = "item", name = "neodymium-magnet", amount = 1 },
   },
-  results = { { type = "item", name = "magnetic-bearings", amount = 1 } },
+  results = {
+    { type = "item", name = "magnetic-bearings",          amount = 1 },
+    { type = "item", name = "damaged-magnetic-packaging", amount = 10, probability = constants.damaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "magnetic-packaging",         amount = 10, probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+  },
   allow_productivity = true,
   enabled = false
 }
@@ -59,7 +63,6 @@ local tech = {
       { "logistic-science-pack",        1 },
       { "chemical-science-pack",        1 },
       { "space-science-pack",           1 },
-      -- { "subterranean-science-pack",    1 }, This is in data-updates, only if ST Nauvis is present
       { "electromagnetic-science-pack", 1 },
     },
     time = 60

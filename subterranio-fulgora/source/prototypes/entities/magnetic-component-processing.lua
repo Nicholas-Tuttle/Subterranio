@@ -71,15 +71,14 @@ local recipe2 = {
   energy_required = .5,
   ingredients = { { type = "item", name = "damaged-magnetic-packaging", amount = 1 } },
   results = { { type = "item", name = "magnetic-packaging", amount = 1 } },
-  allow_productivity = true,
+  allow_productivity = false,
   enabled = false
 }
 
 local recipe3 = {
   type = "recipe",
   name = "magnetic-component-assembler",
-  icon = constants.diamond_image_path,
-  icon_size = constants.diamond_image_size,
+  icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.fulgoran_subway_tint } },
   energy_required = 5,
   category = "electromagnetics",
   ingredients = {
@@ -169,7 +168,6 @@ local tech = {
       { "logistic-science-pack",        1 },
       { "chemical-science-pack",        1 },
       { "space-science-pack",           1 },
-      -- { "subterranean-science-pack",    1 }, This is in data-updates, only if ST Nauvis is present
       { "electromagnetic-science-pack", 1 },
     },
     time = 60

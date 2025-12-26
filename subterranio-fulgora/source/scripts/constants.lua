@@ -38,5 +38,8 @@ return {
     fulgoran_subway_tint = { r= 0.8, g = 0.2, b = 0.6, a = 1.0 },
 
     diamond_tint_icon_color = {r= 0.6, g = 0.6, b = 1.0, a = 1.0},
-    diamond_tech_overlay_icon = {icon = diamond_image_path, icon_size = diamond_image_size, scale = 0.15, shift = {26, 26}}
+    diamond_tech_overlay_icon = {icon = diamond_image_path, icon_size = diamond_image_size, scale = 0.15, shift = {26, 26}},
+
+    damaged_packaging_return_change = 0.1,
+    undamaged_packaging_return_change = 0.05,
 }

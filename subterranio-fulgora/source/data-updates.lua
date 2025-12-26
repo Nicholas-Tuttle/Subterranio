@@ -20,7 +20,7 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["induction-furnace"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["induction-science-pack"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["magnetic-asteroid-collector"].unit.ingredients, {"subterranean-science-pack", 1})
-    table.insert(data.raw["technology"]["magnetic-bearings"].unit.ingredients, {"subterranean-science-pack", 1})
+    -- table.insert(data.raw["technology"]["magnetic-bearings"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["magnetic-component-processing"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["magnetic-shielding"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["neodymium-magnets"].unit.ingredients, {"subterranean-science-pack", 1})

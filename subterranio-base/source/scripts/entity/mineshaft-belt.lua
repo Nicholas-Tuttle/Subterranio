@@ -14,7 +14,8 @@ local destination_belt_names = {
 local function get_destination_surface(mineshaft_belt_entrance)
     local destination_surface_name = nil
     if string.find(mineshaft_belt_entrance.name, "up") then
-        destination_surface_name = surface_target_resolution.get_next_higher_surface(mineshaft_belt_entrance.surface.name)
+        destination_surface_name = surface_target_resolution.get_next_higher_surface(mineshaft_belt_entrance.surface
+            .name)
     else
         destination_surface_name = surface_target_resolution.get_next_lower_surface(mineshaft_belt_entrance.surface.name)
     end
@@ -32,11 +33,11 @@ local function built_mineshaft_belt(event)
     end
 
     local target_surface = game.planets[destination_surface_name].create_surface()
-    local target_position = {x = position.x, y = position.y}
+    local target_position = { x = position.x, y = position.y }
     target_surface.request_to_generate_chunks(target_position, 1)
     target_surface.force_generate_chunk_requests()
 
-    local exits = target_surface.find_entities_filtered{name = destination_belt_names[event.entity.name], position = position, force = game.forces.player}
+    local exits = target_surface.find_entities_filtered { name = destination_belt_names[mineshaft_belt_entrance.name], position = position, force = game.forces.player }
     local mineshaft_belt_exit = nil
     if exits and #exits == 1 then
         mineshaft_belt_exit = exits[1]
@@ -48,7 +49,7 @@ local function built_mineshaft_belt(event)
             [defines.direction.west] = defines.direction.east
         }
 
-        mineshaft_belt_exit = target_surface.create_entity{name = destination_belt_names[event.entity.name], position = position, direction = opposite_direction[direction], force = game.forces.player}
+        mineshaft_belt_exit = target_surface.create_entity { name = destination_belt_names[mineshaft_belt_entrance.name], position = position, direction = opposite_direction[direction], force = game.forces.player, quality = mineshaft_belt_entrance.quality }
     end
 
     mineshaft_belt_entrance.linked_belt_type = "input"
@@ -71,7 +72,15 @@ local function destroyed_mineshaft_belt(event)
         return false
     end
 
-    local mineshafts_to_destroy = game.surfaces[destination_surface_name].find_entities_filtered{name = destination_belt_names[event.entity.name], position = position, force = game.forces.player}
+    local mineshafts_to_destroy = game.surfaces[destination_surface_name].find_entities_filtered {
+        name = destination_belt_names[event.entity.name],
+        position = position,
+        force = game.forces.player,
+        quality = {
+            quality = mineshaft_belt_entrance.quality.name,
+            comparator = "="
+        }
+    }
     if mineshafts_to_destroy and #mineshafts_to_destroy == 1 then
         mineshafts_to_destroy[1].destroy()
     end

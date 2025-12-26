@@ -8,7 +8,8 @@ local destination_pipe_names = {
 local function get_destination_surface(mineshaft_pipe_entrance)
     local destination_surface_name = nil
     if string.find(mineshaft_pipe_entrance.name, "up") then
-        destination_surface_name = surface_target_resolution.get_next_higher_surface(mineshaft_pipe_entrance.surface.name)
+        destination_surface_name = surface_target_resolution.get_next_higher_surface(mineshaft_pipe_entrance.surface
+        .name)
     else
         destination_surface_name = surface_target_resolution.get_next_lower_surface(mineshaft_pipe_entrance.surface.name)
     end
@@ -25,16 +26,16 @@ local function built_mineshaft_pipe(event)
     end
 
     local target_surface = game.planets[opposite_surface_name].create_surface()
-    local target_position = {x = position.x, y = position.y}
+    local target_position = { x = position.x, y = position.y }
     target_surface.request_to_generate_chunks(target_position, 1)
     target_surface.force_generate_chunk_requests()
 
-    local exits = target_surface.find_entities_filtered{name = destination_pipe_names[event.entity.name], position = position, force = game.forces.player}
+    local exits = target_surface.find_entities_filtered { name = destination_pipe_names[mineshaft_pipe_entrance.name], position = position, force = game.forces.player }
     local mineshaft_pipe_exit = nil
     if exits and #exits == 1 then
         mineshaft_pipe_exit = exits[1]
     else
-        mineshaft_pipe_exit = target_surface.create_entity{name = destination_pipe_names[event.entity.name], position = position, force = game.forces.player}
+        mineshaft_pipe_exit = target_surface.create_entity { name = destination_pipe_names[mineshaft_pipe_entrance.name], position = position, force = game.forces.player, quality = mineshaft_pipe_entrance.quality }
     end
 
     mineshaft_pipe_entrance.fluidbox.add_linked_connection(0, mineshaft_pipe_exit, 0)
@@ -48,7 +49,15 @@ local function destroyed_mineshaft_pipe(event)
         return false
     end
 
-    local mineshaft_pipes_to_destroy = game.surfaces[opposite_surface_name].find_entities_filtered{name = destination_pipe_names[event.entity.name], position = position, force = game.forces.player}
+    local mineshaft_pipes_to_destroy = game.surfaces[opposite_surface_name].find_entities_filtered {
+        name = destination_pipe_names[event.entity.name],
+        position = position,
+        force = game.forces.player,
+        quality = {
+            quality = event.entity.quality.name,
+            comparator = "="
+        }
+    }
     if mineshaft_pipes_to_destroy and #mineshaft_pipes_to_destroy == 1 then
         mineshaft_pipes_to_destroy[1].destroy()
     end

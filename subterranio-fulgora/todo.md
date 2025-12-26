@@ -9,7 +9,7 @@
     1. ~~Make magnetic components only in mag component assembler~~
     1. ~~Make the magnetic component assembler icon~~
     1. ~~Comment-out magnetic bearings~~
-    1. Finish the migration of mineshaft belts so that they get auto-replaced on nauvis
+    1. ~~Finish the migration of mineshaft belts so that they get auto-replaced on nauvis~~
     1. Ordering on all items and entities
     1. Update version numbers
     1. Update release notes

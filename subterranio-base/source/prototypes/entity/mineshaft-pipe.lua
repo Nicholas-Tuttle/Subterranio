@@ -169,8 +169,11 @@ local recipe_down_from_up = {
 local tech = {
     type = "technology",
     name = "mineshaft-pipe",
-    icon = subterrain.diamond_image_path,
-    icon_size = subterrain.diamond_image_size,
+    icons = {
+        {icon = "__base__/graphics/entity/pipe/pipe-cross.png", icon_size = 128},
+        {icon = "__base__/graphics/icons/arrows/up-arrow.png", tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, -13}},
+        {icon = "__base__/graphics/icons/arrows/down-arrow.png", tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, 13}}
+    },
     effects = {
         {
             type = "unlock-recipe",

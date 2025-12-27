@@ -10,10 +10,10 @@
     1. ~~Make the magnetic component assembler icon~~
     1. ~~Comment-out magnetic bearings~~
     1. ~~Finish the migration of mineshaft belts so that they get auto-replaced on nauvis~~
+    1. ~~Credits updates~~
     1. Ordering on all items and entities
     1. Update version numbers
     1. Update release notes
-    1. Credits updates?
 1. Behavioral
     1. ~~Figure out how to make straight-line terrain up-down and left-right for the subway tunnels~~
         1. ~~Could rails (or high-tech rails?) but added?~~

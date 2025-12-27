@@ -18,8 +18,10 @@ local recipe = {
     type = "recipe",
     name = "induction-furnace",
     icons = { { icon = "__base__/graphics/icons/electric-furnace.png", tint = constants.fulgoran_subway_tint } },
+    subgroup = "smelting-machine",
+    order = "c[induction-furnace]",
     enabled = false,
-    energy_requirements = 1,
+    energy_required = 1,
     ingredients = {
         { type = "item", name = "electric-furnace",        amount = 2 },
         { type = "item", name = "electromagnet",           amount = 10 },
@@ -41,7 +43,7 @@ local item = {
     icons = { { icon = "__base__/graphics/icons/electric-furnace.png", tint = constants.fulgoran_subway_tint } },
     place_result = "induction-furnace",
     subgroup = "smelting-machine",
-    order = "a[items]-ba[electric-furnace]",
+    order = "c[induction-furnace]",
 }
 
 local tech = {

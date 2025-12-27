@@ -23,6 +23,7 @@ require("prototypes.entities.scraps")
 require("prototypes.entities.transformer-station")
 
 require("prototypes.item.electrostatic-tunnelling-drill-equipment")
+require("prototypes.item.subgroups")
 
 require("prototypes.surfaces.subterranean-surface")
 require("prototypes.surfaces.subway-noise-expressions")

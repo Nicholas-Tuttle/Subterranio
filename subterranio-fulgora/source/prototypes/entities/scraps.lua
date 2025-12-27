@@ -2,7 +2,7 @@ local base_tile_sounds = require("__base__.prototypes.tile.tile-sounds")
 local item_sounds = require("__base__.prototypes.item_sounds")
 local simulations = require("__space-age__.prototypes.factoriopedia-simulations")
 
-function make_scrap(name, tint, recipe_results, prerequisites, research_trigger)
+local function make_scrap(name, tint, recipe_results, prerequisites, research_trigger)
   local resource = {
     name = name .. "-scrap",
     icons = { { icon = "__space-age__/graphics/icons/scrap.png", tint = tint } },
@@ -54,7 +54,7 @@ function make_scrap(name, tint, recipe_results, prerequisites, research_trigger)
       }
     },
     category = "recycling-or-hand-crafting",
-    subgroup = "fulgora-processes",
+    subgroup = "subterranio-fulgora-scraps",
     order = "a[trash]-a[trash-recycling]-" .. name .. "-scrap",
     enabled = false,
     auto_recycle = false,
@@ -76,7 +76,7 @@ function make_scrap(name, tint, recipe_results, prerequisites, research_trigger)
       { size = 64, filename = "__space-age__/graphics/icons/scrap-4.png", scale = 0.5, mipmap_count = 4, tint = tint },
       { size = 64, filename = "__space-age__/graphics/icons/scrap-5.png", scale = 0.5, mipmap_count = 4, tint = tint }
     },
-    subgroup = "fulgora-processes",
+    subgroup = "subterranio-fulgora-scraps",
     order = "a[scrap]-a[scrap]-" .. name,
     inventory_move_sound = item_sounds.resource_inventory_move,
     pick_sound = item_sounds.resource_inventory_pickup,

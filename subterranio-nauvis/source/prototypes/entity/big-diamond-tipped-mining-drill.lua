@@ -25,7 +25,7 @@ local recipe = {
     type = "recipe",
     name = "big-diamond-tipped-mining-drill",
     enabled = false,
-    energy_requirements = 1,
+    energy_required = 1,
     ingredients = {
         {type = "item", name = "big-mining-drill", amount = 1},
         {type = "item", name = "diamond-shard", amount = 10}

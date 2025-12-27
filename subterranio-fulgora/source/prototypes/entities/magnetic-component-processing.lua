@@ -6,7 +6,7 @@ local item1 = {
   name = "magnetic-packaging",
   icon = constants.magnetic_packaging_path,
   icon_size = constants.magnetic_packaging_size,
-  subgroup = "subterranio-intermediate",
+  subgroup = "subterranio-fulgora-intermediate",
   order = "a-[magnetic-packaging]",
   inventory_move_sound = item_sounds.resource_inventory_move,
   pick_sound = item_sounds.resource_inventory_pickup,
@@ -19,7 +19,7 @@ local item2 = {
   type = "item",
   name = "damaged-magnetic-packaging",
   icons = { { icon = constants.magnetic_packaging_path, icon_size = constants.magnetic_packaging_size, tint = { 0.5, 0.5, 0.5, 1.0 } } },
-  subgroup = "subterranio-intermediate",
+  subgroup = "subterranio-fulgora-intermediate",
   order = "a-[damaged-magnetic-packaging]",
   inventory_move_sound = item_sounds.resource_inventory_move,
   pick_sound = item_sounds.resource_inventory_pickup,
@@ -34,13 +34,13 @@ local item3 = {
   icon = nil,
   icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.fulgoran_subway_tint } },
   subgroup = "production-machine",
-  order = "a-[magnetic-component-assembler]",
+  order = "ca[magnetic-component-assembler]",
   place_result = "magnetic-component-assembler",
   inventory_move_sound = item_sounds.resource_inventory_move,
   pick_sound = item_sounds.resource_inventory_pickup,
   drop_sound = item_sounds.resource_inventory_move,
-  stack_size = 100,
-  weight = 5 * kg
+  stack_size = 50,
+  weight = 40 * kg
 }
 
 local entity = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
@@ -79,6 +79,8 @@ local recipe3 = {
   type = "recipe",
   name = "magnetic-component-assembler",
   icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.fulgoran_subway_tint } },
+  subgroup = "production-machine",
+  order = "ca[magnetic-component-assembler]",
   energy_required = 5,
   category = "electromagnetics",
   ingredients = {
@@ -98,7 +100,7 @@ local magnetic_casing_item = {
   name = "magnetic-casing",
   icon = constants.magnetic_casing_path,
   icon_size = constants.magnetic_casing_size,
-  subgroup = "subterranio-intermediate",
+  subgroup = "subterranio-fulgora-intermediate",
   order = "a-[magnetic-casing]",
   inventory_move_sound = item_sounds.resource_inventory_move,
   pick_sound = item_sounds.resource_inventory_pickup,

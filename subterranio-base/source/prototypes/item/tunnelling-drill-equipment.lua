@@ -81,7 +81,7 @@ local recipe = {
     name = "tunnelling-drill-equipment",
     category = "crafting-with-fluid",
     enabled = false,
-    energy_requirements = 1,
+    energy_required = 1,
     ingredients = {
         { type = "item",  name = "low-density-structure", amount = 20 },
         { type = "item",  name = "steel-plate",           amount = 10 },

@@ -33,8 +33,10 @@ local recipe = {
     type = "recipe",
     name = "magnetic-asteroid-collector",
     icons = { { icon = "__space-age__/graphics/icons/asteroid-collector.png", icon_size = 64, tint = constants.fulgoran_subway_tint } },
+    subgroup = "space-platform",
+    order = "d[magnetic-asteroid-collector]",
     enabled = false,
-    energy_requirements = 10,
+    energy_required = 10,
     ingredients = {
         { type = "item", name = "asteroid-collector", amount = 2 },
         { type = "item", name = "processing-unit",    amount = 10 },

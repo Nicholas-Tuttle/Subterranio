@@ -17,8 +17,10 @@ local recipe = {
     type = "recipe",
     name = "transformer-station",
     icons = { { icon = "__base__/graphics/icons/substation.png", icon_size = 64, tint = constants.fulgoran_subway_tint } },
+    subgroup = "energy-pipe-distribution",
+    order = "a[energy]-e[transformer-station]",
     enabled = false,
-    energy_requirements = 1,
+    energy_required = 1,
     ingredients = {
         { type = "item", name = "substation",       amount = 2 },
         { type = "item", name = "processing-unit",  amount = 10 },

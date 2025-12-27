@@ -23,7 +23,7 @@ local recipe = {
     type = "recipe",
     name = "diamond-core-piercing-shotgun-shell",
     enabled = false,
-    energy_requirements = 16,
+    energy_required = 16,
     ingredients = {
         {type = "item", name = "piercing-shotgun-shell", amount = 1},
         {type = "item", name = "diamond-shard", amount = 4}

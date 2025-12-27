@@ -11,7 +11,7 @@
     1. ~~Comment-out magnetic bearings~~
     1. ~~Finish the migration of mineshaft belts so that they get auto-replaced on nauvis~~
     1. ~~Credits updates~~
-    1. Ordering on all items and entities
+    1. ~~Ordering on all items and entities~~
     1. Update version numbers
     1. Update release notes
 1. Behavioral

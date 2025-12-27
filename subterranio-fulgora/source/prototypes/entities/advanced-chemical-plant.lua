@@ -41,8 +41,10 @@ local recipe = {
     type = "recipe",
     name = "advanced-chemical-plant",
     icons = { { icon = "__base__/graphics/icons/chemical-plant.png", tint = constants.fulgoran_subway_tint } },
+    subgroup = "production-machine",
+    order = "ea[chemical-plant-advanced]",
     enabled = false,
-    energy_requirements = 1,
+    energy_required = 1,
     ingredients = {
         { type = "item", name = "chemical-plant",          amount = 2 },
         { type = "item", name = "processing-unit",         amount = 30 },
@@ -60,11 +62,11 @@ local recipe = {
 local item = {
     type = "item",
     name = "advanced-chemical-plant",
-    stack_size = 50,
+    stack_size = 10,
     icons = { { icon = "__base__/graphics/icons/chemical-plant.png", tint = constants.fulgoran_subway_tint } },
     place_result = "advanced-chemical-plant",
     subgroup = "production-machine",
-    order = "a[items]-ba[chemical-plant]",
+    order = "ea[chemical-plant-advanced]",
 }
 
 local tech = {

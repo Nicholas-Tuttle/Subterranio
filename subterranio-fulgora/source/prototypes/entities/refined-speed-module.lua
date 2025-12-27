@@ -84,6 +84,8 @@ local recipe1 = {
   type = "recipe",
   name = "refined-speed-module",
   icons = { { icon = "__base__/graphics/icons/speed-module.png", tint = refined_tint } },
+  subgroup = "module",
+  order = "a[speed-refined]-a[refined-speed-module]",
   enabled = false,
   ingredients =
   {
@@ -99,6 +101,8 @@ local recipe2 = {
   type = "recipe",
   name = "refined-speed-module-2",
   icons = { { icon = "__base__/graphics/icons/speed-module-2.png", tint = refined_tint } },
+  subgroup = "module",
+  order = "a[speed-refined]-b[refined-speed-module]",
   enabled = false,
   ingredients =
   {
@@ -115,6 +119,8 @@ local recipe3 = {
   type = "recipe",
   name = "refined-speed-module-3",
   icons = { { icon = "__base__/graphics/icons/speed-module-3.png", tint = refined_tint } },
+  subgroup = "module",
+  order = "a[speed-refined]-c[refined-speed-module]",
   enabled = false,
   ingredients =
   {

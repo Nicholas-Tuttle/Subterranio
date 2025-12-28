@@ -15,6 +15,8 @@ Mine for diamonds, crush them into shards, and grow your factory!
 
 ![Diamond Image](https://imgur.com/HgEuHZo.png) ![Diamond Ore](https://imgur.com/GTs7aGQ.png) ![Diamond Shards](https://imgur.com/9XPleWZ.png)
 
+### Advanced Scrapping!
+
 ## New Technology! 💎
 
 Utilize subterranean science packs to unlock new diamond-based technology!
@@ -32,12 +34,24 @@ Utilize subterranean science packs to unlock new diamond-based technology!
 * #### Diamond-Core Ammunition - bullets and shotgun
 * #### Diamond-Tipped Pickaxe - for faster pickup and mining
 
+Utilize the ruined Fulgoran Subway to unlock new induction-based technology!
+
+![Induction Science Packs](https://imgur.com/hGVbEpa.png)
+
+* #### Advanced chemical plants
+* #### Electromagnets and neodymium magnets
+* #### Electrostatic Shielding
+* #### Induction Furnaces
+* #### Magnetic asteroid collectors
+* #### Refined speed modules
+* #### Transformer power stations
+
 ## Roadmap 💎
 
-### Beta-Complete: Nauvis
+### Beta-Complete: Nauvis, Fulgora
 
-### Next: Fulgora
-### Then: Vulcanus, Gleba, Aquilo, and more!
+### Next: Vulcanus
+### Then: Gleba, Aquilo, and more!
 
 ## For Mod Developers 💎
 ### API Docs

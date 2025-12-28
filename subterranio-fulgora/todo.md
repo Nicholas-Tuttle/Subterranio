@@ -13,7 +13,7 @@
     1. ~~Credits updates~~
     1. ~~Ordering on all items and entities~~
     1. ~~Update version numbers~~
-    1. Update release notes
+    1. ~~Update changelog.txt files~~
     1. Update README.md files
 1. Behavioral
     1. ~~Figure out how to make straight-line terrain up-down and left-right for the subway tunnels~~

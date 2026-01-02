@@ -6,12 +6,19 @@
         1. Use re-colored crusher
     1. Diamond band-saw machine
         1. Use re-colored assembly machine
+    1. Basic Lava Filter
+        1. Tungsten Carbide
+        1. Copper Cable
+        1. Steel
+    1. Damaged Lava Filter
+    1. Titanium lava filter
     1. Titanium-rich lava
     1. Titanium slag recipe
     1. Titanium hunk recipe
     1. Titanium powder recipe
     1. Titanium ingot recipe
     1. Titanium plate recipe
+    1. Aluminum lava filter
     1. Aluminum-rich lava
     1. Aluminum slag recipe
     1. Aluminum ingot recipe
@@ -53,6 +60,9 @@
         TI[Titanium Ingot]
         TP[Titanium Plate]
 
+        TF[Titanium Filter]
+        DF[Damaged Filter]
+
         S1[Stone]
         S2[Stone]
         I[Molten Iron]
@@ -69,6 +79,7 @@
         LO[Light Oil]
 
         LT-->FI
+        TF-->FI
         PG-->FI
         C-->FO
         TS-->FO
@@ -79,6 +90,7 @@
         FI-->S1
         FI-->I
         FI-->LO
+        FI-->DF
         FO-->TH
         W-->DBS
         DS-->DBS
@@ -92,6 +104,9 @@
         AP[Aluminum Plate]
         AI[Aluminum Ingot]
         DBS[Diamond Band-Saw]
+
+        AF[Aluminum Filter]
+        DF[Damaged Filter]
         
         S1[Stone]
         FI[Filtration]
@@ -106,9 +121,11 @@
         S[Sulphur]
 
         LA-->FI-->AS-->FO-->AI-->DBS-->AP
+        AF-->FI
         FI-->S1
         FI-->MC
         FI-->S
+        FI-->DF
         SA-->FI
         W2-->DBS
         DS-->DBS

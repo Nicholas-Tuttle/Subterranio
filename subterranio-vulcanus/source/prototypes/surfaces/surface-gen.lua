@@ -13,8 +13,6 @@ local tiles = {
     "volcanic-cracks",
     "volcanic-cracks-warm",
     "volcanic-cracks-hot",
-    "lava",
-    "lava-hot"
 }
 
 local tile_settings = {}
@@ -27,6 +25,20 @@ for _, value in pairs(tiles) do
     tile_settings[tile.name] = {}
 end
 tile_settings["vulcanus-cave-wall"] = {}
+
+local lava_settings = table.deepcopy(data.raw["tile"]["lava"])
+lava_settings.name = "vulcanus-subterranean-lava"
+lava_settings.order = "z[subterrain]-a[vulcanus-subterranean-floor][vulcanus-subterranean-lava]"
+lava_settings.autoplace.probability_expression = "vulcanus_subterranean_lava_noise_expression"
+data:extend {lava_settings}
+tile_settings[lava_settings.name] = {}
+
+local hot_lava_settings = table.deepcopy(data.raw["tile"]["lava-hot"])
+hot_lava_settings.name = "vulcanus-subterranean-lava-hot"
+hot_lava_settings.order = "z[subterrain]-a[vulcanus-subterranean-floor][vulcanus-subterranean-lava-hot]"
+hot_lava_settings.autoplace.probability_expression = "vulcanus_subterranean_hot_lava_noise_expression"
+data:extend {hot_lava_settings}
+tile_settings[hot_lava_settings.name] = {}
 
 local decoratives = {
     "small-volcanic-rock",

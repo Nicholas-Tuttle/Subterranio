@@ -1,3 +1,5 @@
+local constants = require("scripts.constants")
+
 local surface_gen = {}
 
 local tiles = {
@@ -26,19 +28,30 @@ for _, value in pairs(tiles) do
 end
 tile_settings["vulcanus-cave-wall"] = {}
 
-local lava_settings = table.deepcopy(data.raw["tile"]["lava"])
-lava_settings.name = "vulcanus-subterranean-lava"
-lava_settings.order = "z[subterrain]-a[vulcanus-subterranean-floor][vulcanus-subterranean-lava]"
-lava_settings.autoplace.probability_expression = "vulcanus_subterranean_lava_noise_expression"
-data:extend {lava_settings}
-tile_settings[lava_settings.name] = {}
+local function create_lava_type(name, fluid_name, color_cool, color_hot, noise_expression, hot_noise_expression)
+    local lava_settings = table.deepcopy(data.raw["tile"]["lava"])
+    lava_settings.name = "vulcanus-subterranean-" .. name .. "-lava"
+    lava_settings.order = "z[subterrain]-a[vulcanus-subterranean-floor][vulcanus-subterranean-" .. name .. "-lava]"
+    lava_settings.autoplace.probability_expression = noise_expression
+    lava_settings.map_color = color_cool
+    lava_settings.fluid = fluid_name
+    lava_settings.allowed_neighbors = { "vulcanus-subterranean-" .. name .. "-lava-hot" }
+    data:extend {lava_settings}
+    tile_settings[lava_settings.name] = {}
 
-local hot_lava_settings = table.deepcopy(data.raw["tile"]["lava-hot"])
-hot_lava_settings.name = "vulcanus-subterranean-lava-hot"
-hot_lava_settings.order = "z[subterrain]-a[vulcanus-subterranean-floor][vulcanus-subterranean-lava-hot]"
-hot_lava_settings.autoplace.probability_expression = "vulcanus_subterranean_hot_lava_noise_expression"
-data:extend {hot_lava_settings}
-tile_settings[hot_lava_settings.name] = {}
+    local hot_lava_settings = table.deepcopy(data.raw["tile"]["lava-hot"])
+    hot_lava_settings.name = "vulcanus-subterranean-" .. name .. "-lava-hot"
+    hot_lava_settings.order = "z[subterrain]-a[vulcanus-subterranean-floor][vulcanus-subterranean-" .. name .. "-lava-hot]"
+    hot_lava_settings.autoplace.probability_expression = hot_noise_expression
+    hot_lava_settings.map_color = color_hot
+    hot_lava_settings.fluid = fluid_name
+    hot_lava_settings.allowed_neighbors = { "vulcanus-subterranean-" .. name .. "-lava" }
+    data:extend {hot_lava_settings}
+    tile_settings[hot_lava_settings.name] = {}
+end
+
+create_lava_type("titanium", "titanium-rich-lava", constants.titanium_color, constants.hot_titanium_color, "vulcanus_subterranean_titanium_lava_noise_expression", "vulcanus_subterranean_hot_titanium_lava_noise_expression")
+create_lava_type("aluminum", "aluminum-rich-lava", constants.aluminum_color, constants.hot_aluminum_color, "vulcanus_subterranean_aluminum_lava_noise_expression", "vulcanus_subterranean_hot_aluminum_lava_noise_expression")
 
 local decoratives = {
     "small-volcanic-rock",

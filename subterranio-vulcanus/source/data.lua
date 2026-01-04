@@ -1,7 +1,10 @@
+require("prototypes.entities.lava-filtration-plant")
+
 require("prototypes.fluids.aluminum-rich-lava")
 require("prototypes.fluids.titanium-rich-lava")
 
 require("prototypes.items.heat-resistant-tunnelling-drill-equipment")
+require("prototypes.items.lava-filters")
 require("prototypes.items.subgroups")
 
 require("prototypes.surfaces.constants")

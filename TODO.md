@@ -15,3 +15,12 @@
 1. Lock night-vision-equipment behind subterranian tech?
 1. Figure out quality upgrades for all new items
 1. Make dedicated controls for going up or down a level
+1. Add the multi-planet techs:
+    1. Fulgora + Vulcanus:
+        1. Ion Thrusters
+    1. Fulgora + Gleba:
+        1. ???
+    1. Vulcanus + Gleba:
+        1. High-Capacity cargo bays for ships, potentially with the ability for inserters to grab from them
+    1. Fulgora + Vulcanus + Gleba:
+        1. Cross-space-platform material transport. In little mini-rockets that are super cheap the player can send materials from one platform to another instead of ack down to ground and then back up to the platform

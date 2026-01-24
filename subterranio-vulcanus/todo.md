@@ -2,8 +2,8 @@
 1. Behavioral
     1. ~~Rich-lava filtration machine~~
         1. ~~Use re-colored chem plant or foundry~~
-    1. Pulverizer machine
-        1. Use re-colored crusher
+    1. ~~Pulverizer machine~~
+        1. ~~Use re-colored crusher~~
     1. Diamond band-saw machine
         1. Use re-colored assembly machine
     1. Basic Lava Filter
@@ -23,6 +23,7 @@
     1. Aluminum slag recipe
     1. Aluminum ingot recipe
     1. Aluminum plate recipe
+    1. 
     1. Heavy rocket part
     1. Heavy rocket silo
     1. Autocannon turrets

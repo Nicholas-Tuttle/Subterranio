@@ -39,9 +39,9 @@ local recipe = {
     enabled = false,
     energy_required = 1,
     ingredients = {
-        { type = "item", name = "crusher",              amount = 1 },
-        { type = "item", name = "tungsten-plate",        amount = 20 },
-        { type = "item", name = "steel-plate",           amount = 50 },
+        { type = "item", name = "crusher",        amount = 1 },
+        { type = "item", name = "tungsten-plate", amount = 20 },
+        { type = "item", name = "steel-plate",    amount = 50 },
     },
     results = {
         { type = "item", name = "pulverizer", amount = 1 },
@@ -64,10 +64,10 @@ local tech = {
         count = 2000,
         ingredients =
         {
-            { "automation-science-pack",      1 },
-            { "logistic-science-pack",        1 },
-            { "chemical-science-pack",        1 },
-            { "space-science-pack",           1 },
+            { "automation-science-pack",  1 },
+            { "logistic-science-pack",    1 },
+            { "chemical-science-pack",    1 },
+            { "space-science-pack",       1 },
             { "metallurgic-science-pack", 1 },
         },
         time = 60
@@ -79,4 +79,4 @@ local recipe_category = {
     name = "pulverization"
 }
 
-data:extend{entity, item, recipe, tech, recipe_category}
+data:extend { entity, item, recipe, tech, recipe_category }

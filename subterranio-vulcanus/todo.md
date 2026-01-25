@@ -4,8 +4,8 @@
         1. ~~Use re-colored chem plant or foundry~~
     1. ~~Pulverizer machine~~
         1. ~~Use re-colored crusher~~
-    1. Diamond band-saw machine
-        1. Use re-colored assembly machine
+    1. ~~Diamond band-saw machine~~
+        1. ~~Use re-colored assembly machine~~
     1. Basic Lava Filter
         1. Tungsten Carbide
         1. Copper Cable

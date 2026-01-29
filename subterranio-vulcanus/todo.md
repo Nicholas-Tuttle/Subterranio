@@ -6,10 +6,10 @@
         1. ~~Use re-colored crusher~~
     1. ~~Diamond band-saw machine~~
         1. ~~Use re-colored assembly machine~~
-    1. Basic Lava Filter
-        1. Tungsten Carbide
-        1. Copper Cable
-        1. Steel
+    1. ~~Basic Lava Filter~~
+        1. ~~Tungsten Carbide~~
+        1. ~~Copper Cable~~
+        1. ~~Steel~~
     1. ~~Damaged Lava Filter~~
     1. ~~Titanium lava filter~~
     1. ~~Titanium-rich lava~~
@@ -23,7 +23,6 @@
     1. Aluminum slag recipe
     1. Aluminum ingot recipe
     1. Aluminum plate recipe
-    1. 
     1. Heavy rocket part
     1. Heavy rocket silo
     1. Autocannon turrets

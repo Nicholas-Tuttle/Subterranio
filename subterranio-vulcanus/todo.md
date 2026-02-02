@@ -113,7 +113,7 @@
         MC[Molten Copper]
         FO[Foundry]
         SA[Sulphuric Acid]
-        W1[Water]
+        L[Water]
         C[Calcite]
         CA[Carbon]
         W2[Water]
@@ -129,7 +129,7 @@
         SA-->FI
         W2-->DBS
         DS-->DBS
-        W1-->FO
+        L-->FO
         C-->FO
         CA-->FO
 ```

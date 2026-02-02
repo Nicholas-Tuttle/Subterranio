@@ -20,9 +20,9 @@
     1. ~~Titanium plate recipe~~
     1. ~~Aluminum lava filter~~
     1. ~~Aluminum-rich lava~~
-    1. Aluminum slag recipe
-    1. Aluminum ingot recipe
-    1. Aluminum plate recipe
+    1. ~~Aluminum slag recipe~~
+    1. ~~Aluminum ingot recipe~~
+    1. ~~Aluminum plate recipe~~
     1. Heavy rocket part
     1. Heavy rocket silo
     1. Autocannon turrets
@@ -113,7 +113,7 @@
         MC[Molten Copper]
         FO[Foundry]
         SA[Sulphuric Acid]
-        W1[Water]
+        L[Water]
         C[Calcite]
         CA[Carbon]
         W2[Water]
@@ -129,7 +129,7 @@
         SA-->FI
         W2-->DBS
         DS-->DBS
-        W1-->FO
+        L-->FO
         C-->FO
         CA-->FO
 ```

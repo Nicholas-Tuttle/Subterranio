@@ -6,6 +6,7 @@ local titanium_slag_color = { r = 180, g = 60, b = 255 }
 
 local aluminum_color = { r = 26, g = 191, b = 61 }
 local hot_aluminum_color = { r = 113, g = 250, b = 142 }
+local aluminum_slag_color = { r = 60, g = 255, b = 96 }
 
 return {
     vulcanus_lava_tubes_tint = vulcanus_lava_tubes_tint,
@@ -13,5 +14,6 @@ return {
     hot_titanium_color = hot_titanium_color,
     titanium_slag_color = titanium_slag_color,
     aluminum_color = aluminum_color,
-    hot_aluminum_color = hot_aluminum_color
+    hot_aluminum_color = hot_aluminum_color,
+    aluminum_slag_color = aluminum_slag_color
 }

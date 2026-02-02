@@ -34,7 +34,7 @@ local titanium_slag_recipe = {
         { type = "item",  name = "damaged-lava-filter", amount = 1 },
         { type = "item",  name = "stone",               amount = 5 },
         { type = "fluid", name = "molten-iron",         amount = 20 },
-        { type = "fluid", name = "titanium-slag",       amount = 10 },
+        { type = "fluid", name = "titanium-slag",       amount = 100 },
         { type = "fluid", name = "light-oil",           amount = 5 },
     },
 }
@@ -126,8 +126,8 @@ local titanium_plate_recipe = {
     enabled = false,
     energy_required = 4,
     ingredients = {
-        { type = "item", name = "titanium-ingot", amount = 1 },
-        { type = "fluid", name = "lubricant",     amount = 20 },
+        { type = "item",  name = "titanium-ingot", amount = 1 },
+        { type = "fluid", name = "lubricant",      amount = 20 },
     },
     results = {
         { type = "item", name = "titanium-plate", amount = 10 },

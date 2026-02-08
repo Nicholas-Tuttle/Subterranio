@@ -69,6 +69,7 @@ local tech = {
             { "chemical-science-pack",    1 },
             { "space-science-pack",       1 },
             { "metallurgic-science-pack", 1 },
+            { "propulsion-science-pack",  1 },
         },
         time = 60
     }

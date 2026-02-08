@@ -21,7 +21,7 @@ local item = {
     type = "item",
     name = "band-saw",
     stack_size = 10,
-    icons = { { icon = "__space-age__/graphics/icons/assembling-machine-3.png", tint = constants.vulcanus_lava_tubes_tint } },
+    icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.vulcanus_lava_tubes_tint } },
     place_result = "band-saw",
     subgroup = "smelting-machine",
     order = "dc[band-saw]",
@@ -30,7 +30,7 @@ local item = {
 local recipe = {
     type = "recipe",
     name = "band-saw",
-    icons = { { icon = "__space-age__/graphics/icons/assembling-machine-3.png", tint = constants.vulcanus_lava_tubes_tint } },
+    icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.vulcanus_lava_tubes_tint } },
     subgroup = "smelting-machine",
     order = "dc[band-saw]",
     enabled = false,
@@ -48,7 +48,7 @@ local recipe = {
 local technology = {
     type = "technology",
     name = "band-saw",
-    icons = { { icon = "__space-age__/graphics/icons/assembling-machine-3.png", tint = constants.vulcanus_lava_tubes_tint } },
+    icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.vulcanus_lava_tubes_tint } },
     effects = {
         {
             type = "unlock-recipe",
@@ -66,6 +66,7 @@ local technology = {
             { "chemical-science-pack",    1 },
             { "space-science-pack",       1 },
             { "metallurgic-science-pack", 1 },
+            { "propulsion-science-pack",  1 },
         },
         time = 60
     }

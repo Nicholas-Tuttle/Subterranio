@@ -23,6 +23,7 @@
     1. ~~Aluminum slag recipe~~
     1. ~~Aluminum ingot recipe~~
     1. ~~Aluminum plate recipe~~
+    1. Propulsion science pack
     1. Heavy rocket part
     1. Heavy rocket silo
     1. Autocannon turrets
@@ -40,6 +41,7 @@
         HRS[Heavy Rocket Silo]
         AC[Autocannon Turret]
         IT[Ion Thruster]
+        PSP[Propulsion Science Pack]
 
         HI-->T
         HI-->A
@@ -48,6 +50,11 @@
         T-->AC
         HRS-->HRP
         A-->IT
+        T-->PSP
+        A-->PSP
+        PSP-->AC
+        PSP-->IT
+        PSP-->HRS
 ```
 
 ## Titanium Processing Flow

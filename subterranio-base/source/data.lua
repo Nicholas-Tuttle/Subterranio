@@ -8,3 +8,5 @@ require("prototypes.item.subgroups")
 require("prototypes.item.tunnelling-drill-equipment")
 
 require("prototypes.tipsandtricks.subterranean-caves")
+
+require("utilities.graphics-tinter")

@@ -1,7 +1,7 @@
 table.insert(data.raw["lab"]["lab"].inputs, "propulsion-science-pack")
 table.insert(data.raw["lab"]["biolab"].inputs, "propulsion-science-pack")
 
-table.insert(data.raw["technology"]["planet-discovery-aquilo"].unit.ingredients, {"propulsion-science-pack", 1})
+table.insert(data.raw["technology"]["planet-discovery-aquilo"].unit.ingredients, { "propulsion-science-pack", 1 })
 table.insert(data.raw["technology"]["planet-discovery-aquilo"].prerequisites, "propulsion-science-pack")
 
 if mods["subterranio-nauvis"] then

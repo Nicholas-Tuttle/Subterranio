@@ -23,9 +23,8 @@
     1. ~~Aluminum slag recipe~~
     1. ~~Aluminum ingot recipe~~
     1. ~~Aluminum plate recipe~~
-    1. Propulsion science pack
-    1. Heavy rocket part
-    1. Heavy rocket silo
+    1. ~~Propulsion science pack~~
+    1. Heavy rocket thrusters
     1. Autocannon turrets
 1. Enemies
     1. Infant/Adolescent demolishers
@@ -37,24 +36,18 @@
         HI[Heavy Industry - Lava Filtration Unit, Pulverizer, Diamond Band-Saw]
         T[Titanium]
         A[Aluminum]
-        HRP[Heavy Rocket Part]
-        HRS[Heavy Rocket Silo]
+        HRT[Heavy Rocket Thruster]
         AC[Autocannon Turret]
         IT[Ion Thruster]
         PSP[Propulsion Science Pack]
 
         HI-->T
         HI-->A
-        T-->HRS
-        A-->HRS
-        T-->AC
-        HRS-->HRP
-        A-->IT
+        HRT-->IT
         T-->PSP
         A-->PSP
         PSP-->AC
-        PSP-->IT
-        PSP-->HRS
+        PSP-->HRT
 ```
 
 ## Titanium Processing Flow

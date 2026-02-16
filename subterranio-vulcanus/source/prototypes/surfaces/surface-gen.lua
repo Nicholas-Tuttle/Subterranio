@@ -84,6 +84,8 @@ surface_gen["vulcanus_lava_tubes"] = function()
         cliff_settings = {
         },
         autoplace_controls = {
+            ["infant_demolisher"] = {},
+            ["infant_demolisher_spawner"] = {},
         },
         autoplace_settings = {
             ["tile"] = {

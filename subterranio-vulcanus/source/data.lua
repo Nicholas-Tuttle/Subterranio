@@ -1,3 +1,5 @@
+require("prototypes.enemies.infant-demolisher")
+
 require("prototypes.entities.autocannon-turret")
 require("prototypes.entities.band-saw")
 require("prototypes.entities.heavy-rocket-thruster")

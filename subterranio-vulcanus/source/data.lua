@@ -1,5 +1,6 @@
 require("prototypes.entities.autocannon-turret")
 require("prototypes.entities.band-saw")
+require("prototypes.entities.heavy-rocket-thruster")
 require("prototypes.entities.lava-filtration-plant")
 require("prototypes.entities.pulverizer")
 

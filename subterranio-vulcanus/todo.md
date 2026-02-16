@@ -25,7 +25,7 @@
     1. ~~Aluminum plate recipe~~
     1. ~~Propulsion science pack~~
     1. ~~Autocannon turrets~~
-    1. Heavy rocket thrusters
+    1. ~~Heavy rocket thrusters~~
 1. Enemies
     1. Infant/Adolescent demolishers
 1. Graphics

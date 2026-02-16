@@ -31,32 +31,44 @@ local ammo_item = {
     icons = { { icon = "__base__/graphics/icons/piercing-rounds-magazine.png", tint = constants.vulcanus_lava_tubes_tint } },
     ammo_type =
     {
-        category = "autocannon-shell",
-        target_type = "direction",
-        action =
+      action =
+      {
+        type = "direct",
+        action_delivery =
         {
-            type = "direct",
-            action_delivery =
+          type = "instant",
+          source_effects =
+          {
+            type = "create-explosion",
+            entity_name = "explosion-gunshot",
+            only_when_visible = true
+          },
+          target_effects =
+          {
             {
-                type = "projectile",
-                projectile = "autocannon-shell-projectile",
-                starting_speed = 8,
-                direction_deviation = 0,
-                range_deviation = 0,
-                max_range = 54
+              type = "create-entity",
+              entity_name = "explosion-hit",
+              offsets = {{0, 1}},
+              offset_deviation = {{-0.5, -0.5}, {0.5, 0.5}},
+              only_when_visible = true
+            },
+            {
+              type = "damage",
+              damage = {amount = 5000, type = "physical"}
+            },
+            {
+              type = "activate-impact",
+              deliver_category = "bullet"
             }
+          }
         }
+      }
     },
     ammo_category = "autocannon-shell",
     magazine_size = 5,
     subgroup = "ammo",
     order = "a[basic-clips]-c[autocannon-shell]",
 }
-
-local ammo_projectile = table.deepcopy(data.raw["projectile"]["cannon-projectile"])
-ammo_projectile.name = "autocannon-shell-projectile"
-ammo_projectile.piercing_damage = 5000
-ammo_projectile.action.action_delivery.target_effects[1].damage.amount = 5000
 
 local recipe = {
     type = "recipe",
@@ -69,8 +81,8 @@ local recipe = {
     ingredients = {
         { type = "item", name = "steel-plate",          amount = 50 },
         { type = "item", name = "titanium-plate",       amount = 30 },
-        { type = "item", name = "aluminum-plate",      amount = 30 },
-        { type = "item", name = "processing-unit",     amount = 20 },
+        { type = "item", name = "aluminum-plate",       amount = 30 },
+        { type = "item", name = "processing-unit",      amount = 20 },
         { type = "item", name = "electric-engine-unit", amount = 10 },
     },
     results = {
@@ -87,10 +99,10 @@ local ammo_recipe = {
     enabled = false,
     energy_required = 5,
     ingredients = {
-        { type = "item", name = "steel-plate", amount = 2 },
+        { type = "item", name = "steel-plate",    amount = 2 },
         { type = "item", name = "titanium-plate", amount = 1 },
         { type = "item", name = "aluminum-plate", amount = 1 },
-        { type = "item", name = "explosives", amount = 1 },
+        { type = "item", name = "explosives",     amount = 1 },
     },
     results = {
         { type = "item", name = "autocannon-shell", amount = 1 },
@@ -133,4 +145,4 @@ ammo_category.name = "autocannon-shell"
 ammo_category.icons = { { icon = ammo_category.icon, tint = constants.vulcanus_lava_tubes_tint } }
 ammo_category.icon = nil
 
-data:extend({ entity, item, recipe, ammo_recipe, ammo_item, ammo_projectile, technology, ammo_category })
+data:extend({ entity, item, recipe, ammo_recipe, ammo_item, technology, ammo_category })

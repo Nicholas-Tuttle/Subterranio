@@ -1,24 +1,19 @@
-local function tint(object, tint_color)
-    local temp = table.deepcopy(object)
-    if temp.icon then
-        temp.icons = { { icon = temp.icon, tint = tint_color } }
-        temp.icon = nil
-    elseif temp.icons then
-        for _, icon in pairs(temp.icons) do
-            if icon.icon then
-                icon.tint = tint_color
+local function tint_recursive(object, tint_value)
+    for key, value in pairs(object) do
+        if type(value) == "table" then
+            -- log("Checking key and value of: " .. serpent.line({ key = key, value = value }))
+            if value.filename or value.stripes then
+                value.tint = tint_value
             end
-        end
-    elseif temp.graphics_set and temp.graphics_set.base_visualisation
-        and temp.graphics_set.base_visualisation.animation and
-        temp.graphics_set.base_visualisation.animation.layers then
-        for _, layer in pairs(temp.graphics_set.base_visualisation.animation.layers) do
-            if layer.filename then
-                layer.tint = tint_color
-            end
+            tint_recursive(value, tint_value)
         end
     end
-    return temp
+
+    return object
+end
+
+local function tint(object, tint_value)
+    return tint_recursive(object, tint_value)
 end
 
 return {

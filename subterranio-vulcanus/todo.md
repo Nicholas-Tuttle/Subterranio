@@ -28,7 +28,6 @@
     1. ~~Heavy rocket thrusters~~
 1. Enemies
     1. Infant/Adolescent demolishers
-    1. Infant demolisher spawners (right now they spawn biters lol)
 1. Graphics
 
 ## Tech Tree

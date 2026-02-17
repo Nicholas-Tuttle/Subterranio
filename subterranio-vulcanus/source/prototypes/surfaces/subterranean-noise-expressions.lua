@@ -105,29 +105,6 @@ local lava_noise_function_base = {
     parameters = { "x", "y" }
 }
 
-local lava_drips_function_base = {
-    type = "noise-function",
-    name = "vulcanus_subterranean_lava_drips_noise",
-    expression = [[
-        clamp(
-            ceil(
-                0.02 - abs(multioctave_noise{
-                        x = x,
-                        y = y,
-                        persistence = 0.25,
-                        seed0 = map_seed,
-                        seed1 = user_seed,
-                        octaves = 2,
-                        input_scale = 1/10,
-                        output_scale = 1
-                    }
-                )
-            ),
-        0.0, 1.0)
-    ]],
-    parameters = { "x", "y", "user_seed" }
-}
-
 local hot_lava_noise_function_base = {
     type = "noise-function",
     name = "vulcanus_subterranean_hot_lava_noise",
@@ -245,7 +222,6 @@ local hot_titanium_lava_noise_expression_base = {
     expression = [[
         (
             vulcanus_subterranean_hot_lava_noise(x, y) * vulcanus_subterranean_caverns_spot_noise(x, y, 1, min_cavern_size, max_cavern_size, 1, 1)
-            + vulcanus_subterranean_lava_drips_noise(x, y, 1)
         ) 
         * (1 - vulcanus_subterranean_impassable_cliffs_ridge_noise_with_starting_area(x, y))
     ]],
@@ -276,7 +252,6 @@ local hot_aluminum_lava_noise_expression_base = {
     expression = [[
         (
             vulcanus_subterranean_hot_lava_noise(x, y) * vulcanus_subterranean_caverns_spot_noise(x, y, 2, min_cavern_size, max_cavern_size, 1, 1)
-            + vulcanus_subterranean_lava_drips_noise(x, y, 2)
         ) 
         * (1 - vulcanus_subterranean_impassable_cliffs_ridge_noise_with_starting_area(x, y))
     ]],
@@ -295,7 +270,6 @@ data:extend {
     ridge_noise_function_with_starting_area,
     ridge_noise_with_starting_area_expression_base,
     lava_noise_function_base,
-    lava_drips_function_base,
     hot_lava_noise_function_base,
     caverns_generic_noise,
     caverns_id,

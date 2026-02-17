@@ -29,6 +29,10 @@ head.autoplace.control = "infant_demolisher"
 head.autoplace.force = "enemy"
 head.autoplace.probability_expression = "clamp(distance - 50, 0, 1) / 2500"
 head.vision_distance = 64
+head.turn_radius = 8
+head.turn_smoothing = 0.5
+head.patrolling_turn_radius = 16
+head.territory_radius = 4
 head = graphics_tinter.tint(head, constants.vulcanus_lava_tubes_tint)
 
 data:extend({ head })
@@ -51,6 +55,17 @@ corpse[1].icon = "__space-age__/graphics/icons/small-demolisher-remains.png"
 data:extend(corpse)
 
 local effects = make_demolisher_effects("infant-demolisher", "s-k", scale, 0.25)
+for _, effect in pairs(effects) do
+    if (effect.time_before_removed) then
+        effect.time_before_removed = 60 * 3
+    end
+end
+for _, effect in pairs(effects) do
+    if (effect.duration) then
+        effect.duration = 60 * 3
+        effect.fade_away_duration = 60 * 2
+    end
+end
 
 data:extend(effects)
 
@@ -61,42 +76,3 @@ local autoplace = {
 }
 
 data:extend({ autoplace })
-
-local spawner = table.deepcopy(data.raw["unit-spawner"]["biter-spawner"])
-spawner.name = "infant-demolisher-spawner"
-spawner.max_health = 1000
-spawner.resistances = {
-    {
-        type = "fire",
-        decrease = 0,
-        percent = 100
-    }
-}
-spawner.result_units = {
-    {
-        unit = "small-biter",
-        spawn_points = { { 0.0, 1.0 }, { 1.0, 1.0 } }
-    }
-}
-spawner.spawning_cooldown = { 3600, 1500 }
-spawner.spawning_radius = 20
-spawner.spawning_spacing = 10
-spawner.spawn_decoration = {}
-spawner.autoplace = {
-    control = "infant_demolisher_spawner",
-    order = "b[enemy]-misc",
-    force = "enemy",
-    probability_expression = "enemy_autoplace_base(0, 6)",
-    richness_expression = 1
-}
-spawner = graphics_tinter.tint(spawner, constants.vulcanus_lava_tubes_tint)
-
-data:extend({ spawner })
-
-local spawner_autoplace = {
-    type = "autoplace-control",
-    name = "infant_demolisher_spawner",
-    category = "enemy"
-}
-
-data:extend({ spawner_autoplace })

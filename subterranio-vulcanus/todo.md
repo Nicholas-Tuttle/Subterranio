@@ -27,7 +27,7 @@
     1. ~~Autocannon turrets~~
     1. ~~Heavy rocket thrusters~~
 1. Enemies
-    1. Infant/Adolescent demolishers
+    1. ~~Infant/Adolescent demolishers~~
 1. Graphics
 
 ## Tech Tree

@@ -10,6 +10,7 @@ require("prototypes.fluids.aluminum-rich-lava")
 require("prototypes.fluids.titanium-rich-lava")
 
 require("prototypes.items.aluminum")
+require("prototypes.items.asteroid-processing")
 require("prototypes.items.heat-resistant-tunnelling-drill-equipment")
 require("prototypes.items.lava-filters")
 require("prototypes.items.propulsion-science-pack")

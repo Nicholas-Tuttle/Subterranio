@@ -11,4 +11,5 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["aluminum-cutting"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["titanium-pulverization"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["titanium-cutting"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["alternate-metallic-asteroid-processing"].unit.ingredients, { "subterranean-science-pack", 1 })
 end

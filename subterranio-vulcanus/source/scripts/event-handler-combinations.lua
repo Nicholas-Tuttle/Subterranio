@@ -137,7 +137,7 @@ local function on_tick(event)
         if (spawn_position == nil) then
             return
         end
-        game.print("Spawning infant demolisher at " .. spawn_position.x .. ", " .. spawn_position.y)
+        -- game.print("Spawning infant demolisher at " .. spawn_position.x .. ", " .. spawn_position.y)
         schedule_infant_demolisher_spawn(event.tick, spawn_position)
     end
 

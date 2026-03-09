@@ -6,6 +6,10 @@ local function replace_subterrain_belts_and_pipes()
     local surface = game.surfaces["subterrain"]
     local nauvis = game.surfaces["nauvis"]
 
+    if not surface or not nauvis then
+        return
+    end
+
     local belt_mapping = {
         ["mineshaft-belt-down"] = "mineshaft-belt-up",
         ["fast-mineshaft-belt-down"] = "fast-mineshaft-belt-up",

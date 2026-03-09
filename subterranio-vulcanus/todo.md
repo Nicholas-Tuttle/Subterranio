@@ -27,7 +27,7 @@
     1. ~~Autocannon turrets~~
     1. ~~Heavy rocket thrusters~~
     1. ~~Asteroid processing recipes to get aluminum, titanium, and STONE in orbit~~
-    1. Industrial Productivity Module
+    1. ~~Industrial Productivity Module~~
 1. Enemies
     1. ~~Infant/Adolescent demolishers~~
 1. Graphics

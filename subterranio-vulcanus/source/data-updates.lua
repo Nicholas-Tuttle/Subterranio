@@ -12,4 +12,8 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["titanium-pulverization"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["titanium-cutting"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["alternate-metallic-asteroid-processing"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["accelerated-productivity-module"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["accelerated-productivity-module-2"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["accelerated-productivity-module-3"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["heavy-rocket-thruster"].unit.ingredients, { "subterranean-science-pack", 1 })
 end

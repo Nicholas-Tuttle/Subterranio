@@ -9,6 +9,7 @@ require("prototypes.entities.pulverizer")
 require("prototypes.fluids.aluminum-rich-lava")
 require("prototypes.fluids.titanium-rich-lava")
 
+require("prototypes.items.accelerated-productivity-module")
 require("prototypes.items.aluminum")
 require("prototypes.items.asteroid-processing")
 require("prototypes.items.heat-resistant-tunnelling-drill-equipment")

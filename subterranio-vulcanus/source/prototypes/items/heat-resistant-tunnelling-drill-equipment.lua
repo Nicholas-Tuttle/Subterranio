@@ -12,7 +12,7 @@ local technology = {
         }
     },
     prerequisites = {
-        "tungsten-steel"
+        "tungsten-steel", "metallurgic-science-pack"
     },
     research_trigger =
     {

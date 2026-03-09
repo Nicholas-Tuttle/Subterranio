@@ -28,8 +28,8 @@ local item = {
 local technology = {
     type = "technology",
     name = "heavy-rocket-thruster",
-    icons = { { icon = "__space-age__/graphics/technology/space-platform-thruster.png", tint = constants.vulcanus_lava_tubes_tint } },
-    prerequisites = { "space-platform-thruster" },
+    icons = { { icon = "__space-age__/graphics/icons/thruster.png", tint = constants.vulcanus_lava_tubes_tint } },
+    prerequisites = { "space-platform-thruster", "propulsion-science-pack" },
     effects = {
         {
             type = "unlock-recipe",

@@ -10,6 +10,8 @@
         "log",
         "remote",
         "serpent",
-        "mods"
+        "mods",
+        "helpers",
+        "out_of_map_tile_type_names"
     ]
 }

@@ -1,0 +1,10 @@
+{
+  "entity":
+  [
+    ["mineshaft-belt", "mineshaft-belt-down"],
+    ["fast-mineshaft-belt", "fast-mineshaft-belt-down"],
+    ["express-mineshaft-belt", "express-mineshaft-belt-down"],
+    ["turbo-mineshaft-belt", "turbo-mineshaft-belt-down"],
+    ["mineshaft-pipe", "mineshaft-pipe-down"]
+  ]
+}

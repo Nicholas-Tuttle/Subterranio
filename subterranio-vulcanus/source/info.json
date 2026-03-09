@@ -1,0 +1,14 @@
+{
+	"name": "subterranio-vulcanus",
+	"version": "0.1.5",
+	"title": "Subterranio - Vulcanus",
+	"author": "Nicholas Tuttle",
+	"factorio_version": "2.0",
+	"dependencies": [
+		"base",
+		"space-age >= 2.0.73",
+        "subterranio-base >= 0.1.5"
+	],
+	"space_travel_required": true,
+	"description": "Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns"
+}

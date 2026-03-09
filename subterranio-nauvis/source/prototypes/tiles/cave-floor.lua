@@ -47,15 +47,15 @@ local decoratives = {
 }
 
 for _, value in pairs(decoratives) do
-    local decoratives = table.deepcopy(data.raw["optimized-decorative"][value])
-    decoratives.name = "cave-" .. value
-    decoratives.order = "z[subterrain]-a[cave-floor][cave-" .. value .. "]"
-    local probability_expression = decoratives.autoplace and decoratives.autoplace.probability_expression .. " - (1000 * subterranean_impassable_cliffs_ridge_noise_expression)" or 0
+    local decorative = table.deepcopy(data.raw["optimized-decorative"][value])
+    decorative.name = "cave-" .. value
+    decorative.order = "z[subterrain]-a[cave-floor][cave-" .. value .. "]"
+    local probability_expression = decorative.autoplace and decorative.autoplace.probability_expression .. " - (1000 * subterranean_impassable_cliffs_ridge_noise_expression)" or 0
     if (probability_expression ~= nil) then
-        if (decoratives.autoplace == nil) then
-            decoratives.autoplace = {}
+        if (decorative.autoplace == nil) then
+            decorative.autoplace = {}
         end
-        decoratives.autoplace.probability_expression = probability_expression
+        decorative.autoplace.probability_expression = probability_expression
     end
-    data:extend {decoratives}
+    data:extend {decorative}
 end

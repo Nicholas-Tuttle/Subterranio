@@ -56,7 +56,6 @@ local function get_current_surface_index(player, target_surface_list)
 end
 
 local function determine_mineshaft_target(player)
-    -- TODO: If the player cannot go down, try to loop back to the start so they can go up
     local target_surface_info = storage.MineshaftTargetInfo[player.surface.name]
     if not target_surface_info then return false end
     local target_surface_list = target_surface_info.target_surfaces
@@ -87,7 +86,7 @@ local function determine_mineshaft_target(player)
             end
         end
     end
-    
+
     if not opposite_surface_name then
         game.print("No other surface is reachable with the current equipment and technologies")
         return false
@@ -98,6 +97,10 @@ local function determine_mineshaft_target(player)
     local target_position = {x = position.x, y = position.y}
     target_surface.request_to_generate_chunks(target_position, 1)
     target_surface.force_generate_chunk_requests()
+
+    for _, value in pairs(storage.PreTunnellingDrillUsageFunction) do
+        remote.call(value.mod_name, value.callback_name, target_surface.name, target_position)
+    end
 
     target_position = target_surface.find_non_colliding_position(player.character.name, target_position, 100, 0.5, false)
     if not target_position then return nil end

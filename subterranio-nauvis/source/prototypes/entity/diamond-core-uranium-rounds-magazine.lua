@@ -20,7 +20,7 @@ local recipe = {
     type = "recipe",
     name = "diamond-core-uranium-rounds-magazine",
     enabled = false,
-    energy_requirements = 20,
+    energy_required = 20,
     ingredients = {
         {type = "item", name = "uranium-rounds-magazine", amount = 1},
         {type = "item", name = "diamond-shard", amount = 4}

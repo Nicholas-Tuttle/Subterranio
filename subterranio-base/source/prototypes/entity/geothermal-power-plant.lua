@@ -83,7 +83,7 @@ local recipe = {
     type = "recipe",
     name = "geothermal-powerplant",
     enabled = false,
-    energy_requirements = 20,
+    energy_required = 20,
     ingredients = {
         {type = "item", name = "low-density-structure", amount = 5},
         {type = "item", name = "steel-plate", amount = 10},

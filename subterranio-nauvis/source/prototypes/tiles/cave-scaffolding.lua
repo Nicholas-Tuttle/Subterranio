@@ -63,7 +63,7 @@ local recipe = {
   icon = subterrain.cave_scaffolding_image_path,
   icon_size = subterrain.cave_scaffolding_image_size,
   enabled = false,
-  energy_requirements = 20,
+  energy_required = 20,
   ingredients = {
     { type = "item", name = "landfill",           amount = 1 },
     { type = "item", name = "steel-plate",              amount = 2 },

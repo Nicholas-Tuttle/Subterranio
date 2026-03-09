@@ -27,7 +27,7 @@
         1. ~~Diamonds need all 3~~
         1. ~~Basic ores need frequency~~
         1. ~~Terrain generation breaks down when size is at 600%, look to re-work this~~
-    1. Update release notes
+    1. ~~Update release notes~~
 1. Graphics    
     1. ~~Geothermal power plant~~ huge TY to Hurricane
     1. ~~Cliff destroyer objects~~

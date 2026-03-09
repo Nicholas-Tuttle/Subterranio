@@ -16,7 +16,7 @@ local recipe = {
     type = "recipe",
     name = "diamond-tipped-crusher",
     enabled = false,
-    energy_requirements = 1,
+    energy_required = 1,
     ingredients = {
         {type = "item", name = "crusher", amount = 1},
         {type = "item", name = "diamond-shard", amount = 10}

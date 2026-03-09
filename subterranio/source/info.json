@@ -12,5 +12,6 @@
 		"subterranio-fulgora >= 0.1.5",
 		"subterranio-vulcanus >= 0.1.5"
 	],
+	"space_travel_required": true,
 	"description": "Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns"
 }

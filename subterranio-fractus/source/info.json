@@ -9,5 +9,6 @@
 		"space-age >= 2.0.66",
         "subterranio-base >= 0.1.0"
 	],
+	"space_travel_required": true,
 	"description": "Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns"
 }

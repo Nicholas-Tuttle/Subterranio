@@ -3,7 +3,7 @@ import subprocess
 
 print("----- Building all mods at once")
 
-mods = ["subterranio", "subterranio-base", "subterranio-nauvis", "subterranio-fulgora"]
+mods = ["subterranio", "subterranio-base", "subterranio-nauvis", "subterranio-fulgora", "subterranio-vulcanus"]
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
 for mod in mods:

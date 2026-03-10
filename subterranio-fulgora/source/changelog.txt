@@ -3,3 +3,9 @@ Version: 0.1.4
 Date: 2025-12-28
   Changes:
     - Added Fulgoran Subway module
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.5
+Date: 2026-03-08
+  Changes:
+    - Bug fixes and performance improvements

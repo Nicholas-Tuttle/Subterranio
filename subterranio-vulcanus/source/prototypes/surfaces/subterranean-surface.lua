@@ -1,6 +1,8 @@
 require("subterranean-noise-expressions")
-local constants = require("constants")
+local constants = require("scripts.constants")
 local surface_gen = require("surface-gen")
+local starmap_icon_util = require("__subterranio-base__.utilities.starmap-icon")
+local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.vulcanus, 1)
 
 data:extend {subterrain.merge(data.raw.planet.vulcanus, {
     name = "vulcanus_lava_tubes",
@@ -12,18 +14,18 @@ data:extend {subterrain.merge(data.raw.planet.vulcanus, {
         pressure = constants.subterrain_pressure,
         gravity = constants.subterrain_gravity,
     },
-    starmap_icon = "__subterranio-vulcanus__/graphics/entity/mineshaft.png",
-    starmap_icon_size = 512,
-    icon = "__subterranio-vulcanus__/graphics/entity/mineshaft.png",
-    icon_size = 512,
+    starmap_icon = constants.vulcanus_lava_tubes_icon_path,
+    starmap_icon_size = constants.vulcanus_lava_tubes_icon_size,
+    icon = constants.vulcanus_lava_tubes_icon_path,
+    icon_size = constants.vulcanus_lava_tubes_icon_size,
     magnitude = 0.75,
     order = "b[vulcanus]-[vulcanus_lava_tubes]",
     pollutant_type = "nil",
     player_effects = "nil",
     map_gen_settings = surface_gen["vulcanus_lava_tubes"](),
-    distance = 10.0,
+    distance = starmap_icon_position.starmap_icon_distance,
     draw_orbit = false,
-    orientation = 0.12, -- Vulcanus is 0.1
+    orientation = starmap_icon_position.starmap_icon_orientation,
     auto_save_on_first_trip = false,
     asteroid_spawn_definitions = "nil",
 })}

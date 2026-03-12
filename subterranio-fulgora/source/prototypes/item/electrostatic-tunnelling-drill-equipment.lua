@@ -1,10 +1,10 @@
-local constants = require("scripts.constants")
+local base_constants = require("__subterranio-base__.scripts.constants")
 
 local technology = {
     type = "technology",
     name = "electrostatic-tunnelling-drill-equipment",
-    icon = "__subterranio-base__/graphics/item/tunnelling-drill-equipment.png",
-    icon_size = constants.diamond_image_size,
+    icon = base_constants.tunnelling_drill_equipment_path,
+    icon_size = base_constants.tunnelling_drill_equipment_size,
     effects =
     {
         {

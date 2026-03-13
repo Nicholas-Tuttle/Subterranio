@@ -35,6 +35,9 @@ return {
     neodymium_powder_path = "__subterranio-fulgora__/graphics/entity/neodymium-powder.png",
     neodymium_powder_size = 256,
 
+    subway_starmap_icon_path = "__subterranio-fulgora__/graphics/entity/mineshaft.png",
+    subway_starmap_icon_size = 512,
+
     fulgoran_subway_tint = { r= 0.8, g = 0.2, b = 0.6, a = 1.0 },
 
     diamond_tint_icon_color = {r= 0.6, g = 0.6, b = 1.0, a = 1.0},

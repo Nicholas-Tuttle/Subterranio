@@ -1,8 +1,10 @@
+local base_constants = require("__subterranio-base__.scripts.constants")
+
 local technology = {
     type = "technology",
     name = "heat-resistant-tunnelling-drill-equipment",
-    icon = "__subterranio-base__/graphics/item/tunnelling-drill-equipment.png",
-    icon_size = 512,
+    icon = base_constants.tunnelling_drill_equipment_path,
+    icon_size = base_constants.tunnelling_drill_equipment_size,
     effects =
     {
         {

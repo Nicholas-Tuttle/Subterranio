@@ -85,7 +85,7 @@ item_down.place_result = "mineshaft-pipe-down"
 item_down.icon = nil
 item_down.icons = {
     {icon = "__base__/graphics/entity/pipe/pipe-cross.png", icon_size = 128},
-    {icon = "__base__/graphics/icons/arrows/down-arrow.png", tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, -13}}
+    {icon = "__base__/graphics/icons/arrows/down-arrow.png", icon_size = 64, tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, -13}}
 }
 item_down.order = "a[pipe]-ba[pipe-to-ground]-b"
 
@@ -99,7 +99,7 @@ item_up.place_result = "mineshaft-pipe-up"
 item_up.icon = nil
 item_up.icons = {
     {icon = "__base__/graphics/entity/pipe/pipe-cross.png", icon_size = 128},
-    {icon = "__base__/graphics/icons/arrows/up-arrow.png", tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, -13}}
+    {icon = "__base__/graphics/icons/arrows/up-arrow.png", icon_size = 64, tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, -13}}
 }
 item_up.order = "a[pipe]-ba[pipe-to-ground]-a"
 
@@ -171,8 +171,8 @@ local tech = {
     name = "mineshaft-pipe",
     icons = {
         {icon = "__base__/graphics/entity/pipe/pipe-cross.png", icon_size = 128},
-        {icon = "__base__/graphics/icons/arrows/up-arrow.png", tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, -13}},
-        {icon = "__base__/graphics/icons/arrows/down-arrow.png", tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, 13}}
+        {icon = "__base__/graphics/icons/arrows/up-arrow.png", icon_size = 64, tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, -13}},
+        {icon = "__base__/graphics/icons/arrows/down-arrow.png", icon_size = 64, tint = {0, 1, 0, 1.0}, scale = 0.3, shift = {13, 13}}
     },
     effects = {
         {

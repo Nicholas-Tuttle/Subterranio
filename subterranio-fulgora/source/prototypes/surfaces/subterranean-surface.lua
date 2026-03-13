@@ -1,4 +1,7 @@
 local surface_gen = require("surface-gen")
+local constants = require("scripts.constants")
+local starmap_icon_util = require("__subterranio-base__.utilities.starmap-icon")
+local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.fulgora, 1)
 
 local planet = subterrain.merge(data.raw.planet.fulgora, {
     name = "fulgoran_subway",
@@ -10,18 +13,18 @@ local planet = subterrain.merge(data.raw.planet.fulgora, {
         pressure = 1,
         gravity = 1,
     },
-    starmap_icon = "__subterranio-fulgora__/graphics/entity/mineshaft.png",
-    starmap_icon_size = 512,
-    icon = "__subterranio-fulgora__/graphics/entity/mineshaft.png",
-    icon_size = 512,
+    starmap_icon = constants.subway_starmap_icon_path,
+    starmap_icon_size = constants.subway_starmap_icon_size,
+    icon = constants.subway_starmap_icon_path,
+    icon_size = constants.subway_starmap_icon_size,
     magnitude = 0.75,
     order = "da[fulgoran-subway]",
     pollutant_type = "nil",
     player_effects = "nil",
     map_gen_settings = surface_gen["fulgoran_subway"](),
-    distance = 25.0,
+    distance = starmap_icon_position.starmap_icon_distance,
     draw_orbit = false,
-    orientation = 0.340, -- Nauvis is 0.325
+    orientation = starmap_icon_position.starmap_icon_orientation,
     auto_save_on_first_trip = false,
     asteroid_spawn_definitions = "nil",
     lightning_properties = "nil"

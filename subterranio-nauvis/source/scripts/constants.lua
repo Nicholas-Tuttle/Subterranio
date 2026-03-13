@@ -11,5 +11,8 @@ return {
     tunnelling_drill_equipment_path = "__subterranio-nauvis__/graphics/item/tunnelling-drill-equipment.png",
     tunnelling_drill_equipment_size = 128,
     cave_scaffolding_image_path = "__subterranio-nauvis__/graphics/entity/cave-scaffolding.png",
-    cave_scaffolding_image_size = 256
+    cave_scaffolding_image_size = 256,
+
+    subterrain_starmap_icon_path = "__subterranio-nauvis__/graphics/entity/mineshaft.png",
+    subterrain_starmap_icon_size = 512,
 }

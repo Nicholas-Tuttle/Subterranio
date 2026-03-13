@@ -27,3 +27,8 @@ Date: 2026-03-11
   Changes:
     - Fixed issue when loading certain icons
     - Cleaned up positioning of starmap icons
+---------------------------------------------------------------------------------------------------
+Version: 0.1.7
+Date: 2026-03-13
+  Changes:
+    - Fixed issue with icon size not loading correctly with other mods enabled

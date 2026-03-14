@@ -14,7 +14,7 @@ remote.add_interface("subterranio_fulgora", {
     end
 })
 
-script.on_init(function ()
+local function register_target_surface_requirements()
     local fulgora_surface_family = {
         "fulgora",
         "fulgoran_subway"
@@ -22,7 +22,7 @@ script.on_init(function ()
 
     local fulgora_tech_requirements = {
         "tunnelling-drill-equipment",
-        -- "electrostatic-drill-equipment"
+        "electrostatic-drill-equipment"
     }
 
     local basic_equipment_requirements = {
@@ -44,4 +44,12 @@ script.on_init(function ()
     })
 
     subterrain_base_register_pre_tunnelling_drill_usage_function_v1("subterranio_fulgora", "pre_tunnelling_function")
+end
+
+script.on_configuration_changed(function ()
+    register_target_surface_requirements()
+end)
+
+script.on_init(function ()
+    register_target_surface_requirements()
 end)

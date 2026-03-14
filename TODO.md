@@ -19,7 +19,7 @@
     1. Fulgora + Vulcanus:
         1. Ion Thrusters
     1. Fulgora + Gleba:
-        1. ???
+        1. Advanced asteroid crusher that can combine multiple types of asteroids to get other items
     1. Vulcanus + Gleba:
         1. High-Capacity cargo bays for ships, potentially with the ability for inserters to grab from them
     1. Fulgora + Vulcanus + Gleba:

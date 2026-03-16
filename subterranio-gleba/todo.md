@@ -17,7 +17,7 @@
         * This can only be farmed on mycelium tiles
         * Small amounts will be present in the environment
 * Tech Tree
-    * Bacterial Science Pack
+    * Biological Science Pack
         * Takes all the bacteria types (even from surface), all the fungal types, and mycelium
     * Chilling
         * Ice box - base package used for stopping spoilage
@@ -42,7 +42,7 @@
             * All packages have a stack size of 10-20, to multiply the density of items that can be moved around on rockets, trains, belts, etc
             * Frozen items can be packaged. Packaged items cannot be frozen
     * Spore spreader - speeds up the growth speed of fungi and bacteria
-    * Mycelium clearer - Mining drill that can only mine mycelium (and can read the density of the patch)
+    * Root clearer - Mining drill that can only mine mycelium (and can read the density of the patch)
     * High-capacity cargo bay - for space platforms
     * Overclocked Quality Module
         * A quality module that pushes both quality and speed

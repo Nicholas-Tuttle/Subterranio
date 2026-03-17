@@ -15,4 +15,9 @@ require("prototypes.items.mycellium")
 require("prototypes.items.overclocked-quality-module")
 require("prototypes.items.water-resistant-tunnelling-drill-equipment")
 
+require("prototypes.surfaces.constants")
+require("prototypes.surfaces.subterranean-noise-expressions")
+require("prototypes.surfaces.subterranean-surface")
+require("prototypes.surfaces.surface-gen")
+
 require("prototypes.tiles.mycellium-tile")

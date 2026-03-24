@@ -14,6 +14,9 @@ local propulsion_science_pack_size = 256
 local lava_tubes_icon_path = "__subterranio-vulcanus__/graphics/entity/mineshaft.png"
 local lava_tubes_icon_size = 512
 
+local subterrain_pressure = 5002
+local subterrain_gravity = 40
+
 return {
     vulcanus_lava_tubes_tint = vulcanus_lava_tubes_tint,
     titanium_color = titanium_color,
@@ -26,4 +29,6 @@ return {
     propulsion_science_pack_size = propulsion_science_pack_size,
     vulcanus_lava_tubes_icon_path = lava_tubes_icon_path,
     vulcanus_lava_tubes_icon_size = lava_tubes_icon_size,
+    subterrain_pressure = subterrain_pressure,
+    subterrain_gravity = subterrain_gravity,
 }

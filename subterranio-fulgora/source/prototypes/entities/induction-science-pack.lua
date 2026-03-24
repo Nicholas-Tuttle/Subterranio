@@ -50,9 +50,14 @@ local recipe = {
     random_tint_color = item_tints.bluish_science,
     surface_conditions = {
         {
+            property = "pressure",
+            min = constants.subterrain_pressure,
+            max = constants.subterrain_pressure
+        },
+        {
             property = "magnetic-field",
-            min = 99,
-            max = 99
+            min = constants.subterrain_magnetic_field,
+            max = constants.subterrain_magnetic_field
         }
     }
 }

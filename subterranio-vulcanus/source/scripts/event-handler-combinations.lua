@@ -107,6 +107,7 @@ script.on_event(defines.events.on_entity_died, on_pre_destroyed)
 script.on_event(defines.events.on_robot_pre_mined, on_pre_destroyed)
 
 local on_tick_spawn_chance = 1 / 60 / 30 -- 1 in 30 seconds on average
+local max_infant_demolisher_count = 10
 
 local function tableKeys(tbl)
     local keys = {}
@@ -121,7 +122,7 @@ local function on_tick(event)
     --     game.print("Empty chunks: " .. serpent.line(empty_chunks))
     -- end
 
-    if (math.random() < on_tick_spawn_chance) then
+    if ((storage.infant_demolisher_count == nil or storage.infant_demolisher_count < max_infant_demolisher_count) and math.random() < on_tick_spawn_chance) then
         local keys = tableKeys(empty_chunks)
         -- game.print("Considering spawning infant demolisher, empty chunks: " .. serpent.line(keys))
         if (#keys == 0) then
@@ -138,6 +139,15 @@ local function on_tick(event)
             return
         end
         -- game.print("Spawning infant demolisher at " .. spawn_position.x .. ", " .. spawn_position.y)
+
+        if (storage.infant_demolisher_count == nil) then
+            storage.infant_demolisher_count = 1
+        else
+            storage.infant_demolisher_count = storage.infant_demolisher_count + 1
+        end
+
+        -- game.print("Increased storage.infant_demolisher_count to " .. storage.infant_demolisher_count)
+
         schedule_infant_demolisher_spawn(event.tick, spawn_position)
     end
 
@@ -165,3 +175,17 @@ script.on_event(defines.events.on_chunk_generated, function(event)
         empty_chunks[chunk_indices] = true
     end
 end)
+
+script.on_event(defines.events.on_segmented_unit_died, function (event)
+    if (event.segmented_unit.surface.name ~= "vulcanus_lava_tubes") then
+        return
+    end
+
+    if (storage.infant_demolisher_count ~= nil and storage.infant_demolisher_count > 0) then
+        storage.infant_demolisher_count = storage.infant_demolisher_count - 1
+    end
+
+    -- game.print("Reduced storage.infant_demolisher_count to " .. storage.infant_demolisher_count)
+end, {
+    { filter = "name", name = "infant-demolisher" }
+})

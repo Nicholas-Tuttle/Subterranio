@@ -24,3 +24,8 @@ Version: 0.1.8
 Date: 2026-03-13
   Changes:
     - Fixed issue with target surface registration that was blocking Vulcanus Lava Tubes access
+---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Date: 2026-03-24
+  Changes:
+    - Limiting max number of infant demolishers that can spawn underground at once

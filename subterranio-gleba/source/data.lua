@@ -20,4 +20,5 @@ require("prototypes.surfaces.subterranean-noise-expressions")
 require("prototypes.surfaces.subterranean-surface")
 require("prototypes.surfaces.surface-gen")
 
+require("prototypes.tiles.cave-wall")
 require("prototypes.tiles.mycellium-tile")

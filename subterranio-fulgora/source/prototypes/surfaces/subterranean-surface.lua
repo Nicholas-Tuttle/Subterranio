@@ -8,10 +8,10 @@ local planet = subterrain.merge(data.raw.planet.fulgora, {
     starting_area = 1,
     surface_properties = {
         ["day-night-cycle"] = 5 * minute,
-        ["magnetic-field"] = 99,
+        ["magnetic-field"] = constants.subterrain_magnetic_field,
         ["solar-power"] = 0,
-        pressure = 1,
-        gravity = 1,
+        pressure = constants.subterrain_pressure,
+        gravity = constants.subterrain_gravity,
     },
     starmap_icon = constants.subway_starmap_icon_path,
     starmap_icon_size = constants.subway_starmap_icon_size,

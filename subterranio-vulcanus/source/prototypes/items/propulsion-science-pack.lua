@@ -46,8 +46,13 @@ local recipe = {
     surface_conditions = {
         {
             property = "pressure",
-            min = 4000,
-            max = 4000
+            min = constants.subterrain_pressure,
+            max = constants.subterrain_pressure
+        },
+        {
+            property = "gravity",
+            min = constants.subterrain_gravity,
+            max = constants.subterrain_gravity
         }
     }
 }

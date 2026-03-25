@@ -2,18 +2,19 @@ local function subterrain_base_register_target_surface_visitation_requirements_v
     remote.call("subterranio_base", "register_target_surface_visitation_requirements_v1", requirements)
 end
 
-script.on_init(function ()
+local function register_target_surface_requirements()
     local vulcanus_surface_family = {
         "vulcanus",
         "vulcanus_lava_tubes"
     }
 
     local vulcanus_tech_requirements = {
-        "tunnelling-drill-equipment"
+        "tunnelling-drill-equipment",
+        "heat-resistant-tunnelling-drill-equipment"
     }
 
     local vulcanus_equipment_requirements = {
-        "heat-resistant-tunnelling-drill-equipment"
+        "tunnelling-drill-equipment"
     }
 
     subterrain_base_register_target_surface_visitation_requirements_v1({
@@ -29,4 +30,12 @@ script.on_init(function ()
         tech_requirements = vulcanus_tech_requirements,
         equipment_requirements = vulcanus_equipment_requirements
     })
+end
+
+script.on_configuration_changed(function ()
+    register_target_surface_requirements()
+end)
+
+script.on_init(function ()
+    register_target_surface_requirements()
 end)

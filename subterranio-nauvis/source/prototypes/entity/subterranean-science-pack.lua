@@ -1,6 +1,6 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
 local item_tints = require("__base__.prototypes.item-tints")
-local constants = require("prototypes/surfaces/constants")
+local constants = require("scripts.constants")
 
 local subterranean_science_item = {
     type = "tool",

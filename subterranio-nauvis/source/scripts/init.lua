@@ -2,7 +2,7 @@ local function subterrain_base_register_target_surface_visitation_requirements_v
     remote.call("subterranio_base", "register_target_surface_visitation_requirements_v1", requirements)
 end
 
-script.on_init(function ()
+local function register_target_surface_requirements()
     local nauvis_surface_family = {
         "nauvis",
         "subterrain"
@@ -29,4 +29,12 @@ script.on_init(function ()
         tech_requirements = nauvis_tech_requirements,
         equipment_requirements = basic_equipment_requirements
     })
+end
+
+script.on_configuration_changed(function ()
+    register_target_surface_requirements()
+end)
+
+script.on_init(function ()
+    register_target_surface_requirements()
 end)

@@ -21,3 +21,13 @@ Version: 0.1.7
 Date: 2026-03-13
   Changes:
     - Fixed issue with icon size not loading correctly with other mods enabled
+---------------------------------------------------------------------------------------------------
+Version: 0.1.8
+Date: 2026-03-13
+  Changes:
+    - Fixed issue with target surface registration that was blocking Vulcanus Lava Tubes access
+---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Date: 2026-03-24
+  Changes:
+    - Fixing issue with not being able to craft science pack underground

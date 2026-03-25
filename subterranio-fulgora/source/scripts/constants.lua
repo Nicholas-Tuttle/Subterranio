@@ -1,6 +1,10 @@
 local diamond_image_path = "__subterranio-fulgora__/graphics/entity/diamond.png"
 local diamond_image_size = 256
 
+local subterrain_pressure = 5001
+local subterrain_gravity = 8
+local subterrain_magnetic_field = 99
+
 return {
     boron_chunk_path = "__subterranio-fulgora__/graphics/entity/boron-chunk.png",
     boron_chunk_size = 256,
@@ -45,4 +49,8 @@ return {
 
     damaged_packaging_return_change = 0.1,
     undamaged_packaging_return_change = 0.05,
+
+    subterrain_pressure = subterrain_pressure,
+    subterrain_gravity = subterrain_gravity,
+    subterrain_magnetic_field = subterrain_magnetic_field
 }

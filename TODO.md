@@ -3,7 +3,7 @@
 1. ~~Lock mineshaft behind concrete tech~~
 1. ~~Rename "subterrain" to "Nauvis Caves"~~
 1. Create the other surfaces
-    1. Vulcanus - "Vulcanus Lava Tubes"
+    1. ~~Vulcanus - "Vulcanus Lava Tubes"~~
     1. ~~Fulgora - "Fulgoran Subway"~~
     1. Gleba - "Gleban biospheres"
     1. Aquilo - "Aquilan Ice Caverns" 
@@ -15,6 +15,13 @@
 1. Lock night-vision-equipment behind subterranian tech?
 1. Figure out quality upgrades for all new items
 1. Make dedicated controls for going up or down a level
+1. Make better player-guides so it is more obvious what is happening on each planet
+1. Fix compatibility with other planet mods
+    1. See: https://mods.factorio.com/mod/subterranio/discussion/69b5f74ff2430a36aa2a7f38
+1. Add mod compatibility with starmap mods like Redrawn Space Connections and Better Planets
+    1. See: https://mods.factorio.com/mod/subterranio/discussion/69b8283ee7ac02d0bc38f9d0
+1. Re-work tunnelling drill requirements so that if the player dies they can't get stuck
+    1. See: https://mods.factorio.com/mod/subterranio/discussion/6963aa43a52b36eea50ae836
 1. Add the multi-planet techs:
     1. Fulgora + Vulcanus:
         1. Ion Thrusters
@@ -23,4 +30,4 @@
     1. Vulcanus + Gleba:
         1. High-Capacity cargo bays for ships, potentially with the ability for inserters to grab from them
     1. Fulgora + Vulcanus + Gleba:
-        1. Cross-space-platform material transport. In little mini-rockets that are super cheap the player can send materials from one platform to another instead of ack down to ground and then back up to the platform
+        1. Cross-space-platform material transport. In little mini-rockets that are super cheap the player can send materials from one platform to another instead of back down to ground and then back up to the platform

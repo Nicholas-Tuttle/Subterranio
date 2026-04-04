@@ -17,6 +17,12 @@ local generic_noise = {
     parameters = { "x", "y", "persistence", "input_scale" }
 }
 
+-- Height map for different parts
+-- Highest area: impassable cliffs
+-- Middle area: random biosphere tiles and entities
+-- Lower area: rings around the oasis water
+-- Lowest area: oasis water lakes
+
 -- The big blob of open space at 0, 0
 local starting_area_generic_noise = {
     type = "noise-function",
@@ -71,6 +77,30 @@ local caverns_generic_noise = {
 }
 
 local cavern_perturbation = 10
+local cavern_size = 0.25
+local cavern_lake_size = 0.2
+
+local boisphere_noise_function_base = {
+    type = "noise-function",
+    name = "gleban_subterranean_biosphere_noise_base",
+    expression = [[
+        voronoi_spot_noise{
+            x = x_perturbed,
+            y = y_perturbed,
+            seed0 = map_seed,
+            seed1 = 1,
+            grid_size = 256,
+            distance_type = "euclidean",
+            jitter = 0.75
+        }
+    ]],
+    local_expressions = {
+        perturbation = cavern_perturbation,
+        x_perturbed = "x + perturbation * gleban_subterranean_caverns_generic_noise(x, y)",
+        y_perturbed = "y + perturbation * gleban_subterranean_caverns_generic_noise(x, y)",
+    },
+    parameters = { "x", "y" }
+}
 
 local biosphere_noise_function = {
     type = "noise-function",
@@ -78,23 +108,65 @@ local biosphere_noise_function = {
     expression = [[
         clamp(
             ceil(
-                0.25 - voronoi_spot_noise{
-                    x = x_perturbed,
-                    y = y_perturbed,
-                    seed0 = map_seed,
-                    seed1 = 1,
-                    grid_size = 256,
-                    distance_type = "euclidean",
-                    jitter = 0.5
-                }
+                cavern_size - gleban_subterranean_biosphere_noise_base(x, y)
             ),
         0.0, 1.0)
     ]],
     local_expressions = {
-        perturbation = cavern_perturbation,
-        x_perturbed = "x + perturbation * gleban_subterranean_caverns_generic_noise(x, y)",
-        y_perturbed = "y + perturbation * gleban_subterranean_caverns_generic_noise(x, y)",
+        cavern_size = cavern_size,
     },
+    parameters = { "x", "y" }
+}
+
+local gleban_deep_water_noise = {
+    type = "noise-function",
+    name = "gleban_deep_water_noise",
+    expression = [[
+        clamp(
+            ceil(
+                cavern_size * cavern_lake_size - gleban_subterranean_biosphere_noise_base(x, y)
+            ),
+        0.0, 1.0)
+    ]],
+    local_expressions = {
+        cavern_size = cavern_size,
+        cavern_lake_size = cavern_lake_size,
+    },
+    parameters = { "x", "y" }
+}
+
+local gleban_deep_water_noise_expression = {
+    type = "noise-expression",
+    name = "gleban_deep_water_noise_expression",
+    expression = [[
+        gleban_deep_water_noise(x, y)
+    ]],
+    parameters = { "x", "y" }
+}
+
+local gleban_dirt_noise_function = {
+    type = "noise-function",
+    name = "gleban_dirt_noise_function",
+    expression = [[
+        1 
+        + gleban_subterranean_biosphere_noise(x, y)
+        + gleban_subterranean_starting_area(x, y, 75)
+        - clamp(
+            ceil(
+                gleban_deep_water_noise(x, y)
+                + gleban_subterranean_impassable_cliffs_ridge_noise(x, y)
+            ),
+        0.0, 1.0)
+    ]],
+    parameters = { "x", "y" }
+}
+
+local gleban_dirt_noise_expression = {
+    type = "noise-expression",
+    name = "gleban_dirt_noise_expression",
+    expression = [[
+        gleban_dirt_noise_function(x, y) - gleban_deep_water_noise(x, y)
+    ]],
     parameters = { "x", "y" }
 }
 
@@ -157,7 +229,12 @@ data:extend{
     starting_area,
     caverns_generic_noise,
     ridge_noise_function_base,
+    boisphere_noise_function_base,
     biosphere_noise_function,
+    gleban_deep_water_noise,
+    gleban_deep_water_noise_expression,
+    gleban_dirt_noise_function,
+    gleban_dirt_noise_expression,
     ridge_noise_function_with_starting_area,
     ridge_noise_with_starting_area_expression_base
 }

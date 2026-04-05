@@ -47,8 +47,8 @@ local tiles = {
     "lowland-olive-blubber-3",
     "lowland-brown-blubber",
     "lowland-pale-green",
-    "lowland-cream-cauliflower-2",
     "lowland-cream-cauliflower",
+    "lowland-cream-cauliflower-2",
     "lowland-dead-skin",
     "lowland-dead-skin-2",
     "lowland-cream-red",
@@ -65,10 +65,21 @@ for index, value in ipairs(tiles) do
     tile.name = "gleban-subterranean-" .. value
     tile.order = "z[subterrain]-a[gleban-subterranean-floor][gleban-subterranean-" .. value .. "]"
     tile.autoplace.probability_expression = "var('gleban_subterranean_" .. value .. "_noise_expression')"
-    tile.map_color = {r = math.min((255.0 * (index + 1) / #tiles ), 255), g = 0, b = 0}
+    tile.map_color = {r = 0, g = math.min((255.0 * (index + 1) / #tiles ), 255), b = 50}
     data:extend {tile}
     tile_settings[tile.name] = {}
 end
+
+local deep_gleban_water = table.deepcopy(data.raw["tile"]["water"])
+deep_gleban_water.name = "gleban-subterranean-deep-water"
+deep_gleban_water.order = "z[subterrain]-a[gleban-subterranean-floor][gleban-subterranean-deep-water]"
+deep_gleban_water.autoplace.probability_expression = "gleban_deep_water_noise_expression"
+deep_gleban_water.fluid = "water"
+deep_gleban_water.allowed_neighbors = { "gleban-subterranean-deep-water" }
+deep_gleban_water.layer_group = "water"
+deep_gleban_water.layer = 0
+data:extend {deep_gleban_water}
+tile_settings[deep_gleban_water.name] = {}
 
 local decoratives_settings = {}
 -- local decoratives = {

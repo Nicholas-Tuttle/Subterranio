@@ -2,7 +2,7 @@ local lerp = {
     type = "noise-function",
     name = "gleban_subterranean_lerp",
     expression = [[
-        ((1 - percent) * min) + (percent * max)
+        ((1.0 - percent) * min) + (percent * max)
     ]],
     parameters = {"percent", "min", "max"}
 }
@@ -33,19 +33,21 @@ local generic_noise = {
 -- Lower middle area: rings around the oasis water
 -- Lowest area: oasis water lakes
 
-local impassable_cliff_cutoff = 0.9
-local upper_middle_area_cutoff = 0.5
-local lower_middle_area_cutoff = 0.1
+-- 10000 * whatever percent of the map should be covered by this type of surface
+local max_height = 10000
+local impassable_cliff_cutoff = 9000
+local upper_middle_area_cutoff = 4000
+local lower_middle_area_cutoff = 2000
 
 local passages_height_noise = {
     type = "noise-function",
     name = "gleban_subterranean_passages_noise",
     expression = [[
-        gleban_subterranean_lerp(clamp(1 - (height / 0.3), 0, 1), 1.0, upper_middle_area_cutoff)
+        gleban_subterranean_lerp(1.0 - (height / 0.3), max_height, upper_middle_area_cutoff + 500)
     ]],
     local_expressions = {
+        max_height = max_height,
         upper_middle_area_cutoff = upper_middle_area_cutoff, -- the bottom of the passaages
-        impassable_cliff_cutoff = impassable_cliff_cutoff, -- the top of the passages
         height = [[
             abs(multioctave_noise{
                 x = x,
@@ -74,7 +76,7 @@ local starting_area = {
     type = "noise-function",
     name = "gleban_subterranean_starting_area",
     expression = [[
-        gleban_subterranean_lerp((sqrt(x_perturbed * x_perturbed + y_perturbed * y_perturbed) / size), upper_middle_area_cutoff + 0.05, impassable_cliff_cutoff + 0.05)
+        gleban_subterranean_lerp((sqrt(x_perturbed * x_perturbed + y_perturbed * y_perturbed) / size), upper_middle_area_cutoff + 500, impassable_cliff_cutoff)
     ]],
     local_expressions = {
         impassable_cliff_cutoff = impassable_cliff_cutoff,
@@ -104,13 +106,14 @@ local biosphere_heights = {
                     jitter = 0.85
                 },
                 lower_middle_area_cutoff, 
-                3.0
+                max_height * 3
             ),
             lower_middle_area_cutoff,
-            1.0
+            max_height
         )
     ]],
     local_expressions = {
+        max_height = max_height,
         lower_middle_area_cutoff = lower_middle_area_cutoff,
         impassable_cliff_cutoff = impassable_cliff_cutoff,
         perturbation = cavern_perturbation,
@@ -123,16 +126,21 @@ local biosphere_heights = {
 local height_function = {
     type = "noise-function",
     name = "gleban_subterranean_height_noise_function",
-    -- expression = [[
-    --     gleban_subterranean_biosphere_noise_base(x, y)
-    -- ]],
     expression = [[
         min(
-            gleban_subterranean_passages_noise(x, y, 0.25, 1/20), 
-            gleban_subterranean_starting_area(x, y, 200),
-            gleban_subterranean_biosphere_noise_base(x, y)
+            max (
+                (starting_area_height < impassable_cliff_cutoff) * max_height,
+                gleban_subterranean_biosphere_noise_base(x, y)
+            ),
+            gleban_subterranean_passages_noise(x, y, 0.25, 1/20),
+            starting_area_height
         )
     ]],
+    local_expressions = {
+        starting_area_height = "gleban_subterranean_starting_area(x, y, 100)",
+        max_height = max_height,
+        impassable_cliff_cutoff = impassable_cliff_cutoff,
+    },
     parameters = { "x", "y" }
 }
 
@@ -140,7 +148,7 @@ local impassable_cliff_expression = {
     type = "noise-expression",
     name = "gleban_subterranean_impassable_cliffs_ridge_noise_expression",
     expression = [[
-        height >= impassable_cliff_cutoff
+        height > impassable_cliff_cutoff
     ]],
     local_expressions = {
         height = "gleban_subterranean_height_noise_function(x, y)",
@@ -158,6 +166,20 @@ local deep_water_expression = {
     local_expressions = {
         height = "gleban_subterranean_height_noise_function(x, y)",
         lower_middle_area_cutoff = lower_middle_area_cutoff
+    },
+    parameters = { "x", "y" }
+}
+
+local gleban_dirt_noise_expression = {
+    type = "noise-expression",
+    name = "gleban_dirt_noise_expression",
+    expression = [[
+        (height >= lower_middle_area_cutoff + 500) - (height > upper_middle_area_cutoff + 500)
+    ]],
+    local_expressions = {
+        height = "gleban_subterranean_height_noise_function(x, y)",
+        lower_middle_area_cutoff = lower_middle_area_cutoff,
+        upper_middle_area_cutoff = upper_middle_area_cutoff
     },
     parameters = { "x", "y" }
 }
@@ -206,6 +228,7 @@ data:extend{
     height_function,
     impassable_cliff_expression,
     deep_water_expression,
+    gleban_dirt_noise_expression,
 }
 
 local tiles = {
@@ -236,9 +259,9 @@ for index, value in ipairs(tiles) do
                 (height >= min_height) - (height > max_height)
             ]],
             local_expressions = {
-                height = "min(abs(gleban_subterranean_height_noise_function(x, y)), 1)",
-                min_height = index / #tiles * (impassable_cliff_cutoff - lower_middle_area_cutoff) + lower_middle_area_cutoff,
-                max_height = (index + 1) / #tiles * (impassable_cliff_cutoff - lower_middle_area_cutoff) + lower_middle_area_cutoff,
+                height = "gleban_subterranean_height_noise_function(x, y)",
+                min_height = index / #tiles * (impassable_cliff_cutoff - upper_middle_area_cutoff) + upper_middle_area_cutoff,
+                max_height = (index + 1) / #tiles * (impassable_cliff_cutoff - upper_middle_area_cutoff) + upper_middle_area_cutoff,
             },
             parameters = { "x", "y" }
         }

@@ -81,6 +81,15 @@ deep_gleban_water.layer = 0
 data:extend {deep_gleban_water}
 tile_settings[deep_gleban_water.name] = {}
 
+local gleban_dirt = table.deepcopy(data.raw["tile"]["dirt-1"])
+gleban_dirt.name = "gleban-subterranean-dirt"
+gleban_dirt.order = "z[subterrain]-a[gleban-subterranean-floor][gleban-subterranean-dirt]"
+gleban_dirt.autoplace.probability_expression = "gleban_dirt_noise_expression"
+deep_gleban_water.layer_group = "ground-natural"
+deep_gleban_water.layer = 0
+data:extend {gleban_dirt}
+tile_settings[gleban_dirt.name] = {}
+
 local decoratives_settings = {}
 -- local decoratives = {
 --     "honeycomb-fungus",

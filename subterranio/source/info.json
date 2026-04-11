@@ -10,6 +10,7 @@
         "subterranio-base >= 0.1.9",
 		"subterranio-nauvis >= 0.1.9",
 		"subterranio-fulgora >= 0.1.9",
+		"subterranio-vulcanus >= 0.1.9",
 		"subterranio-vulcanus >= 0.1.9"
 	],
 	"space_travel_required": true,

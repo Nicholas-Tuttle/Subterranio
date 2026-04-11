@@ -129,7 +129,7 @@ local height_function = {
     expression = [[
         min(
             max (
-                (starting_area_height < impassable_cliff_cutoff) * max_height,
+                (1 - sqrt(x_perturbed * x_perturbed + y_perturbed * y_perturbed) / (starting_area_size * 2)) * (max_height * 4),
                 gleban_subterranean_biosphere_noise_base(x, y)
             ),
             gleban_subterranean_passages_noise(x, y, 0.25, 1/20),
@@ -137,7 +137,11 @@ local height_function = {
         )
     ]],
     local_expressions = {
-        starting_area_height = "gleban_subterranean_starting_area(x, y, 100)",
+        perturbation = 20,
+        x_perturbed = "x + perturbation * gleban_subterranean_starting_area_generic_noise(x, y)",
+        y_perturbed = "y + perturbation * gleban_subterranean_starting_area_generic_noise(x, y)",
+        starting_area_size = 200,
+        starting_area_height = "gleban_subterranean_starting_area(x, y, starting_area_size)",
         max_height = max_height,
         impassable_cliff_cutoff = impassable_cliff_cutoff,
     },

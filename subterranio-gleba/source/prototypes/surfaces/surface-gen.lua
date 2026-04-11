@@ -65,7 +65,7 @@ for index, value in ipairs(tiles) do
     tile.name = "gleban-subterranean-" .. value
     tile.order = "z[subterrain]-a[gleban-subterranean-floor][gleban-subterranean-" .. value .. "]"
     tile.autoplace.probability_expression = "var('gleban_subterranean_" .. value .. "_noise_expression')"
-    tile.map_color = {r = 0, g = math.min((255.0 * (index + 1) / #tiles ), 255), b = 50}
+    tile.map_color = {r = 50, g = math.min((255.0 * (index + 1) / #tiles ), 255), b = 50}
     data:extend {tile}
     tile_settings[tile.name] = {}
 end
@@ -78,6 +78,7 @@ deep_gleban_water.fluid = "water"
 deep_gleban_water.allowed_neighbors = { "gleban-subterranean-deep-water" }
 deep_gleban_water.layer_group = "water"
 deep_gleban_water.layer = 0
+deep_gleban_water.map_color = {r = 25, g = 0, b = 50}
 data:extend {deep_gleban_water}
 tile_settings[deep_gleban_water.name] = {}
 
@@ -85,8 +86,9 @@ local gleban_dirt = table.deepcopy(data.raw["tile"]["dirt-1"])
 gleban_dirt.name = "gleban-subterranean-dirt"
 gleban_dirt.order = "z[subterrain]-a[gleban-subterranean-floor][gleban-subterranean-dirt]"
 gleban_dirt.autoplace.probability_expression = "gleban_dirt_noise_expression"
-deep_gleban_water.layer_group = "ground-natural"
-deep_gleban_water.layer = 0
+gleban_dirt.layer_group = "ground-natural"
+gleban_dirt.layer = 0
+gleban_dirt.map_color = {r = 50, g = 0, b = 50}
 data:extend {gleban_dirt}
 tile_settings[gleban_dirt.name] = {}
 

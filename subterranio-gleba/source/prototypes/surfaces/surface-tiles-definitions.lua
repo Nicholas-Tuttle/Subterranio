@@ -104,6 +104,10 @@ local biomes = {
                 ["type"] = "tree",
                 ["name"] = "hairyclubnub",
             },
+            {
+                ["type"] = "tree",
+                ["name"] = "water-cane",
+            },
         },
         ["tint"] = { r = 200, g = 200, b = 255 },
     },
@@ -163,6 +167,10 @@ local biomes = {
             {
                 ["type"] = "tree",
                 ["name"] = "boompuff",
+            },
+            {
+                ["type"] = "tree",
+                ["name"] = "water-cane",
             },
         },
         ["tint"] = { r = 255, g = 200, b = 200 },

@@ -99,6 +99,7 @@ local accelerated_productivity_module_2_recipe = {
     ingredients =
     {
         { type = "item", name = "speed-module-2", amount = 2 },
+        { type = "item", name = "productivity-module-2", amount = 2 },
         { type = "item", name = "accelerated-productivity-module", amount = 2 },
         { type = "item", name = "aluminum-ingot",        amount = 1 },
         { type = "item", name = "titanium-powder",        amount = 10 },
@@ -166,6 +167,7 @@ local accelerated_productivity_module_3_recipe = {
     ingredients =
     {
         { type = "item", name = "speed-module-3", amount = 4 },
+        { type = "item", name = "productivity-module-3", amount = 4 },
         { type = "item", name = "accelerated-productivity-module-2", amount = 4 },
         { type = "item", name = "aluminum-plate",      amount = 20 },
         { type = "item", name = "titanium-plate",     amount = 20 },

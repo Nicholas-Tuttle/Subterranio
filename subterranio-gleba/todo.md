@@ -1,7 +1,7 @@
 ## Task List
 * ~~Create the subterranean surface with the biospheres~~
 * ~~Create the tech that will allow the player to reach the subterranean surface~~
-* Create mycellium tiles and item
+* ~~Create mycellium tiles, item, and "ore"~~
 * Create expansion-resistant fungi
 * Create cold-resistant-bacteria
 * Add fungi and bacteria farmed and planted events
@@ -14,6 +14,7 @@
 * Create root clearer
 * Create high-capacity cargo bay
 * Create overclocked quality module
+* Update locales
 ## Behavioral
 * Mycelium mechanics:
     * Mycelium is created when Fungi is farmed

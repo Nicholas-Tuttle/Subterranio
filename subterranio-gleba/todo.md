@@ -1,5 +1,5 @@
 ## Task List
-* Create the subterranean surface with the biospheres
+* ~~Create the subterranean surface with the biospheres~~
 * Create the tech that will allow the player to reach the subterranean surface
 * Create mycellium tiles and item
 * Create expansion-resistant fungi

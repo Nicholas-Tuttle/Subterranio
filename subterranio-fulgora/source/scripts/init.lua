@@ -22,7 +22,7 @@ local function register_target_surface_requirements()
 
     local fulgora_tech_requirements = {
         "tunnelling-drill-equipment",
-        "electrostatic-drill-equipment"
+        "electrostatic-tunnelling-drill-equipment"
     }
 
     local basic_equipment_requirements = {

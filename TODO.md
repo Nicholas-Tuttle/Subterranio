@@ -16,6 +16,7 @@
 1. Figure out quality upgrades for all new items
 1. Make dedicated controls for going up or down a level
 1. Make better player-guides so it is more obvious what is happening on each planet
+1. Refactor the space-map placement so that the subterranean surfaces are closer to their parent planets
 1. Fix compatibility with other planet mods
     1. See: https://mods.factorio.com/mod/subterranio/discussion/69b5f74ff2430a36aa2a7f38
 1. Add mod compatibility with starmap mods like Redrawn Space Connections and Better Planets

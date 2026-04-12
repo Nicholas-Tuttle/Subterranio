@@ -1,6 +1,6 @@
 ## Task List
 * ~~Create the subterranean surface with the biospheres~~
-* Create the tech that will allow the player to reach the subterranean surface
+* ~~Create the tech that will allow the player to reach the subterranean surface~~
 * Create mycellium tiles and item
 * Create expansion-resistant fungi
 * Create cold-resistant-bacteria
@@ -71,7 +71,7 @@
     CRF[Compression-Resistant Fungi]
     CRB[Cold-Resistant Bacteria]
     HRB[Heat-Resistant Bacteria]
-    BSP[Bacterial Science Pack]
+    BSP[Biological Science Pack]
     CHILL[Chilling]
     PACK[Packaging]
     SS[Spore Spreader]

@@ -287,14 +287,13 @@ end
 
 local biome_placement_perturbation = 20
 
--- Double the grid size so that there are clumps of biomes
 local biome_index = [[
     voronoi_cell_id{
         x = x_perturbed,
         y = y_perturbed,
         seed0 = map_seed,
         seed1 = 1,
-        grid_size = ]] .. voronoi_grid_size * 2 .. [[,
+        grid_size = ]] .. voronoi_grid_size .. [[,
         distance_type = "euclidean",
         jitter = 0.85
     }

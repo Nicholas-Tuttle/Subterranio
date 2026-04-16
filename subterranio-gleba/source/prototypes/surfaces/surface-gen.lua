@@ -81,6 +81,7 @@ for _, value in pairs(surface_tiles_definitions.randomized_entities) do
     data:extend { entity }
     entity_settings[entity.name] = {}
 end
+entity_settings["expansion-resistant-fungi"] = {}
 
 for biome_name, biome in pairs(surface_tiles_definitions.biomes) do
     for index, tile_name in ipairs(biome.tiles) do

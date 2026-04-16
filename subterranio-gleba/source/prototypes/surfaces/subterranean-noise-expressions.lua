@@ -307,6 +307,33 @@ local biome_local_probability = abs_layered_multioctave_noise_less_than_density(
 local x_perturbed = "x + perturbation * gleban_subterranean_generic_noise(x, y, 0.25, 1/10)"
 local y_perturbed = "y + perturbation * gleban_subterranean_generic_noise(x, y, 0.25, 1/10)"
 
+local function create_entity_autoplace(entity_name, biome_name, index, biome_index_min, biome_index_max)
+    data:extend {
+        {
+            type = "noise-expression",
+            name = "gleban_subterranean_" .. entity_name .. "-" .. biome_name .. "_noise_expression",
+            expression = [[
+                ((height >= min_height) - (height > max_height)) * ((biome_index >= biome_index_min) - (biome_index > biome_index_max)) * local_probability
+            ]],
+            local_expressions = {
+                seed1 = index + 1000,
+                height = "gleban_subterranean_height_noise_function(x, y)",
+                perturbation = biome_placement_perturbation,
+                x_perturbed = x_perturbed,
+                y_perturbed = y_perturbed,
+                biome_index = biome_index,
+                biome_index_min = biome_index_min,
+                biome_index_max = biome_index_max,
+                min_height = lower_middle_area_cutoff,
+                max_height = upper_middle_area_cutoff,
+                density = 0.05,
+                local_probability = biome_local_probability,
+            },
+            parameters = { "x", "y" }
+        }
+    }
+end
+
 local biome_array_index = 0
 for biome_name, biome in pairs(surface_tiles_definitions.biomes) do
     local biome_index_min = biome_array_index / biome_count
@@ -364,30 +391,11 @@ for biome_name, biome in pairs(surface_tiles_definitions.biomes) do
     end
 
     for index, entity_info in ipairs(biome.entity) do
-        data:extend {
-            {
-                type = "noise-expression",
-                name = "gleban_subterranean_" .. entity_info.name .. "-" .. biome_name .. "_noise_expression",
-                expression = [[
-                    ((height >= min_height) - (height > max_height)) * ((biome_index >= biome_index_min) - (biome_index > biome_index_max)) * local_probability
-                ]],
-                local_expressions = {
-                    seed1 = index + 1000,
-                    height = "gleban_subterranean_height_noise_function(x, y)",
-                    perturbation = biome_placement_perturbation,
-                    x_perturbed = x_perturbed,
-                    y_perturbed = y_perturbed,
-                    biome_index = biome_index,
-                    biome_index_min = biome_index_min,
-                    biome_index_max = biome_index_max,
-                    min_height = lower_middle_area_cutoff,
-                    max_height = upper_middle_area_cutoff,
-                    density = 0.05,
-                    local_probability = biome_local_probability,
-                },
-                parameters = { "x", "y" }
-            }
-        }
+        create_entity_autoplace(entity_info.name, biome_name, index, biome_index_min, biome_index_max)
+    end
+
+    if biome.fungus then
+        create_entity_autoplace(biome.fungus, biome_name, biome_array_index, biome_index_min, biome_index_max)
     end
 
     biome_array_index = biome_array_index + 1

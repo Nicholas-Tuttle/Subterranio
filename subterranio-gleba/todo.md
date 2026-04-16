@@ -2,7 +2,7 @@
 * ~~Create the subterranean surface with the biospheres~~
 * ~~Create the tech that will allow the player to reach the subterranean surface~~
 * ~~Create mycellium tiles, item, and "ore"~~
-* Create expansion-resistant fungi
+* ~~Create expansion-resistant fungi~~
 * Create cold-resistant-bacteria
 * Add fungi and bacteria farmed and planted events
 * Create compression-resistant fungi

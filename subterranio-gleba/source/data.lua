@@ -13,6 +13,7 @@ require("prototypes.entities.spore-spreader")
 require("prototypes.items.biological-science-pack")
 require("prototypes.items.mycellium")
 require("prototypes.items.overclocked-quality-module")
+require("prototypes.items.subgroups")
 require("prototypes.items.water-resistant-tunnelling-drill-equipment")
 
 require("prototypes.surfaces.constants")

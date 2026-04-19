@@ -395,7 +395,11 @@ for biome_name, biome in pairs(surface_tiles_definitions.biomes) do
     end
 
     if biome.fungus then
-        create_entity_autoplace(biome.fungus, biome_name, biome_array_index, biome_index_min, biome_index_max)
+        create_entity_autoplace(biome.fungus, biome_name, biome_array_index + 1000, biome_index_min, biome_index_max)
+    end
+
+    if biome.bacteria then
+        create_entity_autoplace(biome.bacteria, biome_name, biome_array_index + 1001, biome_index_min, biome_index_max)
     end
 
     biome_array_index = biome_array_index + 1

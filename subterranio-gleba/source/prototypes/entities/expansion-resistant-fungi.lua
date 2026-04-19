@@ -1,4 +1,5 @@
 local graphics_tinter = require("__subterranio-base__/utilities/graphics-tinter")
+local surface_tiles_definitions = require("prototypes.surfaces.surface-tiles-definitions")
 
 local plant = table.deepcopy(data.raw["plant"]["jellystem"])
 plant.name = "expansion-resistant-fungi"
@@ -20,6 +21,11 @@ plant.harvest_emissions = nil
 plant.autoplace = {
     probability_expression = "var('gleban_subterranean_expansion-resistant-fungi-blue_noise_expression')"
 }
+local tiles = {}
+for _, value in pairs(surface_tiles_definitions.biomes["blue"]["tiles"]) do
+    tiles[#tiles + 1] = "gleban-subterranean-" .. value .. "-blue"
+end
+plant.autoplace.tile_restriction = tiles
 plant.colors = {
     { r = 255, g = 255, b = 255 },
     -- TODO
@@ -70,6 +76,8 @@ spore_item.icons = {
 }
 spore_item.subgroup = "subterranio-gleba-raw-materials"
 spore_item.order = "a[gleban_biospheres]-b"
+spore_item.plant_result = "expansion-resistant-fungi"
+spore_item.place_result = "expansion-resistant-fungi"
 
 local dry_spore_item = table.deepcopy(data.raw["item"]["wood"])
 dry_spore_item.name = "expansion-resistant-fungi-dry-spores"

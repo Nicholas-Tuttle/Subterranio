@@ -111,6 +111,7 @@ local biomes = {
         },
         ["tint"] = { r = 200, g = 200, b = 255 },
         ["fungus"] = "expansion-resistant-fungi",
+        ["bacteria"] = "cold-resistant-bacteria",
     },
     ["red"] = {
         ["tiles"] = {

@@ -4,7 +4,7 @@
 * ~~Create mycellium tiles, item, and "ore"~~
 * ~~Create expansion-resistant fungi~~
 * ~~Create cold-resistant-bacteria~~
-* Add fungi and bacteria farmed and planted events
+* ~~Add fungi and bacteria farmed and planted events~~
 * Create compression-resistant fungi
 * Create heat-resistant-bacteria
 * Create biological science pack

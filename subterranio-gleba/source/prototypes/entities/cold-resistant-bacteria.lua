@@ -21,11 +21,13 @@ plant.harvest_emissions = nil
 plant.autoplace = {
     probability_expression = "var('gleban_subterranean_cold-resistant-bacteria-blue_noise_expression')"
 }
-local tiles = {}
-for _, value in pairs(surface_tiles_definitions.biomes["blue"]["tiles"]) do
-    tiles[#tiles + 1] = "gleban-subterranean-" .. value .. "-blue"
-end
-plant.autoplace.tile_restriction = tiles
+-- local tiles = {}
+-- for _, value in pairs(surface_tiles_definitions.biomes["blue"]["tiles"]) do
+--     tiles[#tiles + 1] = "gleban-subterranean-" .. value .. "-blue"
+-- end
+-- tiles[#tiles+1] = "gleban-subterranean-mycellium-cold"
+-- plant.autoplace.tile_restriction = tiles
+plant.autoplace.tile_restriction = { "gleban-subterranean-mycellium-cold" }
 plant.colors = {
     { r = 255, g = 255, b = 255 },
     -- TODO
@@ -50,10 +52,28 @@ bacteria_item.pictures =
 bacteria_item.subgroup = "subterranio-gleba-raw-materials"
 bacteria_item.order = "a[gleban_biospheres]-d"
 bacteria_item.spoil_result = "spoilage"
-bacteria_item.spoil_ticks = 30 * 60 * 60 -- 30 minutes
-bacteria_item.plant_result = "cold-resistant-bacteria"
-bacteria_item.place_result = "cold-resistant-bacteria"
+bacteria_item.spoil_ticks = 5 * 60 * 60 -- 30 minutes
+bacteria_item.plant_result = nil
+bacteria_item.place_result = nil
 bacteria_item = graphics_tinter.tint(bacteria_item, { r = 120, g = 150, b = 255 })
+
+local newborn_bacterium_item = table.deepcopy(data.raw["item"]["wood"])
+newborn_bacterium_item.name = "cold-resistant-newborn-bacterium"
+newborn_bacterium_item.icons = { { icon = "__space-age__/graphics/icons/copper-bacteria.png", tint = { r = 80, g = 100, b = 200 } } }
+newborn_bacterium_item.pictures =
+{
+    { size = 64, filename = "__space-age__/graphics/icons/copper-bacteria.png",   scale = 0.5, mipmap_count = 4 },
+    { size = 64, filename = "__space-age__/graphics/icons/copper-bacteria-1.png", scale = 0.5, mipmap_count = 4 },
+    { size = 64, filename = "__space-age__/graphics/icons/copper-bacteria-2.png", scale = 0.5, mipmap_count = 4 },
+    { size = 64, filename = "__space-age__/graphics/icons/copper-bacteria-3.png", scale = 0.5, mipmap_count = 4 },
+}
+newborn_bacterium_item.subgroup = "subterranio-gleba-raw-materials"
+newborn_bacterium_item.order = "a[gleban_biospheres]-e"
+newborn_bacterium_item.spoil_result = "cold-resistant-bacteria"
+newborn_bacterium_item.spoil_ticks = 6 * 60 * 60 -- 6 minutes
+newborn_bacterium_item.plant_result = "cold-resistant-bacteria"
+newborn_bacterium_item.place_result = "cold-resistant-bacteria"
+newborn_bacterium_item = graphics_tinter.tint(newborn_bacterium_item, { r = 120, g = 150, b = 255 })
 
 local cold_resistant_bacteria_cultivation_recipe = {
     type = "recipe",
@@ -67,11 +87,13 @@ local cold_resistant_bacteria_cultivation_recipe = {
     ingredients =
     {
         { type = "item",  name = "cold-resistant-bacteria", amount = 10 },
-        { type = "fluid", name = "water",                   amount = 100 }
+        { type = "item",  name = "bioflux",                 amount = 1 },
+        { type = "fluid", name = "water",                   amount = 100 },
     },
     results =
     {
-        { type = "item", name = "cold-resistant-bacteria", amount = 20 }
+        { type = "item", name = "cold-resistant-bacteria",          amount = 20 },
+        { type = "item", name = "cold-resistant-newborn-bacterium", amount = 1 }
     },
     crafting_machine_tint =
     {
@@ -102,4 +124,10 @@ local cold_resistant_bacteria_tech = {
     order = "a[tree]-c[gleban_biospheres]-a[seedable]-b[cold-resistant-bacteria]"
 }
 
-data:extend({ plant, bacteria_item, cold_resistant_bacteria_cultivation_recipe, cold_resistant_bacteria_tech })
+data:extend({
+    plant,
+    bacteria_item,
+    newborn_bacterium_item,
+    cold_resistant_bacteria_cultivation_recipe,
+    cold_resistant_bacteria_tech
+})

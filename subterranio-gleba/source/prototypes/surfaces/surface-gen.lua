@@ -22,17 +22,22 @@ tile_settings[deep_gleban_water.name] = {}
 
 -- Tinted "Cracked lichen" as mycellium
 -- ID: "midland-cracked-lichen"
-local mycellium = table.deepcopy(data.raw.tile["midland-cracked-lichen"])
-mycellium.name = "gleban-subterranean-mycellium"
-mycellium.order = "z[subterrain]-a[gleban-subterranean-floor][gleban-subterranean-mycellium]"
+local mycellium_hot = table.deepcopy(data.raw.tile["midland-cracked-lichen"])
+mycellium_hot.name = "gleban-subterranean-mycellium-hot"
+mycellium_hot.order = "z[subterrain]-a[gleban-subterranean-floor][gleban-subterranean-mycellium]"
 -- This is not naturally placed
-mycellium.autoplace.probability_expression = 0
-mycellium.layer_group = "ground-artificial"
-mycellium.layer = 0
-mycellium.map_color = { r = 100, g = 60, b = 20 }
-mycellium.tint = { r = 150, g = 100, b = 50 }
-data:extend { mycellium }
-tile_settings[mycellium.name] = {}
+mycellium_hot.autoplace.probability_expression = 0
+mycellium_hot.layer_group = "ground-natural"
+mycellium_hot.layer = 0
+mycellium_hot.map_color = { r = 100, g = 60, b = 20 }
+mycellium_hot.tint = { r = 150, g = 100, b = 50 }
+data:extend { mycellium_hot }
+tile_settings[mycellium_hot.name] = {}
+
+local mycellium_cold = table.deepcopy(mycellium_hot)
+mycellium_cold.name = "gleban-subterranean-mycellium-cold"
+data:extend { mycellium_cold }
+tile_settings[mycellium_cold.name] = {}
 
 for index, value in ipairs(surface_tiles_definitions.randomized_tiles) do
     local tile = table.deepcopy(data.raw["tile"][value])

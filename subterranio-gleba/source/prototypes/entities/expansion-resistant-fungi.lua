@@ -15,6 +15,17 @@ plant.minable.results = {
         amount = 3,
     }
 }
+plant.collision_mask = {
+    layers = {
+        item = true,
+        meltable = true,
+        object = true,
+        player = true,
+        water_tile = true,
+        is_object = true,
+        -- is_lower_object = true
+    }
+}
 plant.order = "a[tree]-c[gleban_biospheres]-a[seedable]-a[expansion-resistant-fungi]"
 plant.emissions_per_second = nil
 plant.harvest_emissions = nil
@@ -66,7 +77,7 @@ fungi_item.order = "a[gleban_biospheres]-a"
 local spore_item = table.deepcopy(data.raw["item"]["wood"])
 spore_item.name = "expansion-resistant-fungi-spores"
 spore_item.spoil_result = "expansion-resistant-fungi-dry-spores"
-spore_item.spoil_ticks = 30 * 60 -- 30 seconds
+spore_item.spoil_ticks = 6 * 60 * 60 -- 6 minutes
 spore_item.icon = nil
 spore_item.icons = {
     {

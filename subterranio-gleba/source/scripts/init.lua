@@ -34,8 +34,10 @@ end
 
 script.on_configuration_changed(function ()
     register_target_surface_requirements()
+    storage.gleban_biospheres = {}
 end)
 
 script.on_init(function ()
     register_target_surface_requirements()
+    storage.gleban_biospheres = {}
 end)

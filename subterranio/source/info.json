@@ -1,17 +1,17 @@
 {
 	"name": "subterranio",
-	"version": "0.1.9",
+	"version": "0.1.10",
 	"title": "Subterranio",
 	"author": "Nicholas Tuttle",
 	"factorio_version": "2.0",
 	"dependencies": [
 		"base",
         "space-age >= 2.0.73",
-        "subterranio-base >= 0.1.9",
-		"subterranio-nauvis >= 0.1.9",
-		"subterranio-fulgora >= 0.1.9",
-		"subterranio-vulcanus >= 0.1.9",
-		"subterranio-gleba >= 0.1.9"
+        "subterranio-base >= 0.1.10",
+		"subterranio-nauvis >= 0.1.10",
+		"subterranio-fulgora >= 0.1.10",
+		"subterranio-vulcanus >= 0.1.10",
+		"subterranio-gleba >= 0.1.10"
 	],
 	"space_travel_required": true,
 	"description": "Explore underground caverns, but beware what other creatures lurk in the dark. Bring some lights... and some guns"

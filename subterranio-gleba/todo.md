@@ -46,7 +46,7 @@
         * Returns a chilled, boxed version of the item
     * Thawed X - recipes for taking things out of a box
         * Takes a chilled X
-        * Returns the original item (at a pre-determined spoilage?)
+        * Returns the original item (at a pre-determined spoilage? Use the `percent_spoiled` property on the result)
         * Returns the ice box
         * Returns some water
 * Packaging

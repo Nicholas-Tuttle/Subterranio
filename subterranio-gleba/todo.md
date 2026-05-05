@@ -8,7 +8,7 @@
 * ~~Create compression-resistant fungi~~
 * ~~Create heat-resistant-bacteria~~
 * ~~Create biological science pack~~
-* Create chilling techs, entities, and items
+* ~~Create chilling techs, entities, and items~~
 * Create packaging techs, entities, and items
 * Create spore spreader
 * Create root clearer

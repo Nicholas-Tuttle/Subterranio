@@ -5,4 +5,11 @@ local subgroup1 = {
   order = "ma"
 }
 
-data:extend({subgroup1})
+local subgroup2 = {
+  type = "item-subgroup",
+  name = "frozen-food",
+  group = "intermediate-products",
+  order = "mb"
+}
+
+data:extend({subgroup1, subgroup2})

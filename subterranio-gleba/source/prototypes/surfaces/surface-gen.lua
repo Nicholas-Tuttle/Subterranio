@@ -90,6 +90,7 @@ end
 entity_settings["expansion-resistant-fungi"] = {}
 entity_settings["compression-resistant-fungi"] = {}
 entity_settings["cold-resistant-bacteria"] = {}
+entity_settings["heat-resistant-bacteria"] = {}
 
 for biome_name, biome in pairs(surface_tiles_definitions.biomes) do
     for index, tile_name in ipairs(biome.tiles) do

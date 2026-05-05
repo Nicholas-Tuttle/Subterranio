@@ -39,7 +39,6 @@ end
 plant.autoplace.tile_restriction = tiles
 plant.colors = {
     { r = 255, g = 255, b = 255 },
-    -- TODO
 }
 plant.agricultural_tower_tint = {
     primary = { r = 130, g = 195, b = 122 },

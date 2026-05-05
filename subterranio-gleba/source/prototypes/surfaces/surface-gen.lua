@@ -88,6 +88,7 @@ for _, value in pairs(surface_tiles_definitions.randomized_entities) do
 end
 
 entity_settings["expansion-resistant-fungi"] = {}
+entity_settings["compression-resistant-fungi"] = {}
 entity_settings["cold-resistant-bacteria"] = {}
 
 for biome_name, biome in pairs(surface_tiles_definitions.biomes) do

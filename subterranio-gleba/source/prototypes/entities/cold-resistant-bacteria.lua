@@ -1,5 +1,4 @@
 local graphics_tinter = require("__subterranio-base__/utilities/graphics-tinter")
-local surface_tiles_definitions = require("prototypes.surfaces.surface-tiles-definitions")
 
 local plant = table.deepcopy(data.raw["simple-entity"]["iron-stromatolite"])
 plant.type = "plant"
@@ -21,16 +20,9 @@ plant.harvest_emissions = nil
 plant.autoplace = {
     probability_expression = "var('gleban_subterranean_cold-resistant-bacteria-blue_noise_expression')"
 }
--- local tiles = {}
--- for _, value in pairs(surface_tiles_definitions.biomes["blue"]["tiles"]) do
---     tiles[#tiles + 1] = "gleban-subterranean-" .. value .. "-blue"
--- end
--- tiles[#tiles+1] = "gleban-subterranean-mycellium-cold"
--- plant.autoplace.tile_restriction = tiles
 plant.autoplace.tile_restriction = { "gleban-subterranean-mycellium-cold" }
 plant.colors = {
     { r = 255, g = 255, b = 255 },
-    -- TODO
 }
 plant.agricultural_tower_tint = {
     primary = { r = 130, g = 195, b = 122 },

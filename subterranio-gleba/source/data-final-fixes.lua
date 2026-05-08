@@ -3,12 +3,21 @@ for item_key, item_value in pairs(data.raw["item"]) do
         local frozen_item = {
             type = "item",
             name = "frozen-" .. item_key,
-            icon = item_value.icon,
-            icon_size = item_value.icon_size,
+            icon = nil,
+            icons = item_value.icons,
             subgroup = "frozen-food",
             order = "frozen-" .. item_key,
             stack_size = item_value.stack_size
         }
+
+        if item_value.icon ~= nil then
+            frozen_item.icons = { { icon = item_value.icon, icon_size = item_value.icon_size }, { icon = "__space-age__/graphics/icons/ice.png", icon_size = 32, scale = 0.3, shift = {13, -13} } }
+        elseif frozen_item.icons ~= nil then
+            frozen_item.icons[#frozen_item.icons+1] = { icon = "__space-age__/graphics/icons/ice.png", icon_size = 32, scale = 0.3, shift = {13, -13} }
+        end
+
+        log("Created frozen version of item: " .. serpent.line(item_value) .. " -> " .. serpent.line(frozen_item))
+
         local frozen_recipe = {
             type = "recipe",
             name = "frozen-" .. item_key,

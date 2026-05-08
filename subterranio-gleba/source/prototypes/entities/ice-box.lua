@@ -13,7 +13,7 @@ recipe.ingredients = {
     { type = "item", name = "cold-resistant-bacteria", amount = 3 },
 }
 recipe.results = {
-    { type = "item", name = "ice-box", amount = 1 }
+    { type = "item", name = "ice-machine", amount = 1 }
 }
 
 local ice_machine_entity = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
@@ -27,19 +27,29 @@ ice_machine_item.name = "ice-machine"
 ice_machine_item = graphics_tinter.tint(ice_machine_item, { r = 50, g = 50, b = 255 })
 ice_machine_item.place_result = "ice-machine"
 
+local ice_machine_recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-3"])
+ice_machine_recipe.name = "ice-machine"
+ice_machine_recipe.ingredients = {
+    { type = "item", name = "assembling-machine-3", amount = 1 },
+    { type = "item", name = "ice", amount = 100 },
+}
+ice_machine_recipe.results = {
+    { type = "item", name = "ice-machine", amount = 1 }
+}
+
 local ice_packaging_tech = {
     type = "technology",
     name = "ice-packaging",
-    icon_size = 128,
-    icon = "__subterranio-gleba__/graphics/technology/ice-packaging.png",
+    icon_size = 64,
+    icon = "__space-age__/graphics/icons/ice.png",
     effects = {
         {
             type = "unlock-recipe",
-            recipe = "ice-box"
+            recipe = "ice-machine"
         },
         {
             type = "unlock-recipe",
-            recipe = "ice-machine"
+            recipe = "ice-box"
         }
     },
     prerequisites = { "cold-resistant-bacteria", "heat-resistant-bacteria" },
@@ -66,6 +76,7 @@ data:extend({
     recipe,
     ice_machine_entity,
     ice_machine_item,
+    ice_machine_recipe,
     ice_packaging_tech,
     recipe_category
 })

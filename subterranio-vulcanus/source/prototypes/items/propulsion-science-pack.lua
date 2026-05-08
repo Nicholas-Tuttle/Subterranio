@@ -28,7 +28,8 @@ local recipe = {
     energy_required = 5,
     ingredients =
     {
-        { type = "item", name = "iron-plate",     amount = 1 },
+        { type = "item", name = "calcite",        amount = 1 },
+        { type = "item", name = "tungsten-plate", amount = 10 },
         { type = "item", name = "aluminum-ingot", amount = 1 },
         { type = "item", name = "titanium-hunk",  amount = 1 },
     },
@@ -62,7 +63,7 @@ local tech = {
     name = "propulsion-science-pack",
     icon = constants.propulsion_science_pack_path,
     icon_size = constants.propulsion_science_pack_size,
-    prerequisites = { "aluminum-filtering", "titanium-pulverization" },
+    prerequisites = { "aluminum-filtering", "titanium-filtering" },
     effects =
     {
         {

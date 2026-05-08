@@ -58,7 +58,7 @@ local tech = {
             recipe = "pulverizer"
         },
     },
-    prerequisites = { "lava-filtration-plant" },
+    prerequisites = { "propulsion-science-pack" },
     unit =
     {
         count = 2000,

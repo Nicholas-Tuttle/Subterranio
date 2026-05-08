@@ -11,8 +11,8 @@ local aluminum_slag_fluid = {
     flow_color = constants.aluminum_slag_color,
     icons = {
         {
-            icon = "__space-age__/graphics/icons/fluid/lava.png",
-            tint = constants.titanium_slag_color
+            icon = "__space-age__/graphics/icons/coal-synthesis.png",
+            tint = constants.aluminum_slag_color
         }
     },
     order = "j[aluminum-slag]",
@@ -126,7 +126,7 @@ local technology_cutting = {
             recipe = "aluminum-plate"
         },
     },
-    prerequisites = { "aluminum-filtering", "band-saw" },
+    prerequisites = { "aluminum-filtering", "band-saw", "propulsion-science-pack" },
     unit =
     {
         count = 1000,

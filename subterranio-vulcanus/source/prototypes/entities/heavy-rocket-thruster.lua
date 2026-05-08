@@ -29,7 +29,7 @@ local technology = {
     type = "technology",
     name = "heavy-rocket-thruster",
     icons = { { icon = "__space-age__/graphics/icons/thruster.png", tint = constants.vulcanus_lava_tubes_tint } },
-    prerequisites = { "space-platform-thruster", "propulsion-science-pack" },
+    prerequisites = { "space-platform-thruster", "propulsion-science-pack", "aluminum-cutting", "titanium-cutting" },
     effects = {
         {
             type = "unlock-recipe",

@@ -4,7 +4,7 @@ local basic_filter = {
     type = "item",
     name = "basic-lava-filter",
     stack_size = 50,
-    icons = { { icon = "__base__/graphics/icons/iron-gear-wheel.png", tint = { r = 0.8, g = 0.8, b = 0.8 } } },
+    icons = { { icon = "__subterranio-vulcanus__/graphics/item/basic-lava-filter.png", tint = { r = 0.8, g = 0.8, b = 0.8 } } },
     subgroup = "vulcanus-lava-tubes-intermediates",
     order = "a[basic-lava-filter]",
 }
@@ -13,7 +13,7 @@ local titanium_filter = {
     type = "item",
     name = "titanium-lava-filter",
     stack_size = 50,
-    icons = { { icon = "__base__/graphics/icons/iron-gear-wheel.png", tint = constants.titanium_color } },
+    icons = { { icon = "__subterranio-vulcanus__/graphics/item/basic-lava-filter.png", tint = constants.titanium_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
     order = "b[titanium-lava-filter]",
 }
@@ -22,7 +22,7 @@ local aluminum_filter = {
     type = "item",
     name = "aluminum-lava-filter",
     stack_size = 50,
-    icons = { { icon = "__base__/graphics/icons/iron-gear-wheel.png", tint = constants.aluminum_color } },
+    icons = { { icon = "__subterranio-vulcanus__/graphics/item/basic-lava-filter.png", tint = constants.aluminum_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
     order = "c[aluminum-lava-filter]",
 }
@@ -31,7 +31,7 @@ local damaged_filter = {
     type = "item",
     name = "damaged-lava-filter",
     stack_size = 50,
-    icons = { { icon = "__base__/graphics/icons/iron-gear-wheel.png", tint = { r = 0.2, g = 0.2, b = 0.2 } } },
+    icons = { { icon = "__subterranio-vulcanus__/graphics/item/basic-lava-filter.png", tint = { r = 0.2, g = 0.2, b = 0.2 } } },
     subgroup = "vulcanus-lava-tubes-intermediates",
     order = "d[damaged-lava-filter]",
 }

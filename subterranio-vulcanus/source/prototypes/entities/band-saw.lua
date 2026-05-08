@@ -55,7 +55,7 @@ local technology = {
             recipe = "band-saw"
         },
     },
-    prerequisites = { "lava-filtration-plant" },
+    prerequisites = { "propulsion-science-pack" },
     unit =
     {
         count = 2000,

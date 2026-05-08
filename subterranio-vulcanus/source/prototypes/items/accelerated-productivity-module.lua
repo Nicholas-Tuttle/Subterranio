@@ -118,7 +118,7 @@ local accelerated_productivity_module_2_tech = {
             recipe = "accelerated-productivity-module-2"
         }
     },
-    prerequisites = { "accelerated-productivity-module" },
+    prerequisites = { "accelerated-productivity-module", "titanium-pulverization" },
     unit =
     {
         count = 2000,
@@ -186,7 +186,7 @@ local accelerated_productivity_module_3_tech = {
             recipe = "accelerated-productivity-module-3"
         }
     },
-    prerequisites = { "accelerated-productivity-module-2" },
+    prerequisites = { "accelerated-productivity-module-2", "aluminum-cutting", "titanium-cutting" },
     unit =
     {
         count = 4000,

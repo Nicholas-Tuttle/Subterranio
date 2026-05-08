@@ -11,7 +11,7 @@ local titanium_slag_fluid = {
     flow_color = constants.titanium_slag_color,
     icons = {
         {
-            icon = "__space-age__/graphics/icons/fluid/lava.png",
+            icon = "__space-age__/graphics/icons/coal-synthesis.png",
             tint = constants.titanium_slag_color
         }
     },
@@ -208,7 +208,7 @@ local technology_cutting = {
             recipe = "titanium-plate"
         }
     },
-    prerequisites = { "titanium-pulverization", "band-saw" },
+    prerequisites = { "titanium-pulverization", "band-saw", "propulsion-science-pack" },
     unit =
     {
         count = 1000,

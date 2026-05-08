@@ -30,3 +30,8 @@ Date: 2026-03-24
   Changes:
     - Limiting max number of infant demolishers that can spawn underground at once
     - Fixing issue with not being able to craft science pack underground
+---------------------------------------------------------------------------------------------------
+Version: 0.1.10
+Date: 2026-05-07
+  Changes:
+    - Fixing tech orderings and science pack recipe

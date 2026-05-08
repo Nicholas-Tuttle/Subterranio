@@ -37,3 +37,13 @@ Version: 0.1.8
 Date: 2026-03-13
   Changes:
     - Fixed issue with target surface registration that was blocking Vulcanus Lava Tubes access
+---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Date: 2026-05-07
+  Changes:
+    - Version bump for clarity
+---------------------------------------------------------------------------------------------------
+Version: 0.1.10
+Date: 2026-05-07
+  Changes:
+    - Version bump for clarity

@@ -18,7 +18,7 @@ plant.order = "a[tree]-c[gleban_biospheres]-a[seedable]-b[heat-resistant-bacteri
 plant.emissions_per_second = nil
 plant.harvest_emissions = nil
 plant.autoplace = {
-    probability_expression = "var('gleban_subterranean_heat-resistant-bacteria-res_noise_expression')"
+    probability_expression = "var('gleban_subterranean_heat-resistant-bacteria-red_noise_expression')"
 }
 plant.autoplace.tile_restriction = { "gleban-subterranean-mycellium-hot" }
 plant.colors = {

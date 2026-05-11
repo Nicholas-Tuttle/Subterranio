@@ -1,8 +1,14 @@
 local graphics_tinter = require("__subterranio-base__/utilities/graphics-tinter")
 
-local item = table.deepcopy(data.raw["item"]["steel-chest"])
-item.name = "ice-box"
-item = graphics_tinter.tint(item, { r = 30, g = 30, b = 255 })
+local item = {
+    type = "item",
+    name = "ice-box",
+    icon = nil,
+    icons = { { icon = "__base__/graphics/icons/steel-chest.png", icon_size = 64, tint = { r = 200, g = 200, b = 255 } } },
+    stack_size = data.raw["item"]["steel-chest"].stack_size,
+    subgroup = "packaging-and-frozen",
+    order = "ice-box",
+}
 
 local recipe = table.deepcopy(data.raw["recipe"]["steel-chest"])
 recipe.name = "ice-box"
@@ -21,6 +27,7 @@ ice_machine_entity.name = "ice-machine"
 ice_machine_entity.crafting_categories = { "ice-machine" }
 ice_machine_entity.crafting_speed = 10
 ice_machine_entity = graphics_tinter.tint(ice_machine_entity, { r = 50, g = 50, b = 255 })
+ice_machine_entity.minable.result = "ice-machine"
 
 local ice_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
 ice_machine_item.name = "ice-machine"

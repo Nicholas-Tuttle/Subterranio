@@ -11,6 +11,7 @@ require("prototypes.entities.shipping-box")
 require("prototypes.entities.spore-spreader")
 
 require("prototypes.items.biological-science-pack")
+require("prototypes.items.frozen-and-packaging-groups")
 require("prototypes.items.mycellium")
 require("prototypes.items.overclocked-quality-module")
 require("prototypes.items.subgroups")

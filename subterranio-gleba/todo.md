@@ -15,6 +15,7 @@
 * Create high-capacity cargo bay
 * Create overclocked quality module
 * Update locales
+* Add user guides/simulations in tips and tricks
 * Test behaviors:
     * Correct buildings can be placed
     * Tech is correct for getting underground

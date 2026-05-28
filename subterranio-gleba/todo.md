@@ -10,11 +10,15 @@
 * ~~Create biological science pack~~
 * ~~Create chilling techs, entities, and items~~
 * ~~Create packaging techs, entities, and items~~
+* ~~Make sure the fungi and bacteria types can generate naturally~~
 * Create root clearer
 * Create high-capacity cargo bay
 * Create overclocked quality module
 * Update locales
-* Make sure the fungi and bacteria types can generate naturally
+* Test behaviors:
+    * Correct buildings can be placed
+    * Tech is correct for getting underground
+    * Science pack is made in correct building and can be made on correct surface
 ## Behavioral
 * Mycelium mechanics:
     * Mycelium is created when Fungi is farmed

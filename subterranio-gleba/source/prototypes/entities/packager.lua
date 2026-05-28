@@ -32,12 +32,12 @@ local packaging_machine_entity = table.deepcopy(data.raw["assembling-machine"]["
 packaging_machine_entity.name = "packaging-machine"
 packaging_machine_entity.crafting_categories = { "packaging" }
 packaging_machine_entity.crafting_speed = 10
-packaging_machine_entity = graphics_tinter.tint(packaging_machine_entity, { r = 50, g = 150, b = 255 })
+packaging_machine_entity = graphics_tinter.tint(packaging_machine_entity, { r = 150, g = 50, b = 0 })
 packaging_machine_entity.minable.result = "packaging-machine"
 
 local packaging_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
 packaging_machine_item.name = "packaging-machine"
-packaging_machine_item = graphics_tinter.tint(packaging_machine_item, { r = 50, g = 150, b = 255 })
+packaging_machine_item = graphics_tinter.tint(packaging_machine_item, { r = 150, g = 50, b = 0 })
 packaging_machine_item.place_result = "packaging-machine"
 
 local packaging_machine_recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-3"])

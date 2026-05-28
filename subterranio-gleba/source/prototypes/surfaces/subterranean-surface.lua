@@ -9,7 +9,7 @@ data:extend {subterrain.merge(data.raw.planet.gleba, {
     starting_area = 1,
     surface_properties = {
         ["day-night-cycle"] = 5 * minute,
-        ["magnetic-field"] = 0,
+        ["magnetic-field"] = constants.subterrain_magnetic_field,
         ["solar-power"] = 0,
         pressure = constants.subterrain_pressure,
         gravity = constants.subterrain_gravity,

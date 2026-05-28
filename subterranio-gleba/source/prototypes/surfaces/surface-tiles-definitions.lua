@@ -59,6 +59,7 @@ local randomized_entities = {
 local biomes = {
     ["blue"] = {
         ["tiles"] = {
+            -- Keep this in sync with the bacteria tile restrictions in the cold-resistant-bacteria.lua file
             "lowland-pale-green",
             "lowland-brown-blubber",
             "lowland-olive-blubber-3",
@@ -115,6 +116,7 @@ local biomes = {
     },
     ["red"] = {
         ["tiles"] = {
+            -- Keep this in sync with the bacteria tile restrictions in the heat-resistant-bacteria.lua file
             "lowland-cream-red",
             "lowland-dead-skin-2",
             "lowland-dead-skin",

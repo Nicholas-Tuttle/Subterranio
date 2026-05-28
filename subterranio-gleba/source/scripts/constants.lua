@@ -5,9 +5,9 @@ local biospheres_icon_size = 512
 local biological_science_pack_path = "__subterranio-gleba__/graphics/icons/biological-science-pack.png"
 local biological_science_pack_size = 256
 
-local subterrain_pressure = 2001
+local subterrain_pressure = 2000
 local subterrain_gravity = 21
-local subterrain_magnetic_field = 26
+local subterrain_magnetic_field = 25
 
 return {
     gleban_biospheres_icon_path = biospheres_icon_path,

@@ -21,7 +21,7 @@ local item = {
     pick_sound = space_age_item_sounds.rocket_inventory_pickup,
     drop_sound = space_age_item_sounds.rocket_inventory_move,
     place_result = entity.name,
-    stack_size = 50,
+    stack_size = 10,
     weight = 400 * kg
 }
 

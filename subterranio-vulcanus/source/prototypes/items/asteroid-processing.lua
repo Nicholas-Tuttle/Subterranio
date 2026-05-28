@@ -21,7 +21,7 @@ local aluminum_from_metallic_asteroid_recipe = {
     energy_required = 2,
     results =
     {
-        { type = "item", name = "aluminum-plate",          amount = 2 },
+        { type = "item", name = "aluminum-plate",          amount = 1, probability = 0.1 },
         { type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.2 }
     },
     allow_productivity = true,
@@ -49,7 +49,7 @@ local titanium_from_metallic_asteroid_recipe = {
     energy_required = 2,
     results =
     {
-        { type = "item", name = "titanium-plate",          amount = 2 },
+        { type = "item", name = "titanium-plate",          amount = 1, probability = 0.1 },
         { type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.2 }
     },
     allow_productivity = true,
@@ -81,7 +81,7 @@ local alternate_metallic_asteroid_processing_tech = {
     },
     unit =
     {
-        count = 250,
+        count = 1000,
         ingredients =
         {
             { "automation-science-pack",  1 },

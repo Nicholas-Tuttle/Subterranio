@@ -8,6 +8,7 @@ local item = {
     stack_size = data.raw["item"]["steel-chest"].stack_size,
     subgroup = "packaging-and-frozen",
     order = "ice-box",
+    weight = 10*kg
 }
 
 local recipe = table.deepcopy(data.raw["recipe"]["steel-chest"])
@@ -19,22 +20,23 @@ recipe.ingredients = {
     { type = "item", name = "cold-resistant-bacteria", amount = 3 },
 }
 recipe.results = {
-    { type = "item", name = "ice-machine", amount = 1 }
+    { type = "item", name = "ice-box", amount = 1 }
 }
 
 local ice_machine_entity = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
 ice_machine_entity.name = "ice-machine"
 ice_machine_entity.crafting_categories = { "ice-machine" }
 ice_machine_entity.crafting_speed = 10
-ice_machine_entity = graphics_tinter.tint(ice_machine_entity, { r = 50, g = 50, b = 255 })
+ice_machine_entity = graphics_tinter.tint(ice_machine_entity, { r = 150, g = 50, b = 255 })
 ice_machine_entity.minable.result = "ice-machine"
 
 local ice_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
 ice_machine_item.name = "ice-machine"
-ice_machine_item = graphics_tinter.tint(ice_machine_item, { r = 50, g = 50, b = 255 })
+ice_machine_item = graphics_tinter.tint(ice_machine_item, { r = 150, g = 50, b = 255 })
 ice_machine_item.place_result = "ice-machine"
 
 local ice_machine_recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-3"])
+ice_machine_recipe.enabled = false
 ice_machine_recipe.name = "ice-machine"
 ice_machine_recipe.ingredients = {
     { type = "item", name = "assembling-machine-3", amount = 1 },
@@ -59,9 +61,9 @@ local ice_packaging_tech = {
             recipe = "ice-box"
         }
     },
-    prerequisites = { "cold-resistant-bacteria", "heat-resistant-bacteria" },
+    prerequisites = { "cold-resistant-bacteria", "heat-resistant-bacteria", "biological-science-pack" },
     unit = {
-        count = 1000,
+        count = 3000,
         ingredients = {
           { "automation-science-pack", 1 },
           { "logistic-science-pack", 1 },

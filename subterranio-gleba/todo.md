@@ -9,12 +9,12 @@
 * ~~Create heat-resistant-bacteria~~
 * ~~Create biological science pack~~
 * ~~Create chilling techs, entities, and items~~
-* Create packaging techs, entities, and items
-* Create spore spreader
+* ~~Create packaging techs, entities, and items~~
 * Create root clearer
 * Create high-capacity cargo bay
 * Create overclocked quality module
 * Update locales
+* Make sure the fungi and bacteria types can generate naturally
 ## Behavioral
 * Mycelium mechanics:
     * Mycelium is created when Fungi is farmed

@@ -15,7 +15,7 @@
     * ~~Fix mining drill enablement~~
 * ~~Create artificial soils for growing the fungi/bacteria~~
 * ~~Create high-capacity cargo bay~~
-* Create overclocked quality module
+* ~~Create overclocked quality module~~
 * Update locales
 * Add user guides/simulations in tips and tricks
 * Test behaviors:

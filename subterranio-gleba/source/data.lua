@@ -10,7 +10,6 @@ require("prototypes.entities.root-clearer")
 require("prototypes.items.biological-science-pack")
 require("prototypes.items.frozen-and-packaging-groups")
 require("prototypes.items.mycellium")
-require("prototypes.items.overclocked-quality-module")
 require("prototypes.items.subgroups")
 require("prototypes.items.water-resistant-tunnelling-drill-equipment")
 

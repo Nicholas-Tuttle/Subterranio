@@ -85,10 +85,10 @@ local tech = {
         count = 1000,
         ingredients =
         {
-            { "automation-science-pack",      1 },
-            { "logistic-science-pack",        1 },
-            { "chemical-science-pack",        1 },
-            { "space-science-pack",           1 },
+            { "automation-science-pack",   1 },
+            { "logistic-science-pack",     1 },
+            { "chemical-science-pack",     1 },
+            { "space-science-pack",        1 },
             { "agricultural-science-pack", 1 },
         },
         time = 60

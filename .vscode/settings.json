@@ -12,6 +12,7 @@
         "serpent",
         "mods",
         "helpers",
-        "out_of_map_tile_type_names"
+        "out_of_map_tile_type_names",
+        "prototypes"
     ]
 }

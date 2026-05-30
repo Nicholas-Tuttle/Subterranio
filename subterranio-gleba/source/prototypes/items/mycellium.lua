@@ -18,6 +18,7 @@ local item = {
 local resource = {
     type = "resource",
     name = "mycellium",
+    category = "roots",
     icon = "__subterranio-gleba__/graphics/entity/mycellium.png",
     icon_size = 64,
     flags = { "placeable-neutral" },
@@ -38,7 +39,7 @@ local resource = {
     minable =
     {
         mining_particle = "stone-particle",
-        mining_time = 1,
+        mining_time = 100,
         result = "mycellium"
     },
     collision_box = { { -0.1, -0.1 }, { 0.1, 0.1 } },
@@ -63,4 +64,9 @@ local resource = {
     map_color = { 0, 0.7, 0.7 }
 }
 
-data:extend { item, resource }
+local resource_category = {
+    name = "roots",
+    type = "resource-category"
+}
+
+data:extend { item, resource, resource_category }

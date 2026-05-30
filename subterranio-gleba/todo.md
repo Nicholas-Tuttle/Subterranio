@@ -11,7 +11,9 @@
 * ~~Create chilling techs, entities, and items~~
 * ~~Create packaging techs, entities, and items~~
 * ~~Make sure the fungi and bacteria types can generate naturally~~
-* Create root clearer
+* ~~Create root clearer~~
+    * ~~Fix mining drill enablement~~
+* Create artificial soils for growing the fungi/bacteria
 * Create high-capacity cargo bay
 * Create overclocked quality module
 * Update locales
@@ -20,6 +22,7 @@
     * Correct buildings can be placed
     * Tech is correct for getting underground
     * Science pack is made in correct building and can be made on correct surface
+* When 2.1 comes out, allow the root-clearers to be placed even when no resources are present
 ## Behavioral
 * Mycelium mechanics:
     * Mycelium is created when Fungi is farmed

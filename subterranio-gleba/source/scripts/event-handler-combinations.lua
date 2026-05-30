@@ -1,8 +1,32 @@
-local function remove_mycellium(surface, plant_position)
+local function remove_mycellium_tiles(surface, tile_positions)
     local correct_tiles = true
     local remove_colliding_entities = true
     local remove_colliding_decoratives = true
+    local tiles = {}
+    for _, depleted_tile in pairs(tile_positions) do
+        if storage.gleban_biospheres[depleted_tile.x] ~= nil then
+            -- game.print(serpent.line(storage.gleban_biospheres[plant_position.x]))
+            local pre_existing_tile_name = storage.gleban_biospheres[depleted_tile.x][depleted_tile.y]
+            -- game.print("Pre existing tile found: " .. tostring(pre_existing_tile_name))
 
+            if pre_existing_tile_name ~= nil then
+                -- game.print("Switching back from mycellium to " .. pre_existing_tile_name .. " at position " .. depleted_tile.x .. ", " .. depleted_tile.y)
+                tiles[#tiles + 1] = {
+                    position = {
+                        x = depleted_tile.x,
+                        y = depleted_tile.y
+                    },
+                    name = pre_existing_tile_name,
+                }
+            end
+
+            storage.gleban_biospheres[depleted_tile.x][depleted_tile.y] = nil
+        end
+    end
+    surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
+end
+
+local function remove_mycellium_entities(surface, plant_position)
     local mycellium = surface.find_entities_filtered {
         area = {
             { x = plant_position.x - 1.25, y = plant_position.y - 1.25 },
@@ -28,28 +52,31 @@ local function remove_mycellium(surface, plant_position)
     end
     -- game.print(serpent.line(depleted_tiles))
 
-    local tiles = {}
-    for _, depleted_tile in pairs(depleted_tiles) do
-        if storage.gleban_biospheres[depleted_tile.x] ~= nil then
-            -- game.print(serpent.line(storage.gleban_biospheres[plant_position.x]))
-            local pre_existing_tile_name = storage.gleban_biospheres[depleted_tile.x][depleted_tile.y]
-            -- game.print("Pre existing tile found: " .. tostring(pre_existing_tile_name))
+    remove_mycellium_tiles(surface, depleted_tiles)
+end
 
-            if pre_existing_tile_name ~= nil then
-                -- game.print("Switching back from mycellium to " .. pre_existing_tile_name .. " at position " .. depleted_tile.x .. ", " .. depleted_tile.y)
-                tiles[#tiles + 1] = {
-                    position = {
-                        x = depleted_tile.x,
-                        y = depleted_tile.y
-                    },
-                    name = pre_existing_tile_name,
-                }
-            end
+local mining_drill_prototypes = prototypes.get_entity_filtered { { filter = "type", type = "mining-drill" } }
+local mining_drill_names = {}
+for _, mining_drill_prototype in pairs(mining_drill_prototypes) do
+    mining_drill_names[#mining_drill_names + 1] = mining_drill_prototype.name
+end
 
-            storage.gleban_biospheres[depleted_tile.x][depleted_tile.y] = nil
+local function reconnect_mining_drills(surface, position)
+    -- This is arbitrary but should find hopefully all the mining drill types
+    local radius = 10
+    local drills = surface.find_entities_filtered {
+        area = {
+            { x = position.x - radius, y = position.y - radius },
+            { x = position.x + radius, y = position.y + radius }
+        },
+        name = mining_drill_names
+    }
+
+    if drills ~= nil then
+        for _, mining_drill in pairs(drills) do
+            mining_drill.update_connections()
         end
     end
-    surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
 end
 
 local function add_mycellium(surface, plant_position)
@@ -124,6 +151,11 @@ local function add_mycellium(surface, plant_position)
                 amount = 10,
                 snap_to_tile_center = true
             }
+
+            reconnect_mining_drills(surface, {
+                x = offset_x,
+                y = offset_y
+            })
         end
     end
 end
@@ -133,7 +165,6 @@ script.on_event(defines.events.on_tower_mined_plant, function(event)
     --     .. ", position: (" .. event.plant.position.x .. ", " .. event.plant.position.y .. ")"
     --     .. ", surface: " .. event.plant.surface.name)
     local surface = event.plant.surface
-
     if surface.name ~= "gleban_biospheres" then return end
 
     local plant_position = event.plant.position
@@ -143,7 +174,7 @@ script.on_event(defines.events.on_tower_mined_plant, function(event)
     if event.plant.name == "cold-resistant-bacteria" or event.plant.name == "heat-resistant-bacteria" then
         -- Remove mycelium value from tiles below this plant
         -- If there is none left, switch to the other tile type that accepts fungi
-        remove_mycellium(surface, plant_position)
+        remove_mycellium_entities(surface, plant_position)
     end
 
     if event.plant.name == "compression-resistant-fungi" or event.plant.name == "expansion-resistant-fungi" then
@@ -151,4 +182,11 @@ script.on_event(defines.events.on_tower_mined_plant, function(event)
         -- If it goes above the certain threshold, switch to the other tile type that accepts bacteria
         add_mycellium(surface, plant_position)
     end
+end)
+
+script.on_event(defines.events.on_resource_depleted, function(event)
+    local surface = event.entity.surface
+    if surface.name ~= "gleban_biospheres" then return end
+    if event.entity.name ~= "mycellium" then return end
+    remove_mycellium_tiles(surface, { event.entity.position })
 end)

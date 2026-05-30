@@ -9,7 +9,8 @@ entity.resource_searching_radius = 4.5
 entity.resource_searching_offset = { x = 0, y = 3 }
 entity.mining_speed = 100
 entity = graphics_tinter.tint(entity, tint_color)
-entity.radius_visualisation_picture = table.deepcopy(data.raw["mining-drill"]["electric-mining-drill"]).radius_visualisation_picture
+entity.radius_visualisation_picture = table.deepcopy(data.raw["mining-drill"]["electric-mining-drill"])
+    .radius_visualisation_picture
 
 local item = {
     type = "item",
@@ -58,7 +59,10 @@ local tech = {
             { "automation-science-pack",   1 },
             { "logistic-science-pack",     1 },
             { "chemical-science-pack",     1 },
+            { "production-science-pack",   1 },
+            { "utility-science-pack",      1 },
             { "space-science-pack",        1 },
+            { "subterranean-science-pack", 1 },
             { "agricultural-science-pack", 1 },
             { "biological-science-pack",   1 }
         },

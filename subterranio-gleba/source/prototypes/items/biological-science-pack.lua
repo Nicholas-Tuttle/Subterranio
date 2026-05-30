@@ -78,7 +78,15 @@ local tech = {
             recipe = "biological-science-pack"
         }
     },
-    prerequisites = { "agricultural-science-pack", "cold-resistant-bacteria", "heat-resistant-bacteria", "expansion-resistant-fungi", "compression-resistant-fungi" },
+    prerequisites = {
+        "production-science-pack",
+        "utility-science-pack",
+        "agricultural-science-pack",
+        "cold-resistant-bacteria",
+        "heat-resistant-bacteria",
+        "expansion-resistant-fungi",
+        "compression-resistant-fungi"
+    },
     essential = true,
     unit =
     {
@@ -88,7 +96,10 @@ local tech = {
             { "automation-science-pack",   1 },
             { "logistic-science-pack",     1 },
             { "chemical-science-pack",     1 },
+            { "production-science-pack",   1 },
+            { "utility-science-pack",      1 },
             { "space-science-pack",        1 },
+            { "subterranean-science-pack", 1 },
             { "agricultural-science-pack", 1 },
         },
         time = 60

@@ -8,14 +8,14 @@ local item = {
     stack_size = data.raw["item"]["steel-chest"].stack_size,
     subgroup = "packaging-and-frozen",
     order = "ice-box",
-    weight = 10*kg
+    weight = 10 * kg
 }
 
 local recipe = table.deepcopy(data.raw["recipe"]["steel-chest"])
 recipe.name = "ice-box"
 recipe.ingredients = {
-    { type = "item", name = "steel-chest", amount = 1 },
-    { type = "item", name = "ice", amount = 10 },
+    { type = "item", name = "steel-chest",             amount = 1 },
+    { type = "item", name = "ice",                     amount = 10 },
     { type = "item", name = "heat-resistant-bacteria", amount = 3 },
     { type = "item", name = "cold-resistant-bacteria", amount = 3 },
 }
@@ -40,7 +40,7 @@ ice_machine_recipe.enabled = false
 ice_machine_recipe.name = "ice-machine"
 ice_machine_recipe.ingredients = {
     { type = "item", name = "assembling-machine-3", amount = 1 },
-    { type = "item", name = "ice", amount = 100 },
+    { type = "item", name = "ice",                  amount = 100 },
 }
 ice_machine_recipe.results = {
     { type = "item", name = "ice-machine", amount = 1 }
@@ -65,19 +65,23 @@ local ice_packaging_tech = {
     unit = {
         count = 3000,
         ingredients = {
-          { "automation-science-pack", 1 },
-          { "logistic-science-pack", 1 },
-          { "chemical-science-pack", 1 },
-          { "space-science-pack", 1 },
-          { "biological-science-pack", 1 }
+            { "automation-science-pack",   1 },
+            { "logistic-science-pack",     1 },
+            { "chemical-science-pack",     1 },
+            { "production-science-pack",   1 },
+            { "utility-science-pack",      1 },
+            { "space-science-pack",        1 },
+            { "subterranean-science-pack", 1 },
+            { "agricultural-science-pack", 1 },
+            { "biological-science-pack",   1 }
         },
         time = 60
     }
 }
 
 local recipe_category = {
-  type = "recipe-category",
-  name = "ice-machine"
+    type = "recipe-category",
+    name = "ice-machine"
 }
 
 data:extend({

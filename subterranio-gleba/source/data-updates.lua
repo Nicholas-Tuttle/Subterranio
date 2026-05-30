@@ -7,3 +7,6 @@ table.insert(data.raw["technology"]["planet-discovery-aquilo"].prerequisites, "b
 for key, _ in pairs(data.raw["mining-drill"]) do
     table.insert(data.raw["mining-drill"][key].resource_categories, "roots")
 end
+
+table.insert(data.raw["item"]["landfill"].place_as_tile.tile_condition, "gleban-subterranean-deep-water")
+table.insert(data.raw["item"]["foundation"].place_as_tile.tile_condition, "gleban-subterranean-deep-water")

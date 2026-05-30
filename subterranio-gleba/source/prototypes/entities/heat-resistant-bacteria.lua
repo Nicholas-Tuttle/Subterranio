@@ -23,7 +23,8 @@ plant.autoplace = {
 }
 -- Keep this in sync with the tile definitions in the surface-tiles-definitions.lua file
 plant.autoplace.tile_restriction = {
-    "gleban-subterranean-mycellium-cold",
+    "overgrowth-hot-soil",
+    "gleban-subterranean-mycellium-hot",
     "gleban-subterranean-" .. surface_tiles_definitions.biomes.red.tiles[1] .. "-red",
     "gleban-subterranean-" .. surface_tiles_definitions.biomes.red.tiles[2] .. "-red",
 }

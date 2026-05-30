@@ -32,7 +32,9 @@ plant.harvest_emissions = nil
 plant.autoplace = {
     probability_expression = "var('gleban_subterranean_expansion-resistant-fungi-blue_noise_expression')"
 }
-local tiles = {}
+local tiles = {
+    "overgrowth-cold-soil"
+}
 for _, value in pairs(surface_tiles_definitions.biomes["blue"]["tiles"]) do
     tiles[#tiles + 1] = "gleban-subterranean-" .. value .. "-blue"
 end

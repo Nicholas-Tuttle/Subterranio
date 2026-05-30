@@ -13,7 +13,7 @@
 * ~~Make sure the fungi and bacteria types can generate naturally~~
 * ~~Create root clearer~~
     * ~~Fix mining drill enablement~~
-* Create artificial soils for growing the fungi/bacteria
+* ~~Create artificial soils for growing the fungi/bacteria~~
 * Create high-capacity cargo bay
 * Create overclocked quality module
 * Update locales

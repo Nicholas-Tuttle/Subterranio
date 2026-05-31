@@ -31,7 +31,7 @@ local recipe = {
     },
     results = {
         { type = "item", name = "induction-furnace",          amount = 1 },
-        { type = "item", name = "damaged-magnetic-packaging", amount = 10, probability = constants.damaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+        { type = "item", name = "damaged-magnetic-packaging", amount = 10, probability = constants.damaged_packaging_return_change,   show_details_in_recipe_tooltip = false },
         { type = "item", name = "magnetic-packaging",         amount = 10, probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
     }
 }
@@ -70,6 +70,7 @@ local tech = {
             { "chemical-science-pack",        1 },
             { "space-science-pack",           1 },
             { "electromagnetic-science-pack", 1 },
+            { "induction-science-pack",       1 },
         },
         time = 60
     }

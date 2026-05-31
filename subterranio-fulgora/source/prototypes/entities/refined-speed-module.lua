@@ -148,7 +148,7 @@ local tech1 = {
       recipe = "refined-speed-module"
     }
   },
-  prerequisites = { "speed-module", "quality-module" },
+  prerequisites = { "speed-module", "quality-module", "induction-science-pack" },
   unit =
   {
     count = 500,

@@ -31,8 +31,8 @@ local tech = {
   name = "holmium-cabling",
   icons = {
     {
-        icon = constants.holmium_cabling_path,
-        icon_size = constants.holmium_cabling_size
+      icon = constants.holmium_cabling_path,
+      icon_size = constants.holmium_cabling_size
     }
   },
   icon_size = 256,
@@ -46,16 +46,17 @@ local tech = {
   prerequisites = { "induction-science-pack" },
   unit =
   {
-      count = 1000,
-      ingredients =
-      {
-          { "automation-science-pack", 1 },
-          { "logistic-science-pack", 1 },
-          { "chemical-science-pack", 1 },
-          { "space-science-pack", 1 },
-          { "electromagnetic-science-pack", 1 },
-      },
-      time = 60
+    count = 1000,
+    ingredients =
+    {
+      { "automation-science-pack",      1 },
+      { "logistic-science-pack",        1 },
+      { "chemical-science-pack",        1 },
+      { "space-science-pack",           1 },
+      { "electromagnetic-science-pack", 1 },
+      { "induction-science-pack",       1 },
+    },
+    time = 60
   }
 }
 

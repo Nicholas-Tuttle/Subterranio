@@ -171,6 +171,7 @@ local tech = {
       { "chemical-science-pack",        1 },
       { "space-science-pack",           1 },
       { "electromagnetic-science-pack", 1 },
+      { "induction-science-pack",       1 },
     },
     time = 60
   }

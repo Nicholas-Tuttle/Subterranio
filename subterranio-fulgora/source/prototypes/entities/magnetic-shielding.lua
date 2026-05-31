@@ -21,8 +21,8 @@ local recipe = {
   icon = constants.magnetic_shielding_path,
   icon_size = constants.magnetic_shielding_size,
   energy_required = 5,
-  ingredients = { 
-    { type = "item", name = "iron-plate", amount = 1 },
+  ingredients = {
+    { type = "item",  name = "iron-plate",  amount = 1 },
     { type = "fluid", name = "electrolyte", amount = 100 }
   },
   results = { { type = "item", name = "magnetic-shielding", amount = 1 } },
@@ -58,6 +58,7 @@ local tech = {
       { "chemical-science-pack",        1 },
       { "space-science-pack",           1 },
       { "electromagnetic-science-pack", 1 },
+      { "induction-science-pack",       1 },
     },
     time = 60
   }

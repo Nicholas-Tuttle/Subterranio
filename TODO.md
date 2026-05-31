@@ -12,6 +12,7 @@
 1. ~~Make cave-wall graphics hitbox more obvious~~
 1. ~~Lock Aquilo behind subterranian science~~
 1. ~~Modularize the initialization and registering of required drilling techs~~
+1. Update the cave-scaffolding so that it can placed on any planet - does it need to move to subterranio base?
 1. Lock night-vision-equipment behind subterranian tech?
 1. Figure out quality upgrades for all new items
 1. Make dedicated controls for going up or down a level

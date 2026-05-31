@@ -76,7 +76,6 @@ local packaging_tech = {
             { "logistic-science-pack",     1 },
             { "chemical-science-pack",     1 },
             { "space-science-pack",        1 },
-            { "subterranean-science-pack", 1 },
             { "agricultural-science-pack", 1 },
             { "biological-science-pack",   1 }
         },

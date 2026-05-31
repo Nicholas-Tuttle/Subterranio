@@ -8,7 +8,7 @@ local item = {
     icon = constants.biological_science_pack_path,
     icon_size = constants.biological_science_pack_size,
     subgroup = "science-pack",
-    order = "h[biological-science-pack]",
+    order = "iz[biological-science-pack]",
     default_import_location = "gleba",
     inventory_move_sound = item_sounds.science_inventory_move,
     pick_sound = item_sounds.science_inventory_pickup,
@@ -26,6 +26,7 @@ local recipe = {
     name = "biological-science-pack",
     enabled = false,
     energy_required = 5,
+    category = "organic-or-assembling",
     ingredients =
     {
         { type = "item", name = "iron-bacteria",               amount = 1 },
@@ -79,8 +80,6 @@ local tech = {
         }
     },
     prerequisites = {
-        "production-science-pack",
-        "utility-science-pack",
         "agricultural-science-pack",
         "cold-resistant-bacteria",
         "heat-resistant-bacteria",
@@ -96,8 +95,6 @@ local tech = {
             { "automation-science-pack",   1 },
             { "logistic-science-pack",     1 },
             { "chemical-science-pack",     1 },
-            { "production-science-pack",   1 },
-            { "utility-science-pack",      1 },
             { "space-science-pack",        1 },
             { "subterranean-science-pack", 1 },
             { "agricultural-science-pack", 1 },

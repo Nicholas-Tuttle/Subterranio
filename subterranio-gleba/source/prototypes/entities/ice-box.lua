@@ -1,10 +1,11 @@
 local graphics_tinter = require("__subterranio-base__/utilities/graphics-tinter")
+local constants = require("scripts.constants")
 
 local item = {
     type = "item",
     name = "ice-box",
     icon = nil,
-    icons = { { icon = "__base__/graphics/icons/steel-chest.png", icon_size = 64, tint = { r = 200, g = 200, b = 255 } } },
+    icons = { { icon = "__base__/graphics/icons/steel-chest.png", icon_size = 64, tint = constants.gleban_biospheres_tint } },
     stack_size = data.raw["item"]["steel-chest"].stack_size,
     subgroup = "packaging-and-frozen",
     order = "ice-box",
@@ -32,7 +33,8 @@ ice_machine_entity.minable.result = "ice-machine"
 
 local ice_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
 ice_machine_item.name = "ice-machine"
-ice_machine_item = graphics_tinter.tint(ice_machine_item, { r = 50, g = 150, b = 255 })
+ice_machine_item.icons = { { icon = ice_machine_item.icon, tint = constants.gleban_biospheres_tint } }
+ice_machine_item.icon = nil
 ice_machine_item.place_result = "ice-machine"
 
 local ice_machine_recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-3"])
@@ -68,8 +70,6 @@ local ice_packaging_tech = {
             { "automation-science-pack",   1 },
             { "logistic-science-pack",     1 },
             { "chemical-science-pack",     1 },
-            { "production-science-pack",   1 },
-            { "utility-science-pack",      1 },
             { "space-science-pack",        1 },
             { "subterranean-science-pack", 1 },
             { "agricultural-science-pack", 1 },

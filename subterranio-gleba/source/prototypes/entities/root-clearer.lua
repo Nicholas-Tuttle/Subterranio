@@ -1,4 +1,5 @@
 local graphics_tinter = require("__subterranio-base__/utilities/graphics-tinter")
+local constants = require("scripts.constants")
 
 local tint_color = { r = 150, g = 255, b = 100 }
 
@@ -15,7 +16,7 @@ entity.radius_visualisation_picture = table.deepcopy(data.raw["mining-drill"]["e
 local item = {
     type = "item",
     name = "root-clearer",
-    icon = "__base__/graphics/icons/electric-mining-drill.png",
+    icons = { { icon = "__base__/graphics/icons/electric-mining-drill.png", tint = constants.gleban_biospheres_tint } },
     subgroup = "extraction-machine",
     order = "a[items]-b[root-clearer]",
     place_result = "root-clearer",
@@ -59,8 +60,6 @@ local tech = {
             { "automation-science-pack",   1 },
             { "logistic-science-pack",     1 },
             { "chemical-science-pack",     1 },
-            { "production-science-pack",   1 },
-            { "utility-science-pack",      1 },
             { "space-science-pack",        1 },
             { "subterranean-science-pack", 1 },
             { "agricultural-science-pack", 1 },

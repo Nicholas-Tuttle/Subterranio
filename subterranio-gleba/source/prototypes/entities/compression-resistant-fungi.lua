@@ -46,7 +46,7 @@ plant.agricultural_tower_tint = {
     primary = { r = 195, g = 130, b = 122 },
     secondary = { r = 107, g = 53, b = 46 }
 }
-plant.map_color = { r = 222, g = 13, b = 34 }
+plant.map_color = { r = 255, g = 26, b = 68 }
 plant = graphics_tinter.tint(plant, { r = 255, g = 150, b = 120 })
 -- Add some glow to all the "leaves"
 for _, variation in ipairs(plant.variations) do
@@ -69,7 +69,7 @@ fungi_item.icon = nil
 fungi_item.icons = {
     {
         icon = "__space-age__/graphics/icons/nutrients.png",
-        tint = { r = 120, g = 150, b = 255 }
+        tint = { r = 255, g = 150, b = 120 }
     }
 }
 fungi_item.subgroup = "subterranio-gleba-raw-materials"
@@ -83,7 +83,7 @@ spore_item.icon = nil
 spore_item.icons = {
     {
         icon = "__space-age__/graphics/icons/jellynut-seed-1.png",
-        tint = { r = 120, g = 150, b = 255 }
+        tint = { r = 255, g = 150, b = 120 }
     }
 }
 spore_item.subgroup = "subterranio-gleba-raw-materials"
@@ -97,7 +97,7 @@ dry_spore_item.icon = nil
 dry_spore_item.icons = {
     {
         icon = "__space-age__/graphics/icons/jellynut-seed-1.png",
-        tint = { r = 200, g = 220, b = 255 }
+        tint = { r = 255, g = 220, b = 200 }
     }
 }
 dry_spore_item.subgroup = "subterranio-gleba-raw-materials"

@@ -1,10 +1,11 @@
 local graphics_tinter = require("__subterranio-base__/utilities/graphics-tinter")
+local constants = require("scripts.constants")
 
 local item = {
     type = "item",
     name = "packaging",
     icon = nil,
-    icons = { { icon = "__base__/graphics/icons/wooden-chest.png", icon_size = 64, tint = { r = 150, g = 255, b = 150 } } },
+    icons = { { icon = "__base__/graphics/icons/wooden-chest.png", icon_size = 64, tint = constants.gleban_biospheres_tint } },
     stack_size = data.raw["item"]["wooden-chest"].stack_size,
     subgroup = "packaging-and-frozen",
     order = "packaging",
@@ -37,7 +38,8 @@ packaging_machine_entity.minable.result = "packaging-machine"
 
 local packaging_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
 packaging_machine_item.name = "packaging-machine"
-packaging_machine_item = graphics_tinter.tint(packaging_machine_item, { r = 150, g = 50, b = 0 })
+packaging_machine_item.icons = { { icon = packaging_machine_item.icon, tint = constants.gleban_biospheres_tint } }
+packaging_machine_item.icon = nil
 packaging_machine_item.place_result = "packaging-machine"
 
 local packaging_machine_recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-3"])
@@ -60,6 +62,10 @@ local packaging_tech = {
         {
             type = "unlock-recipe",
             recipe = "packaging"
+        },
+        {
+            type = "unlock-recipe",
+            recipe = "packaging-machine"
         }
     },
     prerequisites = { "cold-resistant-bacteria", "heat-resistant-bacteria", "expansion-resistant-fungi", "compression-resistant-fungi", "biological-science-pack" },
@@ -69,8 +75,6 @@ local packaging_tech = {
             { "automation-science-pack",   1 },
             { "logistic-science-pack",     1 },
             { "chemical-science-pack",     1 },
-            { "production-science-pack",   1 },
-            { "utility-science-pack",      1 },
             { "space-science-pack",        1 },
             { "subterranean-science-pack", 1 },
             { "agricultural-science-pack", 1 },

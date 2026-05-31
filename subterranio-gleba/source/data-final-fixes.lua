@@ -96,7 +96,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
         },
         results = {
             { type = "item", name = item_key,  amount = 1, percent_spoiled = 0.5, probability = 0.9 },
-            { type = "item", name = "ice-box", amount = 1 },
+            { type = "item", name = "ice-box", amount = 1, probability = 0.5 },
         },
         allow_productivity = false,
         allow_quality = false,

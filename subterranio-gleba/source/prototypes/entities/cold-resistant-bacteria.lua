@@ -40,6 +40,7 @@ plant = graphics_tinter.tint(plant, { r = 120, g = 150, b = 255 })
 
 local bacteria_item = table.deepcopy(data.raw["item"]["wood"])
 bacteria_item.name = "cold-resistant-bacteria"
+bacteria_item.icon = nil
 bacteria_item.icons = { { icon = "__space-age__/graphics/icons/copper-bacteria.png", tint = { r = 120, g = 150, b = 255 } } }
 bacteria_item.pictures =
 {
@@ -58,6 +59,7 @@ bacteria_item = graphics_tinter.tint(bacteria_item, { r = 120, g = 150, b = 255 
 
 local newborn_bacterium_item = table.deepcopy(data.raw["item"]["wood"])
 newborn_bacterium_item.name = "cold-resistant-newborn-bacterium"
+newborn_bacterium_item.icon = nil
 newborn_bacterium_item.icons = { { icon = "__space-age__/graphics/icons/copper-bacteria.png", tint = { r = 80, g = 100, b = 200 } } }
 newborn_bacterium_item.pictures =
 {

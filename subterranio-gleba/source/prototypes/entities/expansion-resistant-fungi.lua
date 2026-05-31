@@ -46,7 +46,7 @@ plant.agricultural_tower_tint = {
     primary = { r = 130, g = 195, b = 122 },
     secondary = { r = 53, g = 107, b = 46 }
 }
-plant.map_color = { r = 13, g = 222, b = 34 }
+plant.map_color = { r = 26, g = 255, b = 68 }
 plant = graphics_tinter.tint(plant, { r = 120, g = 150, b = 255 })
 -- Add some glow to all the "leaves"
 for _, variation in ipairs(plant.variations) do

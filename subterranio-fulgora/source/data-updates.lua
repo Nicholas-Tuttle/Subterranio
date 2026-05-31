@@ -11,7 +11,7 @@ table.insert(data.raw["recipe"]["railgun"].ingredients, {type = "item", name = "
 table.insert(data.raw["recipe"]["railgun-turret"].ingredients, {type = "item", name = "electromagnet", amount = 50})
 
 if mods["subterranio-nauvis"] then
-    table.insert(out_of_map_tile_type_names, "cave-wall")
+    table.insert(out_of_map_tile_type_names, "subway-out-of-map")
 
     table.insert(data.raw["technology"]["advanced-chemical-plant"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["electromagnets"].unit.ingredients, {"subterranean-science-pack", 1})

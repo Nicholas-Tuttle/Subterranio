@@ -29,3 +29,5 @@ require("prototypes.surfaces.subterranean-surface")
 require("prototypes.surfaces.subway-noise-expressions")
 
 require("prototypes.tiles.subway-fulgoran-paving")
+
+require("prototypes.tipsandtricks.fulgoran-subway")

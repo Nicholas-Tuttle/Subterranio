@@ -20,3 +20,5 @@ require("prototypes.surfaces.surface-gen")
 
 require("prototypes.tiles.artificial-soils")
 require("prototypes.tiles.cave-wall")
+
+require("prototypes.tipsandtricks.gleban-biospheres")

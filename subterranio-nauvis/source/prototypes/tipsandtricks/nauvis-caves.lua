@@ -4,11 +4,12 @@ data:extend{
         name = "nauvis-caves",
         category = "subterranean-caves",
         indent = 1,
+        order = "aa",
         dependencies = {"subterranean-caves"},
         trigger =
         {
-            type = "unlock-recipe",
-            recipe = "tunnelling-drill-equipment"
+            type = "research",
+            technology = "tunnelling-drill-equipment"
         }
     }
 }

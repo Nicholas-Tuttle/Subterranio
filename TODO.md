@@ -23,6 +23,7 @@
 1. Make a user-setting that blocks the mech armor from flying around while underground
 1. Fix compatibility with other planet mods
     1. See: https://mods.factorio.com/mod/subterranio/discussion/69b5f74ff2430a36aa2a7f38
+    1. Fix issue with Muluna Aluminum processing getting combined with Vulcanus Aluminum processing
 1. Add mod compatibility with starmap mods like Redrawn Space Connections and Better Planets
     1. See: https://mods.factorio.com/mod/subterranio/discussion/69b8283ee7ac02d0bc38f9d0
 1. Re-work tunnelling drill requirements so that if the player dies they can't get stuck

@@ -18,15 +18,15 @@
     1. ~~Titanium powder recipe~~
     1. ~~Titanium ingot recipe~~
     1. ~~Titanium plate recipe~~
-    1. ~~Aluminum lava filter~~
-    1. ~~Aluminum-rich lava~~
-    1. ~~Aluminum slag recipe~~
-    1. ~~Aluminum ingot recipe~~
-    1. ~~Aluminum plate recipe~~
+    1. ~~Aeroluminite lava filter~~
+    1. ~~Aeroluminite-rich lava~~
+    1. ~~Aeroluminite slag recipe~~
+    1. ~~Aeroluminite ingot recipe~~
+    1. ~~Aeroluminite plate recipe~~
     1. ~~Propulsion science pack~~
     1. ~~Autocannon turrets~~
     1. ~~Heavy rocket thrusters~~
-    1. ~~Asteroid processing recipes to get aluminum, titanium, and STONE in orbit~~
+    1. ~~Asteroid processing recipes to get aeroluminite, titanium, and STONE in orbit~~
     1. ~~Industrial Productivity Module~~
 1. Enemies
     1. ~~Infant/Adolescent demolishers~~
@@ -37,7 +37,7 @@
     graph TD;
         HI[Heavy Industry - Lava Filtration Unit, Pulverizer, Diamond Band-Saw]
         T[Titanium]
-        A[Aluminum]
+        A[Aeroluminite]
         HRT[Heavy Rocket Thruster]
         AC[Autocannon Turret]
         IT[Ion Thruster]
@@ -98,16 +98,16 @@
         DS-->DBS
 ```
 
-## Aluminum Processing Flow
+## Aeroluminite Processing Flow
 ```mermaid
     graph LR;
-        LA[Aluminum-Rich Lava]
-        AS[Aluminum Slag]
-        AP[Aluminum Plate]
-        AI[Aluminum Ingot]
+        LA[Aeroluminite-Rich Lava]
+        AS[Aeroluminite Slag]
+        AP[Aeroluminite Plate]
+        AI[Aeroluminite Ingot]
         DBS[Diamond Band-Saw]
 
-        AF[Aluminum Filter]
+        AF[Aeroluminite Filter]
         DF[Damaged Filter]
         
         S1[Stone]

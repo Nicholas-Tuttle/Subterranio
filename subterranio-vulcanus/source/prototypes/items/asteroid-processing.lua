@@ -1,12 +1,12 @@
 local constants = require("scripts.constants")
 
-local aluminum_from_metallic_asteroid_recipe = {
+local aeroluminite_from_metallic_asteroid_recipe = {
     type = "recipe",
-    name = "aluminum-from-metallic-asteroid",
+    name = "aeroluminite-from-metallic-asteroid",
     icons = {
         {
             icon = "__space-age__/graphics/icons/metallic-asteroid-crushing.png",
-            tint = constants.aluminum_color
+            tint = constants.aeroluminite_color
         }
     },
     category = "crushing",
@@ -21,7 +21,7 @@ local aluminum_from_metallic_asteroid_recipe = {
     energy_required = 2,
     results =
     {
-        { type = "item", name = "aluminum-plate",          amount = 1, probability = 0.1 },
+        { type = "item", name = "aeroluminite-plate",          amount = 1, probability = 0.1 },
         { type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.2 }
     },
     allow_productivity = true,
@@ -69,7 +69,7 @@ local alternate_metallic_asteroid_processing_tech = {
     {
         {
             type = "unlock-recipe",
-            recipe = "aluminum-from-metallic-asteroid"
+            recipe = "aeroluminite-from-metallic-asteroid"
         },
         {
             type = "unlock-recipe",
@@ -77,7 +77,7 @@ local alternate_metallic_asteroid_processing_tech = {
         }
     },
     prerequisites = {
-        "space-platform", "aluminum-cutting", "titanium-cutting"
+        "space-platform", "aeroluminite-cutting", "titanium-cutting"
     },
     unit =
     {
@@ -98,7 +98,7 @@ local alternate_metallic_asteroid_processing_tech = {
 }
 
 data:extend({
-    aluminum_from_metallic_asteroid_recipe,
+    aeroluminite_from_metallic_asteroid_recipe,
     titanium_from_metallic_asteroid_recipe,
     alternate_metallic_asteroid_processing_tech,
 })

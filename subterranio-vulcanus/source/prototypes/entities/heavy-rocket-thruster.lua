@@ -29,7 +29,7 @@ local technology = {
     type = "technology",
     name = "heavy-rocket-thruster",
     icons = { { icon = "__space-age__/graphics/icons/thruster.png", tint = constants.vulcanus_lava_tubes_tint } },
-    prerequisites = { "space-platform-thruster", "propulsion-science-pack", "aluminum-cutting", "titanium-cutting" },
+    prerequisites = { "space-platform-thruster", "propulsion-science-pack", "aeroluminite-cutting", "titanium-cutting" },
     effects = {
         {
             type = "unlock-recipe",
@@ -57,7 +57,7 @@ local recipe = {
     energy_required = 600,
     ingredients = {
         { type = "item", name = "thruster",        amount = 3 },
-        { type = "item", name = "aluminum-plate",  amount = 20 },
+        { type = "item", name = "aeroluminite-plate",  amount = 20 },
         { type = "item", name = "tungsten-plate",  amount = 10 },
         { type = "item", name = "titanium-plate",  amount = 5 },
         { type = "item", name = "processing-unit", amount = 20 }

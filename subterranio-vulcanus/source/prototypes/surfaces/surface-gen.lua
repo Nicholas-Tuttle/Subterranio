@@ -51,7 +51,7 @@ local function create_lava_type(name, fluid_name, color_cool, color_hot, noise_e
 end
 
 create_lava_type("titanium", "titanium-rich-lava", constants.titanium_color, constants.hot_titanium_color, "vulcanus_subterranean_titanium_lava_noise_expression", "vulcanus_subterranean_hot_titanium_lava_noise_expression")
-create_lava_type("aluminum", "aluminum-rich-lava", constants.aluminum_color, constants.hot_aluminum_color, "vulcanus_subterranean_aluminum_lava_noise_expression", "vulcanus_subterranean_hot_aluminum_lava_noise_expression")
+create_lava_type("aeroluminite", "aeroluminite-rich-lava", constants.aeroluminite_color, constants.hot_aeroluminite_color, "vulcanus_subterranean_aeroluminite_lava_noise_expression", "vulcanus_subterranean_hot_aeroluminite_lava_noise_expression")
 
 local decoratives = {
     "small-volcanic-rock",

@@ -7,8 +7,8 @@ table.insert(data.raw["technology"]["planet-discovery-aquilo"].prerequisites, "p
 if mods["subterranio-nauvis"] then
     table.insert(data.raw["recipe"]["band-saw"].ingredients, { type = "item", name = "diamond-shard", amount = 20 })
     table.insert(data.raw["recipe"]["titanium-plate"].ingredients, { type = "item", name = "diamond-shard", amount = 1 })
-    table.insert(data.raw["recipe"]["aluminum-plate"].ingredients, { type = "item", name = "diamond-shard", amount = 1 })
-    table.insert(data.raw["technology"]["aluminum-cutting"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["recipe"]["aeroluminite-plate"].ingredients, { type = "item", name = "diamond-shard", amount = 1 })
+    table.insert(data.raw["technology"]["aeroluminite-cutting"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["lava-filtration-plant"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["pulverizer"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["titanium-pulverization"].unit.ingredients, { "subterranean-science-pack", 1 })

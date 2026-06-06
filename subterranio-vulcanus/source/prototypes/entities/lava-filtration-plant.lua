@@ -59,7 +59,7 @@ local technology = {
         },
         {
             type = "unlock-recipe",
-            recipe = "aluminum-lava-filter"
+            recipe = "aeroluminite-lava-filter"
         },
     },
     prerequisites = { "heat-resistant-tunnelling-drill-equipment" },

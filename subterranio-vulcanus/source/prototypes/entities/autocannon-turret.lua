@@ -81,7 +81,7 @@ local recipe = {
     ingredients = {
         { type = "item", name = "steel-plate",          amount = 50 },
         { type = "item", name = "titanium-plate",       amount = 30 },
-        { type = "item", name = "aluminum-plate",       amount = 30 },
+        { type = "item", name = "aeroluminite-plate",       amount = 30 },
         { type = "item", name = "processing-unit",      amount = 20 },
         { type = "item", name = "electric-engine-unit", amount = 10 },
     },
@@ -101,7 +101,7 @@ local ammo_recipe = {
     ingredients = {
         { type = "item", name = "steel-plate",    amount = 2 },
         { type = "item", name = "titanium-plate", amount = 1 },
-        { type = "item", name = "aluminum-plate", amount = 1 },
+        { type = "item", name = "aeroluminite-plate", amount = 1 },
         { type = "item", name = "explosives",     amount = 1 },
     },
     results = {
@@ -123,7 +123,7 @@ local technology = {
             recipe = "autocannon-shell"
         },
     },
-    prerequisites = { "titanium-cutting", "aluminum-cutting" },
+    prerequisites = { "titanium-cutting", "aeroluminite-cutting" },
     unit =
     {
         count = 2000,

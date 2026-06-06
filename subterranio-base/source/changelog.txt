@@ -46,3 +46,9 @@ Version: 0.1.10
 Date: 2026-05-07
   Changes:
     - Fixing Vulcanus tech tree
+---------------------------------------------------------------------------------------------------
+Version: 0.1.11
+Date: 2026-06-06
+  Changes:
+    - Adding Gleban Biospheres
+    - Bug fixes and various improvements

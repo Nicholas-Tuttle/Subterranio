@@ -35,3 +35,8 @@ Version: 0.1.10
 Date: 2026-05-07
   Changes:
     - Fixing tech orderings and science pack recipe
+---------------------------------------------------------------------------------------------------
+Version: 0.1.11
+Date: 2026-06-06
+  Changes:
+    - Bug fixes and various improvements

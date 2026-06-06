@@ -1,0 +1,58 @@
+{
+    "item": [
+        [
+            "aluminum-ingot",
+            "aeroluminite-ingot"
+        ],
+        [
+            "aluminum-plate",
+            "aeroluminite-plate"
+        ],
+        [
+            "aluminum-lava-filter",
+            "aeroluminite-lava-filter"
+        ]
+    ],
+    "fluid": [
+        [
+            "aluminum-rich-lava",
+            "aeroluminite-rich-lava"
+        ],
+        [
+            "aluminum-slag",
+            "aeroluminite-slag"
+        ]
+    ],
+    "recipe": [
+        [
+            "aluminum-ingot",
+            "aeroluminite-ingot"
+        ],
+        [
+            "aluminum-plate",
+            "aeroluminite-plate"
+        ],
+        [
+            "aluminum-slag",
+            "aeroluminite-slag"
+        ],
+        [
+            "aluminum-from-metallic-asteroid",
+            "aeroluminite-from-metallic-asteroid"
+        ],
+        [
+            "aluminum-lava-filter",
+            "aeroluminite-lava-filter"
+        ]
+    ],
+    "technology": [
+        [
+            "aluminum-filtering",
+            "aeroluminite-filtering"
+        ],
+        [
+            "aluminum-cutting",
+            "aeroluminite-cutting"
+        ]
+    ]
+}

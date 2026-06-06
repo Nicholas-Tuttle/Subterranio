@@ -55,7 +55,7 @@ local technology = {
         },
         {
             type = "unlock-recipe",
-            recipe = "titanium-lava-filter"
+            recipe = "duratitanite-lava-filter"
         },
         {
             type = "unlock-recipe",

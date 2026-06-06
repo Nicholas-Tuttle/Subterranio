@@ -11,13 +11,13 @@
         1. ~~Copper Cable~~
         1. ~~Steel~~
     1. ~~Damaged Lava Filter~~
-    1. ~~Titanium lava filter~~
-    1. ~~Titanium-rich lava~~
-    1. ~~Titanium slag recipe~~
-    1. ~~Titanium hunk recipe~~
-    1. ~~Titanium powder recipe~~
-    1. ~~Titanium ingot recipe~~
-    1. ~~Titanium plate recipe~~
+    1. ~~Duratitanite lava filter~~
+    1. ~~Duratitanite-rich lava~~
+    1. ~~Duratitanite slag recipe~~
+    1. ~~Duratitanite hunk recipe~~
+    1. ~~Duratitanite powder recipe~~
+    1. ~~Duratitanite ingot recipe~~
+    1. ~~Duratitanite plate recipe~~
     1. ~~Aeroluminite lava filter~~
     1. ~~Aeroluminite-rich lava~~
     1. ~~Aeroluminite slag recipe~~
@@ -26,7 +26,7 @@
     1. ~~Propulsion science pack~~
     1. ~~Autocannon turrets~~
     1. ~~Heavy rocket thrusters~~
-    1. ~~Asteroid processing recipes to get aeroluminite, titanium, and STONE in orbit~~
+    1. ~~Asteroid processing recipes to get aeroluminite, duratitanite, and STONE in orbit~~
     1. ~~Industrial Productivity Module~~
 1. Enemies
     1. ~~Infant/Adolescent demolishers~~
@@ -36,7 +36,7 @@
 ```mermaid
     graph TD;
         HI[Heavy Industry - Lava Filtration Unit, Pulverizer, Diamond Band-Saw]
-        T[Titanium]
+        T[Duratitanite]
         A[Aeroluminite]
         HRT[Heavy Rocket Thruster]
         AC[Autocannon Turret]
@@ -52,17 +52,17 @@
         PSP-->HRT
 ```
 
-## Titanium Processing Flow
+## Duratitanite Processing Flow
 ```mermaid
     graph LR;
-        LT[Titanium-Rich Lava]
-        TS[Titanium Slag]
-        TH[Titanium Hunk]
-        TPow[Titanium Powder]
-        TI[Titanium Ingot]
-        TP[Titanium Plate]
+        LT[Duratitanite-Rich Lava]
+        TS[Duratitanite Slag]
+        TH[Duratitanite Hunk]
+        TPow[Duratitanite Powder]
+        TI[Duratitanite Ingot]
+        TP[Duratitanite Plate]
 
-        TF[Titanium Filter]
+        TF[Duratitanite Filter]
         DF[Damaged Filter]
 
         S1[Stone]

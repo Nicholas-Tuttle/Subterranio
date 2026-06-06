@@ -9,13 +9,13 @@ local basic_filter = {
     order = "a[basic-lava-filter]",
 }
 
-local titanium_filter = {
+local duratitanite_filter = {
     type = "item",
-    name = "titanium-lava-filter",
+    name = "duratitanite-lava-filter",
     stack_size = 50,
-    icons = { { icon = "__subterranio-vulcanus__/graphics/item/basic-lava-filter.png", tint = constants.titanium_color } },
+    icons = { { icon = "__subterranio-vulcanus__/graphics/item/basic-lava-filter.png", tint = constants.duratitanite_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
-    order = "b[titanium-lava-filter]",
+    order = "b[duratitanite-lava-filter]",
 }
 
 local aeroluminite_filter = {
@@ -50,9 +50,9 @@ local basic_filter_recipe = {
     },
 }
 
-local titanium_filter_recipe = {
+local duratitanite_filter_recipe = {
     type = "recipe",
-    name = "titanium-lava-filter",
+    name = "duratitanite-lava-filter",
     enabled = false,
     energy_required = 4,
     ingredients = {
@@ -60,7 +60,7 @@ local titanium_filter_recipe = {
         { type = "item", name = "tungsten-plate", amount = 5 },
     },
     results = {
-        { type = "item", name = "titanium-lava-filter", amount = 1 },
+        { type = "item", name = "duratitanite-lava-filter", amount = 1 },
     },
 }
 
@@ -80,10 +80,10 @@ local aeroluminite_filter_recipe = {
 
 data:extend({
     basic_filter,
-    titanium_filter,
+    duratitanite_filter,
     aeroluminite_filter,
     damaged_filter,
     basic_filter_recipe,
-    titanium_filter_recipe,
+    duratitanite_filter_recipe,
     aeroluminite_filter_recipe,
 })

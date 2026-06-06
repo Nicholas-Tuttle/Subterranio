@@ -202,9 +202,9 @@ local caverns_spot_noise = {
 local min_cavern_size = 1
 local max_cavern_size = 2
 
-local titanium_lava_noise_expression_base = {
+local duratitanite_lava_noise_expression_base = {
     type = "noise-expression",
-    name = "vulcanus_subterranean_titanium_lava_noise_expression",
+    name = "vulcanus_subterranean_duratitanite_lava_noise_expression",
     expression = [[
         vulcanus_subterranean_lava_noise(x, y) * vulcanus_subterranean_caverns_spot_noise(x, y, 1, min_cavern_size, max_cavern_size, 1, 1)
         - vulcanus_subterranean_hot_lava_noise(x, y)
@@ -216,9 +216,9 @@ local titanium_lava_noise_expression_base = {
     parameters = { "x", "y" }
 }
 
-local hot_titanium_lava_noise_expression_base = {
+local hot_duratitanite_lava_noise_expression_base = {
     type = "noise-expression",
-    name = "vulcanus_subterranean_hot_titanium_lava_noise_expression",
+    name = "vulcanus_subterranean_hot_duratitanite_lava_noise_expression",
     expression = [[
         (
             vulcanus_subterranean_hot_lava_noise(x, y) * vulcanus_subterranean_caverns_spot_noise(x, y, 1, min_cavern_size, max_cavern_size, 1, 1)
@@ -274,8 +274,8 @@ data:extend {
     caverns_generic_noise,
     caverns_id,
     caverns_spot_noise,
-    titanium_lava_noise_expression_base,
-    hot_titanium_lava_noise_expression_base,
+    duratitanite_lava_noise_expression_base,
+    hot_duratitanite_lava_noise_expression_base,
     aeroluminite_lava_noise_expression_base,
     hot_aeroluminite_lava_noise_expression_base
 }

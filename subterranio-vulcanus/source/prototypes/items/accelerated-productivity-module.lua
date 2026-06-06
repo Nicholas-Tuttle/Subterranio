@@ -102,7 +102,7 @@ local accelerated_productivity_module_2_recipe = {
         { type = "item", name = "productivity-module-2", amount = 2 },
         { type = "item", name = "accelerated-productivity-module", amount = 2 },
         { type = "item", name = "aeroluminite-ingot",        amount = 1 },
-        { type = "item", name = "titanium-powder",        amount = 10 },
+        { type = "item", name = "duratitanite-powder",        amount = 10 },
     },
     results = { { type = "item", name = "accelerated-productivity-module-2", amount = 1 } },
 }
@@ -118,7 +118,7 @@ local accelerated_productivity_module_2_tech = {
             recipe = "accelerated-productivity-module-2"
         }
     },
-    prerequisites = { "accelerated-productivity-module", "titanium-pulverization" },
+    prerequisites = { "accelerated-productivity-module", "duratitanite-pulverization" },
     unit =
     {
         count = 2000,
@@ -170,7 +170,7 @@ local accelerated_productivity_module_3_recipe = {
         { type = "item", name = "productivity-module-3", amount = 4 },
         { type = "item", name = "accelerated-productivity-module-2", amount = 4 },
         { type = "item", name = "aeroluminite-plate",      amount = 20 },
-        { type = "item", name = "titanium-plate",     amount = 20 },
+        { type = "item", name = "duratitanite-plate",     amount = 20 },
     },
     results = { { type = "item", name = "accelerated-productivity-module-3", amount = 1 } },
 }
@@ -186,7 +186,7 @@ local accelerated_productivity_module_3_tech = {
             recipe = "accelerated-productivity-module-3"
         }
     },
-    prerequisites = { "accelerated-productivity-module-2", "aeroluminite-cutting", "titanium-cutting" },
+    prerequisites = { "accelerated-productivity-module-2", "aeroluminite-cutting", "duratitanite-cutting" },
     unit =
     {
         count = 4000,

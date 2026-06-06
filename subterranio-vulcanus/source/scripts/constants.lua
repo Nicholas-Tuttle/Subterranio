@@ -1,8 +1,8 @@
 local vulcanus_lava_tubes_tint = { r = 1.0, g = 0.33, b = 0.0, a = 1.0 }
 
-local titanium_color = { r = 154, g = 45, b = 219 }
-local hot_titanium_color = { r = 199, g = 113, b = 250 }
-local titanium_slag_color = { r = 180, g = 60, b = 255 }
+local duratitanite_color = { r = 154, g = 45, b = 219 }
+local hot_duratitanite_color = { r = 199, g = 113, b = 250 }
+local duratitanite_slag_color = { r = 180, g = 60, b = 255 }
 
 local aeroluminite_color = { r = 26, g = 191, b = 61 }
 local hot_aeroluminite_color = { r = 113, g = 250, b = 142 }
@@ -19,9 +19,9 @@ local subterrain_gravity = 40
 
 return {
     vulcanus_lava_tubes_tint = vulcanus_lava_tubes_tint,
-    titanium_color = titanium_color,
-    hot_titanium_color = hot_titanium_color,
-    titanium_slag_color = titanium_slag_color,
+    duratitanite_color = duratitanite_color,
+    hot_duratitanite_color = hot_duratitanite_color,
+    duratitanite_slag_color = duratitanite_slag_color,
     aeroluminite_color = aeroluminite_color,
     hot_aeroluminite_color = hot_aeroluminite_color,
     aeroluminite_slag_color = aeroluminite_slag_color,

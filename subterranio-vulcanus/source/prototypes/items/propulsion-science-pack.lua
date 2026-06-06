@@ -31,7 +31,7 @@ local recipe = {
         { type = "item", name = "calcite",        amount = 1 },
         { type = "item", name = "tungsten-plate", amount = 10 },
         { type = "item", name = "aeroluminite-ingot", amount = 1 },
-        { type = "item", name = "titanium-hunk",  amount = 1 },
+        { type = "item", name = "duratitanite-hunk",  amount = 1 },
     },
     results = { { type = "item", name = "propulsion-science-pack", amount = 1 } },
     crafting_machine_tint =
@@ -63,7 +63,7 @@ local tech = {
     name = "propulsion-science-pack",
     icon = constants.propulsion_science_pack_path,
     icon_size = constants.propulsion_science_pack_size,
-    prerequisites = { "aeroluminite-filtering", "titanium-filtering" },
+    prerequisites = { "aeroluminite-filtering", "duratitanite-filtering" },
     effects =
     {
         {

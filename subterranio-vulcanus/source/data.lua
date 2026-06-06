@@ -7,7 +7,7 @@ require("prototypes.entities.lava-filtration-plant")
 require("prototypes.entities.pulverizer")
 
 require("prototypes.fluids.aeroluminite-rich-lava")
-require("prototypes.fluids.titanium-rich-lava")
+require("prototypes.fluids.duratitanite-rich-lava")
 
 require("prototypes.items.accelerated-productivity-module")
 require("prototypes.items.aeroluminite")
@@ -16,7 +16,7 @@ require("prototypes.items.heat-resistant-tunnelling-drill-equipment")
 require("prototypes.items.lava-filters")
 require("prototypes.items.propulsion-science-pack")
 require("prototypes.items.subgroups")
-require("prototypes.items.titanium")
+require("prototypes.items.duratitanite")
 
 require("prototypes.surfaces.subterranean-noise-expressions")
 require("prototypes.surfaces.subterranean-surface")

@@ -17,13 +17,13 @@
 1. Figure out quality upgrades for all new items
 1. Make dedicated controls for going up or down a level
 1. Refactor the space-map placement so that the subterranean surfaces are closer to their parent planets
-1. Make better player-guides so it is more obvious what is happening on each planet
-    1. Make a player-guide for Fulgoran doors and how those need to be shot
-    1. Make a player-guide for the Vulcanus infant-demolishers and claiming territory (could this be represented in map-view?)
+1. ~~Make better player-guides so it is more obvious what is happening on each planet~~
+    1. ~~Make a player-guide for Fulgoran doors and how those need to be shot~~
+    1. ~~Make a player-guide for the Vulcanus infant-demolishers and claiming territory (could this be represented in map-view?)~~
 1. Make a user-setting that blocks the mech armor from flying around while underground
 1. Fix compatibility with other planet mods
     1. See: https://mods.factorio.com/mod/subterranio/discussion/69b5f74ff2430a36aa2a7f38
-    1. Fix issue with Muluna Aeroluminite processing getting combined with Vulcanus Aeroluminite processing
+    1. ~~Fix issue with Muluna Aeroluminite processing getting combined with Vulcanus Aeroluminite processing~~
 1. Add mod compatibility with starmap mods like Redrawn Space Connections and Better Planets
     1. See: https://mods.factorio.com/mod/subterranio/discussion/69b8283ee7ac02d0bc38f9d0
 1. Re-work tunnelling drill requirements so that if the player dies they can't get stuck
@@ -36,4 +36,4 @@
     1. Vulcanus + Gleba:
         1. High-Capacity cargo bays for ships, potentially with the ability for inserters to grab from them
     1. Fulgora + Vulcanus + Gleba:
-        1. Cross-space-platform material transport. In little mini-rockets that are super cheap the player can send materials from one platform to another instead of back down to ground and then back up to the platform
+        1. ~~Cross-space-platform material transport. In little mini-rockets that are super cheap the player can send materials from one platform to another instead of back down to ground and then back up to the platform~~ This is in 2.1

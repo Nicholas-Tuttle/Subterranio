@@ -3,7 +3,7 @@ local chunk_information = require("scripts.chunk-information")
 local schedule = {}
 local function schedule_infant_demolisher_spawn(tick, position)
     local effect_delay_ticks = 0
-    local spawn_delay_ticks = 60 * 1.5
+    local spawn_delay_ticks = 60 * 2
     local effect_tick = tick + effect_delay_ticks
     local spawn_tick = tick + spawn_delay_ticks
 

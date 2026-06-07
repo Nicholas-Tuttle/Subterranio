@@ -25,12 +25,6 @@ def main(modname, apikeyFilePath):
         sys.exit(1)
 
     print(f"Preparing to upload mod {modname} version {version}...")
-    print(f"Is version {version} correct? (Y/N)")
-
-    user_input = input().strip().lower()
-    if user_input != "y":
-        print("Upload cancelled.")
-        sys.exit(0)
 
     zipfilepath = os.path.join(os.getenv("APPDATA"), "Factorio", "mods", f"{modname}_{version}.zip")
     if not os.path.exists(zipfilepath):

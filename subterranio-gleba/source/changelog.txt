@@ -14,3 +14,8 @@ Version: 0.1.12
 Date: 2026-06-06
   Changes:
     - Final version bump to add Gleban Biospheres module
+---------------------------------------------------------------------------------------------------
+Version: 0.1.13
+Date: 2026-06-06
+  Changes:
+    - Fixing issue with recipes generation on startup - https://mods.factorio.com/mod/subterranio-gleba/discussion/6a24dac738fcc28b63d02dd8

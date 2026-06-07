@@ -1,0 +1,42 @@
+{
+    "1_nauvis_gameplay.png": {
+        "id": "afd0c9ff48f4ab12ca9e911becd28b2bcef0a529",
+        "url": "https://assets-mod.factorio.com/assets/afd0c9ff48f4ab12ca9e911becd28b2bcef0a529.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/afd0c9ff48f4ab12ca9e911becd28b2bcef0a529.thumb.png"
+    },
+    "2_fulgora_gameplay.png": {
+        "id": "dc8c87e65558b5235fc8b457094a1a2298cad43a",
+        "url": "https://assets-mod.factorio.com/assets/dc8c87e65558b5235fc8b457094a1a2298cad43a.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/dc8c87e65558b5235fc8b457094a1a2298cad43a.thumb.png"
+    },
+    "3_vulcanus_gameplay.png": {
+        "id": "34512ff19e335a7f44b30f5999216b223d5b5051",
+        "url": "https://assets-mod.factorio.com/assets/34512ff19e335a7f44b30f5999216b223d5b5051.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/34512ff19e335a7f44b30f5999216b223d5b5051.thumb.png"
+    },
+    "4_gleba_gameplay.png": {
+        "id": "e29afa47b0b99ad4a08c5eb034d9880d9c786d8f",
+        "url": "https://assets-mod.factorio.com/assets/e29afa47b0b99ad4a08c5eb034d9880d9c786d8f.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/e29afa47b0b99ad4a08c5eb034d9880d9c786d8f.thumb.png"
+    },
+    "5_nauvis_tech_tree.png": {
+        "id": "220c683067201331e47ad6a3ef6d4226c0011d2a",
+        "url": "https://assets-mod.factorio.com/assets/220c683067201331e47ad6a3ef6d4226c0011d2a.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/220c683067201331e47ad6a3ef6d4226c0011d2a.thumb.png"
+    },
+    "6_fulgora_tech_tree.png": {
+        "id": "23489ea0175cc80f4d5d6e53aca16541236f0f3c",
+        "url": "https://assets-mod.factorio.com/assets/23489ea0175cc80f4d5d6e53aca16541236f0f3c.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/23489ea0175cc80f4d5d6e53aca16541236f0f3c.thumb.png"
+    },
+    "7_vulcanus_tech_tree.png": {
+        "id": "fde4ae986adc09ec795e9ae39bd01190937079ce",
+        "url": "https://assets-mod.factorio.com/assets/fde4ae986adc09ec795e9ae39bd01190937079ce.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/fde4ae986adc09ec795e9ae39bd01190937079ce.thumb.png"
+    },
+    "8_gleba_tech_tree.png": {
+        "id": "c48c0d0ef1ae9780f3db212a3df45ff6b8464a7d",
+        "url": "https://assets-mod.factorio.com/assets/c48c0d0ef1ae9780f3db212a3df45ff6b8464a7d.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/c48c0d0ef1ae9780f3db212a3df45ff6b8464a7d.thumb.png"
+    }
+}

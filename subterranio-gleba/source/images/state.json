@@ -1,0 +1,22 @@
+{
+    "gameplay.png": {
+        "id": "e29afa47b0b99ad4a08c5eb034d9880d9c786d8f",
+        "url": "https://assets-mod.factorio.com/assets/e29afa47b0b99ad4a08c5eb034d9880d9c786d8f.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/e29afa47b0b99ad4a08c5eb034d9880d9c786d8f.thumb.png"
+    },
+    "gameplay2.png": {
+        "id": "87f3d869b293a29c217a9029a99984c3a6d6870f",
+        "url": "https://assets-mod.factorio.com/assets/87f3d869b293a29c217a9029a99984c3a6d6870f.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/87f3d869b293a29c217a9029a99984c3a6d6870f.thumb.png"
+    },
+    "gameplay3.png": {
+        "id": "116e4cd0751ca907b5a2d4e8ae1fbdd632bb80de",
+        "url": "https://assets-mod.factorio.com/assets/116e4cd0751ca907b5a2d4e8ae1fbdd632bb80de.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/116e4cd0751ca907b5a2d4e8ae1fbdd632bb80de.thumb.png"
+    },
+    "tech_tree.png": {
+        "id": "c48c0d0ef1ae9780f3db212a3df45ff6b8464a7d",
+        "url": "https://assets-mod.factorio.com/assets/c48c0d0ef1ae9780f3db212a3df45ff6b8464a7d.png",
+        "thumbnail_url": "https://assets-mod.factorio.com/assets/c48c0d0ef1ae9780f3db212a3df45ff6b8464a7d.thumb.png"
+    }
+}

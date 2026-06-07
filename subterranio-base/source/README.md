@@ -1,3 +1,9 @@
-### SUBTERRANIO - BASE
+Subterranio - Base adds the tunnelling drill equipment, geothermal power plant, mineshaft belts, and mineshaft pipes. It adds no other planet-specific tech or items.
 
-#### Please see the [Subterranio](https://mods.factorio.com/mod/subterranio) mod for more information. This mod is not intended to work alone and supports the planet sub-mods there.
+## For Mod Developers
+### API Docs
+
+API Docs can be found in the `subterranio-base/source/scripts/init.lua` file
+
+## Credits & License
+* The geothermal power plant uses graphics from Hurricane046's buildings (CC BY license)

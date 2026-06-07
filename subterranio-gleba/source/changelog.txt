@@ -19,3 +19,8 @@ Version: 0.1.13
 Date: 2026-06-06
   Changes:
     - Fixing issue with recipes generation on startup - https://mods.factorio.com/mod/subterranio-gleba/discussion/6a24dac738fcc28b63d02dd8
+---------------------------------------------------------------------------------------------------
+Version: 0.1.14
+Date: 2026-06-07
+  Changes:
+    - Fixing another issue with recipe generation on startup

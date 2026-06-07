@@ -20,6 +20,7 @@ end
 
 local function add_frozen_and_thaw_recipes(item_key, item_value)
     local sanitized_subgroup = item_value.subgroup or "unknown"
+    local sanitized_subgroup_order = data.raw["item-subgroup"][sanitized_subgroup] and data.raw["item-subgroup"][sanitized_subgroup].order or "zzz"
     local sanitized_order = item_value.order or "zzz"
 
     if data.raw["item-subgroup"]["frozen-" .. sanitized_subgroup] == nil then
@@ -28,7 +29,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
                 type = "item-subgroup",
                 name = "frozen-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "a-" .. (data.raw["item-subgroup"][sanitized_subgroup].order or "zzz")
+                order = "a-" .. sanitized_subgroup_order
             }
         })
     end
@@ -39,7 +40,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
                 type = "item-subgroup",
                 name = "thawed-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "b-" .. (data.raw["item-subgroup"][sanitized_subgroup].order or "zzz")
+                order = "b-" .. sanitized_subgroup_order
             }
         })
     end
@@ -141,6 +142,7 @@ end
 
 local function add_packed_and_unpacked_recipes(item_key, item_value)
     local sanitized_subgroup = item_value.subgroup or "unknown"
+    local sanitized_subgroup_order = data.raw["item-subgroup"][sanitized_subgroup] and data.raw["item-subgroup"][sanitized_subgroup].order or "zzz"
     local sanitized_order = item_value.order or "zzz"
 
     if data.raw["item-subgroup"]["packaged-" .. sanitized_subgroup] == nil then
@@ -149,7 +151,7 @@ local function add_packed_and_unpacked_recipes(item_key, item_value)
                 type = "item-subgroup",
                 name = "packaged-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "c" .. (data.raw["item-subgroup"][sanitized_subgroup].order or "zzz")
+                order = "c" .. sanitized_subgroup_order
             }
         })
     end
@@ -160,7 +162,7 @@ local function add_packed_and_unpacked_recipes(item_key, item_value)
                 type = "item-subgroup",
                 name = "unpacked-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "d" .. (data.raw["item-subgroup"][sanitized_subgroup].order or "zzz")
+                order = "d" .. sanitized_subgroup_order
             }
         })
     end

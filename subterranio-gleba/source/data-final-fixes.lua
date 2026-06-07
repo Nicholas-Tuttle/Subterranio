@@ -19,24 +19,25 @@ local function get_items_to_add_frozen_and_thaw_recipes(type)
 end
 
 local function add_frozen_and_thaw_recipes(item_key, item_value)
-    if data.raw["item-subgroup"]["frozen-" .. item_value.subgroup] == nil then
+    local sanitized_subgroup = item_value.subgroup or "unknown"
+    if data.raw["item-subgroup"]["frozen-" .. sanitized_subgroup] == nil then
         data:extend({
             {
                 type = "item-subgroup",
-                name = "frozen-" .. item_value.subgroup,
+                name = "frozen-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "a-" .. data.raw["item-subgroup"][item_value.subgroup].order
+                order = "a-" .. data.raw["item-subgroup"][sanitized_subgroup].order
             }
         })
     end
 
-    if data.raw["item-subgroup"]["thawed-" .. item_value.subgroup] == nil then
+    if data.raw["item-subgroup"]["thawed-" .. sanitized_subgroup] == nil then
         data:extend({
             {
                 type = "item-subgroup",
-                name = "thawed-" .. item_value.subgroup,
+                name = "thawed-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "b-" .. data.raw["item-subgroup"][item_value.subgroup].order
+                order = "b-" .. data.raw["item-subgroup"][sanitized_subgroup].order
             }
         })
     end
@@ -46,7 +47,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
         name = "frozen-" .. item_key,
         icon = nil,
         icons = table.deepcopy(item_value.icons),
-        subgroup = "frozen-" .. item_value.subgroup,
+        subgroup = "frozen-" .. sanitized_subgroup,
         order = "frozen-" .. item_value.order,
         stack_size = item_value.stack_size,
         localised_name = { "item-name.frozen", { "item-name." .. item_key } },
@@ -64,7 +65,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
         type = "recipe",
         name = "frozen-" .. item_key,
         category = "ice-machine",
-        subgroup = "frozen-" .. item_value.subgroup,
+        subgroup = "frozen-" .. sanitized_subgroup,
         order = "frozen-" .. item_value.order,
         energy_required = 1,
         icons = frozen_item.icons,
@@ -86,7 +87,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
         type = "recipe",
         name = "thaw-" .. item_key,
         category = "smelting",
-        subgroup = "thawed-" .. item_value.subgroup,
+        subgroup = "thawed-" .. sanitized_subgroup,
         order = "thawed-" .. item_value.order,
         energy_required = 1,
         icons = table.deepcopy(frozen_item.icons),
@@ -137,24 +138,25 @@ local function get_items_to_add_packed_and_unpacked_recipes(type)
 end
 
 local function add_packed_and_unpacked_recipes(item_key, item_value)
-    if data.raw["item-subgroup"]["packaged-" .. item_value.subgroup] == nil then
+    local sanitized_subgroup = item_value.subgroup or "unknown"
+    if data.raw["item-subgroup"]["packaged-" .. sanitized_subgroup] == nil then
         data:extend({
             {
                 type = "item-subgroup",
-                name = "packaged-" .. item_value.subgroup,
+                name = "packaged-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "c" .. data.raw["item-subgroup"][item_value.subgroup].order
+                order = "c" .. data.raw["item-subgroup"][sanitized_subgroup].order
             }
         })
     end
 
-    if data.raw["item-subgroup"]["unpacked-" .. item_value.subgroup] == nil then
+    if data.raw["item-subgroup"]["unpacked-" .. sanitized_subgroup] == nil then
         data:extend({
             {
                 type = "item-subgroup",
-                name = "unpacked-" .. item_value.subgroup,
+                name = "unpacked-" .. sanitized_subgroup,
                 group = "packaging-and-frozen",
-                order = "d" .. data.raw["item-subgroup"][item_value.subgroup].order
+                order = "d" .. data.raw["item-subgroup"][sanitized_subgroup].order
             }
         })
     end
@@ -166,7 +168,7 @@ local function add_packed_and_unpacked_recipes(item_key, item_value)
         name = "packed-" .. item_key,
         icon = nil,
         icons = table.deepcopy(item_value.icons),
-        subgroup = "packaged-" .. item_value.subgroup,
+        subgroup = "packaged-" .. sanitized_subgroup,
         order = "packed-" .. item_value.order,
         stack_size = 1,
         localised_name = { "item-name.packed", item_or_entity_localized_name_expression(item_key) },
@@ -193,7 +195,7 @@ local function add_packed_and_unpacked_recipes(item_key, item_value)
         type = "recipe",
         name = "packed-" .. item_key,
         category = "packaging",
-        subgroup = "packaged-" .. item_value.subgroup,
+        subgroup = "packaged-" .. sanitized_subgroup,
         order = "a-packed-" .. item_value.order,
         energy_required = 10,
         icons = packed_item.icons,
@@ -215,7 +217,7 @@ local function add_packed_and_unpacked_recipes(item_key, item_value)
         type = "recipe",
         name = "unpack-" .. item_key,
         category = "packaging",
-        subgroup = "unpacked-" .. item_value.subgroup,
+        subgroup = "unpacked-" .. sanitized_subgroup,
         order = "b-unpack-" .. item_value.order,
         energy_required = 10,
         icons = packed_item.icons,

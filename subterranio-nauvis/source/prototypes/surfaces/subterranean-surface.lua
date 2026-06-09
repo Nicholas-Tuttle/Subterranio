@@ -2,7 +2,7 @@ require("subterranean-noise-expressions")
 local constants = require("scripts.constants")
 local surface_gen = require("surface-gen")
 local starmap_icon_util = require("__subterranio-base__.utilities.starmap-icon")
-local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.nauvis, 1)
+local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.nauvis, 0.65)
 
 data:extend {subterrain.merge(data.raw.planet.nauvis, {
     name = "subterrain",
@@ -18,7 +18,7 @@ data:extend {subterrain.merge(data.raw.planet.nauvis, {
     starmap_icon_size = constants.subterrain_starmap_icon_size,
     icon = constants.subterrain_starmap_icon_path,
     icon_size = constants.subterrain_starmap_icon_size,
-    magnitude = 0.75,
+    magnitude = 0.6,
     order = "a[nauvis]-[subterrain]",
     pollutant_type = "nil",
     player_effects = "nil",

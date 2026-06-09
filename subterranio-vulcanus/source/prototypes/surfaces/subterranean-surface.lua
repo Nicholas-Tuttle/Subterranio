@@ -2,7 +2,7 @@ require("subterranean-noise-expressions")
 local constants = require("scripts.constants")
 local surface_gen = require("surface-gen")
 local starmap_icon_util = require("__subterranio-base__.utilities.starmap-icon")
-local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.vulcanus, 1)
+local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.vulcanus, 0.9)
 
 data:extend {subterrain.merge(data.raw.planet.vulcanus, {
     name = "vulcanus_lava_tubes",

@@ -50,3 +50,4 @@ Version: 0.1.15
 Date: 2026-06-08
   Changes:
     - Removed equipment requirement for tunnelling from underground areas to the surface
+    - Tightened up starmap icon positions and used shorter names

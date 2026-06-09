@@ -2,7 +2,7 @@ require("subterranean-noise-expressions")
 local constants = require("scripts.constants")
 local surface_gen = require("surface-gen")
 local starmap_icon_util = require("__subterranio-base__.utilities.starmap-icon")
-local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.gleba, 1)
+local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.gleba, 0.7)
 
 data:extend {subterrain.merge(data.raw.planet.gleba, {
     name = "gleban_biospheres",
@@ -18,7 +18,7 @@ data:extend {subterrain.merge(data.raw.planet.gleba, {
     starmap_icon_size = constants.gleban_biospheres_icon_size,
     icon = constants.gleban_biospheres_icon_path,
     icon_size = constants.gleban_biospheres_icon_size,
-    magnitude = 0.75,
+    magnitude = 0.65,
     order = "c[gleba]-[gleban_biospheres]",
     pollutant_type = "nil",
     player_effects = "nil",

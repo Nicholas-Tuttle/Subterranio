@@ -1,7 +1,7 @@
 local surface_gen = require("surface-gen")
 local constants = require("scripts.constants")
 local starmap_icon_util = require("__subterranio-base__.utilities.starmap-icon")
-local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.fulgora, 1)
+local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.fulgora, 0.6)
 
 local planet = subterrain.merge(data.raw.planet.fulgora, {
     name = "fulgoran_subway",
@@ -17,7 +17,7 @@ local planet = subterrain.merge(data.raw.planet.fulgora, {
     starmap_icon_size = constants.subway_starmap_icon_size,
     icon = constants.subway_starmap_icon_path,
     icon_size = constants.subway_starmap_icon_size,
-    magnitude = 0.75,
+    magnitude = 0.6,
     order = "da[fulgoran-subway]",
     pollutant_type = "nil",
     player_effects = "nil",

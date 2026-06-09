@@ -21,7 +21,7 @@ local function register_target_surface_requirements()
         surface_name = "gleba",
         target_surfaces = gleba_surface_family,
         tech_requirements = gleba_tech_requirements,
-        equipment_requirements = basic_equipment_requirements
+        equipment_requirements = nil
     })
 
     subterrain_base_register_target_surface_visitation_requirements_v1({

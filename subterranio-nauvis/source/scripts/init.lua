@@ -19,8 +19,7 @@ local function register_target_surface_requirements()
     subterrain_base_register_target_surface_visitation_requirements_v1({
         surface_name = "nauvis",
         target_surfaces = nauvis_surface_family,
-        tech_requirements = nauvis_tech_requirements,
-        equipment_requirements = basic_equipment_requirements
+        tech_requirements = nauvis_tech_requirements
     })
 
     subterrain_base_register_target_surface_visitation_requirements_v1({

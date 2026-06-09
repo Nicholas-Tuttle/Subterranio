@@ -48,16 +48,14 @@ remote.add_interface("subterranio_base", {
     --- @return boolean
     register_target_surface_visitation_requirements_v1 = function(requirements)
         if requirements.surface_name == nil
-            or requirements.target_surfaces == nil
-            or requirements.tech_requirements == nil
-            or requirements.equipment_requirements == nil then
+            or requirements.target_surfaces == nil then
             return false
         end
 
         storage.MineshaftTargetInfo[requirements.surface_name] = {
             target_surfaces = requirements.target_surfaces,
-            tech_requirements = requirements.tech_requirements,
-            equipment_requirements = requirements.equipment_requirements
+            tech_requirements = requirements.tech_requirements or nil,
+            equipment_requirements = requirements.equipment_requirements or nil
         }
 
         return true

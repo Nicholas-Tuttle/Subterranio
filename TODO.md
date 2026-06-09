@@ -26,8 +26,8 @@
     1. ~~Fix issue with Muluna Aeroluminite processing getting combined with Vulcanus Aeroluminite processing~~
 1. Add mod compatibility with starmap mods like Redrawn Space Connections and Better Planets
     1. See: https://mods.factorio.com/mod/subterranio/discussion/69b8283ee7ac02d0bc38f9d0
-1. Re-work tunnelling drill requirements so that if the player dies they can't get stuck
-    1. See: https://mods.factorio.com/mod/subterranio/discussion/6963aa43a52b36eea50ae836
+1. ~~Re-work tunnelling drill requirements so that if the player dies they can't get stuck~~
+    1. ~~See: https://mods.factorio.com/mod/subterranio/discussion/6963aa43a52b36eea50ae836~~
 1. Add the multi-planet techs:
     1. Fulgora + Vulcanus:
         1. Ion Thrusters

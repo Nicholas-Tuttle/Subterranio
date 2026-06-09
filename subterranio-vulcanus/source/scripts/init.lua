@@ -21,7 +21,7 @@ local function register_target_surface_requirements()
         surface_name = "vulcanus",
         target_surfaces = vulcanus_surface_family,
         tech_requirements = vulcanus_tech_requirements,
-        equipment_requirements = vulcanus_equipment_requirements
+        equipment_requirements = nil
     })
 
     subterrain_base_register_target_surface_visitation_requirements_v1({

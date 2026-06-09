@@ -1,7 +1,7 @@
 require("scripts.event-handler-combinations")
 
 local function equipment_grid_contains_equipment_of_any_quality(equipment_grid, name)
-     for i = 1, #equipment_grid.equipment do
+    for i = 1, #equipment_grid.equipment do
         if equipment_grid.equipment[i].name == name then
             return true
         end
@@ -12,15 +12,27 @@ end
 
 local function can_tunnel_to_surface(player, target_surface_name)
     local target_surface_info = storage.MineshaftTargetInfo[target_surface_name]
-    if not target_surface_info then return false end
+    if not target_surface_info then
+        -- game.print("No target surface info found for surface " .. target_surface_name)
+        return false
+    end
 
-    if target_surface_info.equipment_requirements then
+    if target_surface_info.equipment_requirements ~= nil then
         local armor_inventory = player.get_inventory(defines.inventory.character_armor)
-        if not armor_inventory then return false end
+        if not armor_inventory then
+            -- game.print("Player has no armor inventory")
+            return false
+        end
         local armor_stack = armor_inventory[1]
-        if not armor_stack or not armor_stack.valid_for_read then return false end
+        if not armor_stack or not armor_stack.valid_for_read then
+            -- game.print("Armor stack is invalid")
+            return false
+        end
         local equipment_grid = armor_stack.grid
-        if not equipment_grid then return false end
+        if not equipment_grid then
+            -- game.print("Equipment grid is invalid")
+            return false
+        end
 
         for i = 1, #target_surface_info.equipment_requirements do
             if not equipment_grid_contains_equipment_of_any_quality(equipment_grid, target_surface_info.equipment_requirements[i]) then
@@ -88,13 +100,13 @@ local function determine_mineshaft_target(player)
     end
 
     if not opposite_surface_name then
-        game.print("No other surface is reachable with the current equipment and technologies")
+        player.print({ "controls.subterranean-mineshaft-player-enter-failed" })
         return false
     end
 
     local target_surface = game.planets[opposite_surface_name].create_surface()
     local position = player.position
-    local target_position = {x = position.x, y = position.y}
+    local target_position = { x = position.x, y = position.y }
     target_surface.request_to_generate_chunks(target_position, 1)
     target_surface.force_generate_chunk_requests()
 

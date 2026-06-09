@@ -32,8 +32,7 @@ local function register_target_surface_requirements()
     subterrain_base_register_target_surface_visitation_requirements_v1({
         surface_name = "fulgora",
         target_surfaces = fulgora_surface_family,
-        tech_requirements = fulgora_tech_requirements,
-        equipment_requirements = nil
+        tech_requirements = fulgora_tech_requirements
     })
 
     subterrain_base_register_target_surface_visitation_requirements_v1({

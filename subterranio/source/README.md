@@ -13,6 +13,8 @@
     * Increased captivity from Gleba and Vulcanus enemies to harvest biomaterials and intelligence
     * Additional logistics upgrades
     * Multi-surface trains
+* Aquilo?
+    * I don't have plans for Aquilo yet but I haven't ruled it out either
 * Subterranio, Even Deeper?
     * Add additional layers with more exploration, story, and technology
     * Deep-rift mining

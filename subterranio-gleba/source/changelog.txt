@@ -24,3 +24,8 @@ Version: 0.1.14
 Date: 2026-06-07
   Changes:
     - Fixing another issue with recipe generation on startup
+---------------------------------------------------------------------------------------------------
+Version: 0.1.15
+Date: 2026-06-08
+  Changes:
+    - Removed equipment requirement for tunnelling from underground areas to the surface

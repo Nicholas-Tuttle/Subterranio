@@ -5,7 +5,7 @@
 1. Create the other surfaces
     1. ~~Vulcanus - "Vulcanus Lava Tubes"~~
     1. ~~Fulgora - "Fulgoran Subway"~~
-    1. Gleba - "Gleban biospheres"
+    1. ~~Gleba - "Gleban biospheres"~~
     1. Aquilo - "Aquilan Ice Caverns" 
 1. ~~Figure out "storage" issues with the subterranian mappings not working right and causing crashes~~
 1. ~~Split the mineshaft belt and pipe to have a specific upward/downward variant so that multi-level planets can operate. Or could this be done through a menu where the other surface is selected? It would be nice if there were only 2 surfaces if it could just assume it was going to the other one. Maybe this can be a generic "mineshaft belt" in a players inventory but once placed it replaces itself with an upward/downward variant that is not craftable? How would this work with blueprints? Maybe the upward/downward variant needs to be craftable and there would be 3 versions, the generic, the upward, and the downward~~
@@ -16,16 +16,16 @@
 1. Lock night-vision-equipment behind subterranian tech?
 1. Figure out quality upgrades for all new items
 1. Make dedicated controls for going up or down a level
-1. Refactor the space-map placement so that the subterranean surfaces are closer to their parent planets
+1. ~~Refactor the space-map placement so that the subterranean surfaces are closer to their parent planets~~
 1. ~~Make better player-guides so it is more obvious what is happening on each planet~~
     1. ~~Make a player-guide for Fulgoran doors and how those need to be shot~~
     1. ~~Make a player-guide for the Vulcanus infant-demolishers and claiming territory (could this be represented in map-view?)~~
 1. Make a user-setting that blocks the mech armor from flying around while underground
-1. Fix compatibility with other planet mods
-    1. See: https://mods.factorio.com/mod/subterranio/discussion/69b5f74ff2430a36aa2a7f38
+1. ~~Fix compatibility with other planet mods~~
+    1. ~~See: https://mods.factorio.com/mod/subterranio/discussion/69b5f74ff2430a36aa2a7f38~~
     1. ~~Fix issue with Muluna Aeroluminite processing getting combined with Vulcanus Aeroluminite processing~~
-1. Add mod compatibility with starmap mods like Redrawn Space Connections and Better Planets
-    1. See: https://mods.factorio.com/mod/subterranio/discussion/69b8283ee7ac02d0bc38f9d0
+1. ~~Add mod compatibility with starmap mods like Redrawn Space Connections and Better Planets~~
+    1. ~~See: https://mods.factorio.com/mod/subterranio/discussion/69b8283ee7ac02d0bc38f9d0~~
 1. ~~Re-work tunnelling drill requirements so that if the player dies they can't get stuck~~
     1. ~~See: https://mods.factorio.com/mod/subterranio/discussion/6963aa43a52b36eea50ae836~~
 1. Add the multi-planet techs:

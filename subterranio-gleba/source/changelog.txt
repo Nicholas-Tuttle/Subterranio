@@ -30,3 +30,8 @@ Date: 2026-06-08
   Changes:
     - Removed equipment requirement for tunnelling from underground areas to the surface
     - Tightened up starmap icon positions and used shorter names
+---------------------------------------------------------------------------------------------------
+Version: 0.1.16
+Date: 2026-06-09
+  Changes:
+    - Adding compatibility fixes for Redrawn Space Connections mod

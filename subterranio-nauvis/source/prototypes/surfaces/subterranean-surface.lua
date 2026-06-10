@@ -28,4 +28,5 @@ data:extend {subterrain.merge(data.raw.planet.nauvis, {
     orientation = starmap_icon_position.starmap_icon_orientation,
     auto_save_on_first_trip = false,
     asteroid_spawn_definitions = "nil",
+    redrawn_connections_exclude = true,
 })}

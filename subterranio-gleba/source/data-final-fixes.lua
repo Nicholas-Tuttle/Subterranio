@@ -264,3 +264,8 @@ for _, type in pairs(types) do
         add_packed_and_unpacked_recipes(item_key, item_value)
     end
 end
+
+local starmap_icon_util = require("__subterranio-base__.utilities.starmap-icon")
+local starmap_icon_position = starmap_icon_util.position_starmap_icon(data.raw.planet.gleba, 0.7)
+data.raw.planet.gleban_biospheres.distance = starmap_icon_position.starmap_icon_distance
+data.raw.planet.gleban_biospheres.orientation = starmap_icon_position.starmap_icon_orientation

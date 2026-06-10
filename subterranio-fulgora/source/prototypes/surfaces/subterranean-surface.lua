@@ -27,7 +27,8 @@ local planet = subterrain.merge(data.raw.planet.fulgora, {
     orientation = starmap_icon_position.starmap_icon_orientation,
     auto_save_on_first_trip = false,
     asteroid_spawn_definitions = "nil",
-    lightning_properties = "nil"
+    lightning_properties = "nil",
+    redrawn_connections_exclude = true,
 })
 
 data:extend{planet}

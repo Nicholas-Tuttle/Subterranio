@@ -46,7 +46,7 @@ item.ammo_type = {
             action_delivery =
             {
                 type = "projectile",
-                projectile = "piercing-shotgun-pellet",
+                projectile = "diamond-core-piercing-shotgun-pellet",
                 starting_speed = 1,
                 starting_speed_deviation = 0.1,
                 direction_deviation = 0.3,

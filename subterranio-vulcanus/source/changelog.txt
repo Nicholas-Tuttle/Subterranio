@@ -56,3 +56,8 @@ Version: 0.1.16
 Date: 2026-06-09
   Changes:
     - Adding compatibility fixes for Redrawn Space Connections mod
+---------------------------------------------------------------------------------------------------
+Version: 0.1.17
+Date: 2026-06-09
+  Changes:
+    - Removing titanium to duratitanite and aluminum to aeroluminite migration files

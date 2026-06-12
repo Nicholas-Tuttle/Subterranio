@@ -61,3 +61,8 @@ Version: 0.1.17
 Date: 2026-06-11
   Changes:
     - Removing titanium to duratitanite and aluminum to aeroluminite migration files
+---------------------------------------------------------------------------------------------------
+Version: 0.1.18
+Date: 2026-06-11
+  Changes:
+    - Added territory to indicate areas that can spawn infant demolishers

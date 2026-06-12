@@ -80,3 +80,4 @@ Version: 0.1.17
 Date: 2026-06-11
   Changes:
     - Hard-defining ammo type for diamond-core piercing shotgun shell to fix issue with ammo type not loading correctly with other mods enabled
+    - Hard-defining ammo type for diamond-core uranium rounds ammo to fix issue with ammo type not loading correctly with other mods enabled

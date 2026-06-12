@@ -75,3 +75,8 @@ Version: 0.1.16
 Date: 2026-06-09
   Changes:
     - Adding compatibility fixes for Redrawn Space Connections mod
+---------------------------------------------------------------------------------------------------
+Version: 0.1.17
+Date: 2026-06-09
+  Changes:
+    - Hard-defining ammo type for diamond-core piercing shotgun shell to fix issue with ammo type not loading correctly with other mods enabled

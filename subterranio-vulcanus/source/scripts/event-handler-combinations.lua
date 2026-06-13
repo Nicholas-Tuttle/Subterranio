@@ -1,16 +1,13 @@
 local chunk_information = require("scripts.chunk-information")
 
 local hostile_territory = nil
-local scanned_surface_for_hostile_territory = false
 
 local function scan_surface_for_empty_chunks(surface)
-    if scanned_surface_for_hostile_territory then
+    if hostile_territory ~= nil then
         return
     end
 
-    if hostile_territory ~= nil then
-        hostile_territory.destroy()
-    end
+    -- game.print("scanning for hostile territory")
 
     local empty_chunks = {}
     for chunk in surface.get_chunks() do
@@ -35,8 +32,6 @@ local function scan_surface_for_empty_chunks(surface)
             unit.territory = hostile_territory
         end
     end
-
-    scanned_surface_for_hostile_territory = true
 end
 
 local function get_or_create_hostile_territory(surface)
@@ -79,6 +74,7 @@ local function schedule_infant_demolisher_spawn(tick, position)
 end
 
 local function spawn_infant_demolisher_effects(surface, position)
+    if surface == nil then return end
     -- big-demolisher-expanding-ash-cloud-1 - The circle of ash and the sound
     surface.create_entity({ name = "big-demolisher-expanding-ash-cloud-1", position = position, force = "enemy" })
     -- big-demolisher-erupting-fissure - The big lava explosion and damage
@@ -86,8 +82,10 @@ local function spawn_infant_demolisher_effects(surface, position)
 end
 
 local function spawn_infant_demolisher(surface, position)
+    if surface == nil then return end
     get_or_create_hostile_territory(surface)
-    surface.create_segmented_unit({ name = "infant-demolisher", position = position, force = "enemy", territory = hostile_territory })
+    surface.create_segmented_unit({ name = "infant-demolisher", position = position, force = "enemy", territory =
+    hostile_territory })
 end
 
 -- These are really annoying to build with the rail planner so specifically allowlist rails
@@ -156,7 +154,8 @@ local function on_pre_destroyed(event)
             set_hostile_territory_chunk(entity.surface, chunk_indices)
         end
     end
-    chunk_information.set_chunk_data(chunk_information.chunk_indices_from_raw_coordinates(position.x, position.y), chunk_info)
+    chunk_information.set_chunk_data(chunk_information.chunk_indices_from_raw_coordinates(position.x, position.y),
+        chunk_info)
 end
 
 script.on_event(defines.events.on_pre_player_mined_item, on_pre_destroyed)
@@ -166,10 +165,11 @@ local on_tick_spawn_chance = 1 / 60 / 30 -- 1 in 30 seconds on average
 local max_infant_demolisher_count = 10
 
 local function on_tick(event)
-    if ((storage.infant_demolisher_count == nil or storage.infant_demolisher_count < max_infant_demolisher_count) and math.random() < on_tick_spawn_chance) then
-        local surface = game.surfaces["vulcanus_lava_tubes"]
+    local surface = game.surfaces["vulcanus_lava_tubes"]
+    if surface == nil then return end
+    get_or_create_hostile_territory(surface)
 
-        get_or_create_hostile_territory(surface)
+    if ((storage.infant_demolisher_count == nil or storage.infant_demolisher_count < max_infant_demolisher_count) and math.random() < on_tick_spawn_chance) then
         local hostile_chunks = hostile_territory and hostile_territory.get_chunks()
         if hostile_chunks then
             local index = math.random(#hostile_chunks)

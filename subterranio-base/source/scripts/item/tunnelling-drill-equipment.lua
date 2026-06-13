@@ -123,8 +123,6 @@ script.on_event("subterranean-mineshaft-player-enter", function(event)
     local player = game.get_player(event.player_index)
     if not player then return false end
 
-    log(tostring(player.controller_type))
-
     if player.controller_type ~= defines.controllers.character then
         player.print({ "controls.subterranean-mineshaft-player-enter-only-when-character" })
         return false

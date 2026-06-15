@@ -13,8 +13,10 @@
 1. ~~Lock Aquilo behind subterranian science~~
 1. ~~Modularize the initialization and registering of required drilling techs~~
 1. Update the cave-scaffolding so that it can placed on any planet - does it need to move to subterranio base?
+    1. Maybe make planet-specific cave scaffolding?
 1. Lock night-vision-equipment behind subterranian tech?
-1. Figure out quality upgrades for all new items
+1. Add "cliff explosives" for Fulgoran walls
+1. ~~Figure out quality upgrades for all new items~~
 1. Make dedicated controls for going up or down a level
 1. ~~Refactor the space-map placement so that the subterranean surfaces are closer to their parent planets~~
 1. ~~Make better player-guides so it is more obvious what is happening on each planet~~

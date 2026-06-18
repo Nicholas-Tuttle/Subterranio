@@ -63,7 +63,7 @@ def main(modname, apikeyFilePath):
     descriptionMarkdown = os.path.join(os.path.dirname(os.path.realpath(__file__)), modname, "source", "README.md")
     if os.path.exists(descriptionMarkdown):
         descriptionTitle = f"# {title.upper()}\n\n"
-        descriptionDiscord = "[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UsAw48hP)\n\n"
+        descriptionDiscord = "[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/pMJ6qDWqZa)\n\n"
         descriptionPleaseSeeMainMod = ""
         descriptionSubMods = ""
         if modname != "subterranio": 

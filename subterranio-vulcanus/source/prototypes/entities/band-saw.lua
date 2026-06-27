@@ -1,9 +1,8 @@
+local graphics_tinter = require("__subterranio-base__/utilities/graphics-tinter")
 local constants = require("scripts.constants")
 
 local entity = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-3"])
 entity.name = "band-saw"
-entity.icons = { { icon = entity.icon, tint = constants.vulcanus_lava_tubes_tint } }
-entity.icon = nil
 entity.surface_conditions = {
     {
         property = "gravity",
@@ -14,8 +13,7 @@ entity.minable.result = "band-saw"
 entity.module_slots = 6
 entity.energy_usage = "1000kW"
 entity.crafting_categories = { "cutting" }
-
-entity.graphics_set.animation.layers[1].tint = constants.vulcanus_lava_tubes_tint
+entity = graphics_tinter.tint(entity, constants.vulcanus_lava_tubes_tint)
 
 local item = {
     type = "item",

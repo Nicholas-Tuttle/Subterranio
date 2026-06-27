@@ -38,7 +38,7 @@ packaging_machine_entity.minable.result = "packaging-machine"
 
 local packaging_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
 packaging_machine_item.name = "packaging-machine"
-packaging_machine_item.icons = { { icon = packaging_machine_item.icon, tint = constants.gleban_biospheres_tint } }
+packaging_machine_item.icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.gleban_biospheres_tint } }
 packaging_machine_item.icon = nil
 packaging_machine_item.place_result = "packaging-machine"
 

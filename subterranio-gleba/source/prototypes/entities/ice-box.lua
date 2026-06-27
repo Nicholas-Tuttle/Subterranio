@@ -33,7 +33,7 @@ ice_machine_entity.minable.result = "ice-machine"
 
 local ice_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
 ice_machine_item.name = "ice-machine"
-ice_machine_item.icons = { { icon = ice_machine_item.icon, tint = constants.gleban_biospheres_tint } }
+ice_machine_item.icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.gleban_biospheres_tint } }
 ice_machine_item.icon = nil
 ice_machine_item.place_result = "ice-machine"
 

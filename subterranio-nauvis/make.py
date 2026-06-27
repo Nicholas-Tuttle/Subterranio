@@ -18,7 +18,15 @@ if os.path.exists(build_directory):
     shutil.rmtree(build_directory)
 
 mod_build_directory = os.path.join(build_directory, full_name)
-shutil.copytree(source_directory, mod_build_directory)
+shutil.copytree(source_directory, mod_build_directory, ignore=shutil.ignore_patterns(
+    "images",
+    "*.mp4",
+    "*.kra",
+    "*.kra~",
+    "*.png~",
+    "*.blend",
+    "*.blend1"
+))
 os.chdir(build_directory)
 programFiles = os.getenv("ProgramFiles")
 sevenZipDir = os.path.join(programFiles, "7-Zip")

@@ -33,7 +33,7 @@ local packaging_machine_entity = table.deepcopy(data.raw["assembling-machine"]["
 packaging_machine_entity.name = "packaging-machine"
 packaging_machine_entity.crafting_categories = { "packaging" }
 packaging_machine_entity.crafting_speed = 10
-packaging_machine_entity = graphics_tinter.tint(packaging_machine_entity, { r = 150, g = 50, b = 0 })
+packaging_machine_entity = graphics_tinter.tint(packaging_machine_entity, constants.gleban_biospheres_tint)
 packaging_machine_entity.minable.result = "packaging-machine"
 
 local packaging_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])
@@ -57,7 +57,7 @@ local packaging_tech = {
     type = "technology",
     name = "packaging",
     icon_size = 64,
-    icons = { { icon = "__base__/graphics/icons/wooden-chest.png", icon_size = 64, tint = { r = 150, g = 255, b = 150 } } },
+    icons = { { icon = "__base__/graphics/icons/wooden-chest.png", icon_size = 64, tint = constants.packaging_machine_tint } },
     effects = {
         {
             type = "unlock-recipe",

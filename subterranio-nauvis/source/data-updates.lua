@@ -1,3 +1,6 @@
+local graphics_updater = require("__subterranio-base__/utilities/graphics-updater")
+local constants = require("prototypes.entity.constants")
+
 table.insert(data.raw["lab"]["lab"].inputs, "subterranean-science-pack")
 table.insert(data.raw["lab"]["biolab"].inputs, "subterranean-science-pack")
 
@@ -32,3 +35,7 @@ table.insert(data.raw["technology"]["turbo-mineshaft-belt"].prerequisites, "subt
 table.insert(data.raw["technology"]["turbo-mineshaft-belt"].unit.ingredients, {"subterranean-science-pack", 1})
 table.insert(data.raw["technology"]["mineshaft-pipe"].prerequisites, "subterranean-science-pack")
 table.insert(data.raw["technology"]["mineshaft-pipe"].unit.ingredients, {"subterranean-science-pack", 1})
+
+graphics_updater.update_entity_graphics("mining-drill", "electric-mining-drill", "electric-mining-drill", "mining-drill", "diamond-tipped-electric-mining-drill", constants.diamond_tint_color)
+graphics_updater.update_entity_graphics("mining-drill", "big-mining-drill", "big-mining-drill", "mining-drill", "big-diamond-tipped-mining-drill", constants.diamond_tint_color)
+graphics_updater.update_entity_graphics("assembling-machine", "crusher", "", "assembling-machine", "diamond-tipped-crusher", constants.diamond_tint_color)

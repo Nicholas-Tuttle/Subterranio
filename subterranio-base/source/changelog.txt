@@ -67,3 +67,9 @@ Version: 0.1.16
 Date: 2026-06-13
   Changes:
     - Fixed teleportation bug when tunnelling in remote view
+---------------------------------------------------------------------------------------------------
+Version: 0.1.17
+Date: 2026-06-28
+  Changes:
+    - Adding graphics updater utils to use replaced graphics for equivalent machines
+    - Updating graphics tinter to cover more use-cases (icons, recycling recipes)

@@ -72,3 +72,9 @@ Date: 2026-06-12
   Changes:
     - Fixing crash when accessing non-created Vulcanus Lava Tubes surface
     - Fixing hostile Vulcanus Lava Tubes territory not generating immediately
+---------------------------------------------------------------------------------------------------
+Version: 0.1.20
+Date: 2026-06-28
+  Changes:
+    - Fixing crash when other mods modify assembler images
+    - Adding support for mods that modify machine graphics

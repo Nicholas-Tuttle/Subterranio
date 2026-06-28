@@ -81,3 +81,9 @@ Date: 2026-06-11
   Changes:
     - Hard-defining ammo type for diamond-core piercing shotgun shell to fix issue with ammo type not loading correctly with other mods enabled
     - Hard-defining ammo type for diamond-core uranium rounds ammo to fix issue with ammo type not loading correctly with other mods enabled
+---------------------------------------------------------------------------------------------------
+Version: 0.1.18
+Date: 2026-06-28
+  Changes:
+    - Fixing crash when other mods modify assembler images
+    - Adding support for mods that modify machine graphics

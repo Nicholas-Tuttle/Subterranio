@@ -57,3 +57,9 @@ Version: 0.1.16
 Date: 2026-06-09
   Changes:
     - Adding compatibility fixes for Redrawn Space Connections mod
+---------------------------------------------------------------------------------------------------
+Version: 0.1.17
+Date: 2026-06-28
+  Changes:
+    - Fixing crash when other mods modify assembler images
+    - Adding support for mods that modify machine graphics

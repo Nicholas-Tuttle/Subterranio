@@ -28,7 +28,6 @@ local item = {
 local recipe = {
     type = "recipe",
     name = "band-saw",
-    icons = { { icon = "__base__/graphics/icons/assembling-machine-3.png", tint = constants.vulcanus_lava_tubes_tint } },
     subgroup = "smelting-machine",
     order = "dc[band-saw]",
     enabled = false,

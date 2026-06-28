@@ -28,7 +28,7 @@ local ice_machine_entity = table.deepcopy(data.raw["assembling-machine"]["assemb
 ice_machine_entity.name = "ice-machine"
 ice_machine_entity.crafting_categories = { "ice-machine" }
 ice_machine_entity.crafting_speed = 10
-ice_machine_entity = graphics_tinter.tint(ice_machine_entity, { r = 50, g = 150, b = 255 })
+ice_machine_entity = graphics_tinter.tint(ice_machine_entity, constants.ice_machine_tint)
 ice_machine_entity.minable.result = "ice-machine"
 
 local ice_machine_item = table.deepcopy(data.raw["item"]["assembling-machine-3"])

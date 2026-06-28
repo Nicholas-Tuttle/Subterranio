@@ -1,3 +1,6 @@
+local graphics_updater = require("__subterranio-base__/utilities/graphics-updater")
+local constants = require("scripts.constants")
+
 table.insert(data.raw["lab"]["lab"].inputs, "propulsion-science-pack")
 table.insert(data.raw["lab"]["biolab"].inputs, "propulsion-science-pack")
 
@@ -22,3 +25,8 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["heavy-rocket-thruster"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["autocannon-turret"].unit.ingredients, { "subterranean-science-pack", 1 })
 end
+
+graphics_updater.update_entity_graphics("assembling-machine", "assembling-machine-3", "automation-3", "assembling-machine", "band-saw", constants.vulcanus_lava_tubes_tint)
+graphics_updater.update_entity_graphics("assembling-machine", "crusher", "", "assembling-machine", "pulverizer", constants.vulcanus_lava_tubes_tint)
+graphics_updater.update_entity_graphics("assembling-machine", "foundry", "foundry", "assembling-machine", "lava-filtration-plant", constants.vulcanus_lava_tubes_tint)
+graphics_updater.update_entity_graphics("thruster", "thruster", "space-platform-thruster", "thruster", "heavy-rocket-thruster", constants.vulcanus_lava_tubes_tint)

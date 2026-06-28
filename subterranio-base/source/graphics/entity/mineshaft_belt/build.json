@@ -1,0 +1,5 @@
+{
+    "images_folder": "frames",
+    "output_image_name": "mineshaft_belt.png",
+    "output_lua_info_path": "../../../prototypes/graphics/mineshaft-belt-graphics.lua"
+}

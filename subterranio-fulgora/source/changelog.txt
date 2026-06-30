@@ -68,3 +68,8 @@ Version: 0.1.18
 Date: 2026-06-29
   Changes:
     - Fixing crash when generating Fulgoran subway
+---------------------------------------------------------------------------------------------------
+Version: 0.1.19
+Date: 2026-06-29
+  Changes:
+    - Fixing out-of-map issue when generating Fulgoran subway

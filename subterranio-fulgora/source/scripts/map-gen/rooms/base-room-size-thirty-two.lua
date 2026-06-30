@@ -13,7 +13,7 @@ local function create_tiles(bounding_box, surface, room_key)
 
     local tiles = {}
     for x = 0, 31, 1 do
-        for y = 0, 31 - 1, 1 do
+        for y = 0, 31, 1 do
             if out_of_map_tile_positions[x] == nil or out_of_map_tile_positions[x][y] == nil then
                 tiles[#tiles + 1] = {
                     position = { x = x + left_x, y = y + top_y },

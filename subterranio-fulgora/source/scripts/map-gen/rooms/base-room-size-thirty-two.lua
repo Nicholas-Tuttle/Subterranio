@@ -221,7 +221,7 @@ local function create_enemies(bounding_box, surface, room_key)
     local flat_in_map_tile_positions = blueprints.get_in_map_room_tile_positions_flattened(room_key)
 
     for _ = 1, enemy_count, 1 do
-        if #flat_in_map_tile_positions >= 1 then
+        if flat_in_map_tile_positions ~= nil and #flat_in_map_tile_positions >= 1 then
             local random = flat_in_map_tile_positions[math.random(1, #flat_in_map_tile_positions)]
             surface.create_entity {
                 name = enemy_types[math.random(1, #enemy_types)],

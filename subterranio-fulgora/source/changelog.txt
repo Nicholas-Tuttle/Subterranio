@@ -63,3 +63,8 @@ Date: 2026-06-28
   Changes:
     - Fixing crash when other mods modify assembler images
     - Adding support for mods that modify machine graphics
+---------------------------------------------------------------------------------------------------
+Version: 0.1.18
+Date: 2026-06-29
+  Changes:
+    - Fixing crash when generating Fulgoran subway

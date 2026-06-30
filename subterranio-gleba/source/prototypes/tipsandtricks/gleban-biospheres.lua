@@ -2,7 +2,7 @@ data:extend{
     {
         type = "tips-and-tricks-item",
         name = "gleban-biospheres",
-        category = "subterranean-caves",
+        categories = { "subterranean-caves" },
         indent = 1,
         order = "ac",
         dependencies = {"subterranean-caves"},

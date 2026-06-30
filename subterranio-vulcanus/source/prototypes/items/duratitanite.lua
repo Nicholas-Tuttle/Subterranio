@@ -22,7 +22,7 @@ local duratitanite_slag_fluid = {
 local duratitanite_slag_recipe = {
     type = "recipe",
     name = "duratitanite-slag",
-    category = "lava-filtration",
+    categories = { "lava-filtration" },
     icons = { { icon = "__space-age__/graphics/icons/coal-synthesis.png", tint = constants.duratitanite_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
     enabled = false,
@@ -54,7 +54,7 @@ local duratitanite_hunk_recipe = {
     name = "duratitanite-hunk",
     icons = { { icon = "__base__/graphics/icons/iron-ore.png", tint = constants.duratitanite_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
-    category = "metallurgy",
+    categories = { "metallurgy" },
     enabled = false,
     energy_required = 8,
     ingredients = {
@@ -79,7 +79,7 @@ local duratitanite_powder_recipe = {
     name = "duratitanite-powder",
     icons = { { icon = "__base__/graphics/icons/fluid/steam.png", tint = constants.duratitanite_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
-    category = "pulverization",
+    categories = { "pulverization" },
     enabled = false,
     energy_required = 4,
     ingredients = {
@@ -106,7 +106,7 @@ local duratitanite_ingot_recipe = {
     name = "duratitanite-ingot",
     icons = { { icon = "__space-age__/graphics/icons/tungsten-plate.png", tint = constants.duratitanite_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
-    category = "smelting",
+    categories = { "smelting" },
     enabled = false,
     energy_required = 6,
     ingredients = {
@@ -131,7 +131,7 @@ local duratitanite_plate_recipe = {
     name = "duratitanite-plate",
     icons = { { icon = "__base__/graphics/icons/iron-plate.png", tint = constants.duratitanite_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
-    category = "cutting",
+    categories = { "cutting" },
     enabled = false,
     energy_required = 4,
     ingredients = {

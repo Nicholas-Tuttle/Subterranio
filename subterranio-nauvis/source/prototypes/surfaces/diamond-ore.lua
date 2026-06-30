@@ -117,7 +117,7 @@ local technology = {
     research_trigger =
     {
         type = "mine-entity",
-        entity = "diamond-ore"
+        entities = { "diamond-ore" }
     }
 }
 

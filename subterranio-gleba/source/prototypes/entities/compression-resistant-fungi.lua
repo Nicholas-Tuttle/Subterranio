@@ -106,14 +106,14 @@ dry_spore_item.order = "a[gleban_biospheres]-c"
 local dry_spore_rehydration_recipe = {
     type = "recipe",
     name = "compression-resistant-fungi-dry-spores-rehydration",
-    category = "crafting-with-fluid",
+    categories = { "crafting-with-fluid" },
     energy_required = 1,
     ingredients = {
         { type = "item",  name = "compression-resistant-fungi-dry-spores", amount = 3 },
-        { type = "fluid", name = "water",                                amount = 50 }
+        { type = "fluid", name = "water",                                  amount = 50 }
     },
     results = {
-        { type = "item", name = "compression-resistant-fungi-spores", amount = 1, probability = 0.5 }
+        { type = "item", name = "compression-resistant-fungi-spores", amount = 1, independent_probability = 0.5 }
     },
     enabled = false,
 }
@@ -133,7 +133,7 @@ local compression_resistant_fungi_tech = {
     research_trigger =
     {
         type = "mine-entity",
-        entity = "compression-resistant-fungi"
+        entities = { "compression-resistant-fungi" }
     },
     order = "a[tree]-c[gleban_biospheres]-a[seedable]-b[compression-resistant-fungi]"
 }

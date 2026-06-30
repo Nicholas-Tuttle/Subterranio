@@ -38,7 +38,7 @@ local function built_mineshaft_pipe(event)
         mineshaft_pipe_exit = target_surface.create_entity { name = destination_pipe_names[mineshaft_pipe_entrance.name], position = position, force = game.forces.player, quality = mineshaft_pipe_entrance.quality }
     end
 
-    mineshaft_pipe_entrance.fluidbox.add_linked_connection(0, mineshaft_pipe_exit, 0)
+    mineshaft_pipe_entrance.add_fluid_box_linked_connection(0, mineshaft_pipe_exit, 0)
 end
 
 local function destroyed_mineshaft_pipe(event)

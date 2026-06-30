@@ -67,7 +67,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
     local frozen_recipe = {
         type = "recipe",
         name = "frozen-" .. item_key,
-        category = "ice-machine",
+        categories = { "ice-machine" },
         subgroup = "frozen-" .. sanitized_subgroup,
         order = "frozen-" .. sanitized_order,
         energy_required = 1,
@@ -89,7 +89,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
     local thawed_recipe = {
         type = "recipe",
         name = "thaw-" .. item_key,
-        category = "smelting",
+        categories = { "smelting" },
         subgroup = "thawed-" .. sanitized_subgroup,
         order = "thawed-" .. sanitized_order,
         energy_required = 1,
@@ -99,8 +99,8 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
             { type = "item", name = "frozen-" .. item_key, amount = 1 }
         },
         results = {
-            { type = "item", name = item_key,  amount = 1, percent_spoiled = 0.5, probability = 0.9 },
-            { type = "item", name = "ice-box", amount = 1, probability = 0.5 },
+            { type = "item", name = item_key,  amount = 1, percent_spoiled = 0.5, independent_probability = 0.9 },
+            { type = "item", name = "ice-box", amount = 1, independent_probability = 0.5 },
         },
         allow_productivity = false,
         allow_quality = false,
@@ -200,7 +200,7 @@ local function add_packed_and_unpacked_recipes(item_key, item_value)
     local packed_recipe = {
         type = "recipe",
         name = "packed-" .. item_key,
-        category = "packaging",
+        categories = { "packaging" },
         subgroup = "packaged-" .. sanitized_subgroup,
         order = "a-packed-" .. sanitized_order,
         energy_required = 10,
@@ -222,7 +222,7 @@ local function add_packed_and_unpacked_recipes(item_key, item_value)
     local unpacked_recipe = {
         type = "recipe",
         name = "unpack-" .. item_key,
-        category = "packaging",
+        categories = { "packaging" },
         subgroup = "unpacked-" .. sanitized_subgroup,
         order = "b-unpack-" .. sanitized_order,
         energy_required = 10,

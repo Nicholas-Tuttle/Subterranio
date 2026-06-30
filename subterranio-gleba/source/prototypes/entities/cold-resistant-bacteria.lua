@@ -81,7 +81,7 @@ local cold_resistant_bacteria_cultivation_recipe = {
     name = "cold-resistant-bacteria-cultivation",
     icons = { { icon = "__space-age__/graphics/icons/copper-bacteria-cultivation.png", tint = { r = 120, g = 150, b = 255 } } },
     icon = nil,
-    category = "organic",
+    categories = { "organic" },
     subgroup = "agriculture-processes",
     enabled = false,
     energy_required = 30,
@@ -93,8 +93,8 @@ local cold_resistant_bacteria_cultivation_recipe = {
     },
     results =
     {
-        { type = "item", name = "cold-resistant-bacteria",          amount = 20 },
-        { type = "item", name = "cold-resistant-newborn-bacterium", amount = 1 }
+        { type = "item", name = "cold-resistant-bacteria",          amount = 20, reset_freshness_on_craft = true },
+        { type = "item", name = "cold-resistant-newborn-bacterium", amount = 1,  reset_freshness_on_craft = true }
     },
     crafting_machine_tint =
     {
@@ -102,7 +102,6 @@ local cold_resistant_bacteria_cultivation_recipe = {
         secondary = { r = 0.000, g = 0.196, b = 1.000, a = 1.000 },
     },
     show_amount_in_title = false,
-    reset_freshness_on_craft = true,
 }
 
 local cold_resistant_bacteria_tech = {
@@ -120,7 +119,7 @@ local cold_resistant_bacteria_tech = {
     research_trigger =
     {
         type = "mine-entity",
-        entity = "cold-resistant-bacteria"
+        entities = { "cold-resistant-bacteria" }
     },
     order = "a[tree]-c[gleban_biospheres]-a[seedable]-b[cold-resistant-bacteria]"
 }

@@ -7,7 +7,7 @@ data:extend{
     {
         type = "tips-and-tricks-item",
         name = "subterranean-caves",
-        category = "subterranean-caves",
+        categories = { "subterranean-caves" },
         order = "a",
         is_title = true,
         trigger =

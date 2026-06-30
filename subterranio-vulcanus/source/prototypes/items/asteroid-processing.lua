@@ -9,7 +9,7 @@ local aeroluminite_from_metallic_asteroid_recipe = {
             tint = constants.aeroluminite_color
         }
     },
-    category = "crushing",
+    categories = { "crushing" },
     subgroup = "space-crushing",
     order = "c-a-a",
     auto_recycle = false,
@@ -21,8 +21,8 @@ local aeroluminite_from_metallic_asteroid_recipe = {
     energy_required = 2,
     results =
     {
-        { type = "item", name = "aeroluminite-plate",          amount = 1, probability = 0.1 },
-        { type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.2 }
+        { type = "item", name = "aeroluminite-plate",          amount = 1, independent_probability = 0.1 },
+        { type = "item", name = "metallic-asteroid-chunk", amount = 1, independent_probability = 0.2 }
     },
     allow_productivity = true,
     allow_decomposition = false
@@ -37,7 +37,7 @@ local duratitanite_from_metallic_asteroid_recipe = {
             tint = constants.duratitanite_color
         }
     },
-    category = "crushing",
+    categories = { "crushing" },
     subgroup = "space-crushing",
     order = "c-a-b",
     auto_recycle = false,
@@ -49,8 +49,8 @@ local duratitanite_from_metallic_asteroid_recipe = {
     energy_required = 2,
     results =
     {
-        { type = "item", name = "duratitanite-plate",          amount = 1, probability = 0.1 },
-        { type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.2 }
+        { type = "item", name = "duratitanite-plate",          amount = 1, independent_probability = 0.1 },
+        { type = "item", name = "metallic-asteroid-chunk", amount = 1, independent_probability = 0.2 }
     },
     allow_productivity = true,
     allow_decomposition = false

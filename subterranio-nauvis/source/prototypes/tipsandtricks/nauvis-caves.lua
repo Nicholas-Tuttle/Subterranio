@@ -2,7 +2,7 @@ data:extend{
     {
         type = "tips-and-tricks-item",
         name = "nauvis-caves",
-        category = "subterranean-caves",
+        categories = { "subterranean-caves" },
         indent = 1,
         order = "aa",
         dependencies = {"subterranean-caves"},

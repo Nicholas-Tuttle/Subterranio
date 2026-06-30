@@ -22,7 +22,7 @@ local aeroluminite_slag_fluid = {
 local aeroluminite_slag_recipe = {
     type = "recipe",
     name = "aeroluminite-slag",
-    category = "lava-filtration",
+    categories = { "lava-filtration" },
     icons = { { icon = "__space-age__/graphics/icons/coal-synthesis.png", tint = constants.aeroluminite_color } },
     subgroup = "vulcanus-lava-tubes-intermediates",
     enabled = false,
@@ -54,7 +54,7 @@ local aeroluminite_ingot_recipe = {
     type = "recipe",
     name = "aeroluminite-ingot",
     icons = { { icon = "__space-age__/graphics/icons/tungsten-plate.png", tint = constants.aeroluminite_color } },
-    category = "metallurgy",
+    categories = { "metallurgy" },
     enabled = false,
     energy_required = 8,
     ingredients = {
@@ -81,7 +81,7 @@ local aeroluminite_plate_recipe = {
     type = "recipe",
     name = "aeroluminite-plate",
     icons = { { icon = "__base__/graphics/icons/iron-plate.png", tint = constants.aeroluminite_color } },
-    category = "cutting",
+    categories = { "cutting" },
     enabled = false,
     energy_required = 4,
     ingredients = {

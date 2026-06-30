@@ -25,7 +25,7 @@ local recipe = {
   name = "diamond-shard",
   icon = subterrain.diamond_shard_image_path,
   icon_size = subterrain.diamond_shard_image_size,
-  category = "smelting-or-metallurgy",
+  categories = { "smelting-or-metallurgy" },
   energy_required = 5,
   ingredients = { { type = "item", name = "diamond-ore", amount = 1 } },
   results = { { type = "item", name = "diamond-shard", amount = 1 } },

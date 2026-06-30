@@ -80,7 +80,7 @@ overgrowth_hot_soil_tile = graphics_tinter.tint(overgrowth_hot_soil_tile, { r = 
 local overgrowth_cold_soil_recipe = {
     type = "recipe",
     name = "overgrowth-cold-soil",
-    category = "crafting-with-fluid",
+    categories = { "crafting-with-fluid" },
     energy_required = 1,
     ingredients = {
         { type = "item",  name = "overgrowth-yumako-soil", amount = 3 },
@@ -97,7 +97,7 @@ local overgrowth_cold_soil_recipe = {
 local overgrowth_hot_soil_recipe = {
     type = "recipe",
     name = "overgrowth-hot-soil",
-    category = "crafting-with-fluid",
+    categories = { "crafting-with-fluid" },
     energy_required = 1,
     ingredients = {
         { type = "item",  name = "overgrowth-jellynut-soil", amount = 3 },

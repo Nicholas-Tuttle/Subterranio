@@ -8,8 +8,8 @@ local function tint_recursive(object, tint_value)
         if type(value) == "table" and excluded[key] == nil then
             -- log("Checking key and value of: " .. serpent.line({ key = key, value = value }))
             -- TODO: Add more here as needed, this is not a complete list
-            if (value.filename and value.filename ~= "__quality__/graphics/icons/recycling.png" and value.filename ~= "__quality__/graphics/icons/recycling-top.png")
-                or (value.icon and value.icon ~= "__quality__/graphics/icons/recycling.png" and value.icon ~= "__quality__/graphics/icons/recycling-top.png")
+            if (value.filename and value.filename ~= "__recycler__/graphics/icons/recycling.png" and value.filename ~= "__recycler__/graphics/icons/recycling-top.png")
+                or (value.icon and value.icon ~= "__recycler__/graphics/icons/recycling.png" and value.icon ~= "__recycler__/graphics/icons/recycling-top.png")
                 or value.filenames or value.stripes then
                 value.tint = table.deepcopy(tint_value)
             end

@@ -26,7 +26,7 @@ local recipe = {
     name = "biological-science-pack",
     enabled = false,
     energy_required = 5,
-    category = "organic-or-assembling",
+    categories = { "organic", "crafting" },
     ingredients =
     {
         { type = "item", name = "iron-bacteria",               amount = 1 },

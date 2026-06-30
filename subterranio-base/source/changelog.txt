@@ -73,3 +73,8 @@ Date: 2026-06-28
   Changes:
     - Adding graphics updater utils to use replaced graphics for equivalent machines
     - Updating graphics tinter to cover more use-cases (icons, recycling recipes)
+---------------------------------------------------------------------------------------------------
+Version: 0.1.18
+Date: 2026-06-29
+  Changes:
+    - Fixing a crash when placing a mineshaft belt

@@ -32,10 +32,6 @@ local function built_mineshaft_belt(event)
         return false
     end
 
-    -- TODO: The id for this returned LuaRenderObject may need to be stored so that if the player rotates
-    -- or flips the belt the animation can be destroyed and re-created with the correct orientation
-    rendering.draw_animation { animation = "mineshaft-belt-graphics", target = mineshaft_belt_entrance, surface = mineshaft_belt_entrance.surface }
-
     local target_surface = game.planets[destination_surface_name].create_surface()
     local target_position = { x = position.x, y = position.y }
     target_surface.request_to_generate_chunks(target_position, 1)
@@ -54,9 +50,6 @@ local function built_mineshaft_belt(event)
         }
 
         mineshaft_belt_exit = target_surface.create_entity { name = destination_belt_names[mineshaft_belt_entrance.name], position = position, direction = opposite_direction[direction], force = game.forces.player, quality = mineshaft_belt_entrance.quality }
-        -- TODO: The id for this returned LuaRenderObject may need to be stored so that if the player rotates
-        -- or flips the belt the animation can be destroyed and re-created with the correct orientation
-        rendering.draw_animation { animation = "mineshaft-belt-graphics", target = mineshaft_belt_exit, surface = mineshaft_belt_exit.surface }
     end
 
     mineshaft_belt_entrance.linked_belt_type = "input"

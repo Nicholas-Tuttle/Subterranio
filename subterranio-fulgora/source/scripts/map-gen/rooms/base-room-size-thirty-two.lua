@@ -230,6 +230,14 @@ local function create_enemies(bounding_box, surface, room_key)
                     y = bounding_box.left_top.y + random.y
                 }
             }
+        elseif flat_in_map_tile_positions == nil then
+            surface.create_entity {
+                name = enemy_types[math.random(1, #enemy_types)],
+                position = {
+                    x = bounding_box.left_top.x + math.random(3, 30),
+                    y = bounding_box.left_top.y + math.random(3, 30)
+                }
+            }
         end
     end
 end

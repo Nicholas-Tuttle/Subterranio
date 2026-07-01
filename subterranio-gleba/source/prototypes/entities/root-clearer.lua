@@ -12,6 +12,7 @@ entity.mining_speed = 100
 entity = graphics_tinter.tint(entity, tint_color)
 entity.radius_visualisation_picture = table.deepcopy(data.raw["mining-drill"]["electric-mining-drill"])
     .radius_visualisation_picture
+entity.minable.result = "root-clearer"
 
 local item = {
     type = "item",

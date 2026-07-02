@@ -60,8 +60,12 @@ def main(modname, apikeyFilePath):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Upload a Factorio mod to the mod portal.")
     parser.add_argument("apikeyFilePath", type=str, help="The API key file path for authentication.")
-    parser.add_argument("modname", type=str, help="The name of the mod to upload.")
+    parser.add_argument("--modname", type=str, help="The name of the mod to upload.")
     args = parser.parse_args()
 
-    main(args.modname, args.apikeyFilePath)
+    if args.modname is None:
+        for modname in ["subterranio-base", "subterranio-fulgora", "subterranio-gleba", "subterranio-nauvis", "subterranio-vulcanus", "subterranio"]:
+            main(modname, args.apikeyFilePath)
+    else:
+        main(args.modname, args.apikeyFilePath)
 

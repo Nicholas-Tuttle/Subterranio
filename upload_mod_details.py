@@ -63,7 +63,9 @@ def main(modname, apikeyFilePath):
     descriptionMarkdown = os.path.join(os.path.dirname(os.path.realpath(__file__)), modname, "source", "README.md")
     if os.path.exists(descriptionMarkdown):
         descriptionTitle = f"# {title.upper()}\n\n"
-        descriptionDiscord = "[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/pMJ6qDWqZa)\n\n"
+        descriptionDiscord = "[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/pMJ6qDWqZa)"
+        descriptionDownloadCount = f"![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmods.factorio.com%2Fapi%2Fmods%2F{modname}&query=%24.downloads_count&suffix=%20Downloads&style=for-the-badge&label=&color=green)"
+        descriptionKofiLink = "[![Ko-fi](https://img.shields.io/badge/Ko--fi-fc6914?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/kingtut777)"
         descriptionPleaseSeeMainMod = ""
         descriptionSubMods = ""
         if modname != "subterranio": 
@@ -71,7 +73,7 @@ def main(modname, apikeyFilePath):
             descriptionPleaseSeeMainMod += f"This mod only implements the logic for {title}, and works best when including the other Subterranio mods.\n\n"
         else:
             descriptionSubMods = combine_submod_descriptions()
-        body["description"] = descriptionTitle + descriptionDiscord + descriptionPleaseSeeMainMod + open(descriptionMarkdown, "r").read() + descriptionSubMods
+        body["description"] = descriptionTitle + descriptionDiscord + descriptionDownloadCount + descriptionKofiLink + "\n\n" + descriptionPleaseSeeMainMod + open(descriptionMarkdown, "r").read() + descriptionSubMods
 
     faqMarkdown = os.path.join(os.path.dirname(os.path.realpath(__file__)), modname, "source", "FAQ.md")
     if os.path.exists(faqMarkdown):
@@ -94,7 +96,11 @@ def main(modname, apikeyFilePath):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Upload a Factorio mod to the mod portal.")
     parser.add_argument("apikeyFilePath", type=str, help="The API key file path for authentication.")
-    parser.add_argument("modname", type=str, help="The name of the mod to upload.")
+    parser.add_argument("--modname", type=str, help="The name of the mod to upload.")
     args = parser.parse_args()
 
-    main(args.modname, args.apikeyFilePath)
+    if args.modname is None:
+        for modname in ["subterranio", "subterranio-base", "subterranio-fulgora", "subterranio-gleba", "subterranio-nauvis", "subterranio-vulcanus"]:
+            main(modname, args.apikeyFilePath)
+    else:
+        main(args.modname, args.apikeyFilePath)

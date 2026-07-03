@@ -70,3 +70,13 @@ Date: 2026-06-28
   Changes:
     - Fixing crash when other mods modify assembler images
     - Adding support for mods that modify machine graphics
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-07-02
+  Changes:
+    - 2.1 migration updates
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2026-07-03
+  Changes:
+    - Adding cave scaffolding for non-Nauvis planets

@@ -1,13 +1,13 @@
 {
 	"name": "subterranio-vulcanus",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"title": "Subterranio - Vulcanus",
 	"author": "Nicholas Tuttle",
 	"factorio_version": "2.1",
 	"dependencies": [
 		"base",
 		"space-age >= 2.1.0",
-        "subterranio-base >= 1.0.0",
+        "subterranio-base >= 1.0.1",
 
 		"(?) Assembler-Reskin >= 1.0.3"
 	],

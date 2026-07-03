@@ -78,3 +78,13 @@ Version: 0.1.18
 Date: 2026-06-29
   Changes:
     - Fixing a crash when placing a mineshaft belt
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-07-02
+  Changes:
+    - 2.1 migration updates
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2026-07-03
+  Changes:
+    - Adding cave scaffolding for non-Nauvis planets

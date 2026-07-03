@@ -114,7 +114,7 @@ end,
 script.on_event(defines.events.script_raised_built, function(event)
     local entity = event.entity
     if (entity.name == "fulgoran-gate") then
-        entity.active = false
+        entity.disabled_by_script = true
     end
 
     if (entity.name == "fulgoran-wall") then

@@ -21,7 +21,7 @@ local recipe = {
   icon = constants.electromagnet_path,
   icon_size = constants.electromagnet_size,
   energy_required = 5,
-  category = "magnetic-components",
+  categories = { "magnetic-components" },
   ingredients = {
     { type = "item", name = "iron-plate",       amount = 2 },
     { type = "item", name = "copper-cable",     amount = 2 },

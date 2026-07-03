@@ -82,7 +82,7 @@ local recipe3 = {
   subgroup = "production-machine",
   order = "ca[magnetic-component-assembler]",
   energy_required = 5,
-  category = "electromagnetics",
+  categories = { "electromagnetics" },
   ingredients = {
     { type = "item", name = "assembling-machine-3", amount = 1 },
     { type = "item", name = "magnetic-shielding",   amount = 5 },

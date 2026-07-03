@@ -42,7 +42,7 @@ local function make_scrap(name, tint, recipe_results, prerequisites, research_tr
     name = name .. "-scrap-recycling",
     icons = {
       {
-        icon = "__quality__/graphics/icons/recycling.png"
+        icon = "__recycler__/graphics/icons/recycling.png"
       },
       {
         icon = "__space-age__/graphics/icons/scrap.png",
@@ -50,10 +50,10 @@ local function make_scrap(name, tint, recipe_results, prerequisites, research_tr
         tint = tint
       },
       {
-        icon = "__quality__/graphics/icons/recycling-top.png"
+        icon = "__recycler__/graphics/icons/recycling-top.png"
       }
     },
-    category = "recycling-or-hand-crafting",
+    categories = { "recycling", "hand-crafting" },
     subgroup = "subterranio-fulgora-scraps",
     order = "a[trash]-a[trash-recycling]-" .. name .. "-scrap",
     enabled = false,
@@ -106,11 +106,11 @@ local function make_scrap(name, tint, recipe_results, prerequisites, research_tr
 end
 
 make_scrap("advanced", { 0.5, 1.0, 0.5 }, {
-    { type = "item", name = "scrap",            amount = 1, probability = 0.2, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "neodymium-powder", amount = 1, probability = 0.2, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "sulfur",           amount = 1, probability = 0.2, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "calcite",          amount = 1, probability = 0.2, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "holmium-plate",    amount = 1, probability = 0.2, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "scrap",            amount = 1, independent_probability = 0.2, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "neodymium-powder", amount = 1, independent_probability = 0.2, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "sulfur",           amount = 1, independent_probability = 0.2, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "calcite",          amount = 1, independent_probability = 0.2, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "holmium-plate",    amount = 1, independent_probability = 0.2, show_details_in_recipe_tooltip = false },
     -- TODO: more
   },
   {
@@ -124,9 +124,9 @@ make_scrap("advanced", { 0.5, 1.0, 0.5 }, {
   })
 
 make_scrap("type-1", { 0.25, 0.25, 1.0 }, {
-    { type = "item", name = "scrap",          amount = 1, probability = 0.3,  show_details_in_recipe_tooltip = false },
-    { type = "item", name = "cobalt-ore",     amount = 1, probability = 0.35, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "superconductor", amount = 1, probability = 0.35, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "scrap",          amount = 1, independent_probability = 0.3,  show_details_in_recipe_tooltip = false },
+    { type = "item", name = "cobalt-ore",     amount = 1, independent_probability = 0.35, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "superconductor", amount = 1, independent_probability = 0.35, show_details_in_recipe_tooltip = false },
     -- TODO: more
   },
   {
@@ -139,9 +139,9 @@ make_scrap("type-1", { 0.25, 0.25, 1.0 }, {
   })
 
 make_scrap("type-2", { 1.0, 0.25, 0.25 }, {
-    { type = "item", name = "scrap",          amount = 1, probability = 0.3,  show_details_in_recipe_tooltip = false },
-    { type = "item", name = "boron-chunk",    amount = 1, probability = 0.35, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "supercapacitor", amount = 1, probability = 0.35, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "scrap",          amount = 1, independent_probability = 0.3,  show_details_in_recipe_tooltip = false },
+    { type = "item", name = "boron-chunk",    amount = 1, independent_probability = 0.35, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "supercapacitor", amount = 1, independent_probability = 0.35, show_details_in_recipe_tooltip = false },
     -- TODO: more
   },
   {
@@ -154,25 +154,25 @@ make_scrap("type-2", { 1.0, 0.25, 0.25 }, {
   })
 
 make_scrap("mixed-type-1", { 0.5, 0.5, 1.0 }, {
-    { type = "item", name = "advanced-scrap", amount = 1, probability = 0.80, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "type-1-scrap",   amount = 1, probability = 0.20, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "advanced-scrap", amount = 1, independent_probability = 0.80, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "type-1-scrap",   amount = 1, independent_probability = 0.20, show_details_in_recipe_tooltip = false },
   },
   {
     "electrostatic-tunnelling-drill-equipment"
   },
   {
     type = "mine-entity",
-    entity = "mixed-type-1-scrap"
+    entities = { "mixed-type-1-scrap" }
   })
 
 make_scrap("mixed-type-2", { 1.0, 0.5, 0.5 }, {
-    { type = "item", name = "advanced-scrap", amount = 1, probability = 0.80, show_details_in_recipe_tooltip = false },
-    { type = "item", name = "type-2-scrap",   amount = 1, probability = 0.20, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "advanced-scrap", amount = 1, independent_probability = 0.80, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "type-2-scrap",   amount = 1, independent_probability = 0.20, show_details_in_recipe_tooltip = false },
   },
   {
     "electrostatic-tunnelling-drill-equipment"
   },
   {
     type = "mine-entity",
-    entity = "mixed-type-2-scrap"
+    entities = { "mixed-type-2-scrap" }
   })

@@ -21,7 +21,7 @@ local recipe = {
   icon = constants.magnetic_bearings_path,
   icon_size = constants.magnetic_bearings_size,
   energy_required = 5,
-  category = "magnetic-components",
+  categories = { "magnetic-components" },
   ingredients = {
     { type = "item", name = "steel-plate",      amount = 2 },
     { type = "item", name = "electromagnet",    amount = 1 },
@@ -29,8 +29,8 @@ local recipe = {
   },
   results = {
     { type = "item", name = "magnetic-bearings",          amount = 1 },
-    { type = "item", name = "damaged-magnetic-packaging", amount = 10, probability = constants.damaged_packaging_return_change,   show_details_in_recipe_tooltip = false },
-    { type = "item", name = "magnetic-packaging",         amount = 10, probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+    { type = "item", name = "damaged-magnetic-packaging", amount = 10, independent_probability = constants.damaged_packaging_return_change,   show_details_in_recipe_tooltip = false },
+    { type = "item", name = "magnetic-packaging",         amount = 10, independent_probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
   },
   allow_productivity = true,
   enabled = false

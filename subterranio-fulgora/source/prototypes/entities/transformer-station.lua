@@ -30,8 +30,8 @@ local recipe = {
     },
     results = {
         { type = "item", name = "transformer-station",        amount = 1 },
-        { type = "item", name = "damaged-magnetic-packaging", amount = 20, probability = constants.damaged_packaging_return_change,   show_details_in_recipe_tooltip = false },
-        { type = "item", name = "magnetic-packaging",         amount = 20, probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
+        { type = "item", name = "damaged-magnetic-packaging", amount = 20, independent_probability = constants.damaged_packaging_return_change,   show_details_in_recipe_tooltip = false },
+        { type = "item", name = "magnetic-packaging",         amount = 20, independent_probability = constants.undamaged_packaging_return_change, show_details_in_recipe_tooltip = false },
     }
 }
 

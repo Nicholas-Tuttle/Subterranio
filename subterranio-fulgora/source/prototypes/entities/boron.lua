@@ -34,7 +34,7 @@ local powder_recipe = {
     name = "boron-powder",
     enabled = false,
     energy_required = 10,
-    category = "advanced-crafting",
+    categories = { "advanced-crafting" },
     ingredients =
     {
         { type = "item",  name = "boron-chunk",    amount = 5 },

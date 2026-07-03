@@ -52,5 +52,8 @@ return {
 
     subterrain_pressure = subterrain_pressure,
     subterrain_gravity = subterrain_gravity,
-    subterrain_magnetic_field = subterrain_magnetic_field
+    subterrain_magnetic_field = subterrain_magnetic_field,
+
+    cave_scaffolding_image_path = "__subterranio-fulgora__/graphics/entity/cave-scaffolding.png",
+    cave_scaffolding_image_size = 256,
 }

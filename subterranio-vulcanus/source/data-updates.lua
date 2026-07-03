@@ -24,6 +24,8 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["accelerated-productivity-module-3"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["heavy-rocket-thruster"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["autocannon-turret"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["heat-resistant-cave-scaffolding"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["heat-resistant-cave-scaffolding"].prerequisites, "cave-scaffolding")
 end
 
 graphics_updater.update_entity_graphics("assembling-machine", "assembling-machine-3", "automation-3", "assembling-machine", "band-saw", constants.vulcanus_lava_tubes_tint)

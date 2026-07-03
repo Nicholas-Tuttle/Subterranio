@@ -22,5 +22,6 @@ require("prototypes.surfaces.subterranean-noise-expressions")
 require("prototypes.surfaces.subterranean-surface")
 
 require("prototypes.tiles.cave-wall")
+require("prototypes.tiles.heat-resistant-cave-scaffolding")
 
 require("prototypes.tipsandtricks.vulcanus-lava-tubes")

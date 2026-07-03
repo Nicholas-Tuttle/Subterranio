@@ -73,3 +73,9 @@ Version: 0.1.19
 Date: 2026-06-29
   Changes:
     - Fixing out-of-map issue when generating Fulgoran subway
+---------------------------------------------------------------------------------------------------
+Version: 0.1.21
+Date: 2026-07-02
+  Changes:
+    - Adding cave scaffolding for all planets
+    - Lock-stepping version numbers

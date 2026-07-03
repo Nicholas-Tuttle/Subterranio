@@ -78,3 +78,9 @@ Version: 0.1.18
 Date: 2026-06-29
   Changes:
     - Fixing a crash when placing a mineshaft belt
+---------------------------------------------------------------------------------------------------
+Version: 0.1.21
+Date: 2026-07-02
+  Changes:
+    - Adding cave scaffolding for all planets
+    - Lock-stepping version numbers

@@ -51,3 +51,9 @@ Version: 0.1.19
 Date: 2026-06-30
   Changes:
     - Fixing root-clearer mined results
+---------------------------------------------------------------------------------------------------
+Version: 0.1.21
+Date: 2026-07-02
+  Changes:
+    - Adding cave scaffolding for all planets
+    - Lock-stepping version numbers

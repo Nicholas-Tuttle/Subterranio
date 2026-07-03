@@ -87,3 +87,9 @@ Date: 2026-06-28
   Changes:
     - Fixing crash when other mods modify assembler images
     - Adding support for mods that modify machine graphics
+---------------------------------------------------------------------------------------------------
+Version: 0.1.21
+Date: 2026-07-02
+  Changes:
+    - Adding cave scaffolding for all planets
+    - Lock-stepping version numbers

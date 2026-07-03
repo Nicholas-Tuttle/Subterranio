@@ -5,6 +5,8 @@ local biospheres_icon_size = 512
 local biological_science_pack_path = "__subterranio-gleba__/graphics/icons/biological-science-pack.png"
 local biological_science_pack_size = 256
 
+local cave_scaffolding_image_path = "__subterranio-gleba__/graphics/entity/cave-scaffolding.png"
+local cave_scaffolding_image_size = 256
 
 local subterrain_pressure = 2000
 local subterrain_gravity = 21
@@ -25,4 +27,6 @@ return {
     gleban_biospheres_tint = gleban_biospheres_tint,
     ice_machine_tint = ice_machine_tint,
     packaging_machine_tint = packaging_machine_tint,
+    cave_scaffolding_image_path = cave_scaffolding_image_path,
+    cave_scaffolding_image_size = cave_scaffolding_image_size,
 }

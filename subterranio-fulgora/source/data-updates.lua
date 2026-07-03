@@ -28,6 +28,8 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["magnetic-shielding"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["neodymium-magnets"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["transformer-station"].unit.ingredients, {"subterranean-science-pack", 1})
+    table.insert(data.raw["technology"]["electrostatic-cave-scaffolding"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["electrostatic-cave-scaffolding"].prerequisites, "cave-scaffolding")
 end
 
 graphics_updater.update_entity_graphics("assembling-machine", "assembling-machine-3", "automation-3", "assembling-machine", "magnetic-component-assembler", constants.fulgoran_subway_tint)

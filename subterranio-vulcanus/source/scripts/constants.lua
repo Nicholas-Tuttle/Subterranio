@@ -14,6 +14,9 @@ local propulsion_science_pack_size = 256
 local lava_tubes_icon_path = "__subterranio-vulcanus__/graphics/entity/mineshaft.png"
 local lava_tubes_icon_size = 512
 
+local cave_scaffolding_image_path = "__subterranio-vulcanus__/graphics/entity/cave-scaffolding.png"
+local cave_scaffolding_image_size = 256
+
 local subterrain_pressure = 5002
 local subterrain_gravity = 40
 
@@ -31,4 +34,6 @@ return {
     vulcanus_lava_tubes_icon_size = lava_tubes_icon_size,
     subterrain_pressure = subterrain_pressure,
     subterrain_gravity = subterrain_gravity,
+    cave_scaffolding_image_path = cave_scaffolding_image_path,
+    cave_scaffolding_image_size = cave_scaffolding_image_size
 }

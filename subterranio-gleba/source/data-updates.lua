@@ -20,6 +20,8 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["packaging"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["root-clearer"].unit.ingredients, {"subterranean-science-pack", 1})
     table.insert(data.raw["technology"]["subterranean-overgrowth-soil"].unit.ingredients, {"subterranean-science-pack", 1})
+    table.insert(data.raw["technology"]["water-resistant-cave-scaffolding"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["water-resistant-cave-scaffolding"].prerequisites, "cave-scaffolding")
 end
 
 graphics_updater.update_entity_graphics("assembling-machine", "assembling-machine-3", "automation-3", "assembling-machine", "ice-machine", constants.gleban_biospheres_tint)

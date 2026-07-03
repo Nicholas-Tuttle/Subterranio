@@ -21,7 +21,7 @@ item.place_as_tile =
   result = "electrostatic-cave-scaffolding",
   condition_size = 1,
   condition = { layers = {} },
-  tile_condition = { "subway-fulgoran-paving" }
+  tile_condition = { "subway-out-of-map" }
 }
 item.enabled = false
 item.icon = constants.cave_scaffolding_image_path

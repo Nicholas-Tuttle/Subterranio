@@ -48,8 +48,15 @@ local function generate_fulgoran_underground(bounding_box, surface)
     log("Generated room at chunk indices: " .. serpent.line(chunk_indices) .. " with data: " .. serpent.line(room))
 end
 
-local function mark_fulgoran_vault_locations(bounding_box, surface)
+local function mark_fulgoran_vault_locations(bounding_box)
     -- NOTE: Fulgoran vaults can cross chunk boundaries
+    local surface = game.planets["fulgora"].create_surface()
+
+    if (surface == nil) then
+        log("Failed to generate Fulgoran surface to mark fulgoran vault locations for bounding_box " .. serpent.line(bounding_box))
+        return
+    end
+
     if (surface.count_entities_filtered{
         area = {{ bounding_box.left_top.x, bounding_box.left_top.y }, { bounding_box.right_bottom.x, bounding_box.right_bottom.y }},
         name = "fulgoran-ruin-vault"
@@ -71,10 +78,10 @@ end
 script.on_event(defines.events.on_chunk_generated, function(event)
     if event.surface.name == "fulgoran_subway" then
         force_generate_fulgoran_surface(event.area.left_top)
-        mark_fulgoran_vault_locations(event.area, event.surface)
+        mark_fulgoran_vault_locations(event.area)
         generate_fulgoran_underground(event.area, event.surface)
     elseif event.surface.name == "fulgora" then
-        mark_fulgoran_vault_locations(event.area, event.surface)
+        mark_fulgoran_vault_locations(event.area)
     end
 end)
 

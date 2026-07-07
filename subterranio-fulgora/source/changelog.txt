@@ -73,3 +73,8 @@ Version: 1.0.1
 Date: 2026-07-03
   Changes:
     - Adding cave scaffolding for non-Nauvis planets
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2026-07-06
+  Changes:
+    - Fixing bug that can cause issues with underground Fulgoran vault spawns

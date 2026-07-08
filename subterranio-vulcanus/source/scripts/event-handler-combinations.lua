@@ -3,7 +3,7 @@ local chunk_information = require("scripts.chunk-information")
 local hostile_territory = nil
 
 local function scan_surface_for_empty_chunks(surface)
-    if hostile_territory ~= nil then
+    if hostile_territory ~= nil and hostile_territory.valid then
         return
     end
 
@@ -39,6 +39,11 @@ local function get_or_create_hostile_territory(surface)
         local territories = surface.get_territories()
         hostile_territory = territories and territories[1]
     end
+
+    if hostile_territory and not hostile_territory.valid then
+        hostile_territory = nil
+    end
+
     if hostile_territory == nil then
         scan_surface_for_empty_chunks(surface)
     end
@@ -46,7 +51,7 @@ end
 
 local function set_hostile_territory_chunk(surface, chunk_indices)
     get_or_create_hostile_territory(surface)
-    if hostile_territory == nil then
+    if hostile_territory == nil or not hostile_territory.valid then
         hostile_territory = surface.create_territory {
             chunks = { chunk_indices }
         }
@@ -84,8 +89,13 @@ end
 local function spawn_infant_demolisher(surface, position)
     if surface == nil then return end
     get_or_create_hostile_territory(surface)
-    surface.create_segmented_unit({ name = "infant-demolisher", position = position, force = "enemy", territory =
-    hostile_territory })
+    surface.create_segmented_unit({
+        name = "infant-demolisher",
+        position = position,
+        force = "enemy",
+        territory =
+            hostile_territory
+    })
 end
 
 -- These are really annoying to build with the rail planner so specifically allowlist rails
@@ -170,7 +180,7 @@ local function on_tick(event)
     get_or_create_hostile_territory(surface)
 
     if ((storage.infant_demolisher_count == nil or storage.infant_demolisher_count < max_infant_demolisher_count) and math.random() < on_tick_spawn_chance) then
-        local hostile_chunks = hostile_territory and hostile_territory.get_chunks()
+        local hostile_chunks = hostile_territory and hostile_territory.valid and hostile_territory.get_chunks()
         if hostile_chunks then
             local index = math.random(#hostile_chunks)
             local chunk_indices = hostile_chunks[index]

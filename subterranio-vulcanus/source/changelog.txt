@@ -84,3 +84,8 @@ Date: 2026-07-02
   Changes:
     - Adding cave scaffolding for all planets
     - Lock-stepping version numbers
+---------------------------------------------------------------------------------------------------
+Version: 0.1.22
+Date: 2026-07-08
+  Changes:
+    - Fixing crash when Vulcanus underground territory is invalid

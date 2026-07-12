@@ -78,3 +78,9 @@ Version: 1.0.2
 Date: 2026-07-06
   Changes:
     - Fixing bug that can cause issues with underground Fulgoran vault spawns
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2026-07-12
+  Changes:
+    - Switching Fulgoran underground walls to a cliff type with a new explosive so they can be destroyed
+    - Adding auto-target setting (default enabled) to Fulguran underground gates

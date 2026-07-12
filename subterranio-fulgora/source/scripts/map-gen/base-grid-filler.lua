@@ -5,7 +5,7 @@ local base_room_32 = require("rooms.base-room-size-thirty-two")
 local chunk_information = require("scripts.map-gen.chunk-information")
 local consts = require("scripts.map-gen.map-gen-constants")
 
-local function spawn_room(surface, chunk_indices)
+local function spawn_room(surface, chunk_indices, target)
     local chunks_to_spawn = {chunk_indices}
     local index = 1
     local max_index = index + 1
@@ -23,7 +23,7 @@ local function spawn_room(surface, chunk_indices)
                 elseif room.type == consts.room_types.RAILWAY then
                     underground_rails.spawn_room(bounding_box, surface)
                 elseif room.type == consts.room_types.SIZE_32 then
-                    base_room_32.spawn_room(bounding_box, surface)
+                    base_room_32.spawn_room(bounding_box, surface, target)
                 else
                     game.print("Would have spawned some other room")
                 end

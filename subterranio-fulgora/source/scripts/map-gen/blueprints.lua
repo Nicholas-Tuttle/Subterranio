@@ -1,4 +1,6 @@
--- TODO: Add an offset here? Or in code? A lot of these are not aligned with their top-left corner at 0,0
+local consts = require("scripts.map-gen.map-gen-constants")
+local layout_utils = require("scripts.map-gen.rooms.layout-utils")
+
 local blueprint_strings = {
     -- RAILS
     ["rails_four_way_junction"] = {
@@ -135,7 +137,7 @@ local blueprint_strings = {
     },
     ["train_repair_room_32"] = {
         ["blueprint"] =
-        "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",
+        "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",
         ["fill_tile_gaps_with_out_of_map"] = true
     }
 }
@@ -283,31 +285,51 @@ local function generate(bounding_box, surface, blueprint_name, tile_replacements
 
     local entities = blueprint.blueprint.entities
     if entities then
-        local decoratives = {}
         for _, entity in pairs(entities) do
             local entity_name = entity_replacements and entity_replacements[entity.name] or
                 destroy_entities and entity.name .. "-remnants" or entity.name
-            if prototypes.entity[entity_name] then
+            entity.name = entity_name
+        end
+
+        local walls = {}
+        for _, entity in pairs(entities) do
+            if entity.name == consts.wall_entity_name then
+                if walls[entity.position.x] == nil then
+                    walls[entity.position.x] = {}
+                end
+
+                walls[entity.position.x][entity.position.y] = entity
+            end
+        end
+
+        for _, row in pairs(walls) do
+            for _, wall in pairs(row) do
+                wall.cliff_orientation = layout_utils.resolve_wall_orientation(walls,
+                    { x = wall.position.x, y = wall.position.y })
+            end
+        end
+
+        for _, entity in pairs(entities) do
+            local force = "neutral"
+            if entity.name == consts.gate_entity_name then
+                force = "enemy"
+            end
+
+            if prototypes.entity[entity.name] then
                 surface.create_entity {
-                    name = entity_name,
+                    name = entity.name,
                     direction = entity.direction,
+                    cliff_orientation = entity.cliff_orientation,
                     position = {
                         entity.position.x + left_x,
                         entity.position.y + top_y,
                     },
-                    force = "neutral",
+                    force = force,
                     create_build_effect_smoke = false,
                     move_stuck_players = true,
-                    raise_built = true
+                    raise_built = true,
                 }
             end
-        end
-
-        if #decoratives > 0 then
-            surface.create_decoratives {
-                check_collision = false,
-                decoratives = decoratives
-            }
         end
     end
 end

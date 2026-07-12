@@ -1,7 +1,7 @@
 local consts = require("scripts.map-gen.map-gen-constants")
 local chunk_information = require("scripts.map-gen.chunk-information")
-local rails = require("scripts.map-gen.rooms.underground-rails")
 local blueprints = require("scripts.map-gen.blueprints")
+local layout_utils = require("scripts.map-gen.rooms.layout-utils")
 
 local function create_tiles(bounding_box, surface, room_key)
     local left_x = bounding_box.left_top.x
@@ -28,127 +28,69 @@ local function create_tiles(bounding_box, surface, room_key)
     surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
 end
 
-local function make_walls(surface, left_x, right_x, bottom_y, top_y)
-    for i = left_x, right_x, 1 do
-        for j = top_y, bottom_y, 1 do
-            -- Only make walls on the perimeters
-            if i == left_x or i == right_x or j == top_y or j == bottom_y then
-                surface.create_entity {
-                    name = consts.wall_entity_name,
-                    direction = defines.direction.east,
-                    position = { i, j },
-                    force = "neutral",
-                    create_build_effect_smoke = false,
-                    move_stuck_players = true,
-                    raise_built = true
-                }
-            end
+-- Room-local wall and gate definitions for a fixed 32x32 room.
+local wall_definitions = {}
+
+for i = 1, 30, 1 do
+    table.insert(wall_definitions, { position = { x = 0, y = i } })
+    table.insert(wall_definitions, { position = { x = 31, y = i } })
+    table.insert(wall_definitions, { position = { x = i, y = 0 } })
+    table.insert(wall_definitions, { position = { x = i, y = 31 } })
+end
+
+table.insert(wall_definitions, { position = { x = 0, y = 0 } })
+table.insert(wall_definitions, { position = { x = 31, y = 0 } })
+table.insert(wall_definitions, { position = { x = 0, y = 31 } })
+table.insert(wall_definitions, { position = { x = 31, y = 31 } })
+
+local gate_definitions = {
+    left = {
+        { x = 0, y = 3,  direction = defines.direction.north },
+        { x = 0, y = 4,  direction = defines.direction.north },
+        { x = 0, y = 27, direction = defines.direction.north },
+        { x = 0, y = 28, direction = defines.direction.north }
+    },
+    right = {
+        { x = 31, y = 3,  direction = defines.direction.north },
+        { x = 31, y = 4,  direction = defines.direction.north },
+        { x = 31, y = 27, direction = defines.direction.north },
+        { x = 31, y = 28, direction = defines.direction.north }
+    },
+    bottom = {
+        { x = 3,  y = 31, direction = defines.direction.east },
+        { x = 4,  y = 31, direction = defines.direction.east },
+        { x = 27, y = 31, direction = defines.direction.east },
+        { x = 28, y = 31, direction = defines.direction.east }
+    },
+    top = {
+        { x = 3,  y = 0, direction = defines.direction.east },
+        { x = 4,  y = 0, direction = defines.direction.east },
+        { x = 27, y = 0, direction = defines.direction.east },
+        { x = 28, y = 0, direction = defines.direction.east }
+    }
+}
+
+local function build_room_layout(left_x, top_y)
+    local room_wall_definitions = {}
+    for _, definition in ipairs(wall_definitions) do
+        room_wall_definitions[#room_wall_definitions + 1] = {
+            position = { x = left_x + definition.position.x, y = top_y + definition.position.y },
+            name = consts.wall_entity_name
+        }
+    end
+
+    local room_gate_definitions = {}
+    for _, side in ipairs({ "left", "right", "bottom", "top" }) do
+        room_gate_definitions[side] = {}
+        for _, definition in ipairs(gate_definitions[side] or {}) do
+            room_gate_definitions[side][#room_gate_definitions[side] + 1] = {
+                position = { x = left_x + definition.x, y = top_y + definition.y },
+                direction = definition.direction
+            }
         end
     end
-end
 
-local function make_left_doors(surface, chunk_indices, left_x, bottom_y, top_y)
-    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y })
-    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_right.subtype then
-        return
-    end
-
-    local positions = {
-        { left_x, top_y + 3 },
-        { left_x, top_y + 4 },
-        { left_x, bottom_y - 3 },
-        { left_x, bottom_y - 4 }
-    }
-
-    for _, position in pairs(positions) do
-        surface.create_entity {
-            name = "fulgoran-gate",
-            position = position,
-            direction = defines.direction.north,
-            force = "neutral",
-            create_build_effect_smoke = false,
-            move_stuck_players = true,
-            raise_built = true
-        }
-    end
-end
-
-local function make_right_doors(surface, chunk_indices, right_x, bottom_y, top_y)
-    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y })
-    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_left.subtype then
-        return
-    end
-
-    local positions = {
-        { right_x, top_y + 3 },
-        { right_x, top_y + 4 },
-        { right_x, bottom_y - 3 },
-        { right_x, bottom_y - 4 }
-    }
-
-    for _, position in pairs(positions) do
-        surface.create_entity {
-            name = "fulgoran-gate",
-            position = position,
-            direction = defines.direction.north,
-            force = "neutral",
-            create_build_effect_smoke = false,
-            move_stuck_players = true,
-            raise_built = true
-        }
-    end
-end
-
-local function make_bottom_doors(surface, chunk_indices, left_x, right_x, bottom_y)
-    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y + 1 })
-    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_top.subtype then
-        return
-    end
-
-    local positions = {
-        { left_x + 3,  bottom_y },
-        { left_x + 4,  bottom_y },
-        { right_x - 3, bottom_y },
-        { right_x - 4, bottom_y }
-    }
-
-    for _, position in pairs(positions) do
-        surface.create_entity {
-            name = "fulgoran-gate",
-            position = position,
-            direction = defines.direction.east,
-            force = "neutral",
-            create_build_effect_smoke = false,
-            move_stuck_players = true,
-            raise_built = true
-        }
-    end
-end
-
-local function make_top_doors(surface, chunk_indices, left_x, right_x, top_y)
-    local chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1 })
-    if chunk and chunk.type == consts.room_types.RAILWAY and chunk.subtype ~= rails.rail_subtypes.station_bottom.subtype then
-        return
-    end
-
-    local positions = {
-        { left_x + 3,  top_y },
-        { left_x + 4,  top_y },
-        { right_x - 3, top_y },
-        { right_x - 4, top_y }
-    }
-
-    for _, position in pairs(positions) do
-        surface.create_entity {
-            name = "fulgoran-gate",
-            position = position,
-            direction = defines.direction.east,
-            force = "neutral",
-            create_build_effect_smoke = false,
-            move_stuck_players = true,
-            raise_built = true
-        }
-    end
+    return room_wall_definitions, room_gate_definitions
 end
 
 local function make_lamps(surface, left_x, right_x, bottom_y, top_y)
@@ -179,11 +121,10 @@ local function create_entities(bounding_box, surface, room_key)
 
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x,
         bounding_box.left_top.y)
-    make_left_doors(surface, chunk_indices, left_x, bottom_y, top_y)
-    make_right_doors(surface, chunk_indices, right_x, bottom_y, top_y)
-    make_bottom_doors(surface, chunk_indices, left_x, right_x, bottom_y)
-    make_top_doors(surface, chunk_indices, left_x, right_x, top_y)
-    make_walls(surface, left_x, right_x, bottom_y, top_y)
+    local room_wall_definitions, room_gate_definitions = build_room_layout(left_x, top_y)
+    layout_utils.build_and_place_room_layout(surface, room_wall_definitions, room_gate_definitions, function(side)
+        return layout_utils.should_place_gates(chunk_indices, side)
+    end)
     make_lamps(surface, left_x, right_x, bottom_y, top_y)
 
     blueprints.generate(bounding_box, surface, room_key, {
@@ -194,7 +135,7 @@ local function create_entities(bounding_box, surface, room_key)
     }, true)
 end
 
-local function create_enemies(bounding_box, surface, room_key)
+local function create_enemies(bounding_box, surface, room_key, target)
     local enemy_count = math.random(1, 50)
     local nauvis_enemy_types = {
         "small-biter",
@@ -227,7 +168,8 @@ local function create_enemies(bounding_box, surface, room_key)
                 name = enemy_types[math.random(1, #enemy_types)],
                 position = {
                     x = bounding_box.left_top.x + random.x,
-                    y = bounding_box.left_top.y + random.y
+                    y = bounding_box.left_top.y + random.y,
+                    target = target,
                 }
             }
         elseif flat_in_map_tile_positions == nil then
@@ -235,14 +177,15 @@ local function create_enemies(bounding_box, surface, room_key)
                 name = enemy_types[math.random(1, #enemy_types)],
                 position = {
                     x = bounding_box.left_top.x + math.random(3, 30),
-                    y = bounding_box.left_top.y + math.random(3, 30)
+                    y = bounding_box.left_top.y + math.random(3, 30),
+                    target = target,
                 }
             }
         end
     end
 end
 
-local function spawn_room(bounding_box, surface)
+local function spawn_room(bounding_box, surface, target)
     local subtype_keys = {
         "fusion_power_plant_32",
         "nuclear_power_plant_32",
@@ -251,14 +194,15 @@ local function spawn_room(bounding_box, surface)
         "server_room_32",
         "kitchen_32",
         "industry_room_32",
-        "furnace_room_sinkhole_32"
+        "furnace_room_sinkhole_32",
+        "train_repair_room_32",
     }
 
     local room_key = subtype_keys[math.random(1, #subtype_keys)]
 
     create_tiles(bounding_box, surface, room_key)
     create_entities(bounding_box, surface, room_key)
-    create_enemies(bounding_box, surface, room_key)
+    create_enemies(bounding_box, surface, room_key, target)
 end
 
 local function generate_room()

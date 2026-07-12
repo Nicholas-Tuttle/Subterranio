@@ -1,5 +1,6 @@
 local consts = require("scripts.map-gen.map-gen-constants")
 local chunk_information = require("scripts.map-gen.chunk-information")
+local layout_utils = require("scripts.map-gen.rooms.layout-utils")
 
 local function create_tiles(bounding_box, surface)
     local left_x = bounding_box.left_top.x
@@ -12,16 +13,139 @@ local function create_tiles(bounding_box, surface)
     for i = left_x, right_x - 1, 1 do
         for j = top_y, bottom_y - 1, 1 do
             tiles[index] = {
-                position = {x = i, y = j},
+                position = { x = i, y = j },
                 name = "tutorial-grid"
             }
             index = index + 1
         end
     end
+
     local correct_tiles = true
     local remove_colliding_entities = true
-    local remove_colliding_decoratives = true 
+    local remove_colliding_decoratives = true
     surface.set_tiles(tiles, correct_tiles, remove_colliding_entities, remove_colliding_decoratives)
+end
+
+local gate_definitions = {
+    left = {
+        { x = 0, y = 3, direction = defines.direction.north },
+        { x = 0, y = 4, direction = defines.direction.north },
+        { x = 0, y = 27, direction = defines.direction.north },
+        { x = 0, y = 28, direction = defines.direction.north }
+    },
+    right = {
+        { x = 31, y = 3, direction = defines.direction.north },
+        { x = 31, y = 4, direction = defines.direction.north },
+        { x = 31, y = 27, direction = defines.direction.north },
+        { x = 31, y = 28, direction = defines.direction.north }
+    },
+    bottom = {
+        { x = 3, y = 31, direction = defines.direction.east },
+        { x = 4, y = 31, direction = defines.direction.east },
+        { x = 27, y = 31, direction = defines.direction.east },
+        { x = 28, y = 31, direction = defines.direction.east }
+    },
+    top = {
+        { x = 3, y = 0, direction = defines.direction.east },
+        { x = 4, y = 0, direction = defines.direction.east },
+        { x = 27, y = 0, direction = defines.direction.east },
+        { x = 28, y = 0, direction = defines.direction.east }
+    }
+}
+
+local function build_room_layout(left_x, right_x, top_y, bottom_y)
+    local wall_definitions = {}
+
+    local function add_wall(position, orientation)
+        for index, definition in ipairs(wall_definitions) do
+            if definition.position.x == position.x and definition.position.y == position.y then
+                wall_definitions[index] = {
+                    position = position,
+                    orientation = orientation
+                }
+                return
+            end
+        end
+
+        wall_definitions[#wall_definitions + 1] = {
+            position = position,
+            orientation = orientation
+        }
+    end
+
+    local active_sides = {}
+    if left_x == -32 then
+        active_sides.left = true
+    end
+    if right_x == 31 then
+        active_sides.right = true
+    end
+    if top_y == -32 then
+        active_sides.top = true
+    end
+    if bottom_y == 31 then
+        active_sides.bottom = true
+    end
+
+    if active_sides.left then
+        for y = top_y, bottom_y, 1 do
+            if not ((active_sides.top and y == top_y) or (active_sides.bottom and y == bottom_y)) then
+                add_wall({ x = left_x, y = y }, "north-to-south")
+            end
+        end
+    end
+
+    if active_sides.right then
+        for y = top_y, bottom_y, 1 do
+            if not ((active_sides.top and y == top_y) or (active_sides.bottom and y == bottom_y)) then
+                add_wall({ x = right_x, y = y }, "north-to-south")
+            end
+        end
+    end
+
+    if active_sides.top then
+        for x = left_x, right_x, 1 do
+            if not ((active_sides.left and x == left_x) or (active_sides.right and x == right_x)) then
+                add_wall({ x = x, y = top_y }, "west-to-east")
+            end
+        end
+    end
+
+    if active_sides.bottom then
+        for x = left_x, right_x, 1 do
+            if not ((active_sides.left and x == left_x) or (active_sides.right and x == right_x)) then
+                add_wall({ x = x, y = bottom_y }, "west-to-east")
+            end
+        end
+    end
+
+    if active_sides.left and active_sides.top then
+        add_wall({ x = left_x, y = top_y }, "south-to-east")
+    end
+    if active_sides.right and active_sides.top then
+        add_wall({ x = right_x, y = top_y }, "south-to-west")
+    end
+    if active_sides.left and active_sides.bottom then
+        add_wall({ x = left_x, y = bottom_y }, "north-to-east")
+    end
+    if active_sides.right and active_sides.bottom then
+        add_wall({ x = right_x, y = bottom_y }, "north-to-west")
+    end
+
+    local room_gate_definitions = {}
+    for _, side in ipairs({ "left", "right", "bottom", "top" }) do
+        room_gate_definitions[side] = {}
+        for _, definition in ipairs(gate_definitions[side] or {}) do
+            room_gate_definitions[side][#room_gate_definitions[side] + 1] = {
+                position = { x = left_x + definition.x, y = top_y + definition.y },
+                direction = definition.direction
+            }
+        end
+    end
+
+    return wall_definitions, room_gate_definitions, function(side)
+        return active_sides[side]
+    end
 end
 
 local function create_entities(bounding_box, surface)
@@ -30,37 +154,8 @@ local function create_entities(bounding_box, surface)
     local bottom_y = bounding_box.right_bottom.y - 1
     local top_y = bounding_box.left_top.y
 
-    for i = left_x, right_x, 1 do
-        for j = top_y, bottom_y, 1 do
-            -- Only make walls on the perimeters
-            if (left_x == -32 and i == left_x) or
-                (right_x == 31 and i == right_x) or
-                (top_y == -32 and j == top_y) or
-                (bottom_y == 31 and j == bottom_y) then
-                local entity_name = consts.wall_entity_name
-                local direction = defines.direction.east
-
-                if (i - left_x == 3) or (i - left_x == 4) or (i - left_x == 27) or (i - left_x == 28) then
-                    entity_name = consts.gate_entity_name
-                end
-
-                if (j - top_y == 3) or (j - top_y == 4) or (j - top_y == 27) or (j - top_y == 28) then
-                    entity_name = consts.gate_entity_name
-                    direction = defines.direction.north
-                end
-
-                surface.create_entity{
-                    name = entity_name,
-                    direction = direction,
-                    position = { i, j },
-                    force = "neutral",
-                    create_build_effect_smoke = false,
-                    move_stuck_players = true,
-                    raise_built = true
-                }
-            end
-        end
-    end
+    local wall_definitions, room_gate_definitions, should_place_gate = build_room_layout(left_x, right_x, top_y, bottom_y)
+    layout_utils.build_and_place_room_layout(surface, wall_definitions, room_gate_definitions, should_place_gate)
 end
 
 local function spawn_room(bounding_box, surface)

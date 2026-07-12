@@ -28,7 +28,7 @@ local function generate_room(chunk_indices)
     return base_room_32.generate_room()
 end
 
-local function spawn_room_if_needed(chunk_indices, surface)
+local function spawn_room_if_needed(chunk_indices, surface, target)
     local left_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x - 1, y = chunk_indices.y})
     local right_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x + 1, y = chunk_indices.y})
     local top_chunk = chunk_information.get_chunk_data({ x = chunk_indices.x, y = chunk_indices.y - 1})
@@ -36,14 +36,14 @@ local function spawn_room_if_needed(chunk_indices, surface)
 
     if (left_chunk and left_chunk.right_side_connected and left_chunk.spawned) or (right_chunk and right_chunk.left_side_connected and right_chunk.spawned) or
     (top_chunk and top_chunk.bottom_side_connected and top_chunk.spawned) or (bottom_chunk and bottom_chunk.top_side_connected and bottom_chunk.spawned) then
-        base_grid_filler.spawn_room(surface, chunk_indices)
+        base_grid_filler.spawn_room(surface, chunk_indices, target)
     end
 end
 
-local function generate_fulgoran_underground(bounding_box, surface)
+local function generate_fulgoran_underground(bounding_box, surface, target)
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(bounding_box.left_top.x, bounding_box.left_top.y)
     local room = generate_room(chunk_indices)
-    spawn_room_if_needed(chunk_indices, surface)
+    spawn_room_if_needed(chunk_indices, surface, target)
     chunk_information.set_chunk_data(chunk_indices, room)
     log("Generated room at chunk indices: " .. serpent.line(chunk_indices) .. " with data: " .. serpent.line(room))
 end
@@ -112,38 +112,20 @@ script.on_event(defines.events.on_entity_died, function (event)
         return
     end
 
-    base_grid_filler.spawn_room(event.entity.surface, next_chunk_indices)
+    base_grid_filler.spawn_room(event.entity.surface, next_chunk_indices, event.cause)
 end,
 {
-    { filter = "name", name = "fulgoran-gate", force = "neutral" }
+    { filter = "name", name = map_gen_constants.gate_entity_name, force = "neutral" }
 })
 
-script.on_event(defines.events.script_raised_built, function(event)
-    local entity = event.entity
-    if (entity.name == "fulgoran-gate") then
-        entity.disabled_by_script = true
-    end
-
-    if (entity.name == "fulgoran-wall") then
-        entity.destructible = false
-    end
-
-    entity.minable_flag = false
-    entity.operable = false
-end,
-{
-    { filter = "name", name = "fulgoran-gate", force = "neutral" },
-    { filter = "name", name = "fulgoran-wall", force = "neutral" }
-})
-
-local function pre_tunnelling_callback(surface_name, target_position)
+local function pre_tunnelling_callback(surface_name, target_position, entity)
     if (surface_name ~= "fulgoran_subway") then
         return
     end
 
     local chunk_indices = chunk_information.chunk_indices_from_raw_coordinates(target_position.x, target_position.y)
     local surface = game.surfaces[surface_name]
-    base_grid_filler.spawn_room(surface, chunk_indices)
+    base_grid_filler.spawn_room(surface, chunk_indices, entity)
 end
 
 return {

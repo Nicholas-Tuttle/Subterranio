@@ -9,8 +9,8 @@ local function subterrain_base_register_pre_tunnelling_drill_usage_function_v1(m
 end
 
 remote.add_interface("subterranio_fulgora", {
-    pre_tunnelling_function = function (surface_name, target_position)
-        fulgoran_subway.pre_tunnelling_callback(surface_name, target_position)
+    pre_tunnelling_function = function (surface_name, target_position, entity)
+        fulgoran_subway.pre_tunnelling_callback(surface_name, target_position, entity)
     end
 })
 

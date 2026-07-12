@@ -25,6 +25,7 @@ if mods["subterranio-nauvis"] then
     table.insert(data.raw["technology"]["heavy-rocket-thruster"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["autocannon-turret"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["heat-resistant-cave-scaffolding"].unit.ingredients, { "subterranean-science-pack", 1 })
+    table.insert(data.raw["technology"]["heavy-rocket-silo"].unit.ingredients, { "subterranean-science-pack", 1 })
     table.insert(data.raw["technology"]["heat-resistant-cave-scaffolding"].prerequisites, "cave-scaffolding")
 end
 

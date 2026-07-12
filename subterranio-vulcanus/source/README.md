@@ -22,5 +22,5 @@ Utilize two new materials, aeroluminite and duratitanite to produce lightweight,
     * Better indication for what territory has been conquered by the player
 * Enemy improvements
     * Better spawning and tracking for infant demolishers
-* AFTER FACTORIO 2.1 RELEASES
-    * Heavy-cargo rockets - ground-to-space rockets that can carry more than the default silo
+* ~~AFTER FACTORIO 2.1 RELEASES~~
+    * ~~Heavy-cargo rockets - ground-to-space rockets that can carry more than the default silo~~

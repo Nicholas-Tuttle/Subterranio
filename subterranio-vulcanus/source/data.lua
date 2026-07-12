@@ -5,6 +5,7 @@ require("prototypes.entities.band-saw")
 require("prototypes.entities.heavy-rocket-thruster")
 require("prototypes.entities.lava-filtration-plant")
 require("prototypes.entities.pulverizer")
+require("prototypes.entities.heavy-rocket-silo")
 
 require("prototypes.fluids.aeroluminite-rich-lava")
 require("prototypes.fluids.duratitanite-rich-lava")

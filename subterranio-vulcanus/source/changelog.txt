@@ -93,3 +93,8 @@ Version: 1.0.2
 Date: 2026-07-08
   Changes:
     - Fixing crash in Vulcanus underground when territory is invalid
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2026-07-12
+  Changes:
+    - Adding heavy rocket silos that can carry more items to space in one load

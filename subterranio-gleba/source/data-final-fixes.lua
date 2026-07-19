@@ -89,7 +89,7 @@ local function add_frozen_and_thaw_recipes(item_key, item_value)
     local thawed_recipe = {
         type = "recipe",
         name = "thaw-" .. item_key,
-        category = "smelting",
+        category = "crafting",
         subgroup = "thawed-" .. sanitized_subgroup,
         order = "thawed-" .. sanitized_order,
         energy_required = 1,

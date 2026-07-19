@@ -51,3 +51,8 @@ Version: 1.0.1
 Date: 2026-07-03
   Changes:
     - Adding cave scaffolding for non-Nauvis planets
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2026-07-19
+  Changes:
+    - Fixing thawing recipes being in wrong category

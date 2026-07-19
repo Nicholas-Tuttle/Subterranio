@@ -57,3 +57,8 @@ Date: 2026-07-02
   Changes:
     - Adding cave scaffolding for all planets
     - Lock-stepping version numbers
+---------------------------------------------------------------------------------------------------
+Version: 0.1.22
+Date: 2026-07-19
+  Changes:
+    - Fixing thawing recipes being in wrong category
